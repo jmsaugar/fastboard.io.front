@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import { ThemeProvider } from '@xstyled/styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Main as MainLayout } from './layouts';
+import { Loading } from './components';
+
+const Home = lazy(() => import('./pages/Home/Home'));
+const Board = lazy(() => import('./pages/Board/Board'));
+
+const theme = {}; // @todo
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Router>
+      <MainLayout>
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/board/:id" component={Board} />
+          </Switch>
+        </Suspense>
+      </MainLayout>
+    </Router>
+  </ThemeProvider>
+);
 
 export default App;
