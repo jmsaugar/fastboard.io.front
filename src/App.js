@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import { ThemeProvider } from '@xstyled/styled-components';
 
 import { Main as MainLayout } from './layouts';
