@@ -7,16 +7,16 @@ import {
 import { ThemeProvider } from '@xstyled/styled-components';
 
 import { Main as MainLayout } from './layouts';
-import { Loading } from './components';
+import { GlobalStyle, Loading } from './components';
+import theme from './theme';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Board = lazy(() => import('./pages/Board/Board'));
 
-const theme = {}; // @todo
-
 const App = () => (
   <ThemeProvider theme={theme}>
     <Router>
+      <GlobalStyle />
       <MainLayout>
         <Suspense fallback={<Loading />}>
           <Switch>
