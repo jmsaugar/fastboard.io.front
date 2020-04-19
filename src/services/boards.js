@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-const SOCKETIO_ENDPOINT = process.env.SOCKETIO_ENDPOINT;
+const SOCKETIO_ENDPOINT = process.env.REACT_APP_SOCKETIO_ENDPOINT;
 
 let socket;
 
