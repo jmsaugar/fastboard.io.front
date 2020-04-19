@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Board = () => (
-  <div>Board</div>
-);
+import { boardsService } from '../../services';
+
+const Board = () => {
+  useEffect(() => {
+    boardsService.init();
+
+    return () => boardsService.close();
+  }, []);
+
+  return (
+    <div>Board</div>
+  );
+};
 
 export default Board;

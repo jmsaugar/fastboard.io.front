@@ -13,20 +13,31 @@ import theme from './theme';
 const Home = lazy(() => import('./pages/Home/Home'));
 const Board = lazy(() => import('./pages/Board/Board'));
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Router>
-      <GlobalStyle />
-      <MainLayout>
-        <Suspense fallback={<Loading />}>
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/board/:id" component={Board} />
-          </Switch>
-        </Suspense>
-      </MainLayout>
-    </Router>
-  </ThemeProvider>
-);
+const App = () => {
+  const header = (
+    <div>header</div>
+  );
+
+  const content = (
+    <Suspense fallback={<Loading />}>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/board/:id" component={Board} />
+      </Switch>
+    </Suspense>
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <GlobalStyle />
+        <MainLayout
+          header={header}
+          content={content}
+        />
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;
