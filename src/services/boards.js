@@ -18,12 +18,16 @@ const init = () => {
 const join = (boardId) => {
   socket.emit(boardsMessages.join, { boardId });
 
-  socket.on(boardsMessages.meJoined, ({ boardId }) => {
-    console.log('!!!.meJoined to ' + boardId);
+  socket.on(boardsMessages.meJoined, ({ boardId, users }) => {
+    console.log('!!!.meJoined to ' + boardId, users);
 
     socket.on(boardsMessages.otherJoined, () => {
       console.log('!!!.otherJoined to ' + boardId);
-    })
+    });
+
+    socket.on(boardsMessages.otherLeft, ({ userId }) => {
+      console.log('!!!.otherLeft ' + boardId, userId);
+    });
   });
 };
 
