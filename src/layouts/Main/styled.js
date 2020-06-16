@@ -6,6 +6,6 @@ export const SHeader = styled.div`
 `;
 
 export const SContent = styled.div`
-    background: blue;
+    background: #c0f8ff;
     height: 200px;
 `;

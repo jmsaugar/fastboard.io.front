@@ -15,6 +15,7 @@ const init = () => {
   }
 }
 
+// @todo promisify this
 const join = (boardId) => {
   socket.emit(boardsMessages.join, { boardId });
 
