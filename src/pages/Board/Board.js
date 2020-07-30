@@ -15,9 +15,9 @@ const Board = ({ match }) => {
       boardsService.close();
       drawingsService.close();
     };
-  }, []);
+  }, [match.params.id]);
 
-  return <canvas id={CANVAS_ID} style={{ width: '100%', height: '100%' }} />;
+  return <canvas id={CANVAS_ID} style={{ width: '100%', height: '100%' }} resize/>;
 };
 
 export default Board;
