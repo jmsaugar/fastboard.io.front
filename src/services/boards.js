@@ -37,21 +37,26 @@ const join = (boardId) => {
     });
 
     // Drawings events
-    socket.on(drawingsEvents.onMouseDown, ({ userId, data }) => {
+    socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
       console.log('!!!.RECEIVED.onMouseDown');
-      drawingsService.onMouseDown(data);
+      drawingsService.onMouseDown(point, color);
     });
 
-    socket.on(drawingsEvents.onMouseDrag, ({ userId, data }) => {
+    socket.on(drawingsEvents.onMouseDrag, ({ userId, point }) => {
       console.log('!!!.RECEIVED.onMouseDrag');
-      drawingsService.onMouseDrag(data);
+      drawingsService.onMouseDrag(point);
     });
   });
 };
 
-const send = (event, data) => {
-  console.log('!!!.data');
-  socket.emit(event, { point : data.point });
+/**
+ * Send boards event trough the network.
+ * 
+ * @param {String} eventName Event key name.
+ * @param {Object} data Data associated to the event. 
+ */
+const send = (eventName, data) => {
+  socket.emit(eventName, data);
 };
 
 /**
