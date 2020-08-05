@@ -15,10 +15,12 @@ const tools = Object.freeze({
 
 // Logic operations
 
-const onMouseDown = (point, color = 'red') => {
-  currentPath = new Path();
+const onMouseDown = (point, color = 'red', strokeWidth = 1) => {
+  currentPath = new Path({
+    strokeColor : color,
+    strokeWidth,
+  });
   currentPath.add(point);
-  currentPath.strokeColor = color;
 };
 
 const onMouseDrag = (point) => {
@@ -73,12 +75,20 @@ const pencilOnMouseDrag = (event) => {
 // Pencil actual mouse drag assignment - throttled
 tools.pencil.onMouseDrag = throttle(pencilOnMouseDrag, 10);
 
-
-
 // Eraser
 
 tools.eraser.onMouseDown = (event) => {
-  onMouseDown(event);
+  // Data required by the event
+  const color = 'white';
+  const point = {
+    x : event.point.x,
+    y : event.point.y,
+  };
+
+  // Local event logic
+  onMouseDown(point, color, 10);
+
+  // Send event through network
   boardsService.send(drawingsEvents.onMouseDown, {
     point : {
       x : event.point.x,
@@ -86,6 +96,10 @@ tools.eraser.onMouseDown = (event) => {
     },
   });
 };
+
+// Eraser actual mouse drag assignment - throttled
+// @todo change name of function
+tools.eraser.onMouseDrag = throttle(pencilOnMouseDrag, 10);
 
 // Misc service operations
 
