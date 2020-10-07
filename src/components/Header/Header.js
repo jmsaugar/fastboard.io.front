@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import SWrapper from './styled';
 
 const Header = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
 
   return (
     <SWrapper>
