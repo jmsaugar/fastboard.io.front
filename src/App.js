@@ -25,13 +25,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <GlobalStyle />
-        <MainLayout
-          header={<Header />}
-          content={content}
-        />
-      </Router>
+      <Suspense fallback={<Loading />}>
+        <Router>
+          <GlobalStyle />
+          <MainLayout
+            header={<Header />}
+            content={content}
+          />
+        </Router>
+      </Suspense>
     </ThemeProvider>
   );
 };
