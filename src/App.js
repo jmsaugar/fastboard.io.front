@@ -7,17 +7,13 @@ import {
 import { ThemeProvider } from '@xstyled/styled-components';
 
 import { Main as MainLayout } from './layouts';
-import { GlobalStyle, Loading } from './components';
+import { GlobalStyle, Header, Loading } from './components';
 import theme from './theme';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Board = lazy(() => import('./pages/Board/Board'));
 
 const App = () => {
-  const header = (
-    <div>header</div>
-  );
-
   const content = (
     <Suspense fallback={<Loading />}>
       <Switch>
@@ -32,7 +28,7 @@ const App = () => {
       <Router>
         <GlobalStyle />
         <MainLayout
-          header={header}
+          header={<Header />}
           content={content}
         />
       </Router>
