@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { SHeader, SContent } from './styled';
+import { SWrapper, SContent } from './styled';
 
 const Main = ({ header, content }) => (
-  <>
-    <SHeader>
-      {header}
-    </SHeader>
+  <SWrapper>
+    {header}
     <SContent>
       {content}
     </SContent>
-  </>
+  </SWrapper>
 );
 
 Main.propTypes = {

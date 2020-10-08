@@ -5,4 +5,5 @@ export default styled.div`
   font-size: 48px;
   font-style: italic;
   padding: default;
+  height: header;
 `;

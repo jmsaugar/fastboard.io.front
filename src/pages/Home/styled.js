@@ -4,9 +4,9 @@ import backgroundImg from '../../theme/images/background.jpg';
 export const SWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundImg});
   background-size: cover;
-  padding: 200px;
-  height: 800px;
+  background-position: top;
   color: white;
+  height: 100%; // substract padding*2 here
 `;
 
 export const STitle = styled.div`
@@ -14,8 +14,6 @@ export const STitle = styled.div`
   font-size: 90px;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.2)
 `;
-
-
 
 export const STagLine = styled.div`
   font-family: 'MontserratBold';

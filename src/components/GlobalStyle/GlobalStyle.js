@@ -24,8 +24,17 @@ const GlobalStyle = createGlobalStyle`
     src: local('MontserratBold'), url(${MontserratBold}) format('truetype');
   }
 
-  body {
-    font-family: ${getFont('default')};
+  html {
+    height: 100%;
+
+    body {
+      font-family: ${getFont('default')};
+      height: 100%;
+
+      #root {
+        height: 100%;
+      }
+    }
   }
 `;
 
