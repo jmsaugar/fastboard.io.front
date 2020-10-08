@@ -28,8 +28,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
 
     body {
-      font-family: ${getFont('default')};
       height: 100%;
+      font-family: ${getFont('default')};
 
       #root {
         height: 100%;

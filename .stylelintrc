@@ -1,0 +1,9 @@
+{
+  "processors": [],
+  "extends": [
+    "stylelint-config-idiomatic-order"
+  ],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null
+  }
+}

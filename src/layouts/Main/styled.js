@@ -2,8 +2,8 @@ import styled from '@xstyled/styled-components';
 
 export const SWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   height: 100%;
+  flex-direction: column;
 `;
 
 export const SContent = styled.div`
