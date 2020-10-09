@@ -1,5 +1,5 @@
 import styled from '@xstyled/styled-components';
-import backgroundImg from '../../theme/images/background.jpg';
+import backgroundImg from '../../theme/images/homebg.jpg'; // @todo compress this image
 
 export const SWrapper = styled.div`
   height: 100%;
@@ -7,7 +7,14 @@ export const SWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundImg});
   background-position: top;
   background-size: cover;
-  color:  white;
+  color: white;
+`;
+
+export const SContent = styled.div`
+  padding: 200px;
+`;
+
+export const SFooter = styled.div`
 `;
 
 export const STitle = styled.div`

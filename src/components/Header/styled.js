@@ -1,10 +1,11 @@
 import styled from '@xstyled/styled-components';
 
 export default styled.div`
-  height: header;
+  display: flex;
+  height: 40px;
+  align-items: center;
   padding: default;
 
   font-family: brand;
-  font-size: 48px;
-  font-style: italic;
+  font-size: 40px;
 `;

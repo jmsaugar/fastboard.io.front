@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-import { getFont } from '@xstyled/system';
+import { getColor, getFont } from '@xstyled/system';
 
 import BlinkerBold from '../../theme/fonts/Blinker-Bold.ttf';
 import MontserratRegular from '../../theme/fonts/Montserrat-Regular.ttf';
@@ -29,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
     body {
       height: 100%;
+      background-color: ${getColor('bg')};
+      color: ${getColor('fg')};;
       font-family: ${getFont('default')};
 
       #root {

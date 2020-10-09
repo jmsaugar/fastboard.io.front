@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
 import { ThemeProvider } from '@xstyled/styled-components';
 
-import { Main as MainLayout } from './layouts';
-import { GlobalStyle, Header, Loading } from './components';
+import MainLayout from './layouts';
+import {
+  GlobalStyle, Loading, Header, Footer,
+} from './components';
 import theme from './theme';
 
 const Home = lazy(() => import('./pages/Home/Home'));
@@ -31,6 +31,7 @@ const App = () => {
           <MainLayout
             header={<Header />}
             content={content}
+            footer={<Footer />}
           />
         </Router>
       </Suspense>
