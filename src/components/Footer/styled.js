@@ -1,15 +1,16 @@
 import styled from '@xstyled/styled-components';
 
 export default styled.div`
-  background-color: bg;
-
   display: flex;
-  height: 40px;
+  height: footer;
   align-items: center;
-  padding: default;
+  justify-content: flex-end;
+  padding-right: default;
+  padding-left: default;
+
+  background-color: bg;
+  color: fg;
 
   font-family: brand;
   font-size: 18px;
-  color: fg;
-  justify-content: flex-end;
 `;

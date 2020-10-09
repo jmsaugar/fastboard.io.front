@@ -1,3 +1,7 @@
 {
-  "brand": "fastboard.io"
+  "brand": "[en]fastboard.io",
+  "languages": {
+    "en-GB": "English",
+    "es-ES": "Español"
+  }
 }
