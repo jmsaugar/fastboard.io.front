@@ -2,27 +2,15 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { getColor, getFont } from '@xstyled/system';
 
-import BlinkerBold from '../../theme/fonts/Blinker-Bold.ttf';
-import MontserratRegular from '../../theme/fonts/Montserrat-Regular.ttf';
-import MontserratBold from '../../theme/fonts/Montserrat-Bold.ttf';
+/**
+ * Fonts have to be imported this way because of a styled-components issue.
+ *
+ * @see https://github.com/styled-components/styled-components/issues/1593
+ */
+import './fonts.css';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
-
-  @font-face {
-    font-family: 'BlinkerBold';
-    src: local('BlinkerBold'), url(${BlinkerBold}) format('truetype');
-  }
-
-  @font-face {
-    font-family: 'MontserratRegular';
-    src: local('MontserratRegular'), url(${MontserratRegular}) format('truetype');
-  }
-
-  @font-face {
-    font-family: 'MontserratBold';
-    src: local('MontserratBold'), url(${MontserratBold}) format('truetype');
-  }
 
   html {
     height: 100%;

@@ -1,4 +1,5 @@
 export default {
-  bg : '#fff',
-  fg : '#222',
+  bg     : '#fff',
+  fg     : '#222',
+  border : '#aaa',
 };
