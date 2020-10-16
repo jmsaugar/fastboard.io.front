@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from '@xstyled/styled-components';
 
+import { mainLayoutId } from './constants';
 import MainLayout from './layouts';
 import {
   GlobalStyle, Loading, Header, Footer,
@@ -29,6 +30,7 @@ const App = () => {
         <Router>
           <GlobalStyle />
           <MainLayout
+            id={mainLayoutId}
             header={<Header />}
             content={content}
             footer={<Footer />}
