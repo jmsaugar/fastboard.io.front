@@ -3,5 +3,11 @@
   "languages": {
     "en-GB": "English",
     "es-ES": "Español"
+  },
+  "footer": {
+    "about": "About",
+    "legal": "Legal",
+    "contact": "Contact",
+    "github": "Github"
   }
 }

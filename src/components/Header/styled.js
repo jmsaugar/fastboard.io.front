@@ -1,5 +1,7 @@
 import styled from '@xstyled/styled-components';
 
+// @todo check values for theme - font size & langSelector width
+
 export const SWrapper = styled.div`
   display: flex;
   height: header;
