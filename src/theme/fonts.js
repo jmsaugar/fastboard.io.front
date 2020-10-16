@@ -1,4 +1,4 @@
 export default {
   brand   : 'BlinkerBold',
-  default : 'MontserratRegular',
+  default : 'MontserratMedium',
 };

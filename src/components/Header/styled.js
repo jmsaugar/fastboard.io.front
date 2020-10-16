@@ -10,11 +10,13 @@ export const SWrapper = styled.div`
 
   background-color: bg;
   color: fg;
+`;
 
+export const SBanner = styled.span`
   font-family: brand;
   font-size: 40px;
 `;
 
 export const SLanguageSelector = styled.div`
-  width: 120px;
+  width: 110px;
 `;

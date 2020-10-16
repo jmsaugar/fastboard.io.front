@@ -4,8 +4,8 @@
 }
 
 @font-face {
-  font-family: 'MontserratRegular';
-  src: local('MontserratRegular'), url('../../theme/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-family: 'MontserratMedium';
+  src: local('MontserratMedium'), url('../../theme/fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
 @font-face {

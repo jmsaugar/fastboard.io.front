@@ -54,7 +54,7 @@ const Dropdown = ({ label, options }) => {
 };
 
 Dropdown.propTypes = {
-  label   : PropTypes.string.isRequired, // @todo improve this to accept a node
+  label   : PropTypes.string.isRequired,
   options : PropTypes.arrayOf(PropTypes.shape({
     label   : PropTypes.string.isRequired,
     onClick : PropTypes.func,

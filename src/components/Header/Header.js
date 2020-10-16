@@ -5,7 +5,7 @@ import { languageCodes } from '../../constants';
 
 import Dropdown from '../Dropdown';
 
-import { SWrapper, SLanguageSelector } from './styled';
+import { SWrapper, SBanner, SLanguageSelector } from './styled';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -21,7 +21,9 @@ const Header = () => {
 
   return (
     <SWrapper>
-      {t('brand')}
+      <SBanner>
+        {t('brand')}
+      </SBanner>
       <SLanguageSelector>
         <Dropdown
           label={t(`languages.${i18n.language}`)}

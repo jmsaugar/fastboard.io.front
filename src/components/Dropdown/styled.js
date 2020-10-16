@@ -1,64 +1,78 @@
 import styled, { css } from '@xstyled/styled-components';
-import { variant } from '@xstyled/system';
-import { CaretDown } from '@styled-icons/fa-solid/CaretDown';
+import { th, variant } from '@xstyled/system';
+import { ChevronDown } from '@styled-icons/fa-solid/ChevronDown';
+
+const menuOffset = '40px';
+const caretSize = '12px';
+const padding = '8px 14px'; // @todo to theme?
 
 export const SWrapper = styled.div`
   position: relative;
-  font-family: MontserratRegular;
-  font-size: 16px;
-  
+  font-size: 14px;
 `;
 
 export const SLabel = styled.button`
-  border-radius: 4px;
-  border-color: border;
-  border-style: solid;
-  padding: 4px 8px;
-  border-width: 1px;
+  display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${padding};
+  border-width: default;
+  border-style: default;
+  border-color: border;
 
   background-color: bg;
-  
+  border-radius: default;
+  color: fg;
+  outline: 0;
 
   transition: default;
+
   &:hover {
-    cursor: pointer;
     box-shadow: default;
+    cursor: pointer;
   }
 `;
 
-export const SCaret = styled(CaretDown)`
-  margin-left: 6px;
-  width: 22px;
-  height: 22px;
+export const SCaret = styled(ChevronDown)`
+  width: ${caretSize};
+  height: ${caretSize};
+
   transition: default;
-  transform: translate(0, -1px);
 
   ${variant({
     default  : false,
     prop     : 'isOpen',
     variants : {
       true : css`
-        transform: rotate(-180deg);
+        transform: rotate(180deg);
       `,
       false : '',
-    }
+    },
   })}
 `;
 
 export const SMenu = styled.div`
-transition-duration: .3s;
   position: absolute;
-  top: 40px;
+  top: ${menuOffset};
   left: 0;
-  background-color: bg;
-  width: 100%;
+  width: calc(100% - 2*${th('borderWidths.default')});
+  border-width: default;
+  border-style: default;
+  border-color: border;  
+
+  background-color: bg; 
+  border-radius: default;
+  box-shadow: default;
 `;
 
 export const SItem = styled.div`
-  padding: 4px 8px;
-  width: 100%;
+  padding: ${padding};
+
+  transition: default;
+
   &:hover {
+    background-color: bgHover;
     cursor: pointer;
   }
 `;
