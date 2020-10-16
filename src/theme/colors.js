@@ -1,6 +1,6 @@
 export default {
   bg      : '#fff',
-  fg      : '#222',
-  border  : '#aaa',
+  fg      : '#333', //'#222', // @todo
+  border  : '#ccc',
   bgHover : '#ebebeb',
 };

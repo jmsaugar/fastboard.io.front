@@ -3,6 +3,7 @@ import backgroundImg from '../../theme/images/homebg.jpg'; // @todo compress thi
 
 export const SWrapper = styled.div`
   height: 100%;
+  width: 100%;
 
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundImg});
   background-position: top;
@@ -36,19 +37,23 @@ export const SButton = styled.button`
   width: 300px;
   height: 80px;
 
-  border: 2px solid white;
+  outline: unset;
+  border-width: lg;
+  border-style: default;
+  border-color: white;
   margin-top: 20px;
   margin-right: 20px;
-  background: none;
+  background-color: transparent;
 
-  border-radius: 60px;
+  border-radius: rounded;
   color: white;
   font-family: 'MontserratBold';
   font-size: 30px;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.2)
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    
   }
 `;

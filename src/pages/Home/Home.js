@@ -15,7 +15,7 @@ const Home = () => (
         Just one click away.
       </STagLine>
       <div>
-        <SButton>
+        <SButton onClick={() => console.log('!!!.click')}>
           Create
         </SButton>
         <SButton>

@@ -7,5 +7,6 @@ export const SWrapper = styled.div`
 `;
 
 export const SContent = styled.div`
+  display: flex;
   flex: 1;
 `;
