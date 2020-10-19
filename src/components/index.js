@@ -1,3 +1,6 @@
+export { default as BoardMeta } from './BoardMeta';
+export { default as BoardMetaEditor } from './BoardMetaEditor';
+export { default as Button } from './Button';
 export { default as Canvas } from './Canvas';
 export { default as Dropdown } from './Dropdown';
 export { default as Footer } from './Footer';

@@ -4,33 +4,9 @@ import { ChevronDown } from '@styled-icons/fa-solid/ChevronDown';
 
 const menuOffset = '40px';
 const caretSize = '12px';
-const padding = '8px 14px'; // @todo to theme?
 
 export const SWrapper = styled.div`
   position: relative;
-`;
-
-export const SLabel = styled.button`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${padding};
-  border-width: default;
-  border-style: default;
-  border-color: border;
-
-  background-color: bg;
-  border-radius: default;
-  color: fg;
-  outline: 0;
-
-  transition: default;
-
-  &:hover {
-    box-shadow: default;
-    cursor: pointer;
-  }
 `;
 
 export const SCaret = styled(ChevronDown)`
@@ -67,7 +43,7 @@ export const SMenu = styled.div`
 `;
 
 export const SItem = styled.div`
-  padding: ${padding};
+  padding: xs md;
 
   transition: default;
 

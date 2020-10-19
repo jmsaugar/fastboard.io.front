@@ -1,16 +1,13 @@
 import React, { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { escapeKeyCode } from '../../constants';
 import { useKey, useOutsideClick } from '../../hooks';
+import Button from '../Button';
 
 import {
-  SWrapper, SLabel, SCaret, SMenu, SItem,
+  SWrapper, SCaret, SMenu, SItem,
 } from './styled';
-
-/**
- * @see https://developer.mozilla.org/es/docs/Web/API/KeyboardEvent/key/Key_Values
- */
-const escapeKeyCode = 'Escape';
 
 const Dropdown = ({ label, options }) => {
   const menuRef = useRef(null);
@@ -22,7 +19,7 @@ const Dropdown = ({ label, options }) => {
         setShowMenu(false);
       }
     },
-    [setShowMenu, showMenu],
+    [showMenu, setShowMenu],
   );
 
   useKey(escapeKeyCode, hide);
@@ -30,10 +27,10 @@ const Dropdown = ({ label, options }) => {
 
   return (
     <SWrapper>
-      <SLabel onClick={() => setShowMenu(!showMenu)}>
+      <Button onClick={() => setShowMenu(!showMenu)} fullWidth spaceBetween>
         {label}
         <SCaret isOpen={showMenu} />
-      </SLabel>
+      </Button>
       {showMenu && (
         <SMenu ref={menuRef}>
           {options.map(({ id, label: optionLabel, onClick }) => (
