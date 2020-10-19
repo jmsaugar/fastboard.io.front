@@ -4,7 +4,6 @@ export const SWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: modalWidth;
-  height: 250px;
   background-color: bg;
   padding: default;
   border-radius: default;
@@ -17,6 +16,7 @@ export const SHeader = styled.h2`
 
 export const SContent = styled.div`
   flex: 1;
+  margin: default auto;
 `;
 
 export const SFooter = styled.div`

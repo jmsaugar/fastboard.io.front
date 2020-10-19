@@ -3,4 +3,5 @@ export default {
   footer      : '80px',
   buttonWidth : '100px',
   modalWidth  : '400px',
+  formHeight  : '34px',
 };
