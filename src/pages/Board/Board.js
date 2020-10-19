@@ -11,20 +11,20 @@ const CANVAS_ID = 'canvas';
 // @ todo check params.id
 const Board = ({ match }) => {
   useEffect(() => {
-    // boardsService.init();
-    // boardsService.join(match.params.id);
-    // drawingsService.init(CANVAS_ID);
+    boardsService.init();
+    boardsService.join(match.params.id);
+    drawingsService.init(CANVAS_ID);
 
-    // return () => {
-    //   boardsService.close();
-    //   drawingsService.close();
-    // };
+    return () => {
+      boardsService.close();
+      drawingsService.close();
+    };
   }, [match.params.id]);
 
   return (
     <SWrapper>
-      {/* <ToolBar />
-      <Canvas id={CANVAS_ID} /> */}
+      <ToolBar />
+      <Canvas id={CANVAS_ID} />
     </SWrapper>
   );
 };

@@ -2,14 +2,21 @@ import React from 'react';
 
 import ToolButton from '../ToolButton';
 
-import SWrapper from './styled';
+import { SWrapper, SMeta, STools } from './styled';
 
 const ToolBar = () => (
   <SWrapper>
-    <ToolButton />
-    <ToolButton />
-    <ToolButton />
-    <ToolButton />
+    <SMeta>
+      jms @ Board 3
+    </SMeta>
+    <STools>
+      <ToolButton />
+      <ToolButton />
+      <ToolButton />
+      <ToolButton />
+      <ToolButton />
+      <ToolButton />
+    </STools>
   </SWrapper>
 );
 

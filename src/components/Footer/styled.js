@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // @todo font sizes and spaces to theme?
 
-export const SWrapper = styled.div`
+export const SWrapper = styled.footer`
   display: flex;
   height: footer;
   align-items: center;
@@ -15,7 +15,7 @@ export const SWrapper = styled.div`
   color: fg;
 
   font-family: brand;
-  font-size: 18px;
+  font-size: lg;
 `;
 
 export const SLink = styled(Link)`

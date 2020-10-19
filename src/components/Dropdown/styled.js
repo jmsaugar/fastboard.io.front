@@ -8,7 +8,6 @@ const padding = '8px 14px'; // @todo to theme?
 
 export const SWrapper = styled.div`
   position: relative;
-  font-size: 14px;
 `;
 
 export const SLabel = styled.button`
@@ -54,6 +53,7 @@ export const SCaret = styled(ChevronDown)`
 
 export const SMenu = styled.div`
   position: absolute;
+  z-index: top;
   top: ${menuOffset};
   left: 0;
   width: calc(100% - 2*${th('borderWidths.default')});

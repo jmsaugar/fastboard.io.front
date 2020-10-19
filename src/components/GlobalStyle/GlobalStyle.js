@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-import { getColor, getFont } from '@xstyled/system';
+import { getColor, getFont, getFontSize } from '@xstyled/system';
 
 /**
  * Fonts have to be imported this way because of a styled-components issue.
@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
       background-color: ${getColor('bg')};
       color: ${getColor('fg')};;
       font-family: ${getFont('default')};
+      font-size: ${getFontSize('default')};
 
       #root {
         height: 100%;

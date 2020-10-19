@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components';
 
 // @todo check values for theme - font size & langSelector width
 
-export const SWrapper = styled.div`
+export const SWrapper = styled.header`
   display: flex;
   height: header;
   align-items: center;
@@ -16,7 +16,7 @@ export const SWrapper = styled.div`
 
 export const SBanner = styled.span`
   font-family: brand;
-  font-size: 40px;
+  font-size: headerBrand;
 `;
 
 export const SLanguageSelector = styled.div`
