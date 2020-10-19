@@ -105,7 +105,7 @@ tools.eraser.onMouseDrag = throttle(pencilOnMouseDrag, 10);
 
 /**
  * Initialize project for the specified canvas.
- * 
+ *
  * @param {String} canvasId Id of the canvas html element.
  */
 const init = (canvasId) => {
