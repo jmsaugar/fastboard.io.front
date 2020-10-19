@@ -1,6 +1,8 @@
 import styled from '@xstyled/styled-components';
 import backgroundImg from '../../theme/images/homebg.jpg'; // @todo compress this image
 
+// @todo theme values - spaces
+
 export const SWrapper = styled.div`
   height: 100%;
   width: 100%;

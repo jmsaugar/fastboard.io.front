@@ -1,5 +1,6 @@
 import React from 'react';
 
+import BoardMeta from '../BoardMeta';
 import ToolButton from '../ToolButton';
 
 import { SWrapper, SMeta, STools } from './styled';
@@ -7,7 +8,7 @@ import { SWrapper, SMeta, STools } from './styled';
 const ToolBar = () => (
   <SWrapper>
     <SMeta>
-      jms @ Board 3
+      <BoardMeta />
     </SMeta>
     <STools>
       <ToolButton />
