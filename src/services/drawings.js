@@ -1,9 +1,8 @@
 import { Project, Path, Point, Tool } from 'paper';
 
-import { boardsService } from '../services';
+import boardsService from './boards';
 import { drawingsEvents } from '../constants';
 import { throttle } from '../utils';
-import boards from './boards';
 
 let project;
 let currentPath; // @todo this should be for every user
@@ -31,9 +30,9 @@ const onMouseDrag = (point) => {
 
 /**
  * PENCIL
- * 
+ *
  * Mouse down operation
- * 
+ *
  * @param {Object} event Event emitted by paperjs
  */
 tools.pencil.onMouseDown = (event) => {
@@ -53,9 +52,9 @@ tools.pencil.onMouseDown = (event) => {
 
 /**
  * PENCIL
- * 
+ *
  * Mouse drag operation
- * 
+ *
  * @param {Object} event Event emitted by paperjs
  */
 const pencilOnMouseDrag = (event) => {

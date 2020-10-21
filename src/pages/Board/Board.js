@@ -12,8 +12,9 @@ const CANVAS_ID = 'canvas';
 const Board = ({ match }) => {
   useEffect(() => {
     boardsService.init();
-    boardsService.join(match.params.id);
-    drawingsService.init(CANVAS_ID);
+    boardsService.join(match.params.id)
+      .then(() => drawingsService.init(CANVAS_ID)) // @todo loading state
+      .catch(); // @todo error
 
     return () => {
       boardsService.close();
@@ -23,6 +24,12 @@ const Board = ({ match }) => {
 
   return (
     <SWrapper>
+      <button onClick={() => boardsService.setUserName('new user name')}>
+        set user name
+      </button>
+      <button onClick={() => boardsService.setBoardName('new board name')}>
+        set board name
+      </button>
       <ToolBar />
       <Canvas id={CANVAS_ID} />
     </SWrapper>

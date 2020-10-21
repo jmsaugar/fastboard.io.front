@@ -1,6 +1,9 @@
 export default Object.freeze({
-  join        : 'join',
-  meJoined    : 'meJoined',
-  otherJoined : 'otherJoined',
-  otherLeft   : 'otherLeft',
+  doJoin          : 'doJoin',
+  didJoin         : 'didJoin',
+  didLeave        : 'didLeave',
+  doSetUserName   : 'doSetUserName',
+  didSetUserName  : 'didSetUserName',
+  doSetBoardName  : 'doSetBoardName',
+  didSetBoardName : 'didSetBoardName',
 });
