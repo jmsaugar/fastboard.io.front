@@ -1,1 +1,1 @@
-export { throttle } from './utils';
+export { throttle, timeoutPromise } from './utils';

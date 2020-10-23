@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Canvas, ToolBar } from '../../components';
 
@@ -9,18 +10,25 @@ import SWrapper from './styled';
 const CANVAS_ID = 'canvas';
 
 // @ todo check params.id
-const Board = ({ match }) => {
+const Board = () => {
+  const { id : boardId } = useParams();
+
   useEffect(() => {
-    boardsService.init();
-    boardsService.join(match.params.id)
-      .then(() => drawingsService.init(CANVAS_ID)) // @todo loading state
-      .catch(); // @todo error
+    if (!boardsService.isInit()) {
+      boardsService.init();
+      boardsService.join({
+        boardId,
+        userName : '#userName#',
+      })
+        .then(() => drawingsService.init(CANVAS_ID)) // @todo loading state
+        .catch(); // @todo error
+    }
 
     return () => {
       boardsService.close();
       drawingsService.close();
     };
-  }, [match.params.id]);
+  }, [boardId]);
 
   return (
     <SWrapper>
