@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import SInput from './styled';
 
 const Input = ({
-  name, value, placeholder, onChange,
+  name, value, placeholder, onChange, className,
 }) => (
   <SInput
+    className={className}
     name={name}
     value={value}
     placeholder={placeholder}
