@@ -1,0 +1,22 @@
+{
+  "home": {
+    "title": "Dibuja y comparte",
+    "tagline": "Dibuja en tiempo real con cualquiera al otro lado e incrementa tu productividad ahora. A solo dos clicks.",
+    "create": "Crear",
+    "join": "Unirse"
+  },
+  "create": {
+    "title": "Crear un panel",
+    "tagline": "[todo]",
+    "boardName": "Nombre del panel",
+    "cancel": "Cancelar",
+    "create": "Crear"
+  },
+  "join": {
+    "title": "Únete a un panel",
+    "tagline": "[todo]",
+    "boardId": "[board id]",
+    "cancel": "Cancelar",
+    "join": "Unirse"
+  }
+}

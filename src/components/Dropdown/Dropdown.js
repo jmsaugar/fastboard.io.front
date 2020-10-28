@@ -6,7 +6,7 @@ import { useKey, useOutsideClick } from '../../hooks';
 import Button from '../Button';
 
 import {
-  SWrapper, SCaret, SMenu, SItem,
+  SWrapper, SLabel, SCaret, SMenu, SItem,
 } from './styled';
 
 const Dropdown = ({ label, options }) => {
@@ -27,9 +27,15 @@ const Dropdown = ({ label, options }) => {
 
   return (
     <SWrapper>
-      <Button onClick={() => setShowMenu(!showMenu)} fullWidth spaceBetween>
-        {label}
-        <SCaret isOpen={showMenu} />
+      <Button
+        type="secondary"
+        onClick={() => setShowMenu(!showMenu)}
+        fullWidth
+      >
+        <SLabel>
+          {label}
+          <SCaret isOpen={showMenu} />
+        </SLabel>
       </Button>
       {showMenu && (
         <SMenu ref={menuRef}>

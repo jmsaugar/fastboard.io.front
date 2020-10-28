@@ -9,6 +9,13 @@ export const SWrapper = styled.div`
   position: relative;
 `;
 
+export const SLabel = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const SCaret = styled(ChevronDown)`
   width: ${caretSize};
   height: ${caretSize};
@@ -35,9 +42,9 @@ export const SMenu = styled.div`
   width: calc(100% - 2*${th('borderWidths.default')});
   border-width: default;
   border-style: default;
-  border-color: border;  
+  border-color: border;
 
-  background-color: bg; 
+  background-color: bg;
   border-radius: default;
   box-shadow: default;
 `;

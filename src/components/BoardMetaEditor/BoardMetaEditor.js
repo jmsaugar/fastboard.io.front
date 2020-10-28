@@ -26,10 +26,10 @@ const BoardMetaEditor = () => {
         />
       </SContent>
       <SFooter>
-        <Button>
+        <Button type="secondary">
           Cancel
         </Button>
-        <Button primary>
+        <Button type="primary">
           Save
         </Button>
       </SFooter>
