@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { SWrapper, STitle, STagLine, SActions, SAction, SInput } from './styled';
+import {
+  SWrapper, STitle, SActions, SAction, SInput,
+} from './styled';
 
 const JoinStep = ({ show, onJoin, onCancel }) => {
   const { t } = useTranslation('home');
+  const [boardId, setBoardId] = useState();
+
+  const onBoardIdChange = useCallback(
+    (evt) => setBoardId(evt.target.value),
+    [setBoardId],
+  );
+
+  // @todo remove board id from form and autofocus on show
 
   return (
     <SWrapper show={show}>
       <STitle>
         {t('join.title')}
       </STitle>
-      <STagLine>
-        {t('join.tagline')}
-      </STagLine>
       <SActions>
-        <SInput placeholder={t('join.boardId')} />
+        <SInput
+          name="boardId"
+          onChange={onBoardIdChange}
+          placeholder={t('join.boardId')}
+        />
         <SAction onClick={onCancel}>
           {t('join.cancel')}
         </SAction>
-        <SAction onClick={onJoin}>
+        <SAction onClick={() => onJoin({ boardId })}>
           {t('join.join')}
         </SAction>
       </SActions>

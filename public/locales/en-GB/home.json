@@ -5,17 +5,9 @@
     "create": "Create",
     "join": "Join"
   },
-  "create": {
-    "title": "Create a board",
-    "tagline": "[todo]",
-    "boardName": "Board name",
-    "cancel": "Cancel",
-    "create": "Create"
-  },
   "join": {
     "title": "Join a board",
-    "tagline": "[todo]",
-    "boardId": "[board id]",
+    "boardId": "The board id or url",
     "cancel": "Cancel",
     "join": "Join"
   }

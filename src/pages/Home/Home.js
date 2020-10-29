@@ -3,24 +3,18 @@ import { useHistory } from 'react-router-dom';
 
 import { boardsService } from '../../services';
 
-import { HomeStep, CreateStep, JoinStep } from './subcomponents';
+import { HomeStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
-
-const steps = Object.freeze({
-  home   : 0,
-  create : 1,
-  join   : 2,
-});
 
 const Home = () => {
   const { push : redirectTo } = useHistory();
-  const [step, setStep] = useState(steps.home);
+  const [showHome, setShowHome] = useState(true);
 
   const join = useCallback(
-    (userName, boardName) => {
+    (boardId) => {
       boardsService.init();
-      boardsService.join({ userName, boardName })
-        .then((boardId) => redirectTo(`/boards/${boardId}`)) // @todo urls to constants
+      boardsService.join({ boardId })
+        .then((joinedBoardId) => redirectTo(`/boards/${joinedBoardId}`)) // @todo urls to constants
         .catch(() => console.error('!!!.error creating board'));
     },
     [redirectTo],
@@ -29,19 +23,14 @@ const Home = () => {
   return (
     <SWrapper>
       <HomeStep
-        show={step === steps.home}
-        onCreate={() => setStep(steps.create)}
-        onJoin={() => setStep(steps.join)}
-      />
-      <CreateStep
-        show={step === steps.create}
+        show={showHome}
         onCreate={join}
-        onCancel={() => setStep(steps.home)}
+        onJoin={() => setShowHome(false)}
       />
       <JoinStep
-        show={step === steps.join}
+        show={!showHome}
         onJoin={join}
-        onCancel={() => setStep(steps.home)}
+        onCancel={() => setShowHome(true)}
       />
     </SWrapper>
   );
