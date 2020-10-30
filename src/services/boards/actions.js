@@ -1,9 +1,8 @@
 import io from 'socket.io-client';
 
+import { Log, timeoutPromise } from '../../utils';
 // import drawingsService from '../drawings';
 import { boardsMessages, drawingsEvents } from '../../constants';
-
-import { timeoutPromise } from '../../utils';
 
 import { send } from './utils';
 import {
@@ -20,7 +19,10 @@ const timeout = 5000; // @todo to constants?
  * Initialize socket connection.
  */
 function init() {
+  Log.debug('Service : Boards : init');
+
   if (!this.socket) {
+    Log.debug('Service : Boards : init : initialized');
     this.socket = io(socketIOEndpoint);
     this.isInit = true;
   }
@@ -30,6 +32,8 @@ function init() {
  * Close socket connection.
  */
 function close() {
+  Log.debug('Service : Boards : close');
+
   this.socket.close();
   this.socket = undefined;
   this.isInit = false;
@@ -45,6 +49,8 @@ function close() {
  * @return {Promise} Resolves when the board has been joined; rejected otherwise.
  */
 function join(data) {
+  Log.debug('Service : Boards : join', data);
+
   return timeoutPromise((res, rej) => send.call(
     this,
     boardsMessages.doJoin,
@@ -84,14 +90,18 @@ function join(data) {
  *
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
-const setUserName = (userName) => timeoutPromise(
-  (res, rej) => send(
-    boardsMessages.doSetUserName,
-    userName,
-    (success) => (success ? res() : rej()),
-  ),
-  timeout,
-);
+const setUserName = (userName) => {
+  Log.debug('Service : Boards : setUserName', { userName });
+
+  return timeoutPromise(
+    (res, rej) => send(
+      boardsMessages.doSetUserName,
+      userName,
+      (success) => (success ? res() : rej()),
+    ),
+    timeout,
+  );
+};
 
 /**
  * Send board name set request.
@@ -100,14 +110,18 @@ const setUserName = (userName) => timeoutPromise(
  *
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
-const setBoardName = (boardName) => timeoutPromise(
-  (res, rej) => send(
-    boardsMessages.doSetBoardName,
-    boardName,
-    (success) => (success ? res() : rej()),
-  ),
-  timeout,
-);
+const setBoardName = (boardName) => {
+  Log.debug('Service : Boards : setBoardName', { boardName });
+
+  return timeoutPromise(
+    (res, rej) => send(
+      boardsMessages.doSetBoardName,
+      boardName,
+      (success) => (success ? res() : rej()),
+    ),
+    timeout,
+  );
+};
 
 export {
   init,

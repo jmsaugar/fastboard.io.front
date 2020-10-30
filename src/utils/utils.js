@@ -6,7 +6,7 @@
  *
  * @return {Function} Function that throttles the execution of the callback.
  */
-export const throttle = (callback, delay = 0) => {
+export function throttle(callback, delay = 0) {
   let previousTime = new Date().getTime();
 
   return function throttledCallback(args) {
@@ -17,7 +17,7 @@ export const throttle = (callback, delay = 0) => {
       callback(...args);
     }
   };
-};
+}
 
 /**
  * Creates a Promise with a rejection timeout.
@@ -27,19 +27,21 @@ export const throttle = (callback, delay = 0) => {
  *
  * @return {Promise} Promise with rejection timeout.
  */
-export const timeoutPromise = (callback, timeout) => new Promise(
-  (res, rej) => {
-    const timeoutId = setTimeout(() => rej(new Error()), timeout);
+export function timeoutPromise(callback, timeout) {
+  return new Promise(
+    (res, rej) => {
+      const timeoutId = setTimeout(() => rej(new Error()), timeout);
 
-    callback(
-      (...args) => {
-        clearTimeout(timeoutId);
-        res(...args);
-      },
-      (...args) => {
-        clearTimeout(timeoutId);
-        rej(new Error(...args));
-      },
-    );
-  },
-);
+      callback(
+        (...args) => {
+          clearTimeout(timeoutId);
+          res(...args);
+        },
+        (...args) => {
+          clearTimeout(timeoutId);
+          rej(new Error(...args));
+        },
+      );
+    },
+  );
+}

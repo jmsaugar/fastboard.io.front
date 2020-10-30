@@ -1,17 +1,19 @@
+import { Log } from '../../utils';
+
 function onDidJoin() {
-  console.log('!!!.didJoin');
+  Log.debug('Service : Boards : onDidJoin');
 }
 
 function onDidLeave({ userId }) {
-  console.log('!!!.onDidLeave', userId);
+  Log.debug('Service : Boards : onDidLeave', { userId });
 }
 
 function onDidSetUserName({ userId, userName }) {
-  console.log('!!!.didSetUserName', userId, userName);
+  Log.debug('Service : Boards : onDidSetUserName', { userId, userName });
 }
 
 function onDidSetBoardName({ boardId, boardName }) {
-  console.log('!!!.didSetBoardName', boardId, boardName);
+  Log.debug('Service : Boards : onDidSetBoardName', { boardId, boardName });
 }
 
 export {

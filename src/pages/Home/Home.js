@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { Log } from '../../utils';
 import { boardsService } from '../../services';
 
 import { HomeStep, JoinStep } from './subcomponents';
@@ -12,6 +13,8 @@ const Home = () => {
 
   const join = useCallback(
     (boardId) => {
+      Log.debug('Component : Home : join', { boardId });
+
       boardsService.init();
       boardsService.join({ boardId })
         .then((joinedBoardId) => redirectTo(`/boards/${joinedBoardId}`)) // @todo urls to constants
