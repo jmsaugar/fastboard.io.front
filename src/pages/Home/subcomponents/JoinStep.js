@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -8,6 +8,7 @@ import {
 
 const JoinStep = ({ show, onJoin, onCancel }) => {
   const { t } = useTranslation('home');
+  const boardInputRef = useRef();
   const [boardId, setBoardId] = useState();
 
   const onBoardIdChange = useCallback(
@@ -15,7 +16,15 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
     [setBoardId],
   );
 
-  // @todo remove board id from form and autofocus on show
+  useEffect(
+    () => {
+      if (show) {
+        boardInputRef.current.value = '';
+        boardInputRef.current.focus();
+      }
+    },
+    [show, setBoardId, boardInputRef],
+  );
 
   return (
     <SWrapper show={show}>
@@ -25,6 +34,7 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
       <SActions>
         <SInput
           name="boardId"
+          ref={boardInputRef}
           onChange={onBoardIdChange}
           placeholder={t('join.boardId')}
         />

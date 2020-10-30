@@ -8,7 +8,6 @@ export const SWrapper = styled.div`
   text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
   transition: long;
 
-
   ${variant({
     default  : false,
     prop     : 'show',
@@ -30,7 +29,6 @@ export const STitle = styled.div`
 
 export const STagLine = styled.div`
   width: 700px;
-
   font-size: 30px;
   font-weight: bold;
 `;
@@ -84,8 +82,8 @@ export const SInput = styled.input`
   text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 
   &::placeholder {
-    color: #ccc;
-    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
   }
   &:focus {
     background-color: rgba(255, 255, 255, 0.1);
