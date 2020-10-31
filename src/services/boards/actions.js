@@ -19,7 +19,7 @@ const timeout = 5000; // @todo to constants?
  * Initialize socket connection.
  */
 function init() {
-  Log.debug('Service : Boards : init');
+  Log.info('Service : Boards : init');
 
   if (!this.socket) {
     Log.debug('Service : Boards : init : initialized');
@@ -32,7 +32,7 @@ function init() {
  * Close socket connection.
  */
 function close() {
-  Log.debug('Service : Boards : close');
+  Log.info('Service : Boards : close');
 
   this.socket.close();
   this.socket = undefined;
@@ -49,13 +49,15 @@ function close() {
  * @return {Promise} Resolves when the board has been joined; rejected otherwise.
  */
 function join(data) {
-  Log.debug('Service : Boards : join', data);
+  Log.info('Service : Boards : join', data);
 
   return timeoutPromise((res, rej) => send.call(
     this,
     boardsMessages.doJoin,
     data,
     (success, { boardId, users }) => {
+      Log.debug('Service : Boards : join : ack', { success, boardId, users });
+
       if (!success || (data.boardId && (data.boardId !== boardId))) {
         return rej();
       }
@@ -91,7 +93,7 @@ function join(data) {
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
 const setUserName = (userName) => {
-  Log.debug('Service : Boards : setUserName', { userName });
+  Log.info('Service : Boards : setUserName', { userName });
 
   return timeoutPromise(
     (res, rej) => send(
@@ -111,7 +113,7 @@ const setUserName = (userName) => {
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
 const setBoardName = (boardName) => {
-  Log.debug('Service : Boards : setBoardName', { boardName });
+  Log.info('Service : Boards : setBoardName', { boardName });
 
   return timeoutPromise(
     (res, rej) => send(

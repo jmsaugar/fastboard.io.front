@@ -5,9 +5,17 @@
     "create": "Create",
     "join": "Join"
   },
+  "create": {
+    "title": "Create a board",
+    "boardName": "The board name",
+    "userName": "Your name",
+    "cancel": "Cancel",
+    "create": "Create"
+  },
   "join": {
     "title": "Join a board",
     "boardId": "The board id or url",
+    "userName": "Your name",
     "cancel": "Cancel",
     "join": "Join"
   }

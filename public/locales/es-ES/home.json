@@ -5,9 +5,17 @@
     "create": "Crear",
     "join": "Unirse"
   },
+  "create": {
+    "title": "Crear un panel",
+    "boardName": "El nombre del panel",
+    "userName": "Tu nombre",
+    "cancel": "Cancelar",
+    "create": "Crear"
+  },
   "join": {
     "title": "Únete a un panel",
-    "boardId": "El id del panel o la url",
+    "boardId": "El id del panel o su url",
+    "userName": "Tu nombre",
     "cancel": "Cancelar",
     "join": "Unirse"
   }

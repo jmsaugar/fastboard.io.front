@@ -6,16 +6,16 @@ import {
   SWrapper, STitle, SActions, SAction, SInput,
 } from './styled';
 
-const JoinStep = ({ show, onJoin, onCancel }) => {
+const CreateStep = ({ show, onCreate, onCancel }) => {
   const { t } = useTranslation('home');
-  const boardIdRef = useRef();
+  const boardNameRef = useRef();
   const userNameRef = useRef();
-  const [boardId, setBoardId] = useState();
+  const [boardName, setBoardName] = useState();
   const [userName, setUserName] = useState();
 
-  const onBoardIdChange = useCallback(
-    (evt) => setBoardId(evt.target.value),
-    [setBoardId],
+  const onBoardNameChange = useCallback(
+    (evt) => setBoardName(evt.target.value),
+    [setBoardName],
   );
 
   const onUserNameChange = useCallback(
@@ -26,47 +26,47 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
   useEffect(
     () => {
       if (show) {
-        boardIdRef.current.value = '';
+        boardNameRef.current.value = '';
         userNameRef.current.value = '';
-        boardIdRef.current.focus();
+        userNameRef.current.focus();
       }
     },
-    [show, boardIdRef, userNameRef],
+    [show, boardNameRef, userNameRef],
   );
 
   return (
     <SWrapper show={show}>
       <STitle>
-        {t('join.title')}
+        {t('create.title')}
       </STitle>
       <SActions>
-        <SInput
-          name="boardId"
-          ref={boardIdRef}
-          onChange={onBoardIdChange}
-          placeholder={t('join.boardId')}
-        />
         <SInput
           name="userName"
           ref={userNameRef}
           onChange={onUserNameChange}
-          placeholder={t('join.userName')}
+          placeholder={t('create.userName')}
+        />
+        <SInput
+          name="boardName"
+          ref={boardNameRef}
+          onChange={onBoardNameChange}
+          placeholder={t('create.boardName')}
         />
         <SAction onClick={onCancel}>
-          {t('join.cancel')}
+          {t('create.cancel')}
         </SAction>
-        <SAction onClick={() => onJoin({ boardId, userName })}>
-          {t('join.join')}
+        <SAction onClick={() => onCreate({ boardName, userName })}>
+          {t('create.create')}
         </SAction>
       </SActions>
     </SWrapper>
   );
 };
 
-JoinStep.propTypes = {
+CreateStep.propTypes = {
   show     : PropTypes.bool.isRequired,
-  onJoin   : PropTypes.func.isRequired,
+  onCreate : PropTypes.func.isRequired,
   onCancel : PropTypes.func.isRequired,
 };
 
-export default JoinStep;
+export default CreateStep;

@@ -25,7 +25,7 @@ const createMessage = (message, color) => {
   const colorStyle = color ? `color: ${color};` : undefined;
 
   return [
-    `%c [${prefix}] %c ${message}`,
+    `%c[${prefix}] %c${message}`,
     `font-weight: bold; ${colorStyle}`,
     colorStyle,
   ];
