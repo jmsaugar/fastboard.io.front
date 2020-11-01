@@ -10,7 +10,7 @@ import {
 } from './styled';
 
 const Dropdown = ({ label, options }) => {
-  const menuRef = useRef(null);
+  const menuRef = useRef();
   const [showMenu, setShowMenu] = useState(false);
 
   const hide = useCallback(

@@ -92,18 +92,19 @@ function join(data) {
  *
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
-const setUserName = (userName) => {
+function setUserName(userName) {
   Log.info('Service : Boards : setUserName', { userName });
 
   return timeoutPromise(
-    (res, rej) => send(
+    (res, rej) => send.call(
+      this,
       boardsMessages.doSetUserName,
       userName,
       (success) => (success ? res() : rej()),
     ),
     timeout,
   );
-};
+}
 
 /**
  * Send board name set request.
@@ -112,18 +113,19 @@ const setUserName = (userName) => {
  *
  * @return {Promise} Resolved if successful; rejected otherwise.
  */
-const setBoardName = (boardName) => {
+function setBoardName(boardName) {
   Log.info('Service : Boards : setBoardName', { boardName });
 
   return timeoutPromise(
-    (res, rej) => send(
+    (res, rej) => send.call(
+      this,
       boardsMessages.doSetBoardName,
       boardName,
       (success) => (success ? res() : rej()),
     ),
     timeout,
   );
-};
+}
 
 export {
   init,

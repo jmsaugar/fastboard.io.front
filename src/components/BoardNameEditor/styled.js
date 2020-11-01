@@ -2,10 +2,10 @@ import styled from '@xstyled/styled-components';
 
 export const SWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   width: modalWidth;
-  background-color: bg;
+  flex-direction: column;
   padding: default;
+  background-color: bg;
   border-radius: default;
 `;
 
@@ -16,7 +16,7 @@ export const SHeader = styled.h2`
 
 export const SContent = styled.div`
   flex: 1;
-  margin: default auto;
+  margin: default 0;
 `;
 
 export const SFooter = styled.div`

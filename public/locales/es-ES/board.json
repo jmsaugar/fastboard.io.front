@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "userNameEditor": {
+      "title": "Configura tu nombre de usuario",
+      "cancel": "Cancelar",
+      "save": "Guardar"
+    },
+    "boardNameEditor": {
+      "title": "Configura el nombre del panel",
+      "cancel": "Cancelar",
+      "save": "Guardar"
+    }
+  }
+}

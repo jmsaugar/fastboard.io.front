@@ -1,15 +1,16 @@
-import styled from '@xstyled/styled-components';
+import styled, { css } from '@xstyled/styled-components';
 import { getSize, getSpace, getBorderWidth } from '@xstyled/system';
 
 export default styled.input`
-  border-width: default;
-  border-style: default;
-  border-radius: default;
-  border-color: border;
-  background-color: bg;
-  color: fg;
+  width: ${({ fullWidth }) => (fullWidth ? css`calc(100% - 2*${getSpace('md')} - 2*${getBorderWidth('default')})` : 'auto')};
   height: calc(${getSize('formHeight')} - 2*${getSpace('xs')} - 2*${getBorderWidth('default')});
   padding: xs md;
+  border-width: default;
+  border-style: default;
+  border-color: border;
+  background-color: bg;
+  border-radius: default;
+  color: fg;
   outline: none;
 
   &:focus {

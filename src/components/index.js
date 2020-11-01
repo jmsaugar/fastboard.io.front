@@ -1,5 +1,5 @@
 export { default as BoardMeta } from './BoardMeta';
-export { default as BoardMetaEditor } from './BoardMetaEditor';
+export { default as BoardNameEditor } from './BoardNameEditor';
 export { default as Button } from './Button';
 export { default as Canvas } from './Canvas';
 export { default as Dropdown } from './Dropdown';
@@ -11,3 +11,4 @@ export { default as Loading } from './Loading';
 export { default as Modal } from './Modal';
 export { default as ToolBar } from './ToolBar';
 export { default as ToolButton } from './ToolButton';
+export { default as UserNameEditor } from './UserNameEditor';

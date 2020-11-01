@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "userNameEditor": {
+      "title": "Set your user name",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "boardNameEditor": {
+      "title": "Set the board name",
+      "cancel": "Cancel",
+      "save": "Save"
+    }
+  }
+}

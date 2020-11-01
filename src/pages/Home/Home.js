@@ -22,7 +22,7 @@ const Home = () => {
       Log.debug('Component : Home : join', { boardId, boardName, userName });
       boardsService.init();
       boardsService.join({ boardId, boardName, userName })
-        .then((joinedBoardId) => redirectTo(`/boards/${joinedBoardId}`)) // @todo urls to constants
+        .then((joinedBoardId) => redirectTo(`/board/${joinedBoardId}`)) // @todo urls to constants
         .catch(() => Log.error('Component : Home : join : error creating board'));
     },
     [redirectTo],

@@ -32,12 +32,6 @@ const Board = () => {
 
   return (
     <SWrapper>
-      <button onClick={() => boardsService.setUserName('new user name')}>
-        set user name
-      </button>
-      <button onClick={() => boardsService.setBoardName('new board name')}>
-        set board name
-      </button>
       <ToolBar />
       <Canvas id={CANVAS_ID} />
     </SWrapper>
