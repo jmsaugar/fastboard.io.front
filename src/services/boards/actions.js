@@ -1,8 +1,8 @@
 import io from 'socket.io-client';
 
+import { boardsMessages, drawingsEvents } from '../../constants';
 import { Log, timeoutPromise } from '../../utils';
 // import drawingsService from '../drawings';
-import { boardsMessages, drawingsEvents } from '../../constants';
 
 import { send } from './utils';
 import {
@@ -22,9 +22,10 @@ function init() {
   Log.info('Service : Boards : init');
 
   if (!this.socket) {
-    Log.debug('Service : Boards : init : initialized');
     this.socket = io(socketIOEndpoint);
     this.isInit = true;
+
+    Log.debug('Service : Boards : init : initialized');
   }
 }
 

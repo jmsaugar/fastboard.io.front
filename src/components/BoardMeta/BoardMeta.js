@@ -66,7 +66,8 @@ const BoardMeta = () => {
         (3 users)
       </SWrapper>
       <Modal target={mainLayoutId} show={type !== types.none}>
-        {type === types.userName ? UserNameEditorComponent : BoardNameEditorComponent}
+        {type === types.userName && UserNameEditorComponent}
+        {type === types.boardName && BoardNameEditorComponent}
       </Modal>
     </>
   );

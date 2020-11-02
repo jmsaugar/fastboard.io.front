@@ -9,7 +9,7 @@
 export function throttle(callback, delay = 0) {
   let previousTime = new Date().getTime();
 
-  return function throttledCallback(args) {
+  return function throttledCallback(...args) {
     const currentTime = new Date().getTime();
 
     if ((currentTime - previousTime) >= delay) {

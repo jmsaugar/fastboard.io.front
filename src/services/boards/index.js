@@ -1,4 +1,4 @@
-import { isInit } from './utils';
+import { isInit, send } from './utils';
 import {
   init, close, join, setUserName, setBoardName,
 } from './actions';
@@ -15,4 +15,5 @@ export default {
   join         : join.bind(serviceScope),
   setUserName  : setUserName.bind(serviceScope),
   setBoardName : setBoardName.bind(serviceScope),
+  send         : send.bind(serviceScope), // @todo check if this in actions rather than in utils
 };

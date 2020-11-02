@@ -11,6 +11,8 @@ import { MousePointer as SelectionIcon } from '@styled-icons/fa-solid/MousePoint
 import { FileDownload as DownloadIcon } from '@styled-icons/fa-solid/FileDownload';
 import { ShareAlt as ShareIcon } from '@styled-icons/fa-solid/ShareAlt';
 
+import { drawingsService } from '../../services';
+
 import BoardMeta from '../BoardMeta';
 import ToolButton from '../ToolButton';
 
@@ -22,10 +24,10 @@ const ToolBar = () => (
       <BoardMeta />
     </SMeta>
     <STools>
-      <ToolButton title="Soy un tooltip" icon={<PencilIcon />} />
+      <ToolButton title="Soy un tooltip" icon={<PencilIcon />} onClick={drawingsService.tools.pencil.activate} />
       <ToolButton icon={<PenIcon />} />
       <ToolButton icon={<HighlighterIcon />} />
-      <ToolButton icon={<EraserIcon />} />
+      <ToolButton icon={<EraserIcon />} onClick={drawingsService.tools.eraser.activate} />
       <ToolButton icon={<PointerIcon />} />
       {/* @todo figures tool */}
       <ToolButton icon={<ImageIcon />} />

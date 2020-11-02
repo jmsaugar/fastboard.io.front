@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -12,20 +10,11 @@ import {
 
 const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
   const { t } = useTranslation('board');
-  const inputRef = useRef();
   const [newBoardName, setNewBoardName] = useState(initialBoardName);
 
   const onBoardNameChange = useCallback(
     (evt) => setNewBoardName(evt.target.value),
     [setNewBoardName],
-  );
-
-  useEffect(
-    () => {
-      // @todo check why this does not work
-      inputRef.current.focus();
-    },
-    [inputRef],
   );
 
   return (
@@ -36,7 +25,6 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
       <SContent>
         <Input
           name="boardName"
-          ref={inputRef}
           value={newBoardName}
           onChange={onBoardNameChange}
           fullWidth

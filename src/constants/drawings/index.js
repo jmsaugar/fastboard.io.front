@@ -1,1 +1,1 @@
-export { default as drawingsEvents } from './events';
+export { default as drawingsEvents } from './messages';

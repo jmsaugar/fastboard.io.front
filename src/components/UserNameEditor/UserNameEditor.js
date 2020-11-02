@@ -17,8 +17,6 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
     [setNewUserName],
   );
 
-  // @todo input ref and autofocus
-
   return (
     <SWrapper>
       <SHeader>
