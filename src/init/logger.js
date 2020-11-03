@@ -1,4 +1,4 @@
-import { Log } from '../utils';
+import { Log } from '#utils';
 
 const prefix = 'FASTBOARD';
 

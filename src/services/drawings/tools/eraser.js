@@ -1,7 +1,7 @@
 import { Path, Tool } from 'paper';
 
-import { drawingsMessages } from '../../../constants';
-import { Log, throttle } from '../../../utils';
+import { drawingsMessages } from '#constants';
+import { Log, throttle } from '#utils';
 import boardsService from '../../boards';
 
 const eraserTool = new Tool();

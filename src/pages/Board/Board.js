@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Canvas, ToolBar } from '../../components';
-
-import { boardsService, drawingsService } from '../../services';
+import { Canvas, ToolBar } from '#components';
+import { boardsService, drawingsService } from '#services';
 
 import SWrapper from './styled';
 

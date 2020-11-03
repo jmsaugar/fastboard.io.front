@@ -15,5 +15,22 @@
       "afterColon": true,
       "beforeColon": true
     }]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["#components", "./src/components"],
+          ["#constants", "./src/constants"],
+          ["#hooks", "./src/hooks"],
+          ["#init", "./src/init"],
+          ["#layouts", "./src/layouts"],
+          ["#pages", "./src/pages"],
+          ["#services", "./src/services"],
+          ["#theme", "./src/theme"],
+          ["#utils", "./src/utils"]
+        ]
+      }
+    }
   }
 }

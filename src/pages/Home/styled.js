@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components';
 
-import backgroundImg from '../../theme/images/homebg.jpg'; // @todo compress this image
+import backgroundImg from '#theme/images/homebg.jpg';
 
 export default styled.div`
   position: relative;

@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
-import { escapeKeyCode, mainLayoutId } from '../../constants';
-import { useKey } from '../../hooks';
+import { escapeKeyCode, mainLayoutId } from '#constants';
+import { useKey } from '#hooks';
 import UserNameEditor from '../UserNameEditor';
 import BoardNameEditor from '../BoardNameEditor';
 import Modal from '../Modal';

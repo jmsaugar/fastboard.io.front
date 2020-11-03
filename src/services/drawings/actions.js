@@ -1,6 +1,6 @@
 import { Project } from 'paper';
 
-import { Log } from '../../utils';
+import { Log } from '#utils';
 
 /**
  * Initialize project for the specified canvas.

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { languageCodes } from '../../constants';
+import { languageCodes } from '#constants';
 
 import Dropdown from '../Dropdown';
 

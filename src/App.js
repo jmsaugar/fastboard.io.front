@@ -4,12 +4,12 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from '@xstyled/styled-components';
 
-import { mainLayoutId } from './constants';
-import MainLayout from './layouts';
+import { mainLayoutId } from '#constants';
+import MainLayout from '#layouts';
 import {
   GlobalStyle, Loading, Header, Footer,
-} from './components';
-import theme from './theme';
+} from '#components';
+import theme from '#theme';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Board = lazy(() => import('./pages/Board/Board'));

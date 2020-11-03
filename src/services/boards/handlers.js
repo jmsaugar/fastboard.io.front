@@ -1,4 +1,4 @@
-import { Log } from '../../utils';
+import { Log } from '#utils';
 
 function onDidJoin() {
   Log.debug('Service : Boards : onDidJoin');

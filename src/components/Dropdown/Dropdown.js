@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { escapeKeyCode } from '../../constants';
-import { useKey, useOutsideClick } from '../../hooks';
+import { escapeKeyCode } from '#constants';
+import { useKey, useOutsideClick } from '#hooks';
 import Button from '../Button';
 
 import {

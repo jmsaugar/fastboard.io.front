@@ -11,7 +11,7 @@ import { MousePointer as SelectionIcon } from '@styled-icons/fa-solid/MousePoint
 import { FileDownload as DownloadIcon } from '@styled-icons/fa-solid/FileDownload';
 import { ShareAlt as ShareIcon } from '@styled-icons/fa-solid/ShareAlt';
 
-import { drawingsService } from '../../services';
+import { drawingsService } from '#services';
 
 import BoardMeta from '../BoardMeta';
 import ToolButton from '../ToolButton';

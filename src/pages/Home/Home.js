@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Log } from '../../utils';
-import { boardsService } from '../../services';
+import { Log } from '#utils';
+import { boardsService } from '#services';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';

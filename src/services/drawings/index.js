@@ -1,4 +1,4 @@
-import { tools } from '../../constants';
+import { tools } from '#constants';
 
 import boardsService from '../boards';
 

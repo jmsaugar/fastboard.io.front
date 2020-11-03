@@ -1,8 +1,7 @@
 import io from 'socket.io-client';
 
-import { boardsMessages, drawingsMessages } from '../../constants';
-import { Log, timeoutPromise } from '../../utils';
-// import drawingsService from '../drawings';
+import { boardsMessages, drawingsMessages } from '#constants';
+import { Log, timeoutPromise } from '#utils';
 
 import { send } from './utils';
 import {
