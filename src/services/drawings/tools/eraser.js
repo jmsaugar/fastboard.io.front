@@ -1,6 +1,6 @@
 import { Path, Tool } from 'paper';
 
-import { drawingsEvents } from '../../../constants';
+import { drawingsMessages } from '../../../constants';
 import { Log, throttle } from '../../../utils';
 import boardsService from '../../boards';
 
@@ -31,7 +31,7 @@ eraserTool.onMouseDown = (event) => {
   currentPath.add(point);
 
   // Send event through network
-  boardsService.send(drawingsEvents.onMouseDown, { point, strokeColor });
+  boardsService.send(drawingsMessages.onMouseDown, { point, strokeColor });
 };
 
 /**
@@ -51,7 +51,7 @@ eraserTool.onMouseDrag = throttle((event) => {
   currentPath.add(point);
 
   // Send event through network
-  boardsService.send(drawingsEvents.onMouseDrag, { point });
+  boardsService.send(drawingsMessages.onMouseDrag, { point });
 }, 10);
 
 export default eraserTool;

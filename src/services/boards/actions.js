@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-import { boardsMessages, drawingsEvents } from '../../constants';
+import { boardsMessages, drawingsMessages } from '../../constants';
 import { Log, timeoutPromise } from '../../utils';
 // import drawingsService from '../drawings';
 
@@ -63,12 +63,16 @@ function join(data) {
         return rej();
       }
 
+      // Board messages
       this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
       this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
       this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
       this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
 
-      // Drawings events
+      // Drawing messages
+      this.socket.on(drawingsMessages.didSetTool, (data) => {
+        Log.debug('Service : Boards : onSetTool', { data });
+      });
       // this.socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
       //   console.log('!!!.RECEIVED.onMouseDown');
       //   drawingsService.onMouseDown(point, color);
@@ -128,10 +132,15 @@ function setBoardName(boardName) {
   );
 }
 
+function setTool(tool) {
+  send.call(this, drawingsMessages.doSetTool, { tool });
+}
+
 export {
   init,
   close,
   join,
   setUserName,
   setBoardName,
+  setTool,
 };

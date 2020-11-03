@@ -1,5 +1,8 @@
 export default Object.freeze({
-  mouseDown : 'mouseDown',
-  mouseDrag : 'mouseDrag',
-  setTool   : 'setTool',
+  doMouseDown  : 'doMouseDown',
+  didMouseDown : 'didMouseDown',
+  doMouseDrag  : 'doMouseDrag',
+  didMouseDrag : 'didMouseDrag',
+  doSetTool    : 'doSetTool',
+  didSetTool   : 'didSetTool',
 });
