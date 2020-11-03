@@ -1,3 +1,5 @@
+import { tools } from '../../constants';
+
 import boardsService from '../boards';
 
 import { init, close } from './actions';
@@ -12,10 +14,17 @@ export default {
   init  : init.bind(serviceScope),
   close : close.bind(serviceScope),
   tools : {
-    pencil : { activate : () => {
-      boardsService.setTool('pencil');
-      pencilTool.activate();
-    } },
-    eraser : { activate : eraserTool.activate.bind(eraserTool) },
+    [tools.pencil] : {
+      activate : () => {
+        boardsService.setTool(tools.pencil);
+        pencilTool.activate();
+      },
+    },
+    [tools.eraser] : {
+      activate : () => {
+        boardsService.setTool(tools.eraser);
+        eraserTool.activate.bind(eraserTool);
+      },
+    },
   },
 };
