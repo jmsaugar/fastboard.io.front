@@ -9,6 +9,8 @@
       "title": "Configura el nombre del panel",
       "cancel": "Cancelar",
       "save": "Guardar"
-    }
+    },
+    "usersCount" : "({{count}} usuario)",
+    "usersCount_plural" : "({{count}} usuarios)"
   }
 }

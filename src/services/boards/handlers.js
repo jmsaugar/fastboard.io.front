@@ -1,4 +1,5 @@
 import { Log } from '#utils';
+import { setBoardName } from '#store';
 
 function onDidJoin() {
   Log.debug('Service : Boards : onDidJoin');
@@ -14,6 +15,8 @@ function onDidSetUserName({ userId, userName }) {
 
 function onDidSetBoardName({ boardId, boardName }) {
   Log.debug('Service : Boards : onDidSetBoardName', { boardId, boardName });
+
+  setBoardName(boardName);
 }
 
 export {

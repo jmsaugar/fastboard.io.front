@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Log } from '#utils';
 import { boardsService } from '#services';
+import store, { setBoardName, setUserName } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -20,9 +21,17 @@ const Home = () => {
   const join = useCallback(
     ({ boardId, boardName, userName }) => {
       Log.debug('Component : Home : join', { boardId, boardName, userName });
+
       boardsService.init();
       boardsService.join({ boardId, boardName, userName })
-        .then((joinedBoardId) => redirectTo(`/board/${joinedBoardId}`)) // @todo urls to constants
+        .then((joinedBoardId) => {
+          Log.debug('Component : Home : join : joined', { joinedBoardId });
+
+          store.dispatch(setBoardName(boardName));
+          store.dispatch(setUserName(userName));
+
+          redirectTo(`/board/${joinedBoardId}`); // @todo urls to constants
+        })
         .catch(() => Log.error('Component : Home : join : error creating board'));
     },
     [redirectTo],

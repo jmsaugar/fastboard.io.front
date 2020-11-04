@@ -12,6 +12,7 @@ module.exports = {
         '#layouts'    : join(__dirname, 'src', 'layouts'),
         '#pages'      : join(__dirname, 'src', 'pages'),
         '#services'   : join(__dirname, 'src', 'services'),
+        '#store'      : join(__dirname, 'src', 'store'),
         '#theme'      : join(__dirname, 'src', 'theme'),
         '#utils'      : join(__dirname, 'src', 'utils'),
       },

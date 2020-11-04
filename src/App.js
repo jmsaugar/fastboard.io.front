@@ -2,14 +2,16 @@ import React, { lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
+import { Provider as StoreProvider } from 'react-redux';
 import { ThemeProvider } from '@xstyled/styled-components';
 
 import { mainLayoutId } from '#constants';
+import theme from '#theme';
+import store from '#store';
 import MainLayout from '#layouts';
 import {
   GlobalStyle, Loading, Header, Footer,
 } from '#components';
-import theme from '#theme';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Board = lazy(() => import('./pages/Board/Board'));
@@ -25,19 +27,21 @@ const App = () => {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <Suspense fallback={<Loading />}>
-        <Router>
-          <GlobalStyle />
-          <MainLayout
-            id={mainLayoutId}
-            header={<Header />}
-            content={content}
-            footer={<Footer />}
-          />
-        </Router>
-      </Suspense>
-    </ThemeProvider>
+    <StoreProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <Suspense fallback={<Loading />}>
+          <Router>
+            <GlobalStyle />
+            <MainLayout
+              id={mainLayoutId}
+              header={<Header />}
+              content={content}
+              footer={<Footer />}
+            />
+          </Router>
+        </Suspense>
+      </ThemeProvider>
+    </StoreProvider>
   );
 };
 

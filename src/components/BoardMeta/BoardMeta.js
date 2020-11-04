@@ -1,7 +1,14 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { escapeKeyCode, mainLayoutId } from '#constants';
 import { useKey } from '#hooks';
+import { boardsService } from '#services';
+import store, {
+  boardNameSelector, userNameSelector, usersCountSelector, setBoardName, setUserName,
+} from '#store';
+
 import UserNameEditor from '../UserNameEditor';
 import BoardNameEditor from '../BoardNameEditor';
 import Modal from '../Modal';
@@ -15,20 +22,36 @@ const types = Object.freeze({
 });
 
 const BoardMeta = () => {
-  const [type, setType] = useState(types.none);
+  const { t } = useTranslation('board');
 
-  // @todo those two values should come from the boards service
-  const boardName = 'Board 123456';
-  const userName = 'jms';
+  const boardName = useSelector(boardNameSelector);
+  const userName = useSelector(userNameSelector);
+  const usersCount = useSelector(usersCountSelector);
+
+  const [type, setType] = useState(types.none);
 
   const hide = useCallback(
     () => setType(types.none),
     [setType],
   );
 
-  const saveUserName = useCallback();
+  const saveUserName = useCallback(
+    (newUserName) => boardsService.setUserName(newUserName)
+      .then(() => {
+        store.dispatch(setUserName(newUserName));
+        hide();
+      }), // @todo error case
+    [hide],
+  );
 
-  const saveBoardName = useCallback();
+  const saveBoardName = useCallback(
+    (newBoardName) => boardsService.setBoardName(newBoardName)
+      .then(() => {
+        store.dispatch(setBoardName(newBoardName));
+        hide();
+      }), // @todo error case
+    [hide],
+  );
 
   const UserNameEditorComponent = useMemo(
     () => (
@@ -62,8 +85,7 @@ const BoardMeta = () => {
       @
       <SWrapper onClick={() => setType(types.boardName)}>
         {boardName}
-        {/* @todo number of users */}
-        (3 users)
+        {t('meta.usersCount', { count : usersCount })}
       </SWrapper>
       <Modal target={mainLayoutId} show={type !== types.none}>
         {type === types.userName && UserNameEditorComponent}

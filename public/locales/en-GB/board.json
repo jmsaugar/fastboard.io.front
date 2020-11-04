@@ -9,6 +9,8 @@
       "title": "Set the board name",
       "cancel": "Cancel",
       "save": "Save"
-    }
+    },
+    "usersCount" : "({{count}} user)",
+    "usersCount_plural" : "({{count}} users)"
   }
 }
