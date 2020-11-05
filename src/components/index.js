@@ -1,5 +1,6 @@
 export { default as BoardMeta } from './BoardMeta';
 export { default as BoardNameEditor } from './BoardNameEditor';
+export { default as BoardWelcome } from './BoardWelcome';
 export { default as Button } from './Button';
 export { default as Canvas } from './Canvas';
 export { default as Dropdown } from './Dropdown';
@@ -9,6 +10,7 @@ export { default as Input } from './Input';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as Loading } from './Loading';
 export { default as Modal } from './Modal';
+export { default as Spinner } from './Spinner';
 export { default as ToolBar } from './ToolBar';
 export { default as ToolButton } from './ToolButton';
 export { default as UserNameEditor } from './UserNameEditor';

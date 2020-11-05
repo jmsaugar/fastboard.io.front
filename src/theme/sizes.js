@@ -4,4 +4,5 @@ export default {
   buttonWidth : '100px',
   modalWidth  : '400px',
   formHeight  : '34px',
+  spinner     : '20px',
 };
