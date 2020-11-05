@@ -6,7 +6,7 @@ import { escapeKeyCode, mainLayoutId } from '#constants';
 import { useKey } from '#hooks';
 import { boardsService } from '#services';
 import store, {
-  boardNameSelector, userNameSelector, usersCountSelector, setBoardName, setUserName,
+  boardNameSelector, userNameSelector, usersCountSelector, setBoardName, setMyUserName,
 } from '#store';
 
 import UserNameEditor from '../UserNameEditor';
@@ -36,9 +36,9 @@ const BoardMeta = () => {
   );
 
   const saveUserName = useCallback(
-    (newUserName) => boardsService.setUserName(newUserName)
+    (newUserName) => boardsService.setMyUserName(newUserName)
       .then(() => {
-        store.dispatch(setUserName(newUserName));
+        store.dispatch(setMyUserName(newUserName));
         hide();
       }), // @todo error case
     [hide],

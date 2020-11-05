@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Log } from '#utils';
 import { boardsService } from '#services';
-import store, { setBoardName, setUserName } from '#store';
+import store, { setBoardName, setMyUserName } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -28,7 +28,7 @@ const Home = () => {
           Log.debug('Component : Home : join : joined', { joinedBoardId });
 
           store.dispatch(setBoardName(boardName));
-          store.dispatch(setUserName(userName));
+          store.dispatch(setMyUserName(userName));
 
           redirectTo(`/board/${joinedBoardId}`); // @todo urls to constants
         })
