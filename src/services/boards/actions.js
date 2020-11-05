@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-import { boardsMessages, drawingsMessages } from '#constants';
+import { boardsMessages, boardsErrors, drawingsMessages } from '#constants';
 import { Log, timeoutPromise } from '#utils';
 
 import { send } from './utils';
@@ -48,27 +48,40 @@ function close() {
  *
  * @return {Promise} Resolves when the board has been joined; rejected otherwise.
  */
-function join(data) {
-  Log.info('Service : Boards : join', data);
+function join({ boardId, boardName, userName }) {
+  Log.info('Service : Boards : join', { boardId, boardName, userName });
 
+  // @todo check parameters before requesting
   return timeoutPromise((res, rej) => send.call(
     this,
     boardsMessages.doJoin,
-    data,
-    (success, { boardId, users }) => {
-      Log.debug('Service : Boards : join : ack', { success, boardId, users });
+    { boardId, boardName, userName },
+    (success, {
+      boardId : joinedBoardId, boardName : joinedBoardName, users, errorCode,
+    }) => {
+      // Board join ack received
+      Log.debug('Service : Boards : join : ack', {
+        success, joinedBoardId, users, errorCode,
+      });
 
-      if (!success || (data.boardId && (data.boardId !== boardId))) {
-        return rej();
+      // Check if correct join
+      if (!success) {
+        return rej(errorCode);
       }
 
-      // Board messages
+      // Check join data is correct
+      // @todo this first check is failing because of type string vs integer board id comparison
+      if ((boardId !== undefined && boardId !== joinedBoardId) || boardName !== joinedBoardName) {
+        return rej(boardsErrors.generic);
+      }
+
+      // Add handlers for board messages
       this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
       this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
       this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
       this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
 
-      // Drawing messages
+      // Add handlers for drawings messages
       this.socket.on(drawingsMessages.didSetTool, (data) => {
         Log.debug('Service : Boards : onSetTool', { data });
       });
@@ -82,9 +95,7 @@ function join(data) {
       //   drawingsService.onMouseDrag(point);
       // });
 
-      // @todo do something with users
-
-      return res(boardId);
+      return res({ boardId : joinedBoardId, boardName, users });
     },
   ), timeout);
 }

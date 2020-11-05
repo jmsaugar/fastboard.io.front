@@ -2,6 +2,7 @@ export {
   setBoardName,
   setMyUserName,
   setUserName,
+  setUsers,
   addUser,
   removeUser,
   default as boardSlice,

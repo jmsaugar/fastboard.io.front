@@ -43,6 +43,17 @@ const boardSlice = createSlice({
         }
         : state
     ),
+    setUsers : (state, action) => (
+      action.payload
+        ? {
+          ...state,
+          users : {
+            ...state.users,
+            others : action.payload,
+          },
+        }
+        : state
+    ),
     addUser : (state, action) => (
       action.payload
         ? {
@@ -72,7 +83,7 @@ const boardSlice = createSlice({
 });
 
 export const {
-  setBoardName, setMyUserName, setUserName, addUser, removeUser,
+  setBoardName, setMyUserName, setUserName, setUsers, addUser, removeUser,
 } = boardSlice.actions;
 
 export default boardSlice;

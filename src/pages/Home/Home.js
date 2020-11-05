@@ -19,18 +19,18 @@ const Home = () => {
   const [step, setStep] = useState(steps.home);
 
   const join = useCallback(
-    ({ boardId, boardName, userName }) => {
-      Log.debug('Component : Home : join', { boardId, boardName, userName });
+    (joinParameters) => {
+      Log.debug('Component : Home : join', joinParameters);
 
       boardsService.init();
-      boardsService.join({ boardId, boardName, userName })
-        .then((joinedBoardId) => {
-          Log.debug('Component : Home : join : joined', { joinedBoardId });
+      boardsService.join(joinParameters)
+        .then(({ boardId, boardName }) => {
+          Log.debug('Component : Home : join : joined', { boardId });
 
           store.dispatch(setBoardName(boardName));
-          store.dispatch(setMyUserName(userName));
+          store.dispatch(setMyUserName(joinParameters.userName));
 
-          redirectTo(`/board/${joinedBoardId}`); // @todo urls to constants
+          redirectTo(`/board/${boardId}`); // @todo urls to constants
         })
         .catch(() => Log.error('Component : Home : join : error creating board'));
     },

@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { mainLayoutId } from '#constants';
+import { mainLayoutId, boardsErrors } from '#constants';
 import {
   BoardWelcome, Canvas, Modal, ToolBar,
 } from '#components';
 import { boardsService, drawingsService } from '#services';
+import store, { setBoardName, setMyUserName, setUsers } from '#store';
 
 import SWrapper from './styled';
 
@@ -37,12 +38,17 @@ const Board = () => {
         boardId,
         userName,
       })
-        .then(() => {
-          // drawingsService.init(CANVAS_ID);
-          // setShowWelcome(false);
-          // setIsLoading(false);
-        }) // @todo loading state
-        .catch(); // @todo error
+        .then(({ boardName, users }) => {
+          store.dispatch(setBoardName(boardName));
+          store.dispatch(setMyUserName(userName));
+          store.dispatch(setUsers(users));
+
+          drawingsService.init(CANVAS_ID);
+
+          setShowWelcome(false);
+          setIsLoading(false);
+        })
+        .catch((error) => console.log(error.name, error.message)); // @todo error
     },
     [boardId],
   );
