@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const boardSlice = createSlice({
   name         : 'board',
   initialState : {
+    joined    : false,
     boardName : undefined,
     users     : {
       me     : undefined,
@@ -10,6 +11,12 @@ const boardSlice = createSlice({
     },
   },
   reducers : {
+    setJoined : (state, action) => (
+      {
+        ...state,
+        joined : action.payload,
+      }
+    ),
     setBoardName : (state, action) => (
       action.payload
         ? {
@@ -83,7 +90,13 @@ const boardSlice = createSlice({
 });
 
 export const {
-  setBoardName, setMyUserName, setUserName, setUsers, addUser, removeUser,
+  setJoined,
+  setBoardName,
+  setMyUserName,
+  setUserName,
+  setUsers,
+  addUser,
+  removeUser,
 } = boardSlice.actions;
 
 export default boardSlice;

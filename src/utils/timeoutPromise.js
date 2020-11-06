@@ -1,25 +1,4 @@
 /**
- * Throttles a function call.
- *
- * @param {Function} callback Function to be throttled.
- * @param {Integer} delay Throttle delay in milliseconds.
- *
- * @return {Function} Function that throttles the execution of the callback.
- */
-export function throttle(callback, delay = 0) {
-  let previousTime = new Date().getTime();
-
-  return function throttledCallback(...args) {
-    const currentTime = new Date().getTime();
-
-    if ((currentTime - previousTime) >= delay) {
-      previousTime = currentTime;
-      callback(...args);
-    }
-  };
-}
-
-/**
  * Creates a Promise with a rejection timeout.
  *
  * @param {Function} callback Function for the promise. Receives res and rej functions.
@@ -27,7 +6,7 @@ export function throttle(callback, delay = 0) {
  *
  * @return {Promise} Promise with rejection timeout.
  */
-export function timeoutPromise(callback, timeout) {
+export default function timeoutPromise(callback, timeout) {
   return new Promise(
     (res, rej) => {
       const timeoutId = setTimeout(() => rej(new Error()), timeout);

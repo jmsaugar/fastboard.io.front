@@ -20,5 +20,13 @@
     "userNamePlaceholder": "Introduce your user name",
     "cancel": "Cancel",
     "join": "Join"
+  },
+  "error": {
+    "title": "Error joining the board",
+    "messages": {
+      "generic": "The board could not be joined.",
+      "noBoard": "The board you are trying to join does not exist."
+    },
+    "accept": "Accept"
   }
 }

@@ -1,3 +1,4 @@
+export { default as BoardError } from './BoardError';
 export { default as BoardMeta } from './BoardMeta';
 export { default as BoardNameEditor } from './BoardNameEditor';
 export { default as BoardWelcome } from './BoardWelcome';

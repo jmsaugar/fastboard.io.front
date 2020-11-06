@@ -1,4 +1,4 @@
-import { timeoutPromise } from './utils';
+import timeoutPromise from './timeoutPromise';
 
 const resolved = 'resolved';
 const rejected = 'rejected';

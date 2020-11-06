@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
 import { boardsService } from '#services';
-import store, { setBoardName, setMyUserName } from '#store';
+import {
+  setJoined, setBoardName, setMyUserName, setUsers,
+} from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -16,6 +19,7 @@ const steps = Object.freeze({
 
 const Home = () => {
   const { push : redirectTo } = useHistory();
+  const dispatch = useDispatch();
   const [step, setStep] = useState(steps.home);
 
   const join = useCallback(
@@ -24,17 +28,19 @@ const Home = () => {
 
       boardsService.init();
       boardsService.join(joinParameters)
-        .then(({ boardId, boardName }) => {
+        .then(({ boardId, boardName, users }) => {
           Log.debug('Component : Home : join : joined', { boardId });
 
-          store.dispatch(setBoardName(boardName));
-          store.dispatch(setMyUserName(joinParameters.userName));
+          dispatch(setJoined(true));
+          dispatch(setBoardName(boardName));
+          dispatch(setMyUserName(joinParameters.userName));
+          dispatch(setUsers(users));
 
           redirectTo(`/board/${boardId}`); // @todo urls to constants
         })
         .catch(() => Log.error('Component : Home : join : error creating board'));
     },
-    [redirectTo],
+    [dispatch, redirectTo],
   );
 
   return (

@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { escapeKeyCode, mainLayoutId } from '#constants';
 import { useKey } from '#hooks';
 import { boardsService } from '#services';
-import store, {
+import {
   boardNameSelector, userNameSelector, usersCountSelector, setBoardName, setMyUserName,
 } from '#store';
 
@@ -23,6 +23,7 @@ const types = Object.freeze({
 
 const BoardMeta = () => {
   const { t } = useTranslation('board');
+  const dispatch = useDispatch();
 
   const boardName = useSelector(boardNameSelector);
   const userName = useSelector(userNameSelector);
@@ -38,19 +39,19 @@ const BoardMeta = () => {
   const saveUserName = useCallback(
     (newUserName) => boardsService.setMyUserName(newUserName)
       .then(() => {
-        store.dispatch(setMyUserName(newUserName));
+        dispatch(setMyUserName(newUserName));
         hide();
       }), // @todo error case
-    [hide],
+    [dispatch, hide],
   );
 
   const saveBoardName = useCallback(
     (newBoardName) => boardsService.setBoardName(newBoardName)
       .then(() => {
-        store.dispatch(setBoardName(newBoardName));
+        dispatch(setBoardName(newBoardName));
         hide();
       }), // @todo error case
-    [hide],
+    [dispatch, hide],
   );
 
   const UserNameEditorComponent = useMemo(

@@ -1,10 +1,12 @@
 export {
+  setJoined,
   setBoardName,
   setMyUserName,
   setUserName,
   setUsers,
   addUser,
   removeUser,
+  isJoinedSelector,
   boardNameSelector,
   userNameSelector,
   usersCountSelector,

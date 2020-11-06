@@ -20,5 +20,13 @@
     "userNamePlaceholder": "Introduce tu nombre de usuario",
     "cancel": "Cancelar",
     "join": "Unirse"
+  },
+  "error": {
+    "title": "Error al unirse al panel",
+    "messages": {
+      "generic": "No pudiste unirte al panel.",
+      "noBoard": "El panel al que estás tratando de unirte no existe."
+    },
+    "accept": "Aceptar"
   }
 }

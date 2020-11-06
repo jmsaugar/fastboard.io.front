@@ -70,8 +70,8 @@ function join({ boardId, boardName, userName }) {
       }
 
       // Check join data is correct
-      // @todo this first check is failing because of type string vs integer board id comparison
-      if ((boardId !== undefined && boardId !== joinedBoardId) || boardName !== joinedBoardName) {
+      if ((boardId !== undefined && boardId !== joinedBoardId)
+        || (boardName !== undefined && boardName !== joinedBoardName)) {
         return rej(boardsErrors.generic);
       }
 

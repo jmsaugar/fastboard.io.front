@@ -1,4 +1,5 @@
 export {
+  setJoined,
   setBoardName,
   setMyUserName,
   setUserName,
@@ -7,4 +8,9 @@ export {
   removeUser,
   default as boardSlice,
 } from './slice';
-export { boardNameSelector, userNameSelector, usersCountSelector } from './selectors';
+export {
+  isJoinedSelector,
+  boardNameSelector,
+  userNameSelector,
+  usersCountSelector,
+} from './selectors';
