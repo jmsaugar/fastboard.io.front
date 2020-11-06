@@ -37,7 +37,7 @@ const BoardMeta = () => {
   );
 
   const saveUserName = useCallback(
-    (newUserName) => boardsService.setMyUserName(newUserName)
+    (newUserName) => boardsService.setUserName(newUserName)
       .then(() => {
         dispatch(setMyUserName(newUserName));
         hide();

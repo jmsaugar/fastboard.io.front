@@ -42,7 +42,7 @@ const boardSlice = createSlice({
           ...state,
           users : {
             ...state.users,
-            others : state.users.map((user) => ({
+            others : state.users.others.map((user) => ({
               ...user,
               name : user.id === action.payload.id ? action.payload.name : user.name,
             })),

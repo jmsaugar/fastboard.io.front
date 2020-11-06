@@ -95,7 +95,7 @@ function join({ boardId, boardName, userName }) {
       //   drawingsService.onMouseDrag(point);
       // });
 
-      return res({ boardId : joinedBoardId, boardName, users });
+      return res({ boardId : joinedBoardId, boardName : joinedBoardName, users });
     },
   ), timeout);
 }
