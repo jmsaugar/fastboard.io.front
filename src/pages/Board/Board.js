@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
+import routes from '#routes';
 import { mainLayoutId, boardsErrors } from '#constants';
 import {
   BoardError, BoardWelcome, Canvas, Modal, ToolBar,
@@ -77,7 +78,7 @@ const Board = () => {
     [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],
   );
 
-  const goHome = () => redirectTo('/'); // @todo urls to constants
+  const goHome = () => redirectTo(routes.home);
 
   return (
     <SWrapper>

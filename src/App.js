@@ -6,6 +6,7 @@ import { Provider as StoreProvider } from 'react-redux';
 import { ThemeProvider } from '@xstyled/styled-components';
 
 import { mainLayoutId } from '#constants';
+import routes from '#routes';
 import theme from '#theme';
 import store from '#store';
 import MainLayout from '#layouts';
@@ -20,8 +21,8 @@ const App = () => {
   const content = (
     <Suspense fallback={<Loading />}>
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/board/:id" component={Board} />
+        <Route path={routes.home} component={Home} exact />
+        <Route path={routes.board} component={Board} />
       </Switch>
     </Suspense>
   );

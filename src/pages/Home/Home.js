@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
+import routes from '#routes';
 import { boardsService } from '#services';
 import {
   setJoined, setBoardName, setMyUserName, setUsers,
@@ -36,7 +37,7 @@ const Home = () => {
           dispatch(setMyUserName(joinParameters.userName));
           dispatch(setUsers(users));
 
-          redirectTo(`/board/${boardId}`); // @todo urls to constants
+          redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(() => Log.error('Component : Home : join : error creating board'));
     },
