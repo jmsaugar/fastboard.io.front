@@ -1,6 +1,6 @@
 import { isInit, send } from './utils';
 import {
-  init, close, join, setUserName, setBoardName, setTool,
+  init, close, create, join, setUserName, setBoardName, setTool,
 } from './actions';
 
 const serviceScope = {
@@ -12,6 +12,7 @@ export default {
   isInit       : isInit.bind(serviceScope),
   init         : init.bind(serviceScope),
   close        : close.bind(serviceScope),
+  create       : create.bind(serviceScope),
   join         : join.bind(serviceScope),
   setUserName  : setUserName.bind(serviceScope),
   setBoardName : setBoardName.bind(serviceScope),

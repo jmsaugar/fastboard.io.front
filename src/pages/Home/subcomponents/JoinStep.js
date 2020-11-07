@@ -55,7 +55,7 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
         <SAction onClick={onCancel}>
           {t('join.cancel')}
         </SAction>
-        <SAction onClick={() => onJoin({ boardId, userName })}>
+        <SAction onClick={() => onJoin(boardId, userName)}>
           {t('join.join')}
         </SAction>
       </SActions>

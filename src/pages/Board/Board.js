@@ -51,14 +51,9 @@ const Board = () => {
       setIsLoading(true);
 
       boardsService.init();
-      boardsService.join({
-        boardId,
-        userName,
-      })
-        .then(({ boardName, users }) => {
-          Log.debug('Component : Board : join : joined', {
-            boardId, userName, boardName, users,
-          });
+      boardsService.join(boardId, userName)
+        .then(({ boardId : joinedBoardId, boardName, users }) => {
+          Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
 
           dispatch(setJoined(true)); // @todo add boardName, username and users list to this action
           dispatch(setBoardName(boardName));

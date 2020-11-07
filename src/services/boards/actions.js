@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 import { boardsMessages, boardsErrors, drawingsMessages } from '#constants';
 import { Log, timeoutPromise } from '#utils';
 
+import drawingsService from '../drawings';
 import { send } from './utils';
 import {
   onDidJoin,
@@ -40,38 +41,38 @@ function close() {
 }
 
 /**
- * Join a board. If no board id is specified, board is created.
+ * Create a new board and join it.
  *
  * Includes all the events attaching logic.
  *
- * @param {Object} data {boardId, boardName, userName}
+ * @param {String} boardName Name of the board.
+ * @param {String} userName Name of the user.
  *
- * @return {Promise} Resolves when the board has been joined; rejected otherwise.
+ * @return {Promise} Resolved when the board has been created and joined; rejected otherwise.
  */
-function join({ boardId, boardName, userName }) {
-  Log.info('Service : Boards : join', { boardId, boardName, userName });
+function create(boardName, userName) {
+  Log.info('Service : Boards : create', { boardName, userName });
 
-  // @todo check parameters before requesting
   return timeoutPromise((res, rej) => send.call(
     this,
-    boardsMessages.doJoin,
-    { boardId, boardName, userName },
+    boardsMessages.doCreate,
+    { boardName, userName },
     (success, {
-      boardId : joinedBoardId, boardName : joinedBoardName, users, errorCode,
+      boardId,
+      boardName : joinedBoardName,
+      errorCode,
     }) => {
-      // Board join ack received
-      Log.debug('Service : Boards : join : ack', {
-        success, joinedBoardId, users, errorCode,
+      Log.debug('Service : Boards : create : ack', {
+        success, boardId, joinedBoardName, errorCode,
       });
 
-      // Check if correct join
+      // Check if correct operation
       if (!success) {
         return rej(errorCode);
       }
 
       // Check join data is correct
-      if ((boardId !== undefined && boardId !== joinedBoardId)
-        || (boardName !== undefined && boardName !== joinedBoardName)) {
+      if (!boardId || boardName !== joinedBoardName) {
         return rej(boardsErrors.generic);
       }
 
@@ -82,9 +83,65 @@ function join({ boardId, boardName, userName }) {
       this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
 
       // Add handlers for drawings messages
-      this.socket.on(drawingsMessages.didSetTool, (data) => {
-        Log.debug('Service : Boards : onSetTool', { data });
+      this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
+      this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
+      this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
+
+      return res({ boardId, boardName });
+    },
+  ), timeout);
+}
+
+/**
+ * Join a board.
+ *
+ * Includes all the events attaching logic.
+ *
+ * @param {String} boardId Id of the board.
+ * @param {String} userName Name of the user.
+ *
+ * @return {Promise} Resolved when the board has been joined; rejected otherwise.
+ */
+function join(boardId, userName) {
+  Log.info('Service : Boards : join', { boardId, userName });
+
+  // @todo check parameters before requesting
+  return timeoutPromise((res, rej) => send.call(
+    this,
+    boardsMessages.doJoin,
+    { boardId, userName },
+    (success, {
+      boardId : joinedBoardId, boardName, users, errorCode,
+    }) => {
+      // Board join ack received
+      Log.debug('Service : Boards : join : ack', {
+        success, joinedBoardId, boardName, users, errorCode,
       });
+
+      // Check if correct join
+      if (!success) {
+        return rej(errorCode);
+      }
+
+      // Check join data is correct
+      if (!boardName || boardId !== joinedBoardId) {
+        return rej(boardsErrors.generic);
+      }
+
+      // Add handlers for board messages
+      this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
+      this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
+      this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
+      this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
+
+      // Add handlers for drawings messages
+      this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
+      this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
+      this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
+
+      // this.socket.on(drawingsMessages.didSetTool, (data) => {
+      //   Log.debug('Service : Boards : onSetTool', { data }); // { userId, tool }
+      // });
       // this.socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
       //   console.log('!!!.RECEIVED.onMouseDown');
       //   drawingsService.onMouseDown(point, color);
@@ -95,7 +152,7 @@ function join({ boardId, boardName, userName }) {
       //   drawingsService.onMouseDrag(point);
       // });
 
-      return res({ boardId : joinedBoardId, boardName : joinedBoardName, users });
+      return res({ boardId, boardName, users });
     },
   ), timeout);
 }
@@ -149,6 +206,7 @@ function setTool(tool) {
 export {
   init,
   close,
+  create,
   join,
   setUserName,
   setBoardName,

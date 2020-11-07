@@ -57,7 +57,7 @@ const CreateStep = ({ show, onCreate, onCancel }) => {
         <SAction onClick={onCancel}>
           {t('create.cancel')}
         </SAction>
-        <SAction onClick={() => onCreate({ boardName, userName })}>
+        <SAction onClick={() => onCreate(boardName, userName)}>
           {t('create.create')}
         </SAction>
       </SActions>

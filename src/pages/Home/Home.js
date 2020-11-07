@@ -23,23 +23,45 @@ const Home = () => {
   const dispatch = useDispatch();
   const [step, setStep] = useState(steps.home);
 
-  const join = useCallback(
-    (joinParameters) => {
-      Log.debug('Component : Home : join', joinParameters);
+  // @todo refactor create & join functions
+
+  const create = useCallback(
+    (boardName, userName) => {
+      Log.debug('Component : Home : create', { boardName, userName });
 
       boardsService.init();
-      boardsService.join(joinParameters)
-        .then(({ boardId, boardName, users }) => {
-          Log.debug('Component : Home : join : joined', { boardId });
+      boardsService.create(boardName, userName)
+        .then(({ boardId, boardName : joinedBoardName }) => {
+          Log.debug('Component : Home : create : created', { boardId, joinedBoardName });
 
           dispatch(setJoined(true));
           dispatch(setBoardName(boardName));
-          dispatch(setMyUserName(joinParameters.userName));
+          dispatch(setMyUserName(userName));
+
+          redirectTo(routes.board.replace(':id', boardId));
+        })
+        .catch(() => Log.error('Component : Home : create : error creating board'));
+    },
+    [dispatch, redirectTo],
+  );
+
+  const join = useCallback(
+    (boardId, userName) => {
+      Log.debug('Component : Home : join', { boardId, userName });
+
+      boardsService.init();
+      boardsService.join(boardId, userName)
+        .then(({ boardId : joinedBoardId, boardName, users }) => {
+          Log.debug('Component : Home : join : joined', { joinedBoardId, boardName, users });
+
+          dispatch(setJoined(true));
+          dispatch(setBoardName(boardName));
+          dispatch(setMyUserName(userName));
           dispatch(setUsers(users));
 
           redirectTo(routes.board.replace(':id', boardId));
         })
-        .catch(() => Log.error('Component : Home : join : error creating board'));
+        .catch(() => Log.error('Component : Home : join : error joining board'));
     },
     [dispatch, redirectTo],
   );
@@ -53,7 +75,7 @@ const Home = () => {
       />
       <CreateStep
         show={step === steps.create}
-        onCreate={join}
+        onCreate={create}
         onCancel={() => setStep(steps.home)}
       />
       <JoinStep

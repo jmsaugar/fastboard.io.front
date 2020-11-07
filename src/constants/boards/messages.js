@@ -1,4 +1,5 @@
 export default Object.freeze({
+  doCreate        : 'doCreate',
   doJoin          : 'doJoin',
   didJoin         : 'didJoin',
   didLeave        : 'didLeave',
