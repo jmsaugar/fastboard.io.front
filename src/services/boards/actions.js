@@ -41,6 +41,37 @@ function close() {
 }
 
 /**
+ * Set message handlers for boards and drawings.
+ */
+function setMessageHandlers() {
+  Log.info('Services : Boards : setMessageHandlers');
+
+  // Add handlers for board messages
+  this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
+  this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
+  this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
+  this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
+
+  // Add handlers for drawings messages
+  this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
+  this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
+  this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
+
+  // this.socket.on(drawingsMessages.didSetTool, (data) => {
+  //   Log.debug('Service : Boards : onSetTool', { data }); // { userId, tool }
+  // });
+  // this.socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
+  //   console.log('!!!.RECEIVED.onMouseDown');
+  //   drawingsService.onMouseDown(point, color);
+  // });
+
+  // this.socket.on(drawingsEvents.onMouseDrag, ({ userId, point }) => {
+  //   console.log('!!!.RECEIVED.onMouseDrag');
+  //   drawingsService.onMouseDrag(point);
+  // });
+}
+
+/**
  * Create a new board and join it.
  *
  * Includes all the events attaching logic.
@@ -76,16 +107,8 @@ function create(boardName, userName) {
         return rej(boardsErrors.generic);
       }
 
-      // Add handlers for board messages
-      this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
-      this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
-      this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
-      this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
-
-      // Add handlers for drawings messages
-      this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
-      this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
-      this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
+      // Add handlers for messages
+      setMessageHandlers.call(this);
 
       return res({ boardId, boardName });
     },
@@ -128,29 +151,8 @@ function join(boardId, userName) {
         return rej(boardsErrors.generic);
       }
 
-      // Add handlers for board messages
-      this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
-      this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
-      this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
-      this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
-
-      // Add handlers for drawings messages
-      this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
-      this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
-      this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
-
-      // this.socket.on(drawingsMessages.didSetTool, (data) => {
-      //   Log.debug('Service : Boards : onSetTool', { data }); // { userId, tool }
-      // });
-      // this.socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
-      //   console.log('!!!.RECEIVED.onMouseDown');
-      //   drawingsService.onMouseDown(point, color);
-      // });
-
-      // this.socket.on(drawingsEvents.onMouseDrag, ({ userId, point }) => {
-      //   console.log('!!!.RECEIVED.onMouseDrag');
-      //   drawingsService.onMouseDrag(point);
-      // });
+      // Add handlers for messages
+      setMessageHandlers.call(this);
 
       return res({ boardId, boardName, users });
     },
