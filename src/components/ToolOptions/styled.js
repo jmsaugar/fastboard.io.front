@@ -8,7 +8,7 @@ export default styled.div`
   top: calc(2 * ${getSpace('sm')} + ${getSize('toolButton')} + 2 * ${getBorderWidth('default')});
   display: flex;
   flex-direction: column;
-  transition: 0.1s;
+  transition: fast;
 
   ${variant({
     default  : false,

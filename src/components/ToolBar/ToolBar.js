@@ -12,6 +12,8 @@ import { MousePointer as SelectionIcon } from '@styled-icons/fa-solid/MousePoint
 import { FileDownload as DownloadIcon } from '@styled-icons/fa-solid/FileDownload';
 import { ShareAlt as ShareIcon } from '@styled-icons/fa-solid/ShareAlt';
 
+import { Circle as CircleIcon } from '@styled-icons/fa-solid/Circle';
+
 import { drawingsColors, tools } from '#constants';
 import { drawingsService } from '#services';
 import { isJoinedSelector } from '#store';
@@ -29,11 +31,13 @@ const ToolBar = () => {
   const [selectedTool, setSelectedTool] = useState();
   const [showOptionsTool, setShowOptionsTool] = useState();
   const [pencilColor, setPencilColor] = useState(drawingsColors.black);
-  const [penColor, setPenColor] = useState(drawingsColors.red);
+  const [penColor, setPenColor] = useState(drawingsColors.black);
   const [highlighterColor, setHighlighterColor] = useState(drawingsColors.black);
 
   const clickTool = useCallback(
     (tool) => {
+      setShowOptionsTool();
+
       if (selectedTool === tool) {
         if (toolsWithOptions.includes(tool)) {
           // Show options
@@ -47,6 +51,30 @@ const ToolBar = () => {
     [selectedTool, setSelectedTool],
   );
 
+  const clickToolOption = useCallback(
+    (tool, color) => {
+      switch (tool) {
+        case tools.pencil:
+          setPencilColor(color);
+          break;
+
+        case tools.pen:
+          setPenColor(color);
+          break;
+
+        case tools.highlighter:
+          setHighlighterColor(color);
+          break;
+
+        default:
+          break;
+      }
+
+      setShowOptionsTool();
+    },
+    [setPencilColor, setPenColor, setHighlighterColor, setShowOptionsTool],
+  );
+
   return (
     <SWrapper>
       {isJoined && (
@@ -57,26 +85,66 @@ const ToolBar = () => {
       <STools>
         <ToolButton
           icon={<PencilIcon />}
-          color={penColor}
+          color={pencilColor}
           onClick={() => clickTool(tools.pencil)}
           selected={selectedTool === tools.pencil}
         >
-          <ToolOptions show={showOptionsTool === tools.pencil} />
+          <ToolOptions show={showOptionsTool === tools.pencil}>
+            {Object.values(drawingsColors).map((color) => (
+              <ToolButton
+                icon={<CircleIcon />}
+                color={color}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clickToolOption(tools.pencil, color);
+                }}
+              />
+            ))}
+          </ToolOptions>
         </ToolButton>
         <ToolButton
           icon={<PenIcon />}
+          color={penColor}
           onClick={() => clickTool(tools.pen)}
           selected={selectedTool === tools.pen}
         >
-          <ToolOptions show={showOptionsTool === tools.pen} />
+          <ToolOptions show={showOptionsTool === tools.pen}>
+            {Object.values(drawingsColors).map((color) => (
+              <ToolButton
+                icon={<CircleIcon />}
+                color={color}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clickToolOption(tools.pen, color);
+                }}
+              />
+            ))}
+          </ToolOptions>
         </ToolButton>
         <ToolButton
           icon={<HighlighterIcon />}
+          color={highlighterColor}
           onClick={() => clickTool(tools.highlighter)}
           selected={selectedTool === tools.highlighter}
         >
-          <ToolOptions show={showOptionsTool === tools.highlighter} />
+          <ToolOptions show={showOptionsTool === tools.highlighter}>
+            {Object.values(drawingsColors).map((color) => (
+              <ToolButton
+                icon={<CircleIcon />}
+                color={color}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clickToolOption(tools.highlighter, color);
+                }}
+              />
+            ))}
+          </ToolOptions>
         </ToolButton>
+        <ToolButton
+          icon={<EraserIcon />}
+          onClick={() => clickTool(tools.eraser)}
+          selected={selectedTool === tools.eraser}
+        />
       </STools>
     </SWrapper>
   );
