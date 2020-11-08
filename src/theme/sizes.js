@@ -5,4 +5,5 @@ export default {
   modalWidth  : '400px',
   formHeight  : '34px',
   spinner     : '20px',
+  toolButton  : '42px',
 };

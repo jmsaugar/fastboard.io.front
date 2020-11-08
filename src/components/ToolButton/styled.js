@@ -1,8 +1,8 @@
 import styled from '@xstyled/styled-components';
 
 export const SWrapper = styled.div`
-  height: 42px;
-  width: 42px;
+  height: toolButton;
+  width: toolButton;
   border-radius: rounded;
   border-width: default;
   border-style: default;

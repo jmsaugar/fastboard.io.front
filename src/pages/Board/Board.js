@@ -33,9 +33,10 @@ const Board = () => {
   const [errorCode, setErrorCode] = useState();
 
   useEffect(() => {
-    if (!boardsService.isInit()) {
-      setModalStep(modalSteps.welcome);
-    }
+    // @todo temporary commented for easy development
+    // if (!boardsService.isInit()) {
+    //   setModalStep(modalSteps.welcome);
+    // }
 
     return () => {
       dispatch(setJoined(false));

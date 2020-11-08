@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Pen as PencilIcon } from '@styled-icons/fa-solid/Pen';
 import { Marker as PenIcon } from '@styled-icons/fa-solid/Marker';
@@ -17,11 +17,14 @@ import { isJoinedSelector } from '#store';
 
 import BoardMeta from '../BoardMeta';
 import ToolButton from '../ToolButton';
+import ToolOptions from '../ToolOptions';
 
 import { SWrapper, SMeta, STools } from './styled';
 
 const ToolBar = () => {
   const isJoined = useSelector(isJoinedSelector);
+
+  const [showPenTools, setShowPenTools] = useState(false);
 
   return (
     <SWrapper>
@@ -32,7 +35,9 @@ const ToolBar = () => {
       )}
       <STools>
         <ToolButton title="Soy un tooltip" icon={<PencilIcon />} onClick={drawingsService.tools.pencil.activate} />
-        <ToolButton icon={<PenIcon />} />
+        <ToolButton icon={<PenIcon />} onClick={() => setShowPenTools(!showPenTools)}>
+          <ToolOptions show={showPenTools} />
+        </ToolButton>
         <ToolButton icon={<HighlighterIcon />} />
         <ToolButton icon={<EraserIcon />} onClick={drawingsService.tools.eraser.activate} />
         <ToolButton icon={<PointerIcon />} />
