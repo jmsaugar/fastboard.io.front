@@ -1,4 +1,6 @@
 export default Object.freeze({
-  pencil : 'pencil',
-  eraser : 'eraser',
+  pencil      : 'pencil',
+  pen         : 'pen',
+  highlighter : 'highlighter',
+  eraser      : 'eraser',
 });

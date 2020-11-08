@@ -1,28 +1,45 @@
-import styled from '@xstyled/styled-components';
+import styled, { css } from '@xstyled/styled-components';
+import {
+  getBorderWidth, getColor, getSize, getTransition, variant,
+} from '@xstyled/system';
 
 export const SWrapper = styled.div`
-  height: toolButton;
-  width: toolButton;
-  border-radius: rounded;
-  border-width: default;
-  border-style: default;
-  border-color: border;
-  margin: auto sm;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  border-style: default;
+  border-color: ${({ color, selected }) => ((color && selected) ? color : getColor('border'))};
+  margin: auto sm;
+  border-radius: rounded;
 
-  transition: default;
+  transition: box-shadow ${getTransition('default')};
   &:hover {
     box-shadow: default;
     cursor: pointer;
   }
+
+  ${variant({
+    default  : false,
+    prop     : 'selected',
+    variants : {
+      true : css`
+        width: calc(${getSize('toolButton')} - 2*(${getBorderWidth('xlg')}));
+        height: calc(${getSize('toolButton')} - 2*(${getBorderWidth('xlg')}));
+        border-width: xlg;
+      `,
+      false : css`
+        width: calc(${getSize('toolButton')} - 2*(${getBorderWidth('default')}));
+        height: calc(${getSize('toolButton')} - 2*(${getBorderWidth('default')}));
+        border-width: default;
+      `,
+    },
+  })}
 `;
 
 export const SIcon = styled.span`
   & > svg {
     width: 18px;
     height: 18px;
+    color: ${({ color }) => color};
   }
 `;

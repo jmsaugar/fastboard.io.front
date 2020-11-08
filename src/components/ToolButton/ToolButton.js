@@ -1,14 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { drawingsColors } from '#constants';
 
 import { SWrapper, SIcon } from './styled';
 
-const ToolButton = ({ icon, onClick, children }) => (
-  <SWrapper onClick={onClick}>
-    <SIcon>
+const ToolButton = ({
+  icon, color, selected, onClick, children,
+}) => (
+  <SWrapper color={color} onClick={onClick} selected={selected}>
+    <SIcon color={color}>
       {icon}
     </SIcon>
     {children}
   </SWrapper>
 );
+
+ToolButton.defaultProps = {
+  children : undefined,
+  color    : undefined,
+  selected : false,
+};
+
+ToolButton.propTypes = {
+  children : PropTypes.node,
+  color    : PropTypes.oneOf(Object.values(drawingsColors)),
+  icon     : PropTypes.node.isRequired,
+  onClick  : PropTypes.func.isRequired,
+  selected : PropTypes.bool,
+};
 
 export default ToolButton;
