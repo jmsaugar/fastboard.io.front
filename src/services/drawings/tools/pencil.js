@@ -1,25 +1,24 @@
 import { Path, Tool } from 'paper';
 
-import { drawingsMessages } from '#constants';
 import { Log, throttle } from '#utils';
-import boardsService from '../../boards';
+import { drawingsMessages } from '#constants';
 
-const pencilTool = new Tool();
+const strokeWidth = 1;
 
-let strokeColor = 'red';
-let strokeWidth = 1;
+function setColor(color) {
+  Log.debug('Services : Drawings : Tools : Pencil : setColor', { color });
 
-let currentPath;
+  this.scope.strokeColor = color;
+}
 
-/**
- * Pencil - onMouseDown
- *
- * Add a new point to a new path with the pencil stroke size and color.
- *
- * @param {Object} event Mouse down event.
- */
-pencilTool.onMouseDown = (event) => {
-  Log.debug('Service : Drawings : tools : pencil : onMouseDown', { event });
+function activate() {
+  Log.debug('Services : Drawings : Tools : Pencil : activate');
+
+  this.tool.activate();
+}
+
+function onMouseDown(event) {
+  Log.debug('Services : Drawings : Tools : Pencil : onMouseDown', { event });
 
   // Data required by the event
   const point = {
@@ -27,31 +26,65 @@ pencilTool.onMouseDown = (event) => {
     y : event.point.y,
   };
 
-  currentPath = new Path({ strokeColor, strokeWidth });
-  currentPath.add(point);
+  this.currentPath = new Path({
+    strokeColor : this.strokeColor,
+    strokeWidth,
+  });
 
-  // Send event through network
-  boardsService.send(drawingsMessages.onMouseDown, { point, strokeColor });
+  this.currentPath.add(point);
+
+  return { point, strokeColor : this.strokeColor };
+}
+
+function onMouseDrag(event) {
+  // Data required by the event
+  const point = {
+    x : event.point.x,
+    y : event.point.y,
+  };
+
+  this.currentPath.add(point);
+
+  return { point };
+}
+
+export default (dependencies) => {
+  Log.info('Services : Drawings : Tools : Pencil : create');
+
+  const scope = {
+    dependencies : {
+      realtimeService : dependencies?.realtimeService,
+    },
+    tool        : new Tool(),
+    strokeColor : 'black', // @todo
+    currentPath : undefined,
+  };
+
+  scope.tool.on('mousedown', (event) => {
+    Log.debug('Pencil : onMouseDown');
+
+    dependencies.realtimeService.send(
+      drawingsMessages.doMouseDown,
+      onMouseDown.call(scope, event),
+    ).catch(() => {}); // @todo;
+  });
+
+  scope.tool.on('mousedrag', throttle(
+    (event) => {
+      Log.debug('Pencil : onMouseDrag');
+
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDrag,
+        onMouseDrag.call(scope, event),
+      ).catch(() => {}); // @todo;
+    },
+    10,
+  ));
+
+  return Object.freeze({
+    setColor    : setColor.bind(scope),
+    activate    : activate.bind(scope),
+    onMouseDown : onMouseDown.bind(scope),
+    onMouseDrag : onMouseDrag.bind(scope),
+  });
 };
-
-/**
- * Pencil - onMouseDrag
- *
- * Add a new point to the current path with the pencil stroke size and color.
- *
- * @param {Object} event Mouse down event.
- */
-pencilTool.onMouseDrag = throttle((event) => {
-  // Data required by the event
-  const point = {
-    x : event.point.x,
-    y : event.point.y,
-  };
-
-  currentPath.add(point);
-
-  // Send event through network
-  boardsService.send(drawingsMessages.onMouseDrag, { point });
-}, 10);
-
-export default pencilTool;

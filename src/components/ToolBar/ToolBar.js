@@ -44,7 +44,7 @@ const ToolBar = () => {
           setShowOptionsTool(tool);
         }
       } else {
-        // drawingsService.tools[tool].activate(); // @todo check the tool exists
+        drawingsService.tools[tool].activate();
         setSelectedTool(tool);
       }
     },
@@ -151,20 +151,3 @@ const ToolBar = () => {
 };
 
 export default ToolBar;
-
-/*
-{/* <ToolButton icon={<EraserIcon />} onClick={drawingsService.tools.eraser.activate} />
-        <ToolButton icon={<PointerIcon />} />
-        {/* @todo figures tool */
-
-        /* <ToolButton icon={<ImageIcon />} />
-        <ToolButton icon={<TextIcon />} />
-        <ToolButton icon={<NoteIcon />} />
-        <ToolButton icon={<SelectionIcon />} />
-        <ToolButton icon={<DownloadIcon />} />
-        <ToolButton icon={<ShareIcon />} />
-        <ToolOptions show={showPenTools} />
-        {/* <PenOptions show={showPenTools}>
-            <ToolOption onClick={setPenColor} />
-          </PenOptions>
-*/

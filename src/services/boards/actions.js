@@ -1,74 +1,24 @@
-import io from 'socket.io-client';
-
-import { boardsMessages, boardsErrors, drawingsMessages } from '#constants';
-import { Log, timeoutPromise } from '#utils';
-
-import drawingsService from '../drawings';
-import { send } from './utils';
-import {
-  onDidJoin,
-  onDidLeave,
-  onDidSetUserName,
-  onDidSetBoardName,
-} from './handlers';
-
-const socketIOEndpoint = process.env.REACT_APP_SOCKETIO_ENDPOINT;
-const timeout = 5000; // @todo to constants?
+import { Log } from '#utils';
+import { boardsMessages, boardsErrors } from '#constants';
 
 /**
- * Initialize socket connection.
+ * Inject service dependencies.
+ *
+ * @param {Object} params Dependencies { drawingsService, realtimeService }.
+ *
+ * @throws {Error} In case dependencies are not passed.
  */
-function init() {
-  Log.info('Service : Boards : init');
+function injectDependencies({ drawingsService, realtimeService }) {
+  Log.info('Services : Boards : injectDependencies', { drawingsService, realtimeService });
 
-  if (!this.socket) {
-    this.socket = io(socketIOEndpoint);
-    this.isInit = true;
-
-    Log.debug('Service : Boards : init : initialized');
+  if (!drawingsService || !realtimeService) {
+    throw new Error('Services : Boards : injectDependencies : missing dependencies');
   }
-}
 
-/**
- * Close socket connection.
- */
-function close() {
-  Log.info('Service : Boards : close');
-
-  this.socket.close();
-  this.socket = undefined;
-  this.isInit = false;
-}
-
-/**
- * Set message handlers for boards and drawings.
- */
-function setMessageHandlers() {
-  Log.info('Services : Boards : setMessageHandlers');
-
-  // Add handlers for board messages
-  this.socket.on(boardsMessages.didJoin, onDidJoin.bind(this));
-  this.socket.on(boardsMessages.didLeave, onDidLeave.bind(this));
-  this.socket.on(boardsMessages.didSetUserName, onDidSetUserName.bind(this));
-  this.socket.on(boardsMessages.didSetBoardName, onDidSetBoardName.bind(this));
-
-  // Add handlers for drawings messages
-  this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
-  this.socket.on(drawingsMessages.onMouseDown, drawingsService.onMouseDown);
-  this.socket.on(drawingsMessages.onMouseDrag, drawingsService.onMouseDrag);
-
-  // this.socket.on(drawingsMessages.didSetTool, (data) => {
-  //   Log.debug('Service : Boards : onSetTool', { data }); // { userId, tool }
-  // });
-  // this.socket.on(drawingsEvents.onMouseDown, ({ userId, point, color }) => {
-  //   console.log('!!!.RECEIVED.onMouseDown');
-  //   drawingsService.onMouseDown(point, color);
-  // });
-
-  // this.socket.on(drawingsEvents.onMouseDrag, ({ userId, point }) => {
-  //   console.log('!!!.RECEIVED.onMouseDrag');
-  //   drawingsService.onMouseDrag(point);
-  // });
+  this.dependencies = {
+    drawingsService,
+    realtimeService,
+  };
 }
 
 /**
@@ -84,35 +34,20 @@ function setMessageHandlers() {
 function create(boardName, userName) {
   Log.info('Service : Boards : create', { boardName, userName });
 
-  return timeoutPromise((res, rej) => send.call(
-    this,
-    boardsMessages.doCreate,
-    { boardName, userName },
-    (success, {
-      boardId,
-      boardName : joinedBoardName,
-      errorCode,
-    }) => {
-      Log.debug('Service : Boards : create : ack', {
-        success, boardId, joinedBoardName, errorCode,
-      });
-
-      // Check if correct operation
-      if (!success) {
-        return rej(errorCode);
-      }
+  return this.dependencies.realtimeService.send(boardsMessages.doCreate, { boardName, userName })
+    .then(({ boardId, boardName : joinedBoardName }) => {
+      Log.debug('Service : Boards : create : ack', { boardId, joinedBoardName });
 
       // Check join data is correct
       if (!boardId || boardName !== joinedBoardName) {
-        return rej(boardsErrors.generic);
+        return Promise.reject(boardsErrors.generic);
       }
 
       // Add handlers for messages
-      setMessageHandlers.call(this);
+      this.dependencies.realtimeService.setMessageHandlers();
 
-      return res({ boardId, boardName });
-    },
-  ), timeout);
+      return { boardId, boardName };
+    });
 }
 
 /**
@@ -129,34 +64,20 @@ function join(boardId, userName) {
   Log.info('Service : Boards : join', { boardId, userName });
 
   // @todo check parameters before requesting
-  return timeoutPromise((res, rej) => send.call(
-    this,
-    boardsMessages.doJoin,
-    { boardId, userName },
-    (success, {
-      boardId : joinedBoardId, boardName, users, errorCode,
-    }) => {
-      // Board join ack received
-      Log.debug('Service : Boards : join : ack', {
-        success, joinedBoardId, boardName, users, errorCode,
-      });
-
-      // Check if correct join
-      if (!success) {
-        return rej(errorCode);
-      }
+  return this.dependencies.realtimeService.send(boardsMessages.doJoin, { boardId, userName })
+    .then(({ boardId : joinedBoardId, boardName, users }) => {
+      Log.debug('Service : Boards : join : ack', { joinedBoardId, boardName, users });
 
       // Check join data is correct
       if (!boardName || boardId !== joinedBoardId) {
-        return rej(boardsErrors.generic);
+        return Promise.reject(boardsErrors.generic);
       }
 
       // Add handlers for messages
-      setMessageHandlers.call(this);
+      this.dependencies.realtimeService.setMessageHandlers();
 
-      return res({ boardId, boardName, users });
-    },
-  ), timeout);
+      return { boardId, boardName, users };
+    });
 }
 
 /**
@@ -169,14 +90,9 @@ function join(boardId, userName) {
 function setUserName(userName) {
   Log.info('Service : Boards : setUserName', { userName });
 
-  return timeoutPromise(
-    (res, rej) => send.call(
-      this,
-      boardsMessages.doSetUserName,
-      userName,
-      (success) => (success ? res() : rej()),
-    ),
-    timeout,
+  return this.dependencies.realtimeService.send(
+    boardsMessages.onDidSetUserName,
+    userName,
   );
 }
 
@@ -190,27 +106,16 @@ function setUserName(userName) {
 function setBoardName(boardName) {
   Log.info('Service : Boards : setBoardName', { boardName });
 
-  return timeoutPromise(
-    (res, rej) => send.call(
-      this,
-      boardsMessages.doSetBoardName,
-      boardName,
-      (success) => (success ? res() : rej()),
-    ),
-    timeout,
+  return this.dependencies.realtimeService.send(
+    boardsMessages.doSetBoardName,
+    boardName,
   );
 }
 
-function setTool(tool) {
-  send.call(this, drawingsMessages.doSetTool, { tool });
-}
-
 export {
-  init,
-  close,
+  injectDependencies,
   create,
   join,
   setUserName,
   setBoardName,
-  setTool,
 };

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
 import routes from '#routes';
-import { boardsService } from '#services';
+import { boardsService, realtimeService } from '#services';
 import {
   setJoined, setBoardName, setMyUserName, setUsers,
 } from '#store';
@@ -29,7 +29,7 @@ const Home = () => {
     (boardName, userName) => {
       Log.debug('Component : Home : create', { boardName, userName });
 
-      boardsService.init();
+      realtimeService.start();
       boardsService.create(boardName, userName)
         .then(({ boardId, boardName : joinedBoardName }) => {
           Log.debug('Component : Home : create : created', { boardId, joinedBoardName });
@@ -40,7 +40,7 @@ const Home = () => {
 
           redirectTo(routes.board.replace(':id', boardId));
         })
-        .catch(() => Log.error('Component : Home : create : error creating board'));
+        .catch(() => Log.error('Component : Home : create : error creating board')); // @todo stop services
     },
     [dispatch, redirectTo],
   );
@@ -49,7 +49,7 @@ const Home = () => {
     (boardId, userName) => {
       Log.debug('Component : Home : join', { boardId, userName });
 
-      boardsService.init();
+      realtimeService.start();
       boardsService.join(boardId, userName)
         .then(({ boardId : joinedBoardId, boardName, users }) => {
           Log.debug('Component : Home : join : joined', { joinedBoardId, boardName, users });
@@ -61,7 +61,7 @@ const Home = () => {
 
           redirectTo(routes.board.replace(':id', boardId));
         })
-        .catch(() => Log.error('Component : Home : join : error joining board'));
+        .catch(() => Log.error('Component : Home : join : error joining board')); // @todo stop services
     },
     [dispatch, redirectTo],
   );

@@ -8,7 +8,7 @@ import { mainLayoutId, boardsErrors } from '#constants';
 import {
   BoardError, BoardWelcome, Canvas, Modal, ToolBar,
 } from '#components';
-import { boardsService, drawingsService } from '#services';
+import { boardsService, drawingsService, realtimeService } from '#services';
 import {
   setJoined, setBoardName, setMyUserName, setUsers,
 } from '#store';
@@ -33,15 +33,16 @@ const Board = () => {
   const [errorCode, setErrorCode] = useState();
 
   useEffect(() => {
-    // @todo temporary commented for easy development
-    // if (!boardsService.isInit()) {
-    //   setModalStep(modalSteps.welcome);
-    // }
+    if (!realtimeService.isStarted()) {
+      setModalStep(modalSteps.welcome);
+    }
+
+    drawingsService.start(CANVAS_ID);
 
     return () => {
       dispatch(setJoined(false));
-      boardsService.close();
-      drawingsService.close();
+      realtimeService.stop();
+      drawingsService.stop();
     };
   }, [boardId, setModalStep, dispatch]);
 
@@ -51,7 +52,7 @@ const Board = () => {
 
       setIsLoading(true);
 
-      boardsService.init();
+      realtimeService.start();
       boardsService.join(boardId, userName)
         .then(({ boardId : joinedBoardId, boardName, users }) => {
           Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
@@ -67,6 +68,7 @@ const Board = () => {
           setIsLoading(false);
         })
         .catch(({ message }) => {
+          // @todo stop services?
           setModalStep(modalSteps.error);
           setErrorCode(message);
         });

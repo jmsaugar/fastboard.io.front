@@ -1,2 +1,2 @@
-export { default as pencilTool } from './pencil';
-export { default as eraserTool } from './eraser';
+export { default as pencilToolFactory } from './pencil';
+export { default as eraserToolFactory } from './eraser';

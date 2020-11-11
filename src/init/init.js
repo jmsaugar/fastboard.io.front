@@ -1,6 +1,7 @@
+import { Log } from '#utils';
+
 import i18nInit from './i18n';
 import loggerInit from './logger';
-import { Log } from '#utils';
 
 export default () => {
   loggerInit();

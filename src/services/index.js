@@ -1,2 +1,19 @@
-export { default as boardsService } from './boards';
-export { default as drawingsService } from './drawings';
+import boardsServiceFactory from './boards';
+import drawingsServiceFactory from './drawings';
+import realtimeServiceFactory from './realtime';
+
+// Create services instances
+const boardsService = boardsServiceFactory();
+const drawingsService = drawingsServiceFactory();
+const realtimeService = realtimeServiceFactory();
+
+// Inject services dependencies
+boardsService.injectDependencies({ drawingsService, realtimeService });
+drawingsService.injectDependencies({ realtimeService });
+realtimeService.injectDependencies({ boardsService, drawingsService });
+
+export {
+  boardsService,
+  drawingsService,
+  realtimeService,
+};

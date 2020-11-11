@@ -1,21 +1,28 @@
-import { isInit, send } from './utils';
+import { Log } from '#utils';
+
 import {
-  init, close, create, join, setUserName, setBoardName, setTool,
+  injectDependencies, create, join, setUserName, setBoardName,
 } from './actions';
+import {
+  onDidJoin, onDidLeave, onDidSetUserName, onDidSetBoardName,
+} from './handlers';
 
-const serviceScope = {
-  isInit : false,
-  socket : undefined,
-};
+export default () => {
+  Log.info('Services : Boards : create');
 
-export default {
-  isInit       : isInit.bind(serviceScope),
-  init         : init.bind(serviceScope),
-  close        : close.bind(serviceScope),
-  create       : create.bind(serviceScope),
-  join         : join.bind(serviceScope),
-  setUserName  : setUserName.bind(serviceScope),
-  setBoardName : setBoardName.bind(serviceScope),
-  setTool      : setTool.bind(serviceScope),
-  send         : send.bind(serviceScope), // @todo probably not export this
+  const scope = {
+    dependencies : {},
+  };
+
+  return Object.freeze({
+    injectDependencies : injectDependencies.bind(scope),
+    create             : create.bind(scope),
+    join               : join.bind(scope),
+    setUserName        : setUserName.bind(scope),
+    setBoardName       : setBoardName.bind(scope),
+    onDidJoin          : onDidJoin.bind(scope),
+    onDidLeave         : onDidLeave.bind(scope),
+    onDidSetUserName   : onDidSetUserName.bind(scope),
+    onDidSetBoardName  : onDidSetBoardName.bind(scope),
+  });
 };
