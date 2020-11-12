@@ -4,7 +4,11 @@ import { Log } from '#utils';
 import { tools } from '#constants';
 
 import {
-  eraserToolFactory, highlighterToolFactory, penToolFactory, pencilToolFactory,
+  eraserToolFactory,
+  highlighterToolFactory,
+  penToolFactory,
+  pencilToolFactory,
+  pointerToolFactory,
 } from './tools';
 
 /**
@@ -43,6 +47,7 @@ function start(canvasId) {
       [tools.pen]         : penToolFactory({ realtimeService }),
       [tools.highlighter] : highlighterToolFactory({ realtimeService }),
       [tools.eraser]      : eraserToolFactory({ realtimeService }),
+      [tools.pointer]     : pointerToolFactory({ realtimeService }),
     };
 
     Log.debug('Service : Drawings : start : started');
@@ -75,6 +80,7 @@ function addUser(userId) {
     [tools.pen]         : penToolFactory(),
     [tools.pencil]      : pencilToolFactory(),
     [tools.highlighter] : highlighterToolFactory(),
+    [tools.pointer]     : pointerToolFactory(),
   };
 }
 

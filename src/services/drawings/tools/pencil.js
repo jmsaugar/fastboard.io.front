@@ -5,6 +5,7 @@ import { drawingsMessages, tools } from '#constants';
 
 const throttleDelay = 5; // In milliseconds
 const strokeWidth = 2;
+const strokeCap = 'round';
 
 function setColor(color) {
   Log.debug('Services : Drawings : Tools : Pencil : setColor', { color });
@@ -32,6 +33,7 @@ function onMouseDown(event) {
   this.currentPath = new Path({
     strokeColor,
     strokeWidth,
+    strokeCap,
   });
 
   this.currentPath.add(point);

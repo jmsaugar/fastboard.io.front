@@ -43,6 +43,9 @@ export default () => {
       [tools.eraser] : {
         activate : () => scope.tools.eraser.activate(),
       },
+      [tools.pointer] : {
+        activate : () => scope.tools.pointer.activate(),
+      },
     },
   });
 };

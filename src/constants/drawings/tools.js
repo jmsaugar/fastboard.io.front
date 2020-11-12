@@ -3,4 +3,5 @@ export default Object.freeze({
   pen         : 'pen',
   highlighter : 'highlighter',
   eraser      : 'eraser',
+  pointer     : 'pointer',
 });

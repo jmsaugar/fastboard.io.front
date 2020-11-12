@@ -4,8 +4,9 @@ import { Log, throttle } from '#utils';
 import { drawingsMessages, tools } from '#constants';
 
 const throttleDelay = 5; // In milliseconds
-const strokeColor = 'white';
+const strokeColor = 'white'; // @todo read from constant?
 const strokeWidth = 15;
+const strokeCap = 'round';
 
 function activate() {
   Log.debug('Services : Drawings : Tools : Eraser : activate');
@@ -25,11 +26,12 @@ function onMouseDown(event) {
   this.currentPath = new Path({
     strokeColor,
     strokeWidth,
+    strokeCap,
   });
 
   this.currentPath.add(point);
 
-  return { point, strokeColor, };
+  return { point, strokeColor };
 }
 
 function onMouseDrag(event) {

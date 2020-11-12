@@ -33,6 +33,7 @@ const Board = () => {
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
 
+  // @todo dividi this in many useEffect uses?
   useEffect(() => {
     if (!isJoined) {
       setModalStep(modalSteps.welcome);
