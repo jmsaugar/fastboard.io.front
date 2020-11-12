@@ -4,17 +4,23 @@ import { Log, throttle } from '#utils';
 import { drawingsMessages, tools } from '#constants';
 
 const throttleDelay = 5; // In milliseconds
-const strokeColor = 'white';
-const strokeWidth = 15;
+const strokeWidth = 25;
+const opacity = 0.5;
+
+function setColor(color) {
+  Log.debug('Services : Drawings : Tools : Highlighter : setColor', { color });
+
+  this.strokeColor = color;
+}
 
 function activate() {
-  Log.debug('Services : Drawings : Tools : Eraser : activate');
+  Log.debug('Services : Drawings : Tools : Highlighter : activate');
 
   this.tool.activate();
 }
 
 function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Eraser : onMouseDown', { event });
+  Log.debug('Services : Drawings : Tools : Highlighter : onMouseDown', { event });
 
   // Data required by the event
   const point = {
@@ -22,14 +28,17 @@ function onMouseDown(event) {
     y : event.point.y,
   };
 
+  const strokeColor = event.strokeColor || this.strokeColor;
+
   this.currentPath = new Path({
+    opacity,
     strokeColor,
     strokeWidth,
   });
 
   this.currentPath.add(point);
 
-  return { point, strokeColor, };
+  return { point, strokeColor };
 }
 
 function onMouseDrag(event) {
@@ -45,23 +54,24 @@ function onMouseDrag(event) {
 }
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Eraser : create');
+  Log.info('Services : Drawings : Tools : Highlighter : create');
 
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
     },
     tool        : new Tool(),
+    strokeColor : 'black', // @todo
     currentPath : undefined,
   };
 
   scope.tool.on('mousedown', (event) => {
-    Log.debug('Eraser : onMouseDown');
+    Log.debug('Highlighter : onMouseDown');
 
     dependencies.realtimeService.send(
       drawingsMessages.doMouseDown,
       {
-        tool : tools.eraser,
+        tool : tools.highlighter,
         ...onMouseDown.call(scope, event),
       },
     ).catch(() => {}); // @todo;
@@ -69,12 +79,12 @@ export default (dependencies) => {
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Eraser : onMouseDrag');
+      Log.debug('Highlighter : onMouseDrag');
 
       dependencies.realtimeService.send(
         drawingsMessages.doMouseDrag,
         {
-          tool : tools.eraser,
+          tool : tools.highlighter,
           ...onMouseDrag.call(scope, event),
         },
       ).catch(() => {}); // @todo;
@@ -83,6 +93,7 @@ export default (dependencies) => {
   ));
 
   return Object.freeze({
+    setColor    : setColor.bind(scope),
     activate    : activate.bind(scope),
     onMouseDown : onMouseDown.bind(scope),
     onMouseDrag : onMouseDrag.bind(scope),

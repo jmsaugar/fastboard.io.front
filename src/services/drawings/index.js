@@ -5,7 +5,7 @@ import {
   injectDependencies, start, stop, addUser, removeUser,
 } from './actions';
 import {
-  onMouseDown, onMouseDrag, onToolSet,
+  onMouseDown, onMouseDrag,
 } from './handlers';
 
 export default () => {
@@ -27,15 +27,21 @@ export default () => {
     removeUser         : removeUser.bind(scope),
     onMouseDown        : onMouseDown.bind(scope),
     onMouseDrag        : onMouseDrag.bind(scope),
-    onToolSet          : onToolSet.bind(scope),
     tools              : {
       [tools.pencil] : {
-        activate : () => {
-          scope.tools.pencil.activate();
-          scope.dependencies.realtimeService.send('doSetTool', { tool : 'pencil' })
-            .catch(() => {}); // @todo
-        },
+        activate : () => scope.tools.pencil.activate(),
         setColor : (color) => scope.tools.pencil.setColor(color),
+      },
+      [tools.pen] : {
+        activate : () => scope.tools.pen.activate(),
+        setColor : (color) => scope.tools.pen.setColor(color),
+      },
+      [tools.highlighter] : {
+        activate : () => scope.tools.highlighter.activate(),
+        setColor : (color) => scope.tools.highlighter.setColor(color),
+      },
+      [tools.eraser] : {
+        activate : () => scope.tools.eraser.activate(),
       },
     },
   });

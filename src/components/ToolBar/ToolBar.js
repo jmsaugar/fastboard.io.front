@@ -55,14 +55,17 @@ const ToolBar = () => {
     (tool, color) => {
       switch (tool) {
         case tools.pencil:
+          drawingsService.tools.pencil.setColor(color);
           setPencilColor(color);
           break;
 
         case tools.pen:
+          drawingsService.tools.pen.setColor(color);
           setPenColor(color);
           break;
 
         case tools.highlighter:
+          drawingsService.tools.highlighter.setColor(color);
           setHighlighterColor(color);
           break;
 

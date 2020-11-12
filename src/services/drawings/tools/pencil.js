@@ -1,14 +1,15 @@
 import { Path, Tool } from 'paper';
 
 import { Log, throttle } from '#utils';
-import { drawingsMessages } from '#constants';
+import { drawingsMessages, tools } from '#constants';
 
-const strokeWidth = 1;
+const throttleDelay = 5; // In milliseconds
+const strokeWidth = 2;
 
 function setColor(color) {
   Log.debug('Services : Drawings : Tools : Pencil : setColor', { color });
 
-  this.scope.strokeColor = color;
+  this.strokeColor = color;
 }
 
 function activate() {
@@ -26,14 +27,16 @@ function onMouseDown(event) {
     y : event.point.y,
   };
 
+  const strokeColor = event.strokeColor || this.strokeColor;
+
   this.currentPath = new Path({
-    strokeColor : this.strokeColor,
+    strokeColor,
     strokeWidth,
   });
 
   this.currentPath.add(point);
 
-  return { point, strokeColor : this.strokeColor };
+  return { point, strokeColor };
 }
 
 function onMouseDrag(event) {
@@ -65,7 +68,10 @@ export default (dependencies) => {
 
     dependencies.realtimeService.send(
       drawingsMessages.doMouseDown,
-      onMouseDown.call(scope, event),
+      {
+        tool : tools.pencil,
+        ...onMouseDown.call(scope, event),
+      },
     ).catch(() => {}); // @todo;
   });
 
@@ -75,10 +81,13 @@ export default (dependencies) => {
 
       dependencies.realtimeService.send(
         drawingsMessages.doMouseDrag,
-        onMouseDrag.call(scope, event),
+        {
+          tool : tools.pencil,
+          ...onMouseDrag.call(scope, event),
+        },
       ).catch(() => {}); // @todo;
     },
-    10,
+    throttleDelay,
   ));
 
   return Object.freeze({

@@ -69,7 +69,6 @@ function setMessageHandlers() {
   this.socket.on(boardsMessages.didSetBoardName, boardsService.onDidSetBoardName);
 
   // Add handlers for drawings messages
-  this.socket.on(drawingsMessages.didSetTool, drawingsService.onToolSet);
   this.socket.on(drawingsMessages.didMouseDown, drawingsService.onMouseDown);
   this.socket.on(drawingsMessages.didMouseDrag, drawingsService.onMouseDrag);
 }

@@ -10,6 +10,7 @@ export const SWrapper = styled.div`
   border-style: default;
   border-color: ${({ color, selected }) => ((color && selected) ? color : getColor('border'))};
   margin: auto sm;
+  background-color: bg;
   border-radius: rounded;
 
   transition: box-shadow ${getTransition('default')};

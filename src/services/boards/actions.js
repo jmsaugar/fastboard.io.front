@@ -4,21 +4,18 @@ import { boardsMessages, boardsErrors } from '#constants';
 /**
  * Inject service dependencies.
  *
- * @param {Object} params Dependencies { drawingsService, realtimeService }.
+ * @param {Object} params Dependencies { realtimeService }.
  *
  * @throws {Error} In case dependencies are not passed.
  */
-function injectDependencies({ drawingsService, realtimeService }) {
-  Log.info('Services : Boards : injectDependencies', { drawingsService, realtimeService });
+function injectDependencies({ realtimeService }) {
+  Log.info('Services : Boards : injectDependencies', { realtimeService });
 
-  if (!drawingsService || !realtimeService) {
+  if (!realtimeService) {
     throw new Error('Services : Boards : injectDependencies : missing dependencies');
   }
 
-  this.dependencies = {
-    drawingsService,
-    realtimeService,
-  };
+  this.dependencies = { realtimeService };
 }
 
 /**

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Log } from '#utils';
 import routes from '#routes';
@@ -10,12 +10,12 @@ import {
 } from '#components';
 import { boardsService, drawingsService, realtimeService } from '#services';
 import {
-  setJoined, setBoardName, setMyUserName, setUsers,
+  isJoinedSelector, setJoined, setBoardName, setMyUserName, setUsers,
 } from '#store';
 
 import SWrapper from './styled';
 
-const CANVAS_ID = 'canvas';
+const canvasId = 'canvas';
 
 const modalSteps = Object.freeze({
   none    : 0,
@@ -28,23 +28,24 @@ const Board = () => {
   const { push : redirectTo } = useHistory();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
+  const isJoined = useSelector(isJoinedSelector);
   const [isLoading, setIsLoading] = useState(false);
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
 
   useEffect(() => {
-    if (!realtimeService.isStarted()) {
+    if (!isJoined) {
       setModalStep(modalSteps.welcome);
     }
 
-    drawingsService.start(CANVAS_ID);
+    drawingsService.start(canvasId);
 
     return () => {
       dispatch(setJoined(false));
       realtimeService.stop();
       drawingsService.stop();
     };
-  }, [boardId, setModalStep, dispatch]);
+  }, [setModalStep, dispatch]);
 
   const join = useCallback(
     (userName) => {
@@ -62,7 +63,7 @@ const Board = () => {
           dispatch(setMyUserName(userName));
           dispatch(setUsers(users));
 
-          drawingsService.init(CANVAS_ID);
+          drawingsService.start(canvasId);
 
           setModalStep(modalSteps.none);
           setIsLoading(false);
@@ -81,7 +82,7 @@ const Board = () => {
   return (
     <SWrapper>
       <ToolBar />
-      <Canvas id={CANVAS_ID} />
+      <Canvas id={canvasId} />
       <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
         {modalStep === modalSteps.welcome && (
           <BoardWelcome

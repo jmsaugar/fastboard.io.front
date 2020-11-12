@@ -8,7 +8,7 @@ const drawingsService = drawingsServiceFactory();
 const realtimeService = realtimeServiceFactory();
 
 // Inject services dependencies
-boardsService.injectDependencies({ drawingsService, realtimeService });
+boardsService.injectDependencies({ realtimeService });
 drawingsService.injectDependencies({ realtimeService });
 realtimeService.injectDependencies({ boardsService, drawingsService });
 

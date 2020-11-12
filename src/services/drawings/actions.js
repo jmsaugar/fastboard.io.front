@@ -3,7 +3,9 @@ import { Project } from 'paper';
 import { Log } from '#utils';
 import { tools } from '#constants';
 
-import { eraserToolFactory, pencilToolFactory } from './tools';
+import {
+  eraserToolFactory, highlighterToolFactory, penToolFactory, pencilToolFactory,
+} from './tools';
 
 /**
  * Inject service dependencies.
@@ -34,9 +36,13 @@ function start(canvasId) {
     this.project = new Project(canvasId);
     this.isStarted = true;
 
+    const { realtimeService } = this.dependencies;
+
     this.tools = {
-      [tools.pencil] : pencilToolFactory({ realtimeService : this.dependencies.realtimeService }),
-      [tools.eraser] : eraserToolFactory({ realtimeService : this.dependencies.realtimeService }),
+      [tools.pencil]      : pencilToolFactory({ realtimeService }),
+      [tools.pen]         : penToolFactory({ realtimeService }),
+      [tools.highlighter] : highlighterToolFactory({ realtimeService }),
+      [tools.eraser]      : eraserToolFactory({ realtimeService }),
     };
 
     Log.debug('Service : Drawings : start : started');
@@ -64,7 +70,12 @@ function stop() {
 function addUser(userId) {
   Log.info('Services : Drawings : addUser', { userId });
 
-  this.users[userId] = {};
+  this.users[userId] = {
+    [tools.eraser]      : eraserToolFactory(),
+    [tools.pen]         : penToolFactory(),
+    [tools.pencil]      : pencilToolFactory(),
+    [tools.highlighter] : highlighterToolFactory(),
+  };
 }
 
 /**

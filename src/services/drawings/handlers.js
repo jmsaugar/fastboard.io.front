@@ -1,54 +1,36 @@
 import { Log } from '#utils';
 
-import { pencilToolFactory } from './tools';
-
 /**
  * Handle onMouseDown event from a remote user.
  *
- * @param {Object} params { userId, ...eventData }
+ * @param {Object} params { userId, tool, ...eventData }
  */
-function onMouseDown({ userId, ...eventData }) {
+function onMouseDown({ userId, tool, ...eventData }) {
   Log.debug('Services : Drawings : onMouseDown', { userId, ...eventData });
 
-  if (!this.users[userId]) {
-    Log.warning('Services : Drawings : onMouseDown : no such user', { userId });
+  if (!this.users[userId] || !this.users[userId][tool]) {
+    Log.warning('Services : Drawings : onMouseDown : no such user or tool', { userId, tool });
     return;
   }
 
-  this.users[userId].onMouseDown(eventData);
+  this.users[userId][tool].onMouseDown(eventData);
 }
 
 /**
  * Handle onMouseDrag event from a remote user.
  *
- * @param {Object} params { userId, ...eventData }
+ * @param {Object} params { userId, tool, ...eventData }
  */
-function onMouseDrag({ userId, ...eventData }) {
-  if (!this.users[userId]) {
-    Log.warning('Services : Drawings : onMouseDown : no such user', { userId });
+function onMouseDrag({ userId, tool, ...eventData }) {
+  if (!this.users[userId] || !this.users[userId][tool]) {
+    Log.warning('Services : Drawings : onMouseDown : no such user or tool', { userId, tool });
     return;
   }
 
-  this.users[userId].onMouseDrag(eventData);
-}
-
-/**
- * Handle onToolSet event from a remote user.
- *
- * @param {Object} params { userId, ...eventData }
- */
-function onToolSet({ userId, eventData }) {
-  if (!this.users[userId]) {
-    Log.warning('Services : Drawings : onToolSet : no such user', { userId });
-    return;
-  }
-
-  // @todo use the factory for the tool sent in eventData
-  this.users[userId] = pencilToolFactory();
+  this.users[userId][tool].onMouseDrag(eventData);
 }
 
 export {
   onMouseDown,
   onMouseDrag,
-  onToolSet,
 };

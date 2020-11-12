@@ -13,8 +13,6 @@ function onDidJoin({ userId, userName }) {
   Log.debug('Service : Boards : onDidJoin', { userId, userName });
 
   store.dispatch(addUser({ id : userId, name : userName }));
-
-  this.dependencies.drawingsService.addUser(userId);
 }
 
 /**
@@ -27,8 +25,6 @@ function onDidLeave({ userId }) {
   Log.debug('Service : Boards : onDidLeave', { userId });
 
   store.dispatch(removeUser({ id : userId }));
-
-  this.dependencies.drawingsService.removeUser(userId);
 }
 
 /**
