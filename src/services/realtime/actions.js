@@ -72,6 +72,8 @@ function setMessageHandlers() {
   this.socket.on(drawingsMessages.didMouseDown, drawingsService.onMouseDown);
   this.socket.on(drawingsMessages.didMouseDrag, drawingsService.onMouseDrag);
   this.socket.on(drawingsMessages.didKeyDown, drawingsService.onKeyDown);
+  this.socket.on(drawingsMessages.didAddImage, drawingsService.onImageAdded);
+  this.socket.on(drawingsMessages.didClearBoard, drawingsService.onBoardCleared);
 }
 
 /**

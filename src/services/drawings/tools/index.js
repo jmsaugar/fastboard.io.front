@@ -4,3 +4,6 @@ export { default as penToolFactory } from './pen';
 export { default as pencilToolFactory } from './pencil';
 export { default as pointerToolFactory } from './pointer';
 export { default as textToolFactory } from './text';
+export { default as selectorToolFactory } from './selector';
+export { default as imageToolFactory } from './image';
+export { default as clearToolFactory } from './clear';

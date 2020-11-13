@@ -43,6 +43,7 @@ function onMouseDown(event) {
 function onKeyDown(event) {
   Log.debug('Services : Drawings : Tools : Text : onKeyDown', { event });
 
+  // @todo check this for missing cases
   switch (event.key) {
     case keys.escape:
       this.isWriting = false;

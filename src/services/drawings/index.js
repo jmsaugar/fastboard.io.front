@@ -2,10 +2,10 @@ import { Log } from '#utils';
 import { tools } from '#constants';
 
 import {
-  injectDependencies, start, stop, addUser, removeUser,
+  injectDependencies, start, stop, addUser, removeUser, exportBoard,
 } from './actions';
 import {
-  onMouseDown, onMouseDrag, onKeyDown,
+  onMouseDown, onMouseDrag, onKeyDown, onImageAdded, onBoardCleared,
 } from './handlers';
 
 export default () => {
@@ -25,10 +25,14 @@ export default () => {
     stop               : stop.bind(scope),
     addUser            : addUser.bind(scope),
     removeUser         : removeUser.bind(scope),
+    exportBoard        : exportBoard.bind(scope),
     onMouseDown        : onMouseDown.bind(scope),
     onMouseDrag        : onMouseDrag.bind(scope),
     onKeyDown          : onKeyDown.bind(scope),
+    onImageAdded       : onImageAdded.bind(scope),
+    onBoardCleared     : onBoardCleared.bind(scope),
     tools              : {
+      // @todo rework this
       [tools.pencil] : {
         activate : () => scope.tools.pencil.activate(),
         setColor : (color) => scope.tools.pencil.setColor(color),
@@ -49,6 +53,15 @@ export default () => {
       },
       [tools.text] : {
         activate : () => scope.tools.text.activate(),
+      },
+      [tools.selector] : {
+        activate : () => scope.tools.selector.activate(),
+      },
+      [tools.image] : {
+        activate : (image) => scope.tools.image.activate(image),
+      },
+      [tools.clear] : {
+        activate : () => scope.tools.clear.activate(),
       },
     },
   });

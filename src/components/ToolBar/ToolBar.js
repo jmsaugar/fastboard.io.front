@@ -7,45 +7,72 @@ import { Eraser as EraserIcon } from '@styled-icons/fa-solid/Eraser';
 import { HandPointer as PointerIcon } from '@styled-icons/fa-solid/HandPointer';
 import { Image as ImageIcon } from '@styled-icons/fa-solid/Image';
 import { Font as TextIcon } from '@styled-icons/fa-solid/Font';
-import { StickyNote as NoteIcon } from '@styled-icons/fa-solid/StickyNote';
 import { MousePointer as SelectionIcon } from '@styled-icons/fa-solid/MousePointer';
 import { FileDownload as DownloadIcon } from '@styled-icons/fa-solid/FileDownload';
-import { ShareAlt as ShareIcon } from '@styled-icons/fa-solid/ShareAlt';
-
+// import { FileUpload as UploadIcon } from '@styled-icons/fa-solid/FileUpload';
+// import { ShareAlt as ShareIcon } from '@styled-icons/fa-solid/ShareAlt';
+import { Trash as ResetIcon } from '@styled-icons/fa-solid/Trash';
 import { Circle as CircleIcon } from '@styled-icons/fa-solid/Circle';
 
 import { drawingsColors, tools } from '#constants';
 import { drawingsService } from '#services';
-import { isJoinedSelector } from '#store';
+import { boardNameSelector, isJoinedSelector } from '#store';
+import { triggerDownload } from '#utils';
 
 import BoardMeta from '../BoardMeta';
 import ToolButton from '../ToolButton';
 import ToolOptions from '../ToolOptions';
 
 import { SWrapper, SMeta, STools } from './styled';
+import triggerUpload from '../../utils/triggerUpload';
 
 const toolsWithOptions = [tools.pencil, tools.pen, tools.highlighter];
 
 const ToolBar = () => {
   const isJoined = useSelector(isJoinedSelector);
+  const boardName = useSelector(boardNameSelector);
   const [selectedTool, setSelectedTool] = useState();
   const [showOptionsTool, setShowOptionsTool] = useState();
   const [pencilColor, setPencilColor] = useState(drawingsColors.black);
   const [penColor, setPenColor] = useState(drawingsColors.black);
   const [highlighterColor, setHighlighterColor] = useState(drawingsColors.black);
 
+  const downloadBoard = useCallback(
+    () => triggerDownload(
+      new Blob([drawingsService.exportBoard()]),
+      `${boardName}.svg`, // @todo get from function?
+    ),
+    [boardName],
+  );
+
+  // @todo rework this
   const clickTool = useCallback(
     (tool) => {
       setShowOptionsTool();
 
-      if (selectedTool === tool) {
-        if (toolsWithOptions.includes(tool)) {
-          // Show options
-          setShowOptionsTool(tool);
-        }
-      } else {
-        drawingsService.tools[tool].activate();
-        setSelectedTool(tool);
+      switch (tool) {
+        case tools.image:
+          triggerUpload().then(
+            drawingsService.tools[tool].activate,
+            () => console.log('!!!.cancelled'),
+          );
+          break;
+
+        case tools.clear:
+          drawingsService.tools[tool].activate();
+          break;
+
+        default:
+          if (selectedTool === tool) {
+            if (toolsWithOptions.includes(tool)) {
+              // Show options
+              setShowOptionsTool(tool);
+            }
+          } else {
+            drawingsService.tools[tool].activate();
+            setSelectedTool(tool);
+          }
+          break;
       }
     },
     [selectedTool, setSelectedTool],
@@ -149,6 +176,11 @@ const ToolBar = () => {
           selected={selectedTool === tools.eraser}
         />
         <ToolButton
+          icon={<SelectionIcon />}
+          onClick={() => clickTool(tools.selector)}
+          selected={selectedTool === tools.selector}
+        />
+        <ToolButton
           icon={<PointerIcon />}
           onClick={() => clickTool(tools.pointer)}
           selected={selectedTool === tools.pointer}
@@ -157,6 +189,18 @@ const ToolBar = () => {
           icon={<TextIcon />}
           onClick={() => clickTool(tools.text)}
           selected={selectedTool === tools.text}
+        />
+        <ToolButton
+          icon={<ImageIcon />}
+          onClick={() => clickTool(tools.image)}
+        />
+        <ToolButton
+          icon={<DownloadIcon />}
+          onClick={downloadBoard}
+        />
+        <ToolButton
+          icon={<ResetIcon />}
+          onClick={() => clickTool(tools.clear)}
         />
       </STools>
     </SWrapper>

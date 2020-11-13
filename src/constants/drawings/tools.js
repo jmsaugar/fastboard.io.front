@@ -5,4 +5,7 @@ export default Object.freeze({
   eraser      : 'eraser',
   pointer     : 'pointer',
   text        : 'text',
+  selector    : 'selector',
+  image       : 'image',
+  clear       : 'clear',
 });

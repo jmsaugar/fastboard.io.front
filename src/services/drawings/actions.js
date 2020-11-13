@@ -10,6 +10,8 @@ import {
   pencilToolFactory,
   pointerToolFactory,
   textToolFactory,
+  imageToolFactory,
+  clearToolFactory,
 } from './tools';
 
 /**
@@ -50,6 +52,8 @@ function start(canvasId) {
       [tools.eraser]      : eraserToolFactory({ realtimeService }),
       [tools.pointer]     : pointerToolFactory({ realtimeService }),
       [tools.text]        : textToolFactory({ realtimeService }),
+      [tools.image]       : imageToolFactory({ realtimeService }),
+      [tools.clear]       : clearToolFactory({ realtimeService, project : this.project }),
     };
 
     Log.debug('Service : Drawings : start : started');
@@ -84,6 +88,8 @@ function addUser(userId) {
     [tools.highlighter] : highlighterToolFactory(),
     [tools.pointer]     : pointerToolFactory(),
     [tools.text]        : textToolFactory(),
+    [tools.image]       : imageToolFactory(),
+    [tools.clear]       : clearToolFactory({ project : this.project }),
   };
 }
 
@@ -98,10 +104,22 @@ function removeUser(userId) {
   delete this.users[userId];
 }
 
+/**
+ * Export the board project to SVG.
+ *
+ * @return {String} String representing the project in SVG format.
+ */
+function exportBoard() {
+  Log.info('Services : Drawings : exportBoard');
+
+  return this.project.exportSVG({ asString : true });
+}
+
 export {
   injectDependencies,
   start,
   stop,
   addUser,
   removeUser,
+  exportBoard,
 };

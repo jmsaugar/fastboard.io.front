@@ -46,8 +46,38 @@ function onKeyDown({ userId, tool, ...eventData }) {
   this.users[userId][tool].onKeyDown(eventData);
 }
 
+/**
+ * Handle onImageAdded event from a remote user.
+ *
+ * @param {Object} params { userId, tool, ...eventData }
+ */
+function onImageAdded({ userId, tool, ...eventData }) {
+  if (!this.users[userId] || !this.users[userId][tool]) {
+    Log.warning('Services : Drawings : onKeyDown : no such user or tool', { userId, tool });
+    return;
+  }
+
+  this.users[userId][tool].onImageAdded(eventData);
+}
+
+/**
+ * Handle onBoardCleared event from a remote user.
+ *
+ * @param {Object} params { userId, tool }
+ */
+function onBoardCleared({ userId, tool }) {
+  if (!this.users[userId] || !this.users[userId][tool]) {
+    Log.warning('Services : Drawings : onBoardCleared : no such user or tool', { userId, tool });
+    return;
+  }
+
+  this.users[userId][tool].onBoardCleared();
+}
+
 export {
   onMouseDown,
   onMouseDrag,
   onKeyDown,
+  onImageAdded,
+  onBoardCleared,
 };
