@@ -9,6 +9,7 @@ import {
   penToolFactory,
   pencilToolFactory,
   pointerToolFactory,
+  textToolFactory,
 } from './tools';
 
 /**
@@ -48,6 +49,7 @@ function start(canvasId) {
       [tools.highlighter] : highlighterToolFactory({ realtimeService }),
       [tools.eraser]      : eraserToolFactory({ realtimeService }),
       [tools.pointer]     : pointerToolFactory({ realtimeService }),
+      [tools.text]        : textToolFactory({ realtimeService }),
     };
 
     Log.debug('Service : Drawings : start : started');
@@ -81,6 +83,7 @@ function addUser(userId) {
     [tools.pencil]      : pencilToolFactory(),
     [tools.highlighter] : highlighterToolFactory(),
     [tools.pointer]     : pointerToolFactory(),
+    [tools.text]        : textToolFactory(),
   };
 }
 

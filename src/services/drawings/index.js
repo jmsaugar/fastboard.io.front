@@ -5,7 +5,7 @@ import {
   injectDependencies, start, stop, addUser, removeUser,
 } from './actions';
 import {
-  onMouseDown, onMouseDrag,
+  onMouseDown, onMouseDrag, onKeyDown,
 } from './handlers';
 
 export default () => {
@@ -27,6 +27,7 @@ export default () => {
     removeUser         : removeUser.bind(scope),
     onMouseDown        : onMouseDown.bind(scope),
     onMouseDrag        : onMouseDrag.bind(scope),
+    onKeyDown          : onKeyDown.bind(scope),
     tools              : {
       [tools.pencil] : {
         activate : () => scope.tools.pencil.activate(),
@@ -45,6 +46,9 @@ export default () => {
       },
       [tools.pointer] : {
         activate : () => scope.tools.pointer.activate(),
+      },
+      [tools.text] : {
+        activate : () => scope.tools.text.activate(),
       },
     },
   });

@@ -97,7 +97,7 @@ export default (dependencies) => {
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Pointer : onMouseDrag');
+      Log.debug('Pointer : onMouseDrag'); // @todo remove logs on all mouse drag events
 
       dependencies.realtimeService.send(
         drawingsMessages.doMouseDrag,

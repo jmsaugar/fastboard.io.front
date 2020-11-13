@@ -3,4 +3,6 @@ export default Object.freeze({
   didMouseDown : 'didMouseDown',
   doMouseDrag  : 'doMouseDrag',
   didMouseDrag : 'didMouseDrag',
+  doKeyDown    : 'doKeyDown',
+  didKeyDown   : 'didKeyDown',
 });

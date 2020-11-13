@@ -4,4 +4,5 @@ export default Object.freeze({
   highlighter : 'highlighter',
   eraser      : 'eraser',
   pointer     : 'pointer',
+  text        : 'text',
 });

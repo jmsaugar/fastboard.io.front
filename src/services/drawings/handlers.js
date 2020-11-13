@@ -1,5 +1,7 @@
 import { Log } from '#utils';
 
+// @todo this could be refactored
+
 /**
  * Handle onMouseDown event from a remote user.
  *
@@ -30,7 +32,22 @@ function onMouseDrag({ userId, tool, ...eventData }) {
   this.users[userId][tool].onMouseDrag(eventData);
 }
 
+/**
+ * Handle onKeyDown event from a remote user.
+ *
+ * @param {Object} params { userId, tool, ...eventData }
+ */
+function onKeyDown({ userId, tool, ...eventData }) {
+  if (!this.users[userId] || !this.users[userId][tool]) {
+    Log.warning('Services : Drawings : onKeyDown : no such user or tool', { userId, tool });
+    return;
+  }
+
+  this.users[userId][tool].onKeyDown(eventData);
+}
+
 export {
   onMouseDown,
   onMouseDrag,
+  onKeyDown,
 };

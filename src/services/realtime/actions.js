@@ -71,6 +71,7 @@ function setMessageHandlers() {
   // Add handlers for drawings messages
   this.socket.on(drawingsMessages.didMouseDown, drawingsService.onMouseDown);
   this.socket.on(drawingsMessages.didMouseDrag, drawingsService.onMouseDrag);
+  this.socket.on(drawingsMessages.didKeyDown, drawingsService.onKeyDown);
 }
 
 /**

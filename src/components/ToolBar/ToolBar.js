@@ -153,6 +153,11 @@ const ToolBar = () => {
           onClick={() => clickTool(tools.pointer)}
           selected={selectedTool === tools.pointer}
         />
+        <ToolButton
+          icon={<TextIcon />}
+          onClick={() => clickTool(tools.text)}
+          selected={selectedTool === tools.text}
+        />
       </STools>
     </SWrapper>
   );
