@@ -88,7 +88,7 @@ function setUserName(userName) {
   Log.info('Service : Boards : setUserName', { userName });
 
   return this.dependencies.realtimeService.send(
-    boardsMessages.onDidSetUserName,
+    boardsMessages.doSetUserName,
     userName,
   );
 }
