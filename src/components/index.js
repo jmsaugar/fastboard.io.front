@@ -11,6 +11,8 @@ export { default as Input } from './Input';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as Loading } from './Loading';
 export { default as Modal } from './Modal';
+export { default as NotificationItem } from './NotificationItem';
+export { default as NotificationsList } from './NotificationsList';
 export { default as Spinner } from './Spinner';
 export { default as ToolBar } from './ToolBar';
 export { default as ToolButton } from './ToolButton';

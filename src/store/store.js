@@ -1,7 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import { boardSlice } from './slices/board';
+import { notificationsSlice } from './slices/notifications';
 
 export default configureStore({
-  reducer : boardSlice.reducer,
+  reducer : combineReducers({
+    board         : boardSlice.reducer,
+    notifications : notificationsSlice.reducer,
+  }),
 });

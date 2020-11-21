@@ -8,7 +8,12 @@ export {
   removeUser,
   isJoinedSelector,
   boardNameSelector,
-  userNameSelector,
+  myUserNameSelector,
+  otherUsersSelector,
   usersCountSelector,
 } from './slices/board';
+export {
+  notificationsSelector,
+  addNotification,
+} from './slices/notifications';
 export { default } from './store';

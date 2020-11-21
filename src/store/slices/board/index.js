@@ -1,7 +1,8 @@
 export {
   isJoinedSelector,
   boardNameSelector,
-  userNameSelector,
+  myUserNameSelector,
+  otherUsersSelector,
   usersCountSelector,
 } from './selectors';
 export {

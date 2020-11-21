@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Log } from '#utils';
 import routes from '#routes';
-import { mainLayoutId, boardsErrors } from '#constants';
+import { mainLayoutId } from '#constants';
 import {
-  BoardError, BoardWelcome, Canvas, Modal, ToolBar,
+  BoardError, BoardWelcome, Canvas, Modal, NotificationsList, ToolBar,
 } from '#components';
 import { boardsService, drawingsService, realtimeService } from '#services';
 import {
@@ -97,6 +97,7 @@ const Board = () => {
           <BoardError code={errorCode} onClose={goHome} />
         )}
       </Modal>
+      <NotificationsList />
     </SWrapper>
   );
 };

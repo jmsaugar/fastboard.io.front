@@ -1,13 +1,30 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const isJoinedSelector = (state) => state.joined;
-export const boardNameSelector = (state) => state.boardName;
+const boardSelector = (state) => state.board;
 
-const usersSelector = (state) => state.users;
+export const isJoinedSelector = createSelector(
+  boardSelector,
+  (board) => board.joined,
+);
 
-export const userNameSelector = createSelector(
+export const boardNameSelector = createSelector(
+  boardSelector,
+  (board) => board.boardName,
+);
+
+const usersSelector = createSelector(
+  boardSelector,
+  (board) => board.users,
+);
+
+export const myUserNameSelector = createSelector(
   usersSelector,
   (users) => users.me,
+);
+
+export const otherUsersSelector = createSelector(
+  usersSelector,
+  (users) => users.others,
 );
 
 export const usersCountSelector = createSelector(

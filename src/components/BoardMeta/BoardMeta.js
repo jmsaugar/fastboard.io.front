@@ -6,7 +6,7 @@ import { escapeKeyCode, mainLayoutId } from '#constants';
 import { useKey } from '#hooks';
 import { boardsService } from '#services';
 import {
-  boardNameSelector, userNameSelector, usersCountSelector, setBoardName, setMyUserName,
+  boardNameSelector, myUserNameSelector, usersCountSelector, setBoardName, setMyUserName,
 } from '#store';
 
 import UserNameEditor from '../UserNameEditor';
@@ -26,7 +26,7 @@ const BoardMeta = () => {
   const dispatch = useDispatch();
 
   const boardName = useSelector(boardNameSelector);
-  const userName = useSelector(userNameSelector);
+  const userName = useSelector(myUserNameSelector);
   const usersCount = useSelector(usersCountSelector);
 
   const [type, setType] = useState(types.none);

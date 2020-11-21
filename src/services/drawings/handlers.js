@@ -1,4 +1,6 @@
 import { Log } from '#utils';
+import { notificationTypes } from '#constants';
+import store, { addNotification, otherUsersSelector } from '#store';
 
 // @todo this could be refactored
 
@@ -72,6 +74,13 @@ function onBoardCleared({ userId, tool }) {
   }
 
   this.users[userId][tool].onBoardCleared();
+
+  // Trigger a notification
+  const userName = otherUsersSelector(store.getState()).find(({ id }) => id === userId)?.name;
+  store.dispatch(addNotification({
+    type : notificationTypes.boardCleared,
+    data : { userName },
+  }));
 }
 
 export {
