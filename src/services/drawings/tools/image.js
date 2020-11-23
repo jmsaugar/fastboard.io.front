@@ -10,7 +10,7 @@ import { drawingsMessages, tools } from '#constants';
  *
  * @param {Object} image Image file.
  *
- * @return {Object} Data to be sent to other users.
+ * @returns {Object} Data to be sent to other users.
  */
 function onImageAdded({ image }) {
   Log.info('Services : Drawings : Tools : Image : onImageAdded', { image });

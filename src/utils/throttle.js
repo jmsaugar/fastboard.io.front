@@ -4,7 +4,7 @@
  * @param {Function} callback Function to be throttled.
  * @param {Integer} delay Throttle delay in milliseconds.
  *
- * @return {Function} Function that throttles the execution of the callback.
+ * @returns {Function} Function that throttles the execution of the callback.
  */
 export default function throttle(callback, delay = 0) {
   let previousTime = new Date().getTime();

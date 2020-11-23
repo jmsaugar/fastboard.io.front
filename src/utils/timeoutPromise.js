@@ -4,7 +4,7 @@
  * @param {Function} callback Function for the promise. Receives res and rej functions.
  * @param {Integer} timeout Timeout for the promise to be rejected in milliseconds.
  *
- * @return {Promise} Promise with rejection timeout.
+ * @returns {Promise} Promise with rejection timeout.
  */
 export default function timeoutPromise(callback, timeout) {
   return new Promise(

@@ -26,7 +26,7 @@ function injectDependencies({ realtimeService }) {
  * @param {String} boardName Name of the board.
  * @param {String} userName Name of the user.
  *
- * @return {Promise} Resolved when the board has been created and joined; rejected otherwise.
+ * @returns {Promise} Resolved when the board has been created and joined; rejected otherwise.
  */
 function create(boardName, userName) {
   Log.info('Service : Boards : create', { boardName, userName });
@@ -55,7 +55,7 @@ function create(boardName, userName) {
  * @param {String} boardId Id of the board.
  * @param {String} userName Name of the user.
  *
- * @return {Promise} Resolved when the board has been joined; rejected otherwise.
+ * @returns {Promise} Resolved when the board has been joined; rejected otherwise.
  */
 function join(boardId, userName) {
   Log.info('Service : Boards : join', { boardId, userName });
@@ -82,7 +82,7 @@ function join(boardId, userName) {
  *
  * @param {String} userName New user name.
  *
- * @return {Promise} Resolved if successful; rejected otherwise.
+ * @returns {Promise} Resolved if successful; rejected otherwise.
  */
 function setUserName(userName) {
   Log.info('Service : Boards : setUserName', { userName });
@@ -98,7 +98,7 @@ function setUserName(userName) {
  *
  * @param {String} boardName New board name.
  *
- * @return {Promise} Resolved if successful; rejected otherwise.
+ * @returns {Promise} Resolved if successful; rejected otherwise.
  */
 function setBoardName(boardName) {
   Log.info('Service : Boards : setBoardName', { boardName });

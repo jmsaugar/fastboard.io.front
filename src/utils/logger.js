@@ -15,7 +15,7 @@ let config = {
  * @param {String} message Message to be logged.
  * @param {String} color HTML color code for the message text.
  *
- * @return {Array<String>} Formatted log message.
+ * @returns {Array<String>} Formatted log message.
  */
 const createMessage = (message, color) => {
   if (!message) {

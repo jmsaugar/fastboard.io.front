@@ -3,7 +3,7 @@
  *
  * @param {Object} blob Data to be downloaded as file.
  *
- * @return {Promise} Resolved if successful upload with file; rejected otherwise.
+ * @returns {Promise} Resolved if successful upload with file; rejected otherwise.
  */
 export default function triggerUpload() {
   return new Promise((res) => {

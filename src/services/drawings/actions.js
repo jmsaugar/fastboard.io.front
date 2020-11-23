@@ -110,7 +110,7 @@ function removeUser(userId) {
 /**
  * Export the board project to SVG.
  *
- * @return {String} String representing the project in SVG format.
+ * @returns {String} String representing the project in SVG format.
  */
 function exportBoard() {
   Log.info('Services : Drawings : exportBoard');

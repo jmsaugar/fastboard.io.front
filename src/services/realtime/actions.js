@@ -84,7 +84,7 @@ function setMessageHandlers() {
  * @param {String} eventName Event key name.
  * @param {Object} data Data associated to the event.
  *
- * @return {Promise} Resolved with the server ack if succesful request; rejected otherwise.
+ * @returns {Promise} Resolved with the server ack if succesful request; rejected otherwise.
  */
 function send(eventName, data) {
   return timeoutPromise(
@@ -102,7 +102,7 @@ function send(eventName, data) {
 /**
  * Check if the service is started.
  *
- * @return {Boolean} True if the service is started; false otherwise.
+ * @returns {Boolean} True if the service is started; false otherwise.
  */
 function isStarted() {
   return this.isStarted;
