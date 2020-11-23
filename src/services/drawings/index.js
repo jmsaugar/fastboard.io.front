@@ -8,6 +8,8 @@ import {
   onMouseDown, onMouseDrag, onKeyDown, onImageAdded, onBoardCleared,
 } from './handlers';
 
+// @todo http://paperjs.org/examples/path-simplification/
+
 export default () => {
   Log.info('Services : Drawings : create');
 

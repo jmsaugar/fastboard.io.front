@@ -12,6 +12,7 @@ import {
   textToolFactory,
   imageToolFactory,
   clearToolFactory,
+  selectorToolFactory,
 } from './tools';
 
 /**
@@ -54,6 +55,7 @@ function start(canvasId) {
       [tools.text]        : textToolFactory({ realtimeService }),
       [tools.image]       : imageToolFactory({ realtimeService }),
       [tools.clear]       : clearToolFactory({ realtimeService, project : this.project }),
+      [tools.selector]    : selectorToolFactory({ realtimeService, project : this.project }),
     };
 
     Log.debug('Service : Drawings : start : started');
@@ -90,6 +92,7 @@ function addUser(userId) {
     [tools.text]        : textToolFactory(),
     [tools.image]       : imageToolFactory(),
     [tools.clear]       : clearToolFactory({ project : this.project }),
+    [tools.selector]    : selectorToolFactory({ project : this.project }),
   };
 }
 

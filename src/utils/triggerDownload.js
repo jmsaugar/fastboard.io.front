@@ -11,4 +11,6 @@ export default function triggerDownload(blob, fileName) {
   link.download = fileName;
 
   link.click();
+
+  URL.revokeObjectURL(link.ref);
 }

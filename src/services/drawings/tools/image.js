@@ -19,6 +19,9 @@ function onImageAdded({ image }) {
   const url = URL.createObjectURL(blob);
   const raster = new Raster(url);
 
+  // @todo keep global references to all images added and revoke urls when removing them or exiting board
+  // URL.revokeObjectURL(url);
+
   raster.selected = true;
 
   return { image };

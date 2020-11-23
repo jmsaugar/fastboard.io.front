@@ -35,6 +35,7 @@ function onMouseDown(event) {
   this.isWriting = true;
   this.currentText = new PointText(point);
   this.currentText.fillColor = 'black';
+  this.currentText.fontSize = 18;
   this.currentText.selected = true;
 
   return { point };
