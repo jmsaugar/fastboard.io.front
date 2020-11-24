@@ -1,6 +1,7 @@
 import { Tool } from 'paper';
 
 import { Log, throttle } from '#utils';
+import { drawingsMessages, tools } from '#constants';
 
 import activate from './activate';
 import onMouseDown from './onMouseDown';
@@ -25,29 +26,34 @@ export default (dependencies) => {
   scope.tool.on('mousedown', (event) => {
     Log.debug('Selector : onMouseDown');
 
+    const operationData = onMouseDown.call(scope, event);
 
-    onMouseDown.call(scope, event);
-    // dependencies.realtimeService.send(
-    //   drawingsMessages.doMouseDown,
-    //   {
-    //     tool : tools.selector,
-    //     ...onMouseDown.call(scope, event),
-    //   },
-    // ).catch(() => {}); // @todo;
+    if (operationData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDown,
+        {
+          tool : tools.selector,
+          ...operationData,
+        },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
       Log.debug('Selector : onMouseDrag');
 
-      onMouseDrag.call(scope, event);
-      // dependencies.realtimeService.send(
-      //   drawingsMessages.doMouseDrag,
-      //   {
-      //     tool : tools.selector,
-      //     ...onMouseDrag.call(scope, event),
-      //   },
-      // ).catch(() => {}); // @todo;
+      const operationData = onMouseDrag.call(scope, event);
+
+      if (operationData) {
+        dependencies.realtimeService.send(
+          drawingsMessages.doMouseDrag,
+          {
+            tool : tools.selector,
+            ...operationData,
+          },
+        ).catch(() => {}); // @todo;
+      }
     },
     throttleDelay,
   ));

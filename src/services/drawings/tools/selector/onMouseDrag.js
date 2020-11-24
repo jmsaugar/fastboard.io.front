@@ -1,8 +1,21 @@
 import { Point } from 'paper';
 
+import { point2net } from '#utils';
+
 import { bounds, operations } from './constants';
 
+/**
+ * onMouseDrag handler for selection tool.
+ *
+ * Handles the given operation on the selected item.
+ *
+ * @param {Object} event Mouse down event object.
+ */
 export default function onMouseDrag(event) {
+  const point = event.point instanceof Point
+    ? event.point
+    : new Point(event.point);
+
   let delta;
   let resizeOrigin;
 
@@ -13,29 +26,29 @@ export default function onMouseDrag(event) {
   if (this.selectedItem) {
     switch (this.operation) {
       case operations.translate:
-        this.selectedItem.translate(event.point.subtract(this.currentPoint));
-        this.currentPoint = event.point;
+        this.selectedItem.translate(point.subtract(this.currentPoint));
+        this.currentPoint = point;
         break;
 
       case operations.resize:
         switch (this.dragPoint) {
           case bounds.bottomRight:
-            delta = event.point.subtract(this.selectedItem.bounds.bottomRight);
+            delta = point.subtract(this.selectedItem.bounds.bottomRight);
             resizeOrigin = this.selectedItem.bounds.topLeft;
             break;
 
           case bounds.bottomLeft:
             delta = new Point(
-              this.selectedItem.bounds.bottomLeft.x - event.point.x,
-              event.point.y - this.selectedItem.bounds.bottomLeft.y,
+              this.selectedItem.bounds.bottomLeft.x - point.x,
+              point.y - this.selectedItem.bounds.bottomLeft.y,
             );
             resizeOrigin = this.selectedItem.bounds.topRight;
             break;
 
           case bounds.topRight:
             delta = new Point(
-              event.point.x - this.selectedItem.bounds.topRight.x,
-              this.selectedItem.bounds.topRight.y - event.point.y,
+              point.x - this.selectedItem.bounds.topRight.x,
+              this.selectedItem.bounds.topRight.y - point.y,
             );
             resizeOrigin = this.selectedItem.bounds.bottomLeft;
             break;
@@ -55,7 +68,7 @@ export default function onMouseDrag(event) {
 
       case operations.rotate:
         p1 = this.selectedItem.bounds.topLeft.subtract(this.selectedItem.bounds.center);
-        p2 = event.point.subtract(this.selectedItem.bounds.center);
+        p2 = point.subtract(this.selectedItem.bounds.center);
 
         this.selectedItem.rotate(-1 * this.previousRotation, this.selectedItem.bounds.center);
         newRotationAngle = p1.getDirectedAngle(p2);
@@ -67,5 +80,9 @@ export default function onMouseDrag(event) {
       default:
         break;
     }
+
+    return { point : point2net(point) };
   }
+
+  return undefined;
 }

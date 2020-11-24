@@ -15,6 +15,8 @@ let config = {
  * @param {String} message Message to be logged.
  * @param {String} color HTML color code for the message text.
  *
+ * @throws {Error} In case logger was invoked with no message.
+ *
  * @returns {Array<String>} Formatted log message.
  */
 const createMessage = (message, color) => {

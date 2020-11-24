@@ -26,7 +26,7 @@ import ToolOptions from '../ToolOptions';
 import { SWrapper, SMeta, STools } from './styled';
 import triggerUpload from '../../utils/triggerUpload';
 
-const toolsWithOptions = [tools.pencil, tools.pen, tools.highlighter];
+const toolsWithOptions = [tools.pencil, tools.pen, tools.highlighter, tools.text];
 
 const ToolBar = () => {
   const isJoined = useSelector(isJoinedSelector);
@@ -36,6 +36,7 @@ const ToolBar = () => {
   const [pencilColor, setPencilColor] = useState(drawingsColors.black);
   const [penColor, setPenColor] = useState(drawingsColors.black);
   const [highlighterColor, setHighlighterColor] = useState(drawingsColors.black);
+  const [textColor, setTextColor] = useState(drawingsColors.black);
 
   const downloadBoard = useCallback(
     () => triggerDownload(
@@ -94,6 +95,11 @@ const ToolBar = () => {
         case tools.highlighter:
           drawingsService.tools.highlighter.setColor(color);
           setHighlighterColor(color);
+          break;
+
+        case tools.text:
+          drawingsService.tools.text.setColor(color);
+          setTextColor(color);
           break;
 
         default:
@@ -187,9 +193,23 @@ const ToolBar = () => {
         />
         <ToolButton
           icon={<TextIcon />}
+          color={textColor}
           onClick={() => clickTool(tools.text)}
           selected={selectedTool === tools.text}
-        />
+        >
+          <ToolOptions show={showOptionsTool === tools.text}>
+            {Object.values(drawingsColors).map((color) => (
+              <ToolButton
+                icon={<CircleIcon />}
+                color={color}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clickToolOption(tools.text, color);
+                }}
+              />
+            ))}
+          </ToolOptions>
+        </ToolButton>
         <ToolButton
           icon={<ImageIcon />}
           onClick={() => clickTool(tools.image)}

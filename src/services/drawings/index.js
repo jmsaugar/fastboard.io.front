@@ -55,6 +55,7 @@ export default () => {
       },
       [tools.text] : {
         activate : () => scope.tools.text.activate(),
+        setColor : (color) => scope.tools.text.setColor(color),
       },
       [tools.selector] : {
         activate : () => scope.tools.selector.activate(),
