@@ -31,3 +31,18 @@ export const usersCountSelector = createSelector(
   usersSelector,
   (users) => users.others.length + 1,
 );
+
+const toolsSelector = createSelector(
+  boardSelector,
+  (board) => board.tools,
+);
+
+export const selectedToolSelector = createSelector(
+  toolsSelector,
+  (tools) => tools.selected,
+);
+
+export const toolsColorsSelector = createSelector(
+  toolsSelector,
+  (tools) => tools.colors,
+);

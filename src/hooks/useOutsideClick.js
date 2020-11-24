@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-const clickEvent = 'click';
+const clickEvent = 'mousedown';
 
 /**
  * Listen to clicks outside of the component with the given reference.

@@ -1,7 +1,7 @@
 import { Tool } from 'paper';
 
 import { Log, throttle } from '#utils';
-import { drawingsMessages, tools } from '#constants';
+import { defaultDrawingColor, drawingsMessages, tools } from '#constants';
 
 import activate from './activate';
 import setColor from './setColor';
@@ -18,7 +18,7 @@ export default (dependencies) => {
       realtimeService : dependencies?.realtimeService,
     },
     tool        : new Tool(),
-    strokeColor : 'black', // @todo
+    strokeColor : defaultDrawingColor,
     currentPath : undefined,
   };
 

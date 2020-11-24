@@ -6,11 +6,15 @@ export {
   setUsers,
   addUser,
   removeUser,
+  setSelectedTool,
+  setToolColor,
   isJoinedSelector,
   boardNameSelector,
   myUserNameSelector,
   otherUsersSelector,
   usersCountSelector,
+  selectedToolSelector,
+  toolsColorsSelector,
 } from './slices/board';
 export {
   notificationsSelector,

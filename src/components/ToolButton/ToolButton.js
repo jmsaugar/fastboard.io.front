@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { drawingsColors } from '#constants';
+import { drawingColors } from '#constants';
 
 import { SWrapper, SIcon } from './styled';
 
-const ToolButton = ({
+const ToolButton = forwardRef(({
   icon, color, selected, onClick, children,
-}) => (
-  <SWrapper color={color} onClick={onClick} selected={selected}>
+}, ref) => (
+  <SWrapper ref={ref} color={color} onClick={onClick} selected={selected}>
     <SIcon color={color}>
       {icon}
     </SIcon>
     {children}
   </SWrapper>
-);
+));
 
 ToolButton.defaultProps = {
   children : undefined,
@@ -24,7 +24,7 @@ ToolButton.defaultProps = {
 
 ToolButton.propTypes = {
   children : PropTypes.node,
-  color    : PropTypes.oneOf(Object.values(drawingsColors)),
+  color    : PropTypes.oneOf(Object.values(drawingColors)),
   icon     : PropTypes.node.isRequired,
   onClick  : PropTypes.func.isRequired,
   selected : PropTypes.bool,

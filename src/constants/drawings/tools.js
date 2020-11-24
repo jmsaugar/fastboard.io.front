@@ -8,4 +8,5 @@ export default Object.freeze({
   selector    : 'selector',
   image       : 'image',
   clear       : 'clear',
+  export      : 'export',
 });

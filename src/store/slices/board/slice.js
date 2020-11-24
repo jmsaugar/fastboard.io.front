@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { defaultDrawingColor } from '#constants';
+
 const boardSlice = createSlice({
   name         : 'board',
   initialState : {
@@ -9,8 +11,18 @@ const boardSlice = createSlice({
       me     : undefined,
       others : [],
     },
+    tools : {
+      selected : undefined,
+      colors   : {
+        pencil      : defaultDrawingColor,
+        pen         : defaultDrawingColor,
+        highlighter : defaultDrawingColor,
+        text        : defaultDrawingColor,
+      },
+    },
   },
   reducers : {
+    // @todo should reset everything when set to false?
     setJoined : (state, action) => (
       {
         ...state,
@@ -86,6 +98,29 @@ const boardSlice = createSlice({
         }
         : state
     ),
+    setSelectedTool : (state, action) => (
+      action.payload
+        ? {
+          ...state,
+          tools : {
+            ...state.tools,
+            selected : action.payload,
+          },
+        } : state
+    ),
+    setToolColor : (state, action) => (
+      action.payload
+        ? {
+          ...state,
+          tools : {
+            ...state.tools,
+            colors : {
+              ...state.tools.colors,
+              [action.payload.tool] : action.payload.color,
+            },
+          },
+        } : state
+    ),
   },
 });
 
@@ -97,6 +132,8 @@ export const {
   setUsers,
   addUser,
   removeUser,
+  setSelectedTool,
+  setToolColor,
 } = boardSlice.actions;
 
 export default boardSlice;
