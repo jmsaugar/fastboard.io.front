@@ -9,6 +9,7 @@ import {
   SWrapper, SLabel, SCaret, SMenu, SItem,
 } from './styled';
 
+// @todo does not close when open and clicking again on the main button
 const Dropdown = ({ label, options }) => {
   const menuRef = useRef();
   const [showMenu, setShowMenu] = useState(false);

@@ -62,7 +62,7 @@ const ToolBarItem = ({ tool }) => {
 
   const useTool = useCallback(
     () => {
-      switch(tool) {
+      switch (tool) {
         case tools.pencil:
         case tools.pen:
         case tools.highlighter:
@@ -107,7 +107,8 @@ const ToolBarItem = ({ tool }) => {
         default:
           break;
       }
-    }
+    },
+    [showOptions, isSelected, tool, boardName, dispatch, hideOptions],
   );
 
   return (

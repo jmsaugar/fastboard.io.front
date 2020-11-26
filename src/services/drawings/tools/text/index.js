@@ -1,7 +1,9 @@
 import { Tool } from 'paper';
 
 import { Log } from '#utils';
-import { defaultDrawingColor, drawingsMessages, tools } from '#constants';
+import {
+  drawingColorCodes, defaultDrawingColor, drawingsMessages, tools,
+} from '#constants';
 
 import activate from './activate';
 import setColor from './setColor';
@@ -17,7 +19,7 @@ export default (dependencies) => {
     },
     tool        : new Tool(),
     currentText : undefined,
-    strokeColor : defaultDrawingColor,
+    strokeColor : drawingColorCodes[defaultDrawingColor],
     isWriting   : false,
   };
 

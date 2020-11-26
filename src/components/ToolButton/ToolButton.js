@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { drawingColors } from '#constants';
+import { drawingColors, drawingColorCodes } from '#constants';
 
 import { SWrapper, SIcon } from './styled';
 
 const ToolButton = forwardRef(({
   icon, color, selected, onClick, children,
 }, ref) => (
-  <SWrapper ref={ref} color={color} onClick={onClick} selected={selected}>
-    <SIcon color={color}>
+  <SWrapper ref={ref} color={drawingColorCodes[color]} onClick={onClick} selected={selected}>
+    <SIcon color={drawingColorCodes[color]}>
       {icon}
     </SIcon>
     {children}

@@ -3,7 +3,7 @@ import { Path } from 'paper';
 import { Log, point2net } from '#utils';
 
 const strokeColor = 'white'; // @todo read from constant?
-const strokeWidth = 15;
+const strokeWidth = 20;
 const strokeCap = 'round';
 
 export default function onMouseDown(event) {

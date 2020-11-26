@@ -2,12 +2,13 @@ import { Path, Point } from 'paper';
 
 import { Log, point2net } from '#utils';
 
-const strokeColor = 'red'; // @todo constants
+// @todo to constants
+const strokeColor = '#ff1616';
 const strokeWidth = 3;
 const opacity = 0.7;
 const strokeCap = 'round';
-const shadowColor = 'red';
-const shadowBlur = 6;
+const shadowColor = '#ff4747';
+const shadowBlur = 8;
 const shadowOffset = new Point(2, 2);
 
 export default function onMouseDown(event) {
