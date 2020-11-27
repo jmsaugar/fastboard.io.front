@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
@@ -11,8 +11,10 @@ const Canvas = ({ id }) => {
   const tool = useSelector(selectedToolSelector);
   const colors = useSelector(toolsColorsSelector);
 
-  // @todo memo cursor?
-  const cursor = tool2cursor[tool]?.[colors[tool]] || tool2cursor[tool];
+  const cursor = useMemo(
+    () => (tool2cursor[tool]?.[colors[tool]] || tool2cursor[tool]),
+    [tool, colors],
+  );
 
   return (
     <SCanvas

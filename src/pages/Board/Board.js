@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Log } from '#utils';
+import { Log, setPreventUnload } from '#utils';
 import routes from '#routes';
 import { mainLayoutId } from '#constants';
 import {
@@ -23,9 +23,10 @@ const modalSteps = Object.freeze({
   error   : 2,
 });
 
+
 // @ todo check params.id
 const Board = () => {
-  const { push : redirectTo } = useHistory();
+  const { push : redirectTo, block } = useHistory();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
   const isJoined = useSelector(isJoinedSelector);
@@ -33,7 +34,21 @@ const Board = () => {
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
 
-  // @todo dividi this in many useEffect uses?
+  // Page unload prevention
+  useEffect(() => {
+    const unblock = block(() => {
+      return window.confirm('leave?'); // @todo text and ¿custom modal?
+    });
+
+    setPreventUnload(true);
+
+    return () => {
+      unblock();
+      setPreventUnload(false);
+    };
+  }, [block]);
+
+  // @todo divide this in many useEffect uses?
   useEffect(() => {
     if (!isJoined) {
       setModalStep(modalSteps.welcome);
@@ -46,7 +61,7 @@ const Board = () => {
       realtimeService.stop();
       drawingsService.stop();
     };
-  }, [setModalStep, dispatch]);
+  }, [isJoined, setModalStep, dispatch]);
 
   const join = useCallback(
     (userName) => {

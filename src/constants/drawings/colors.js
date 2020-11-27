@@ -1,9 +1,9 @@
 export const drawingColors = Object.freeze({
-  black  : 'black',
-  red    : 'red',
-  blue   : 'blue',
-  orange : 'orange',
-  green  : 'green',
+  black  : 0,
+  red    : 1,
+  blue   : 2,
+  orange : 3,
+  green  : 4,
 });
 
 export const drawingColorCodes = Object.freeze({

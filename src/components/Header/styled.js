@@ -1,4 +1,5 @@
 import styled from '@xstyled/styled-components';
+import { Link } from 'react-router-dom';
 
 // @todo check values for theme - font size & langSelector width
 
@@ -14,9 +15,11 @@ export const SWrapper = styled.header`
   color: fg;
 `;
 
-export const SBanner = styled.span`
+export const SBanner = styled(Link)`
+  color: inherit;
   font-family: brand;
   font-size: headerBrand;
+  text-decoration: inherit;
 `;
 
 export const SLanguageSelector = styled.div`

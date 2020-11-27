@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { languageCodes } from '#constants';
+import routes from '#routes';
 
 import Dropdown from '../Dropdown';
 
@@ -21,7 +22,7 @@ const Header = () => {
 
   return (
     <SWrapper>
-      <SBanner>
+      <SBanner to={routes.home}>
         {t('brand')}
       </SBanner>
       <SLanguageSelector>
