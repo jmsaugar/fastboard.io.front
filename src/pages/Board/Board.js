@@ -9,9 +9,7 @@ import {
   BoardError, BoardWelcome, Canvas, Modal, NotificationsList, ToolBar,
 } from '#components';
 import { boardsService, drawingsService, realtimeService } from '#services';
-import {
-  isJoinedSelector, setJoined, setBoardName, setMyUserName, setUsers,
-} from '#store';
+import { isJoinedSelector, setJoined, setUnjoined } from '#store';
 
 import SWrapper from './styled';
 
@@ -48,20 +46,21 @@ const Board = () => {
     };
   }, [block]);
 
-  // @todo divide this in many useEffect uses?
+  // Already joined vs joining pending logic
   useEffect(() => {
     if (!isJoined) {
       setModalStep(modalSteps.welcome);
+    } else {
+      drawingsService.start(canvasId);
     }
+  }, [isJoined]);
 
-    drawingsService.start(canvasId);
-
-    return () => {
-      dispatch(setJoined(false));
-      realtimeService.stop();
-      drawingsService.stop();
-    };
-  }, [isJoined, setModalStep, dispatch]);
+  // Leaving logic
+  useEffect(() => () => {
+    dispatch(setUnjoined());
+    realtimeService.stop();
+    drawingsService.stop();
+  }, [dispatch]);
 
   const join = useCallback(
     (userName) => {
@@ -74,15 +73,11 @@ const Board = () => {
         .then(({ boardId : joinedBoardId, boardName, users }) => {
           Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
 
-          dispatch(setJoined(true)); // @todo add boardName, username and users list to this action
-          dispatch(setBoardName(boardName));
-          dispatch(setMyUserName(userName));
-          dispatch(setUsers(users));
-
-          drawingsService.start(canvasId);
+          dispatch(setJoined({ boardName, userName, users }));
 
           setModalStep(modalSteps.none);
           setIsLoading(false);
+          drawingsService.start(canvasId);
         })
         .catch(({ message }) => {
           // @todo stop services?

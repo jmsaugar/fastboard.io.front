@@ -51,7 +51,7 @@ const BoardWelcome = ({
 };
 
 BoardWelcome.propTypes = {
-  boardId   : PropTypes.number.isRequired,
+  boardId   : PropTypes.string.isRequired,
   isLoading : PropTypes.bool.isRequired,
   onJoin    : PropTypes.func.isRequired,
   onCancel  : PropTypes.func.isRequired,

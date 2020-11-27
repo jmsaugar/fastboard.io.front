@@ -3,6 +3,8 @@ export default Object.freeze({
   didMouseDown  : 'didMouseDown',
   doMouseDrag   : 'doMouseDrag',
   didMouseDrag  : 'didMouseDrag',
+  doMouseUp     : 'doMouseUp',
+  didMouseUp    : 'didMouseUp',
   doKeyDown     : 'doKeyDown',
   didKeyDown    : 'didKeyDown',
   doAddImage    : 'doAddImage',

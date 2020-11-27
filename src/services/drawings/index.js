@@ -5,7 +5,7 @@ import {
   injectDependencies, start, stop, addUser, removeUser, exportBoard,
 } from './actions';
 import {
-  onMouseDown, onMouseDrag, onKeyDown, onImageAdded, onBoardCleared,
+  onMouseDown, onMouseDrag, onMouseUp, onKeyDown, onImageAdded, onBoardCleared,
 } from './handlers';
 
 // @todo http://paperjs.org/examples/path-simplification/
@@ -30,6 +30,7 @@ export default () => {
     exportBoard        : exportBoard.bind(scope),
     onMouseDown        : onMouseDown.bind(scope),
     onMouseDrag        : onMouseDrag.bind(scope),
+    onMouseUp          : onMouseUp.bind(scope),
     onKeyDown          : onKeyDown.bind(scope),
     onImageAdded       : onImageAdded.bind(scope),
     onBoardCleared     : onBoardCleared.bind(scope),

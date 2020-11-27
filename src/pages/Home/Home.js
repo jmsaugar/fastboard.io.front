@@ -5,9 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Log } from '#utils';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
-import {
-  setJoined, setBoardName, setMyUserName, setUsers,
-} from '#store';
+import { setJoined } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -34,10 +32,7 @@ const Home = () => {
         .then(({ boardId, boardName : joinedBoardName }) => {
           Log.debug('Component : Home : create : created', { boardId, joinedBoardName });
 
-          dispatch(setJoined(true));
-          dispatch(setBoardName(boardName));
-          dispatch(setMyUserName(userName));
-
+          dispatch(setJoined({ boardName, userName }));
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(() => Log.error('Component : Home : create : error creating board')); // @todo stop services
@@ -54,11 +49,7 @@ const Home = () => {
         .then(({ boardId : joinedBoardId, boardName, users }) => {
           Log.debug('Component : Home : join : joined', { joinedBoardId, boardName, users });
 
-          dispatch(setJoined(true));
-          dispatch(setBoardName(boardName));
-          dispatch(setMyUserName(userName));
-          dispatch(setUsers(users));
-
+          dispatch(setJoined({ boardName, userName, users }));
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(() => Log.error('Component : Home : join : error joining board')); // @todo stop services

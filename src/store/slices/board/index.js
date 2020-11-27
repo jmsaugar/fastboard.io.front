@@ -8,7 +8,7 @@ export {
   toolsColorsSelector,
 } from './selectors';
 export {
-  setJoined,
+  setUnjoined,
   setBoardName,
   setMyUserName,
   setUserName,
@@ -17,7 +17,7 @@ export {
   default as boardSlice,
 } from './slice';
 export {
-  setUsers,
   addUser,
   removeUser,
+  setJoined,
 } from './thunks';

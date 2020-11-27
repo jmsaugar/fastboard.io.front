@@ -12,8 +12,8 @@ const NotificationsList = () => {
 
   return (
     <SWrapper>
-      {notificationsList.map(({ type, data }) => (
-        <NotificationItem type={type} data={data} />
+      {notificationsList.map(({ id, type, data }) => (
+        <NotificationItem key={id} type={type} data={data} />
       ))}
     </SWrapper>
   );

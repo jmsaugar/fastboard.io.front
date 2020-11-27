@@ -122,6 +122,7 @@ const ToolBarItem = ({ tool }) => {
       <ToolOptions show={showOptions}>
         {Object.values(drawingColors).map((color) => (
           <ToolButton
+            key={color}
             icon={<CircleIcon />}
             color={color}
             onClick={(evt) => {

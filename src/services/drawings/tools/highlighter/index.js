@@ -24,6 +24,7 @@ export default (dependencies) => {
     currentPath : undefined,
   };
 
+  // @todo rework this? also, events to constants
   scope.tool.on('mousedown', (event) => {
     Log.debug('Highlighter : onMouseDown');
 

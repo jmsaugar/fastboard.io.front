@@ -1,9 +1,9 @@
 export {
   setJoined,
+  setUnjoined,
   setBoardName,
   setMyUserName,
   setUserName,
-  setUsers,
   addUser,
   removeUser,
   setSelectedTool,

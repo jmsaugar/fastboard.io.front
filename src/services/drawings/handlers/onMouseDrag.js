@@ -7,7 +7,7 @@ import { Log } from '#utils';
  */
 export default function onMouseDrag({ userId, tool, ...eventData }) {
   if (!this.users[userId] || !this.users[userId][tool]) {
-    Log.warning('Services : Drawings : onMouseDown : no such user or tool', { userId, tool });
+    Log.warning('Services : Drawings : onMouseDrag : no such user or tool', { userId, tool });
     return;
   }
 

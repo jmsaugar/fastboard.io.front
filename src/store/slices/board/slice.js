@@ -22,13 +22,28 @@ const boardSlice = createSlice({
     },
   },
   reducers : {
-    // @todo should reset everything when set to false?
     setJoined : (state, action) => (
-      {
-        ...state,
-        joined : action.payload,
-      }
+      action.payload
+        ? {
+          ...state,
+          joined    : true,
+          boardName : action.payload.boardName,
+          users     : {
+            me     : action.payload.userName,
+            others : action.payload.users || [],
+          },
+        }
+        : state
     ),
+    setUnjoined : (state) => ({
+      ...state,
+      joined    : false,
+      boardName : undefined,
+      users     : {
+        me     : undefined,
+        others : [],
+      },
+    }),
     setBoardName : (state, action) => (
       action.payload
         ? {
@@ -58,17 +73,6 @@ const boardSlice = createSlice({
               ...user,
               name : user.id === action.payload.id ? action.payload.name : user.name,
             })),
-          },
-        }
-        : state
-    ),
-    setUsers : (state, action) => (
-      action.payload
-        ? {
-          ...state,
-          users : {
-            ...state.users,
-            others : action.payload,
           },
         }
         : state
@@ -126,6 +130,7 @@ const boardSlice = createSlice({
 
 export const {
   setJoined,
+  setUnjoined,
   setBoardName,
   setMyUserName,
   setUserName,
