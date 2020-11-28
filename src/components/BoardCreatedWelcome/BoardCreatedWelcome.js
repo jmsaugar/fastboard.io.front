@@ -1,10 +1,13 @@
 import React, {
-  useCallback, useEffect, useRef, useState,
+  useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import { escapeKeyCode } from '#constants';
 import { toClipboard } from '#utils';
+import { useKey } from '#hooks';
+import routes from '#routes';
 
 import Button from '../Button';
 import {
@@ -20,13 +23,20 @@ const copySteps = Object.freeze({
   copyError : 'copyError',
 });
 
-const BoardCreatedWelcome = ({ boardId, onCancel }) => {
+const BoardCreatedWelcome = ({ boardId, onClose }) => {
   const { t } = useTranslation('board');
   const timeoutRef = useRef();
   const [copyStep, setCopyStep] = useState(copySteps.none);
 
+  useKey(escapeKeyCode, onClose);
+
+  const boardUrl = useMemo(
+    () => `${process.env.REACT_APP_BASE_URL}${routes.board.replace(':id', boardId)}`,
+    [boardId],
+  );
+
   const copyAction = useCallback(
-    () => toClipboard(boardId) // @todo full url
+    () => toClipboard(boardUrl)
       .then(() => setCopyStep(copySteps.copied))
       .catch(() => setCopyStep(copySteps.copyError))
       .finally(() => {
@@ -39,7 +49,7 @@ const BoardCreatedWelcome = ({ boardId, onCancel }) => {
           copiedMessageTimeout,
         );
       }),
-    [boardId],
+    [boardUrl],
   );
 
   // Clear timeout if it was still active
@@ -62,8 +72,7 @@ const BoardCreatedWelcome = ({ boardId, onCancel }) => {
           {t('welcome.created.about')}
         </div>
         <SLink id="link">
-          {/* @todo full url */}
-          http://www.fastboard.io/board/123456
+          {boardUrl}
         </SLink>
         <Button type="secondary" fullWidth onClick={copyAction}>
           <SCopyIcon />
@@ -71,7 +80,7 @@ const BoardCreatedWelcome = ({ boardId, onCancel }) => {
         </Button>
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onCancel}>
+        <Button type="secondary" onClick={onClose}>
           {t('welcome.created.accept')}
         </Button>
       </SFooter>
@@ -80,8 +89,8 @@ const BoardCreatedWelcome = ({ boardId, onCancel }) => {
 };
 
 BoardCreatedWelcome.propTypes = {
-  boardId  : PropTypes.string.isRequired,
-  onCancel : PropTypes.func.isRequired,
+  boardId : PropTypes.string.isRequired,
+  onClose : PropTypes.func.isRequired,
 };
 
 export default BoardCreatedWelcome;

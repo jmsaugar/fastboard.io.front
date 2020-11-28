@@ -100,7 +100,7 @@ const Board = () => {
         {modalStep === modalSteps.created && (
           <BoardCreatedWelcome
             boardId={boardId}
-            onCancel={() => setModalStep(modalSteps.none)}
+            onClose={() => setModalStep(modalSteps.none)}
           />
         )}
         {modalStep === modalSteps.joined && (
