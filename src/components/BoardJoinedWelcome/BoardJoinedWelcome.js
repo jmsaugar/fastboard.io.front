@@ -8,7 +8,7 @@ import {
   SWrapper, SHeader, SContent, SFooter,
 } from './styled';
 
-const BoardWelcome = ({
+const BoardJoinedWelcome = ({
   boardId, isLoading, onJoin, onCancel,
 }) => {
   const { t } = useTranslation('board');
@@ -22,39 +22,39 @@ const BoardWelcome = ({
   return (
     <SWrapper>
       <SHeader>
-        {t('welcome.title', { boardId })}
+        {t('welcome.joined.title', { boardId })}
       </SHeader>
       <SContent>
         <div>
-          {t('welcome.about')}
+          {t('welcome.joined.about')}
         </div>
         <div>
-          {t('welcome.chooseUserName')}
+          {t('welcome.joined.chooseUserName')}
         </div>
         <Input
           name="userName"
-          placeholder={t('welcome.userNamePlaceholder')}
+          placeholder={t('welcome.joined.userNamePlaceholder')}
           onChange={onBoardNameChange}
           fullWidth
         />
       </SContent>
       <SFooter>
         <Button type="secondary" onClick={onCancel}>
-          {t('welcome.cancel')}
+          {t('welcome.joined.cancel')}
         </Button>
         <Button type="primary" isLoading={isLoading} onClick={() => onJoin(userName)}>
-          {t('welcome.join')}
+          {t('welcome.joined.join')}
         </Button>
       </SFooter>
     </SWrapper>
   );
 };
 
-BoardWelcome.propTypes = {
+BoardJoinedWelcome.propTypes = {
   boardId   : PropTypes.string.isRequired,
   isLoading : PropTypes.bool.isRequired,
   onJoin    : PropTypes.func.isRequired,
   onCancel  : PropTypes.func.isRequired,
 };
 
-export default BoardWelcome;
+export default BoardJoinedWelcome;

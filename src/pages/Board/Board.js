@@ -6,7 +6,7 @@ import { Log, setPreventUnload } from '#utils';
 import routes from '#routes';
 import { mainLayoutId } from '#constants';
 import {
-  BoardError, BoardWelcome, Canvas, Modal, NotificationsList, ToolBar,
+  BoardError, BoardCreatedWelcome, BoardJoinedWelcome, Canvas, Modal, NotificationsList, ToolBar,
 } from '#components';
 import { boardsService, drawingsService, realtimeService } from '#services';
 import { isJoinedSelector, setJoined, setUnjoined } from '#store';
@@ -17,8 +17,9 @@ const canvasId = 'canvas';
 
 const modalSteps = Object.freeze({
   none    : 0,
-  welcome : 1,
-  error   : 2,
+  created : 1,
+  joined  : 2,
+  error   : 3,
 });
 
 
@@ -48,10 +49,11 @@ const Board = () => {
 
   // Already joined vs joining pending logic
   useEffect(() => {
-    if (!isJoined) {
-      setModalStep(modalSteps.welcome);
-    } else {
+    if (isJoined) {
+      setModalStep(modalSteps.created);
       drawingsService.start(canvasId);
+    } else {
+      setModalStep(modalSteps.joined);
     }
   }, [isJoined]);
 
@@ -95,8 +97,14 @@ const Board = () => {
       <ToolBar />
       <Canvas id={canvasId} />
       <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
-        {modalStep === modalSteps.welcome && (
-          <BoardWelcome
+        {modalStep === modalSteps.created && (
+          <BoardCreatedWelcome
+            boardId={boardId}
+            onCancel={() => setModalStep(modalSteps.none)}
+          />
+        )}
+        {modalStep === modalSteps.joined && (
+          <BoardJoinedWelcome
             isLoading={isLoading}
             boardId={boardId}
             onJoin={join}

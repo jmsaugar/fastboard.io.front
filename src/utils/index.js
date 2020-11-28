@@ -4,6 +4,7 @@ export { default as point2net } from './point2net';
 export { default as setPreventUnload } from './setPreventUnload';
 export { default as throttle } from './throttle';
 export { default as timeoutPromise } from './timeoutPromise';
+export { default as toClipboard } from './toClipboard';
 export { default as triggerDownload } from './triggerDownload';
 export { default as triggerUpload } from './triggerUpload';
 export { default as validBoardId } from './validBoardId';

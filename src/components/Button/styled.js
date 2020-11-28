@@ -24,11 +24,17 @@ export default styled.button`
         border-color: primary;
         background-color: primary;
         color: primaryContrast;
+        &:active {
+          background-color: primaryActive;
+        }
       `,
       secondary : css`
         border-color: border;
         background-color: bg;
         color: fg;
+        &:active {
+          background-color: bgActive;
+        }
       `,
     },
   })}

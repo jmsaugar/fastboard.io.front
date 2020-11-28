@@ -31,8 +31,8 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src",
-    "lint:css": "stylelint \"**/*.js\"",
-    "lint:all": "eslint .; stylelint \"**/*.js\""
+    "lint:css": "stylelint \"./src/**/*.js\"",
+    "lint:all": "eslint ./src; stylelint \"./src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"

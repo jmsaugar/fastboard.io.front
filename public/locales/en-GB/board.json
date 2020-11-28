@@ -14,12 +14,22 @@
     "usersCount_plural" : "({{count}} users)"
   },
   "welcome": {
-    "title": "Welcome to the board: {{boardId}}",
-    "about": "You are about to join the board.",
-    "chooseUserName": "Please, choose a user name so that other users can recognize you.",
-    "userNamePlaceholder": "Introduce your user name",
-    "cancel": "Cancel",
-    "join": "Join"
+    "joined": {
+      "title": "Welcome to the board: {{boardId}}",
+      "about": "You are about to join the board.",
+      "chooseUserName": "Please, choose a user name so that other users can recognize you.",
+      "userNamePlaceholder": "Introduce your user name",
+      "cancel": "Cancel",
+      "join": "Join"
+    },
+    "created": {
+      "title": "Welcome to the board: {{boardId}}",
+      "about": "Let others join the board sharing this link:",
+      "copy": "Click here to copy the link",
+      "copied": "Link copied!",
+      "copyError": "Link could not be copied. Please, try again.",
+      "accept": "Accept"
+    }
   },
   "error": {
     "title": "Error joining the board",

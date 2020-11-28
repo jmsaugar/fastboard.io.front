@@ -14,12 +14,22 @@
     "usersCount_plural" : "({{count}} usuarios)"
   },
   "welcome": {
-    "title": "Bienvenido al panel: {{boardId}}",
-    "about": "Estás a punto de unirte al panel.",
-    "chooseUserName": "Por favor, escoge un nombre para que los demás usuarios puedan reconocerte.",
-    "userNamePlaceholder": "Introduce tu nombre de usuario",
-    "cancel": "Cancelar",
-    "join": "Unirse"
+    "joined": {
+      "title": "Bienvenido al panel: {{boardId}}",
+      "about": "Estás a punto de unirte al panel.",
+      "chooseUserName": "Por favor, escoge un nombre para que los demás usuarios puedan reconocerte.",
+      "userNamePlaceholder": "Introduce tu nombre de usuario",
+      "cancel": "Cancelar",
+      "join": "Unirse"
+    },
+    "created": {
+      "title": "Bienvenido al panel: {{boardId}}",
+      "about": "Permite a otros unirse al panel compartiendo este enlace:",
+      "copy": "Click aquí para copiar el enlace",
+      "copied": "¡Enlace copiado!",
+      "copyError": "El enlace no pudo copiarse. Por favor, prueba orta vez.",
+      "accept": "Aceptar"
+    }
   },
   "error": {
     "title": "Error al unirse al panel",

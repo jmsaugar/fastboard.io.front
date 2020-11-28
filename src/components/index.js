@@ -1,7 +1,8 @@
 export { default as BoardError } from './BoardError';
 export { default as BoardMeta } from './BoardMeta';
 export { default as BoardNameEditor } from './BoardNameEditor';
-export { default as BoardWelcome } from './BoardWelcome';
+export { default as BoardCreatedWelcome } from './BoardCreatedWelcome';
+export { default as BoardJoinedWelcome } from './BoardJoinedWelcome';
 export { default as Button } from './Button';
 export { default as Canvas } from './Canvas';
 export { default as Dropdown } from './Dropdown';

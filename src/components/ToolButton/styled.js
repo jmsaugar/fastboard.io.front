@@ -18,6 +18,9 @@ export const SWrapper = styled.div`
     box-shadow: default;
     cursor: pointer;
   }
+  &:active {
+    background-color: bgActive;
+  }
 
   ${variant({
     default  : false,
