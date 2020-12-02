@@ -11,7 +11,9 @@ import {
   BoardError, BoardCreatedWelcome, BoardJoinedWelcome, Canvas, Modal, NotificationsList, ToolBar,
 } from '#components';
 import { boardsService, drawingsService, realtimeService } from '#services';
-import { isJoinedSelector, setJoined, setUnjoined } from '#store';
+import {
+  isOwnerSelector, isJoinedSelector, setJoined, setUnjoined,
+} from '#store';
 
 import SWrapper from './styled';
 
@@ -30,7 +32,9 @@ const Board = () => {
   const { push : redirectTo, block } = useHistory();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
+  const isOwner = useSelector(isOwnerSelector);
   const isJoined = useSelector(isJoinedSelector);
+  const isOwnerOnLoad = useRef(isOwner);
   const isJoinedOnLoad = useRef(isJoined);
   const [isLoading, setIsLoading] = useState(false);
   const [modalStep, setModalStep] = useState(modalSteps.none);
@@ -53,8 +57,11 @@ const Board = () => {
   // Already joined vs joining pending logic
   useEffect(() => {
     if (isJoinedOnLoad.current) {
-      setModalStep(modalSteps.created);
       drawingsService.start(canvasId);
+
+      if (isOwnerOnLoad.current) {
+        setModalStep(modalSteps.created);
+      }
     } else {
       setModalStep(modalSteps.joined);
     }

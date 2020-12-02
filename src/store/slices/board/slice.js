@@ -6,6 +6,7 @@ const boardSlice = createSlice({
   name         : 'board',
   initialState : {
     joined    : false,
+    owner     : undefined,
     boardName : undefined,
     users     : {
       me     : undefined,
@@ -22,15 +23,30 @@ const boardSlice = createSlice({
     },
   },
   reducers : {
+    setCreated : (state, action) => (
+      action.payload
+        ? {
+          ...state,
+          joined    : true,
+          owner     : true,
+          boardName : action.payload.boardName,
+          users     : {
+            me     : action.payload.userName,
+            others : [],
+          },
+        }
+        : state
+    ),
     setJoined : (state, action) => (
       action.payload
         ? {
           ...state,
           joined    : true,
+          owner     : false,
           boardName : action.payload.boardName,
           users     : {
             me     : action.payload.userName,
-            others : action.payload.users || [],
+            others : action.payload.users,
           },
         }
         : state
@@ -38,6 +54,7 @@ const boardSlice = createSlice({
     setUnjoined : (state) => ({
       ...state,
       joined    : false,
+      owner     : undefined,
       boardName : undefined,
       users     : {
         me     : undefined,
@@ -129,6 +146,7 @@ const boardSlice = createSlice({
 });
 
 export const {
+  setCreated,
   setJoined,
   setUnjoined,
   setBoardName,

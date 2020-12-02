@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Log } from '#utils';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
-import { setJoined } from '#store';
+import { setCreated, setJoined } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -32,7 +32,7 @@ const Home = () => {
         .then(({ boardId, boardName : joinedBoardName }) => {
           Log.debug('Component : Home : create : created', { boardId, joinedBoardName });
 
-          dispatch(setJoined({ boardName, userName }));
+          dispatch(setCreated({ boardName, userName }));
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(() => Log.error('Component : Home : create : error creating board')); // @todo stop services

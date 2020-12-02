@@ -1,4 +1,5 @@
 export {
+  isOwnerSelector,
   isJoinedSelector,
   boardNameSelector,
   myUserNameSelector,
@@ -8,6 +9,7 @@ export {
   toolsColorsSelector,
 } from './selectors';
 export {
+  setCreated,
   setUnjoined,
   setBoardName,
   setMyUserName,

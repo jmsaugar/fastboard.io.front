@@ -1,4 +1,5 @@
 export {
+  setCreated,
   setJoined,
   setUnjoined,
   setBoardName,
@@ -8,6 +9,7 @@ export {
   removeUser,
   setSelectedTool,
   setToolColor,
+  isOwnerSelector,
   isJoinedSelector,
   boardNameSelector,
   myUserNameSelector,

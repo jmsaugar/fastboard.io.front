@@ -2,6 +2,11 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const boardSelector = (state) => state.board;
 
+export const isOwnerSelector = createSelector(
+  boardSelector,
+  (board) => board.owner,
+);
+
 export const isJoinedSelector = createSelector(
   boardSelector,
   (board) => board.joined,
