@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -29,6 +31,7 @@ const Board = () => {
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
   const isJoined = useSelector(isJoinedSelector);
+  const isJoinedOnLoad = useRef(isJoined);
   const [isLoading, setIsLoading] = useState(false);
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
@@ -49,13 +52,13 @@ const Board = () => {
 
   // Already joined vs joining pending logic
   useEffect(() => {
-    if (isJoined) {
+    if (isJoinedOnLoad.current) {
       setModalStep(modalSteps.created);
       drawingsService.start(canvasId);
     } else {
       setModalStep(modalSteps.joined);
     }
-  }, [isJoined]);
+  }, []);
 
   // Leaving logic
   useEffect(() => () => {
