@@ -15,8 +15,7 @@ export default function onMouseDown(event) {
   Log.debug('Services : Drawings : Tools : Pointer : onMouseDown', { event });
 
   const point = point2net(event.point);
-
-  this.currentPath = new Path({
+  const newPath = new Path({
     strokeColor,
     strokeWidth,
     opacity,
@@ -26,24 +25,11 @@ export default function onMouseDown(event) {
     shadowOffset,
   });
 
-  this.currentPath.add(point);
+  newPath.add(point);
+  this.currentPath = newPath;
 
-  // @todo polish this, sometimes has weird behaviour
-  setTimeout(
-    () => {
-      this.interval = setInterval(
-        () => {
-          if (this.currentPath.segments.length) {
-            this.currentPath.removeSegment(0);
-          } else {
-            clearInterval(this.interval);
-          }
-        },
-        10,
-      );
-    },
-    500,
-  );
+  // @todo time to constantsadd(point);
+  setTimeout(() => newPath.removeSegment(0), 500);
 
   return { point, strokeColor };
 }
