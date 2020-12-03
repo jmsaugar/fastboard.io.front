@@ -13,7 +13,7 @@ export default function start() {
   if (!this.isStarted) {
     this.socket = io( // @todo check possible errors
       socketIOEndpoint,
-      { path : process.env.SOCKETIO_PATH },
+      { path : process.env.REACT_APP_SOCKETIO_PATH },
     );
     this.isStarted = true;
 
