@@ -11,7 +11,10 @@ export default function start() {
   Log.info('Services : Realtime : start');
 
   if (!this.isStarted) {
-    this.socket = io(socketIOEndpoint); // @todo check possible errors
+    this.socket = io( // @todo check possible errors
+      socketIOEndpoint,
+      { path : process.env.SOCKETIO_PATH },
+    );
     this.isStarted = true;
 
     Log.debug('Service : Realtime : start : started');
