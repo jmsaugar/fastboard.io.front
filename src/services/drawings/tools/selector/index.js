@@ -12,16 +12,20 @@ const throttleDelay = 5; // In milliseconds
 export default (dependencies) => {
   Log.info('Services : Drawings : Tools : Selector : create');
 
-  const scope = {
+  // @todo freeze/seal other scope objects
+  const scope = Object.seal({
     dependencies : {
       realtimeService : dependencies?.realtimeService,
       project         : dependencies?.project,
     },
-    tool         : new Tool(),
-    selectedItem : undefined,
-    currentPoint : undefined,
-    operation    : undefined,
-  };
+    tool                    : new Tool(),
+    selectedItem            : undefined,
+    selectedItemHandlers    : undefined,
+    operation               : undefined,
+    currentTranslationPoint : undefined,
+    currentRotationAngle    : undefined,
+    resizeOriginBound       : undefined,
+  });
 
   scope.tool.on('mousedown', (event) => {
     Log.debug('Selector : onMouseDown');

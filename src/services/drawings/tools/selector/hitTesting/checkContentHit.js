@@ -16,8 +16,7 @@ export default function checkContentHit(project, point) {
   });
 
   return (
-    contentHits
-    && contentHits.length
+    contentHits?.length
     && (
       contentHits[0].item instanceof PointText
       || contentHits[0].item instanceof Raster

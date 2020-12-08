@@ -8,5 +8,5 @@ import { Log } from '#utils';
 export default function onBoardCleared() {
   Log.info('Services : Drawings : Tools : Clear : onBoardCleared');
 
-  this.dependencies.project.clear();
+  this.dependencies.project.clear(); // @todo recreate layers
 }

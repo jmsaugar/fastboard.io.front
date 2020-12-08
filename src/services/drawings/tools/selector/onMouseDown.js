@@ -2,9 +2,9 @@ import { Point } from 'paper';
 
 import { Log, point2net } from '#utils';
 
+import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
-import checkBoundsHit from './checkBoundsHit';
-import checkContentHit from './checkContentHit';
+import { checkBoundsHit, checkContentHit } from './hitTesting';
 import reset from './reset';
 
 /**
@@ -22,7 +22,7 @@ export default function onMouseDown(event) {
     ? event.point
     : new Point(event.point);
 
-  const boundsHit = checkBoundsHit.call(this, this.selectedItem, point);
+  const boundsHit = checkBoundsHit.call(this, this.selectedItemHandlers, point);
 
   if (boundsHit) {
     // If clicked on the bounds of an item, rotation or resizing operation is set up
@@ -30,23 +30,23 @@ export default function onMouseDown(event) {
       // Top left handler is for rotation operation
       case bounds.topLeft:
         this.operation = operations.rotate;
-        this.previousRotation = 0;
+        this.currentRotationAngle = 0;
         break;
 
       // All other handlers are for resizing operation
       case bounds.topRight:
         this.operation = operations.resize;
-        this.dragPoint = bounds.topRight;
+        this.resizeOriginBound = bounds.topRight;
         break;
 
       case bounds.bottomLeft:
         this.operation = operations.resize;
-        this.dragPoint = bounds.bottomLeft;
+        this.resizeOriginBound = bounds.bottomLeft;
         break;
 
       case bounds.bottomRight:
         this.operation = operations.resize;
-        this.dragPoint = bounds.bottomRight;
+        this.resizeOriginBound = bounds.bottomRight;
         break;
 
       default:
@@ -64,19 +64,27 @@ export default function onMouseDown(event) {
     return undefined;
   }
 
+  // If no bounds hit, default operation is translation
   this.operation = operations.translate;
-  this.currentPoint = point;
+  this.currentTranslationPoint = point;
 
   if (this.selectedItem !== item) {
     // Deselect previous item
     if (this.selectedItem) {
-      this.selectedItem.selected = false;
+      // @todo deselect also when tool is unselected
+      removeSelectionHandlers(
+        this.selectedItem,
+        this.dependencies.project.layers.selection,
+      );
+      this.selectedItemHandlers = undefined;
     }
 
     // Select new one
     this.selectedItem = item;
-    this.selectedItem.selected = true;
-    this.selectedItem.selectedColor = '#ccc'; // @todo selection color from constants, and use it in text and image
+    this.selectedItemHandlers = createSelectionHandlers(
+      this.selectedItem,
+      this.dependencies.project.layers.selection,
+    );
   }
 
   return { point : point2net(point) };

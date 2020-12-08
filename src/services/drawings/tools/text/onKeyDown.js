@@ -1,5 +1,7 @@
 import { Log } from '#utils';
 
+import { resizeSelectionHandlers, removeSelectionHandlers } from '../utils';
+
 const keys = Object.freeze({
   backspace : 'backspace',
   escape    : 'escape',
@@ -14,8 +16,6 @@ export default function onKeyDown(event) {
   switch (event.key) {
     case keys.escape:
       this.isWriting = false;
-      this.currentText.selected = false;
-      this.currentText = undefined;
       break;
 
     case keys.backspace:
@@ -27,6 +27,19 @@ export default function onKeyDown(event) {
     default:
       this.currentText.content += event.character;
       break;
+  }
+
+  if (this.isWriting) {
+    resizeSelectionHandlers(
+      this.currentText,
+      this.dependencies.project.layers.selection.children.selectionHandlers,
+    );
+  } else {
+    removeSelectionHandlers(
+      this.currentText,
+      this.dependencies.project.layers.selection,
+    );
+    this.currentText = undefined;
   }
 
   return { key : event.key, character : event.character };

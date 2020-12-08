@@ -5,8 +5,8 @@ export const operations = Object.freeze({
 });
 
 export const bounds = Object.freeze({
-  topLeft     : 'top-left',
-  topRight    : 'top-right',
-  bottomLeft  : 'bottom-left',
-  bottomRight : 'bottom-right',
+  topLeft     : 'topLeft',
+  topRight    : 'topRight',
+  bottomLeft  : 'bottomLeft',
+  bottomRight : 'bottomRight',
 });

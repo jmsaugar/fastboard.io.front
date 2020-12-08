@@ -16,6 +16,7 @@ export default (dependencies) => {
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
+      project         : dependencies?.project,
     },
     tool        : new Tool(),
     currentText : undefined,

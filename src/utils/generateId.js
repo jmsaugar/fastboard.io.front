@@ -3,7 +3,7 @@ let id = 0;
 /**
  * Generate a new unique simple positive integer id.
  *
- * @returns {Integer} New unique id.
+ * @returns {Number} New unique id.
  */
 export default () => {
   id += 1;

@@ -2,7 +2,7 @@
  * Creates a Promise with a rejection timeout.
  *
  * @param {Function} callback Function for the promise. Receives res and rej functions.
- * @param {Integer} timeout Timeout for the promise to be rejected in milliseconds.
+ * @param {Number} timeout Timeout for the promise to be rejected in milliseconds.
  *
  * @returns {Promise} Promise with rejection timeout.
  */

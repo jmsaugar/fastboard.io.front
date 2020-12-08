@@ -15,3 +15,5 @@ export const drawingColorCodes = Object.freeze({
 });
 
 export const defaultDrawingColor = drawingColors.black;
+
+export const selectionColorCode = '#4f9fff';

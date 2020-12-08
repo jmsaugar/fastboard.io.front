@@ -2,7 +2,7 @@
  * Throttles a function call.
  *
  * @param {Function} callback Function to be throttled.
- * @param {Integer} delay Throttle delay in milliseconds.
+ * @param {Number} delay Throttle delay in milliseconds.
  *
  * @returns {Function} Function that throttles the execution of the callback.
  */
