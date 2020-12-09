@@ -12,7 +12,7 @@ import {
  *
  * @param {Object} user User data payload.
  */
-const addUser = (user) => (dispatch) => {
+export const addUser = (user) => (dispatch) => {
   drawingsService.addUser(user.id);
   dispatch(addUserAction(user));
 };
@@ -23,7 +23,7 @@ const addUser = (user) => (dispatch) => {
  *
  * @param {Object} user User data payload.
  */
-const removeUser = (user) => (dispatch) => {
+export const removeUser = (user) => (dispatch) => {
   drawingsService.removeUser(user.id);
   dispatch(removeUserAction(user));
 };
@@ -34,16 +34,10 @@ const removeUser = (user) => (dispatch) => {
  *
  * @param {Object} payload Join board data payload.
  */
-const setJoined = (payload) => (dispatch) => {
+export const setJoined = (payload) => (dispatch) => {
   if (payload.users) {
     payload.users.map(({ id }) => drawingsService.addUser(id));
   }
 
   dispatch(setJoinedAction(payload));
-};
-
-export {
-  addUser,
-  removeUser,
-  setJoined,
 };

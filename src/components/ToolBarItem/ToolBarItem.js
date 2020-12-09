@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import propTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Pen as PencilIcon } from '@styled-icons/fa-solid/Pen';
 import { Marker as PenIcon } from '@styled-icons/fa-solid/Marker';
 import { Highlighter as HighlighterIcon } from '@styled-icons/fa-solid/Highlighter';
@@ -17,13 +17,7 @@ import { drawingColors, tools } from '#constants';
 import { useOutsideClick } from '#hooks';
 import { drawingsService } from '#services';
 import { triggerDownload, triggerUpload } from '#utils';
-import {
-  boardNameSelector,
-  selectedToolSelector,
-  toolsColorsSelector,
-  setSelectedTool,
-  setToolColor,
-} from '#store';
+import { boardNameSelector, selectedToolSelector, toolsColorsSelector } from '#store';
 
 import ToolButton from '../ToolButton';
 import ToolOptions from '../ToolOptions';
@@ -43,7 +37,6 @@ const tool2icon = Object.freeze({
 
 const ToolBarItem = ({ tool }) => {
   const ref = useRef();
-  const dispatch = useDispatch();
   const [showOptions, setShowOptions] = useState(false);
   const boardName = useSelector(boardNameSelector);
 
@@ -74,7 +67,6 @@ const ToolBarItem = ({ tool }) => {
               setShowOptions(true);
             }
           } else {
-            dispatch(setSelectedTool(tool));
             drawingsService.tools[tool].activate();
           }
           break;
@@ -82,7 +74,6 @@ const ToolBarItem = ({ tool }) => {
         case tools.eraser:
         case tools.pointer:
         case tools.selector:
-          dispatch(setSelectedTool(tool));
           drawingsService.tools[tool].activate();
           break;
 
@@ -108,7 +99,7 @@ const ToolBarItem = ({ tool }) => {
           break;
       }
     },
-    [showOptions, isSelected, tool, boardName, dispatch, hideOptions],
+    [showOptions, isSelected, tool, boardName, hideOptions],
   );
 
   return (
@@ -127,11 +118,7 @@ const ToolBarItem = ({ tool }) => {
             color={color}
             onClick={(evt) => {
               evt.stopPropagation();
-
-              // @todo use thunk to set color in tool when dispatching "setToolColor"?
               drawingsService.tools[tool].setColor(color);
-              dispatch(setToolColor({ tool, color }));
-
               hideOptions();
             }}
           />

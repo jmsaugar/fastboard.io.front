@@ -29,9 +29,6 @@ export default function start(canvasId) {
     this.project.addLayer(new Layer({ name : 'selection' }));
     this.isStarted = true;
 
-    // @todo remove this
-    window.project = this.project;
-
     const { realtimeService } = this.dependencies;
 
     this.tools = {
