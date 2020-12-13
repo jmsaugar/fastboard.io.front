@@ -29,7 +29,7 @@ export default function start(canvasId) {
     this.project.addLayer(new Layer({ name : 'selection' }));
     this.isStarted = true;
 
-    const { realtimeService } = this.dependencies;
+    const { urlsService, realtimeService } = this.dependencies;
 
     this.tools = {
       [tools.pencil]      : pencilToolFactory({ realtimeService }),
@@ -38,9 +38,13 @@ export default function start(canvasId) {
       [tools.eraser]      : eraserToolFactory({ realtimeService }),
       [tools.pointer]     : pointerToolFactory({ realtimeService }),
       [tools.text]        : textToolFactory({ realtimeService, project : this.project }),
-      [tools.image]       : imageToolFactory({ realtimeService, project : this.project }),
       [tools.clear]       : clearToolFactory({ realtimeService, project : this.project }),
       [tools.selector]    : selectorToolFactory({ realtimeService, project : this.project }),
+      [tools.image]       : imageToolFactory({
+        urlsService,
+        realtimeService,
+        project : this.project,
+      }),
     };
 
     Log.debug('Service : Drawings : start : started');

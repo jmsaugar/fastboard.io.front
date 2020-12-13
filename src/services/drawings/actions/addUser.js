@@ -28,8 +28,11 @@ export default function addUser(userId) {
     [tools.highlighter] : highlighterToolFactory(),
     [tools.pointer]     : pointerToolFactory(),
     [tools.text]        : textToolFactory(), // @todo project dependency?
-    [tools.image]       : imageToolFactory({ project : this.project }),
     [tools.clear]       : clearToolFactory({ project : this.project }),
     [tools.selector]    : selectorToolFactory({ project : this.project }),
+    [tools.image]       : imageToolFactory({
+      urlsService : this.dependencies.urlsService,
+      project     : this.project,
+    }),
   };
 }

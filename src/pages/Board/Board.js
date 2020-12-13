@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +8,9 @@ import { mainLayoutId } from '#constants';
 import {
   BoardError, BoardCreatedWelcome, BoardJoinedWelcome, Canvas, Modal, NotificationsList, ToolBar,
 } from '#components';
-import { boardsService, drawingsService, realtimeService } from '#services';
+import {
+  boardsService, drawingsService, realtimeService, urlsService,
+} from '#services';
 import {
   isOwnerSelector, isJoinedSelector, setJoined, setUnjoined,
 } from '#store';
@@ -73,6 +73,7 @@ const Board = () => {
     dispatch(setUnjoined());
     realtimeService.stop();
     drawingsService.stop();
+    urlsService.revokeAll();
   }, [dispatch]);
 
   // Already joined vs joining pending logic

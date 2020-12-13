@@ -7,12 +7,12 @@ import { Log } from '#utils';
  *
  * @throws {Error} In case dependencies are not passed.
  */
-export default function injectDependencies({ realtimeService }) {
-  Log.info('Service : Drawings : injectDependencies', { realtimeService });
+export default function injectDependencies({ urlsService, realtimeService }) {
+  Log.info('Service : Drawings : injectDependencies', { urlsService, realtimeService });
 
-  if (!realtimeService) {
+  if (!urlsService || !realtimeService) {
     throw new Error('Service : Drawings : injectDependencies : missing dependencies');
   }
 
-  this.dependencies = { realtimeService };
+  this.dependencies = { urlsService, realtimeService };
 }

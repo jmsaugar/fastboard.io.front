@@ -16,14 +16,10 @@ export default function onImageAdded({ image, itemName }) {
   Log.info('Service : Drawings : Tools : Image : onImageAdded', { image });
 
   // @todo reduce image resolution if over certain size
-  // @todo keep global references to all images added and revoke urls when removing them or exiting board
-  // URL.revokeObjectURL(url);
 
-  const blob = new Blob([image]);
-  const url = URL.createObjectURL(blob);
   const raster = new Raster({
-    source   : url,
     name     : itemName || uuidv4(),
+    source   : this.dependencies.urlsService.create(image),
     position : this.dependencies.project.view.bounds.center,
   });
 
