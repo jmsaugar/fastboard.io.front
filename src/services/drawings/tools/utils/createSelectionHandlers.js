@@ -16,7 +16,7 @@ const boundsArray = Object.values(bounds);
  * @returns {Object} Item - group with 4 handler items - from the selection handler layer.
  */
 export default function createSelectionHandlers(selectedItem, selectionLayer) {
-  Log.debug('Services : Drawings : Tools : Utils : createSelectionHandlers', { selectedItem });
+  Log.debug('Service : Drawings : Tools : Utils : createSelectionHandlers', { selectedItem });
 
   // Set selected item to show its selection state
   selectedItem.set({

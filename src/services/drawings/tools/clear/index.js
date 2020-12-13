@@ -4,7 +4,7 @@ import activate from './activate';
 import onBoardCleared from './onBoardCleared';
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Clear : create');
+  Log.info('Service : Drawings : Tools : Clear : create');
 
   const scope = {
     dependencies : {

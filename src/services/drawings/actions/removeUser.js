@@ -6,7 +6,7 @@ import { Log } from '#utils';
  * @param {String} userId Id of the user to be removed.
  */
 export default function removeUser(userId) {
-  Log.info('Services : Drawings : removeUser', { userId });
+  Log.info('Service : Drawings : removeUser', { userId });
 
   delete this.users[userId];
 }

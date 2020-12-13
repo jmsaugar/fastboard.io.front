@@ -10,7 +10,7 @@ import onMouseDrag from './onMouseDrag';
 const throttleDelay = 5; // In milliseconds
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Eraser : create');
+  Log.info('Service : Drawings : Tools : Eraser : create');
 
   const scope = {
     dependencies : {

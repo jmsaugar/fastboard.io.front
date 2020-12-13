@@ -12,7 +12,7 @@ import {
 // @todo http://paperjs.org/examples/path-simplification/
 
 export default () => {
-  Log.info('Services : Drawings : create');
+  Log.info('Service : Drawings : create');
 
   const scope = {
     dependencies : {},
@@ -96,7 +96,13 @@ export default () => {
         },
       },
       [tools.image] : {
-        activate : (image) => scope.tools.image.activate(image),
+        activate : (image) => {
+          scope.tools.image.activate(image)
+            .then((itemName) => {
+              scope.tools.selector.activate(itemName);
+              store.dispatch(setSelectedTool(tools.selector));
+            });
+        },
       },
       [tools.clear] : {
         activate : () => scope.tools.clear.activate(),

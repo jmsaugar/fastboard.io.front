@@ -13,7 +13,7 @@ import onMouseDrag from './onMouseDrag';
 const throttleDelay = 5; // In milliseconds
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Highlighter : create');
+  Log.info('Service : Drawings : Tools : Highlighter : create');
 
   const scope = {
     dependencies : {

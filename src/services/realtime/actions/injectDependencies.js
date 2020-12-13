@@ -8,10 +8,10 @@ import { Log } from '#utils';
  * @throws {Error} In case dependencies are not passed.
  */
 export default function injectDependencies({ boardsService, drawingsService }) {
-  Log.info('Services : Realtime : injectDependencies', { boardsService, drawingsService });
+  Log.info('Service : Realtime : injectDependencies', { boardsService, drawingsService });
 
   if (!boardsService || !drawingsService) {
-    throw new Error('Services : Realtime : injectDependencies : missing dependencies');
+    throw new Error('Service : Realtime : injectDependencies : missing dependencies');
   }
 
   this.dependencies = {

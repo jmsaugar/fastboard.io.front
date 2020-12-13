@@ -9,13 +9,17 @@ import onImageAdded from './onImageAdded';
 * @param {Object} image Image file.
 */
 export default function activate(image) {
-  Log.info('Services : Drawings : Tools : Image : activate', { image });
+  Log.info('Service : Drawings : Tools : Image : activate', { image });
 
-  this.dependencies.realtimeService.send(
-    drawingsMessages.doAddImage,
-    {
-      tool : tools.image,
-      ...onImageAdded.call(this, { image }),
-    },
-  ); // @todo .catch?
+  return onImageAdded.call(this, { image })
+    .then((itemName) => {
+
+      // @todo .catch? rework this
+      this.dependencies.realtimeService.send(
+        drawingsMessages.doAddImage,
+        { tool : tools.image, image, itemName },
+      );
+
+      return itemName;
+    });
 }

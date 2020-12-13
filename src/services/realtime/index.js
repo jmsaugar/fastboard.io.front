@@ -5,7 +5,7 @@ import {
 } from './actions';
 
 export default () => {
-  Log.info('Services : Realtime : create');
+  Log.info('Service : Realtime : create');
 
   const scope = {
     dependencies : {},

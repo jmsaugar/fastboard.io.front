@@ -10,7 +10,7 @@ const keys = Object.freeze({
 });
 
 export default function onKeyDown(event) {
-  Log.debug('Services : Drawings : Tools : Text : onKeyDown', { event });
+  Log.debug('Service : Drawings : Tools : Text : onKeyDown', { event });
 
   // @todo check this for missing cases
   switch (event.key) {

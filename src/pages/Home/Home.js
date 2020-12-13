@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Log } from '#utils';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
-import { setCreated, setJoined } from '#store';
+import { setCreated } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
 import SWrapper from './styled';
@@ -20,8 +20,6 @@ const Home = () => {
   const { push : redirectTo } = useHistory();
   const dispatch = useDispatch();
   const [step, setStep] = useState(steps.home);
-
-  // @todo refactor create & join functions
 
   const create = useCallback(
     (boardName, userName) => {
@@ -43,18 +41,9 @@ const Home = () => {
   const join = useCallback(
     (boardId, userName) => {
       Log.debug('Component : Home : join', { boardId, userName });
-
-      realtimeService.start();
-      boardsService.join(boardId, userName)
-        .then(({ boardId : joinedBoardId, boardName, users }) => {
-          Log.debug('Component : Home : join : joined', { joinedBoardId, boardName, users });
-
-          dispatch(setJoined({ boardName, userName, users }));
-          redirectTo(routes.board.replace(':id', boardId));
-        })
-        .catch(() => Log.error('Component : Home : join : error joining board')); // @todo stop services
+      redirectTo(routes.board.replace(':id', boardId), { userName });
     },
-    [dispatch, redirectTo],
+    [redirectTo],
   );
 
   return (

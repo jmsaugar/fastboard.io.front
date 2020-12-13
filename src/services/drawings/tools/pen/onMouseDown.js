@@ -6,7 +6,7 @@ const strokeWidth = 5;
 const strokeCap = 'round';
 
 export default function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Pen : onMouseDown', { event });
+  Log.debug('Service : Drawings : Tools : Pen : onMouseDown', { event });
 
   const point = point2net(event.point);
   const strokeColor = event.strokeColor || this.strokeColor;

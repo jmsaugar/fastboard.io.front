@@ -7,7 +7,7 @@ import { Log } from '#utils';
  */
 export default function onMouseUp({ userId, tool, ...eventData }) {
   if (!this.users[userId] || !this.users[userId][tool]) {
-    Log.warning('Services : Drawings : onMouseUp : no such user or tool', { userId, tool });
+    Log.warning('Service : Drawings : onMouseUp : no such user or tool', { userId, tool });
     return;
   }
 

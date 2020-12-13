@@ -8,7 +8,7 @@ import {
 } from './handlers';
 
 export default () => {
-  Log.info('Services : Boards : create');
+  Log.info('Service : Boards : create');
 
   const scope = {
     dependencies : {},

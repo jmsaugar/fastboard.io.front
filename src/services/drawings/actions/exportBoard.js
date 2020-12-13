@@ -6,7 +6,7 @@ import { Log } from '#utils';
  * @returns {String} String representing the project in SVG format.
  */
 export default function exportBoard() {
-  Log.info('Services : Drawings : exportBoard');
+  Log.info('Service : Drawings : exportBoard');
 
   return this.project.exportSVG({ asString : true });
 }

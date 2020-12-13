@@ -7,7 +7,7 @@ import onBoardCleared from './onBoardCleared';
 * Clear the board and send the message.
  */
 export default function activate() {
-  Log.info('Services : Drawings : Tools : Clear : activate');
+  Log.info('Service : Drawings : Tools : Clear : activate');
 
   onBoardCleared.call(this);
 

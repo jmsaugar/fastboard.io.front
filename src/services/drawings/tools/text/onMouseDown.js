@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { PointText } from 'paper';
 
 import { Log } from '#utils';
@@ -5,7 +6,7 @@ import { Log } from '#utils';
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 
 export default function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Text : onMouseDown', { event });
+  Log.debug('Service : Drawings : Tools : Text : onMouseDown', { event });
 
   // If the user was writing, leave the writing state
   if (this.isWriting) {
@@ -27,14 +28,17 @@ export default function onMouseDown(event) {
   };
 
   this.isWriting = true;
-  this.currentText = new PointText(point);
-  this.currentText.fillColor = this.strokeColor;
-  this.currentText.fontSize = 18;
+  this.currentText = new PointText({
+    point,
+    name      : event.itemName || uuidv4(),
+    fillColor : this.strokeColor,
+    fontSize  : 18, // @todo to constants
+  });
 
   createSelectionHandlers(
     this.currentText,
     this.dependencies.project.layers.selection,
   );
 
-  return { point };
+  return { point, itemName : this.currentText.name };
 }

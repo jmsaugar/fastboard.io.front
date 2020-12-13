@@ -4,7 +4,7 @@ import activate from './activate';
 import onImageAdded from './onImageAdded';
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Image : create');
+  Log.info('Service : Drawings : Tools : Image : create', { dependencies });
 
   const scope = {
     dependencies : {

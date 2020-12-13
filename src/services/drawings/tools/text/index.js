@@ -11,7 +11,7 @@ import onMouseDown from './onMouseDown';
 import onKeyDown from './onKeyDown';
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Text : create');
+  Log.info('Service : Drawings : Tools : Text : create');
 
   const scope = {
     dependencies : {

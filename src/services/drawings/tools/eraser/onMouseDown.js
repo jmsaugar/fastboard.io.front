@@ -7,7 +7,7 @@ const strokeWidth = 20;
 const strokeCap = 'round';
 
 export default function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Eraser : onMouseDown', { event });
+  Log.debug('Service : Drawings : Tools : Eraser : onMouseDown', { event });
 
   const point = point2net(event.point);
 

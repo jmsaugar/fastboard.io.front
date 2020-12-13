@@ -10,7 +10,7 @@ import onMouseDrag from './onMouseDrag';
 const throttleDelay = 5; // In milliseconds
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Selector : create');
+  Log.info('Service : Drawings : Tools : Selector : create');
 
   // @todo freeze/seal other scope objects
   const scope = Object.seal({

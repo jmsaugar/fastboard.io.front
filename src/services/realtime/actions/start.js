@@ -8,7 +8,7 @@ const socketIOEndpoint = process.env.REACT_APP_SOCKETIO_ENDPOINT;
  * Start socket connection.
  */
 export default function start() {
-  Log.info('Services : Realtime : start');
+  Log.info('Service : Realtime : start');
 
   if (!this.isStarted) {
     this.socket = io( // @todo check possible errors

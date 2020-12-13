@@ -16,7 +16,7 @@ import reset from './reset';
  * @param {Object} event Mouse down event object.
  */
 export default function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Selector : onMouseDown', { event });
+  Log.debug('Service : Drawings : Tools : Selector : onMouseDown', { event });
 
   const point = event.point instanceof Point
     ? event.point

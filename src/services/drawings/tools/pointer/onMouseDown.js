@@ -12,7 +12,7 @@ const shadowBlur = 8;
 const shadowOffset = new Point(2, 2);
 
 export default function onMouseDown(event) {
-  Log.debug('Services : Drawings : Tools : Pointer : onMouseDown', { event });
+  Log.debug('Service : Drawings : Tools : Pointer : onMouseDown', { event });
 
   const point = point2net(event.point);
   const newPath = new Path({

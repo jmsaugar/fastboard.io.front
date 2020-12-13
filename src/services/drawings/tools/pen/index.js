@@ -14,7 +14,7 @@ import onMouseUp from './onMouseUp';
 const throttleDelay = 5; // In milliseconds
 
 export default (dependencies) => {
-  Log.info('Services : Drawings : Tools : Pen : create');
+  Log.info('Service : Drawings : Tools : Pen : create');
 
   const scope = {
     dependencies : {

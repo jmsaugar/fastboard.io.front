@@ -5,7 +5,7 @@ import { boardsMessages, drawingsMessages } from '#constants';
  * Set message handlers for boards and drawings.
  */
 export default function setMessageHandlers() {
-  Log.info('Services : Realtime : setMessageHandlers');
+  Log.info('Service : Realtime : setMessageHandlers');
 
   const { boardsService, drawingsService } = this.dependencies;
 

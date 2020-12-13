@@ -7,7 +7,7 @@ import { Log } from '#utils';
  * @param {Object} selectionLayer Layer that contains the selection handlers.
  */
 export default function removeSelectionHandlers(selectedItem, selectionLayer) {
-  Log.debug('Services : Drawings : Tools : Utils : removeSelectionHandlers');
+  Log.debug('Service : Drawings : Tools : Utils : removeSelectionHandlers');
 
   selectedItem.set({ selected : false });
   selectionLayer.removeChildren();

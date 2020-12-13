@@ -8,10 +8,10 @@ import store, { addNotification, otherUsersSelector } from '#store';
  * @param {Object} params { userId, tool }
  */
 export default function onBoardCleared({ userId, tool }) {
-  Log.debug('Services : Drawings : onBoardCleared', { userId, tool });
+  Log.debug('Service : Drawings : onBoardCleared', { userId, tool });
 
   if (!this.users[userId] || !this.users[userId][tool]) {
-    Log.warning('Services : Drawings : onBoardCleared : no such user or tool', { userId, tool });
+    Log.warning('Service : Drawings : onBoardCleared : no such user or tool', { userId, tool });
     return;
   }
 

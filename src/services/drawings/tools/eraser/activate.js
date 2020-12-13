@@ -1,7 +1,7 @@
 import { Log } from '#utils';
 
 export default function activate() {
-  Log.debug('Services : Drawings : Tools : Eraser : activate');
+  Log.debug('Service : Drawings : Tools : Eraser : activate');
 
   this.tool.activate();
 }

@@ -19,7 +19,7 @@ import {
  * @param {String} userId Id of the new user.
  */
 export default function addUser(userId) {
-  Log.info('Services : Drawings : addUser', { userId });
+  Log.info('Service : Drawings : addUser', { userId });
 
   this.users[userId] = {
     [tools.eraser]      : eraserToolFactory(),
@@ -27,8 +27,8 @@ export default function addUser(userId) {
     [tools.pencil]      : pencilToolFactory(),
     [tools.highlighter] : highlighterToolFactory(),
     [tools.pointer]     : pointerToolFactory(),
-    [tools.text]        : textToolFactory(),
-    [tools.image]       : imageToolFactory(),
+    [tools.text]        : textToolFactory(), // @todo project dependency?
+    [tools.image]       : imageToolFactory({ project : this.project }),
     [tools.clear]       : clearToolFactory({ project : this.project }),
     [tools.selector]    : selectorToolFactory({ project : this.project }),
   };

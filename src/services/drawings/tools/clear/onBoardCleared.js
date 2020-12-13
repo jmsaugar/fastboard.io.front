@@ -6,7 +6,7 @@ import { Log } from '#utils';
  * Deals with the project logic.
  */
 export default function onBoardCleared() {
-  Log.info('Services : Drawings : Tools : Clear : onBoardCleared');
+  Log.info('Service : Drawings : Tools : Clear : onBoardCleared');
 
   this.dependencies.project.clear(); // @todo recreate layers
 }

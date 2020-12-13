@@ -1,7 +1,7 @@
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Log, setPreventUnload } from '#utils';
@@ -30,6 +30,7 @@ const modalSteps = Object.freeze({
 // @ todo check params.id
 const Board = () => {
   const { push : redirectTo, block } = useHistory();
+  const { state : routeState } = useLocation();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
   const isOwner = useSelector(isOwnerSelector);
@@ -39,6 +40,58 @@ const Board = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
+
+  // Joining logic
+  const join = useCallback(
+    (userName) => {
+      Log.debug('Component : Board : join', { boardId, userName });
+
+      setIsLoading(true);
+
+      realtimeService.start();
+      boardsService.join(boardId, userName)
+        .then(({ boardId : joinedBoardId, boardName, users }) => {
+          Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
+
+          drawingsService.start(canvasId);
+          dispatch(setJoined({ boardName, userName, users }));
+
+          setModalStep(modalSteps.none);
+          setIsLoading(false);
+        })
+        .catch(({ message }) => {
+          // @todo stop services?
+          setModalStep(modalSteps.error);
+          setErrorCode(message);
+        });
+    },
+    [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],
+  );
+
+  // Leaving logic
+  useEffect(() => () => {
+    dispatch(setUnjoined());
+    realtimeService.stop();
+    drawingsService.stop();
+  }, [dispatch]);
+
+  // Already joined vs joining pending logic
+  useEffect(() => {
+    if (isJoinedOnLoad.current) {
+      // User came from home page - create board
+      drawingsService.start(canvasId);
+
+      if (isOwnerOnLoad.current) {
+        setModalStep(modalSteps.created);
+      }
+    } else if (routeState?.userName) {
+      // User came from home page - join board
+      join(routeState?.userName);
+    } else {
+      // User came directly to the board page
+      setModalStep(modalSteps.joined);
+    }
+  }, [join, routeState]);
 
   // Page unload prevention
   useEffect(() => {
@@ -53,52 +106,6 @@ const Board = () => {
       setPreventUnload(false);
     };
   }, [block]);
-
-  // Already joined vs joining pending logic
-  useEffect(() => {
-    if (isJoinedOnLoad.current) {
-      drawingsService.start(canvasId);
-
-      if (isOwnerOnLoad.current) {
-        setModalStep(modalSteps.created);
-      }
-    } else {
-      setModalStep(modalSteps.joined);
-    }
-  }, []);
-
-  // Leaving logic
-  useEffect(() => () => {
-    dispatch(setUnjoined());
-    realtimeService.stop();
-    drawingsService.stop();
-  }, [dispatch]);
-
-  const join = useCallback(
-    (userName) => {
-      Log.debug('Component : Board : join', { boardId, userName });
-
-      setIsLoading(true);
-
-      realtimeService.start();
-      boardsService.join(boardId, userName)
-        .then(({ boardId : joinedBoardId, boardName, users }) => {
-          Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
-
-          dispatch(setJoined({ boardName, userName, users }));
-
-          setModalStep(modalSteps.none);
-          setIsLoading(false);
-          drawingsService.start(canvasId);
-        })
-        .catch(({ message }) => {
-          // @todo stop services?
-          setModalStep(modalSteps.error);
-          setErrorCode(message);
-        });
-    },
-    [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],
-  );
 
   const goHome = () => redirectTo(routes.home);
 
