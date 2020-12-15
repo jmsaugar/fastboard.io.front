@@ -1,10 +1,9 @@
 import styled from '@xstyled/styled-components';
-import { getSize } from '@xstyled/system';
 
 export default styled.img`
   display: inline-flex;
-  width: ${getSize('spinner')};
-  height: ${getSize('spinner')};
+  width: spinner;
+  height: spinner;
   justify-content: center;
 
   animation-duration: 1000ms;
