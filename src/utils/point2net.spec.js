@@ -1,6 +1,6 @@
 import point2net from './point2net';
 
-describe('point2net', () => {
+describe('Utils : point2net', () => {
   test('Valid conversion', () => {
     const sourcePoint = {
       x : 20,

@@ -1,6 +1,6 @@
 import throttle from './throttle';
 
-describe('throttle', () => {
+describe('Utils : throttle', () => {
   let counter;
   let callback;
 

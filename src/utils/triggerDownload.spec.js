@@ -2,7 +2,7 @@ import triggerDownload from './triggerDownload';
 
 const fileName = 'testFileName';
 
-describe('triggerDownload', () => {
+describe('Utils : triggerDownload', () => {
   let clickFn;
 
   beforeEach(() => {

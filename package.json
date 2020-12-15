@@ -40,6 +40,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "#constants": "<rootDir>/src/constants",
       "#utils": "<rootDir>/src/utils"
     }
   },

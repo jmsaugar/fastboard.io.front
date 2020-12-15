@@ -1,6 +1,6 @@
 import triggerUpload from './triggerUpload';
 
-describe('triggerUpload', () => {
+describe('Utils : triggerUpload', () => {
   let input;
   let file;
 

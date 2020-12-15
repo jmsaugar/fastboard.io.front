@@ -3,7 +3,7 @@ import timeoutPromise from './timeoutPromise';
 const resolved = 'resolved';
 const rejected = 'rejected';
 
-describe('timeoutPromise', () => {
+describe('Utils : timeoutPromise', () => {
   test('Manual resolve', () => {
     const promise = timeoutPromise((res) => {
       res(resolved);

@@ -1,6 +1,6 @@
 import setPreventUnload from './setPreventUnload';
 
-describe('setPreventUnload', () => {
+describe('Utils : setPreventUnload', () => {
   beforeEach(() => {
     window.addEventListener = jest.fn();
     window.removeEventListener = jest.fn();

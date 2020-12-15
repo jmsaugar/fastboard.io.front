@@ -1,6 +1,6 @@
 import validBoardId from './validBoardId';
 
-describe('validBoardId', () => {
+describe('Utils : validBoardId', () => {
   test('Correct values', () => {
     expect(validBoardId('123456')).toBe(true);
     expect(validBoardId('000000')).toBe(true);

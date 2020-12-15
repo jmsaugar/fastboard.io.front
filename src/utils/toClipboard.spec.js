@@ -2,7 +2,7 @@ import toClipboard from './toClipboard';
 
 const text = 'test text';
 
-describe('toClipboard', () => {
+describe('Utils : toClipboard', () => {
   let promise;
 
   beforeEach(() => {
