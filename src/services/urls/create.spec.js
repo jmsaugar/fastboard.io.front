@@ -1,11 +1,11 @@
 import create from './create';
 
-global.URL.createObjectURL = jest.fn(() => 'http://example.com');
-
 describe('Service : Urls : create', () => {
   let scope;
 
   beforeEach(() => {
+    global.URL.createObjectURL = jest.fn(() => 'http://example.com');
+
     scope = {
       urls : [],
     };

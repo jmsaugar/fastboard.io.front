@@ -3,8 +3,8 @@ import timeoutPromise from './timeoutPromise';
 const resolved = 'resolved';
 const rejected = 'rejected';
 
-describe('Utils functions', () => {
-  test('timeoutPromise - manual resolve', () => {
+describe('timeoutPromise', () => {
+  test('Manual resolve', () => {
     const promise = timeoutPromise((res) => {
       res(resolved);
     }, 10000);
@@ -12,7 +12,7 @@ describe('Utils functions', () => {
     return expect(promise).resolves.toBe(resolved);
   });
 
-  test('timeoutPromise - manual rejection', () => {
+  test('Manual rejection', () => {
     const promise = timeoutPromise((_, rej) => {
       rej(rejected);
     }, 10000);
@@ -20,7 +20,7 @@ describe('Utils functions', () => {
     return expect(promise).rejects.toThrow(rejected);
   });
 
-  test('timeoutPromise - timeout rejection', () => {
+  test('Timeout rejection', () => {
     const promise = timeoutPromise(() => {}, 1000);
 
     return expect(promise).rejects.toThrow();

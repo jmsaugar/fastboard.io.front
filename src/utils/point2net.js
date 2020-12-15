@@ -11,7 +11,7 @@
  * @returns {Object} { x, y }
  */
 export default function point2net(point) {
-  if (!point) { // @todo improve this check?
+  if (!point) {
     throw new Error('Not a valid point');
   }
 

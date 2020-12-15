@@ -1,5 +1,4 @@
 export { default as Log } from './logger';
-export { default as generateId } from './generateId';
 export { default as point2net } from './point2net';
 export { default as setPreventUnload } from './setPreventUnload';
 export { default as throttle } from './throttle';

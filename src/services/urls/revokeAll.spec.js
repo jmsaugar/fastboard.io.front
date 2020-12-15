@@ -1,11 +1,11 @@
 import revokeAll from './revokeAll';
 
-global.URL.revokeObjectURL = jest.fn();
-
 describe('Service : Urls : revokeAll', () => {
   let scope;
 
   beforeEach(() => {
+    global.URL.revokeObjectURL = jest.fn();
+
     scope = {
       urls : [
         'http://example1.com',

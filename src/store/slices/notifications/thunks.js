@@ -1,5 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import { notificationsTimeout } from '#constants';
-import { generateId } from '#utils';
 
 import {
   addNotification as addNotificationAction,
@@ -7,7 +8,7 @@ import {
 } from './slice';
 
 const addNotification = (notification) => (dispatch) => {
-  const id = generateId();
+  const id = uuidv4();
 
   dispatch(addNotificationAction({ ...notification, id }));
 
