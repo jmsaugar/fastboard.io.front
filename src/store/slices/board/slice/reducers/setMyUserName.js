@@ -7,15 +7,15 @@
  * @returns {Object} New state.
  */
 export default function setMyUserName(state, action) {
-  return (
-    action.payload
-      ? {
-        ...state,
-        users : {
-          ...state.users,
-          me : action.payload,
-        },
-      }
-      : state
-  );
+  if (typeof action.payload !== 'string') {
+    return state;
+  }
+
+  return {
+    ...state,
+    users : {
+      ...state.users,
+      me : action.payload,
+    },
+  };
 }

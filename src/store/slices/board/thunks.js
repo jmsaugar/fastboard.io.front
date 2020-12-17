@@ -35,7 +35,7 @@ export const removeUser = (user) => (dispatch) => {
  * @param {Object} payload Join board data payload.
  */
 export const setJoined = (payload) => (dispatch) => {
-  if (payload.users) {
+  if (Array.isArray(payload.users)) {
     payload.users.map(({ id }) => drawingsService.addUser(id));
   }
 

@@ -41,6 +41,8 @@
   "jest": {
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",
+      "#services": "<rootDir>/src/services",
+      "#store": "<rootDir>/src/store",
       "#utils": "<rootDir>/src/utils"
     }
   },

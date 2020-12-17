@@ -26,7 +26,6 @@ const modalSteps = Object.freeze({
   error   : 3,
 });
 
-
 // @ todo check params.id
 const Board = () => {
   const { push : redirectTo, block } = useHistory();

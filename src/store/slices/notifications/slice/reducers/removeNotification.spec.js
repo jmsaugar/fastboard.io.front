@@ -2,7 +2,7 @@ import removeNotification from './removeNotification';
 
 const notificationId = 1;
 
-describe('removeNotification', () => {
+describe('Store : notifications : reducers : removeNotification', () => {
   let state;
 
   beforeEach(() => {

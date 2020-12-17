@@ -7,12 +7,12 @@
  * @returns {Object} New state.
  */
 export default function setBoardName(state, action) {
-  return (
-    action.payload
-      ? {
-        ...state,
-        boardName : action.payload,
-      }
-      : state
-  );
+  if (typeof action.payload !== 'string') {
+    return state;
+  }
+
+  return {
+    ...state,
+    boardName : action.payload,
+  };
 }

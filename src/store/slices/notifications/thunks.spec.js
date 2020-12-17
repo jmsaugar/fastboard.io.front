@@ -2,9 +2,11 @@ import addNotification from './thunks';
 
 const notificationContent = 'notification content';
 
-global.setTimeout = jest.fn((callback) => callback());
-
 describe('Store : notifications : thunks : addNotification', () => {
+  beforeEach(() => {
+    global.setTimeout = jest.fn((callback) => callback());
+  });
+
   test('Notification is correctly dispatched', () => {
     const dispatch = jest.fn();
     const notification = { content : notificationContent };

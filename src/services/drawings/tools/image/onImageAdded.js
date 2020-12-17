@@ -10,7 +10,7 @@ import { Log } from '#utils';
  *
  * @param {Object} image Image data { image, itemName }.
  *
- * @returns {Promise} Resolved when image loaded with item name (which is an uuidv4).
+ * @returns {Promise} Resolved when image loaded with item name (which is a uuidv4).
  */
 export default function onImageAdded({ image, itemName }) {
   Log.info('Service : Drawings : Tools : Image : onImageAdded', { image });

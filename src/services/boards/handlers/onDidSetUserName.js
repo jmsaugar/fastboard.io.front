@@ -3,7 +3,7 @@ import { notificationTypes } from '#constants';
 import store, { setUserName, addNotification, otherUsersSelector } from '#store';
 
 /**
- * Handle an user setting his name.
+ * Handle a user setting his name.
  * Dispatches actions to the store.
  *
  * @param {Object} data { userId, userName }

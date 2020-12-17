@@ -7,18 +7,27 @@
  * @returns {Object} New state.
  */
 export default function setUserName(state, action) {
-  return (
-    action.payload
-      ? {
-        ...state,
-        users : {
-          ...state.users,
-          others : state.users.others.map((user) => ({
-            ...user,
-            name : user.id === action.payload.id ? action.payload.name : user.name,
-          })),
-        },
-      }
-      : state
-  );
+  if (!action.payload || typeof action.payload.name !== 'string') {
+    return state;
+  }
+
+  let userExists = false;
+  const updatedUsers = state.users.others.map((user) => {
+    if (user.id === action.payload.id) {
+      userExists = true;
+      return { ...user, name : action.payload.name };
+    }
+
+    return user;
+  });
+
+  return userExists
+    ? {
+      ...state,
+      users : {
+        ...state.users,
+        others : updatedUsers,
+      },
+    }
+    : state;
 }

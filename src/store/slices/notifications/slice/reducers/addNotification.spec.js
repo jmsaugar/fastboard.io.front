@@ -1,8 +1,11 @@
 import addNotification from './addNotification';
 
-const notificationId = 1;
+const notifications = [
+  { id : 1 },
+  { id : 2 },
+];
 
-describe('addNotification', () => {
+describe('Store : notifications : reducers : addNotification', () => {
   let state;
 
   beforeEach(() => {
@@ -10,14 +13,13 @@ describe('addNotification', () => {
   });
 
   test('Correctly add notifications', () => {
-    const notification = { payload : { id : notificationId } };
-    let newState = addNotification(state, notification);
+    let newState = addNotification(state, { payload : notifications[0] });
 
     expect(newState).not.toBe(state);
     expect(newState).toHaveLength(1);
-    expect(newState[0].id).toBe(notificationId);
+    expect(newState[0].id).toBe(notifications[0].id);
 
-    newState = addNotification(newState, notification);
+    newState = addNotification(newState, { payload : notifications[1] });
     expect(newState).toHaveLength(2);
   });
 
