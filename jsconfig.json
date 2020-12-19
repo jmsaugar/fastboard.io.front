@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "#components" : ["src/components"],
+      "#constants"  : ["src/constants"],
+      "#hooks"      : ["src/hooks"],
+      "#init"       : ["src/init"],
+      "#layouts"    : ["src/layouts"],
+      "#pages"      : ["src/pages"],
+      "#routes"     : ["src/routes"],
+      "#services"   : ["src/services"],
+      "#store"      : ["src/store"],
+      "#theme"      : ["src/theme"],
+      "#utils"      : ["src/utils"],
+    },
+  },
+  "exclude": ["node_modules", "dist", "public"]
+}
