@@ -33,7 +33,8 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src",
     "lint:css": "stylelint \"./src/**/*.js\"",
-    "lint:all": "eslint ./src; stylelint \"./src/**/*.js\""
+    "lint:all": "eslint ./src; stylelint \"./src/**/*.js\"",
+    "clean": "rm -rf ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
