@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Spinner from '../Spinner';
@@ -7,17 +7,24 @@ import SWrapper from './styled';
 
 const Button = ({
   children, onClick, isDisabled, isLoading, type, fullWidth,
-}) => (
-  <SWrapper
-    onClick={onClick}
-    isLoading={isLoading}
-    isDisabled={isDisabled || isLoading}
-    fullWidth={fullWidth}
-    type={type}
-  >
-    {isLoading ? <Spinner /> : children}
-  </SWrapper>
-);
+}) => {
+  const onClickMemo = useMemo(
+    () => (isDisabled ? undefined : onClick),
+    [isDisabled, onClick],
+  );
+
+  return (
+    <SWrapper
+      onClick={onClickMemo}
+      isLoading={isLoading}
+      isDisabled={isDisabled || isLoading}
+      fullWidth={fullWidth}
+      type={type}
+    >
+      {isLoading ? <Spinner /> : children}
+    </SWrapper>
+  );
+};
 
 Button.defaultProps = {
   onClick    : undefined,

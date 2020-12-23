@@ -4,6 +4,8 @@ import SpinnerIcon from './assets/spinner.svg';
 
 import SImg from './styled';
 
-const Spinner = () => <SImg src={SpinnerIcon} />;
+const testId = 'spinner-component';
+
+const Spinner = () => <SImg src={SpinnerIcon} data-testid={testId} />;
 
 export default Spinner;

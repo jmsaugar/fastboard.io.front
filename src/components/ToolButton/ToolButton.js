@@ -5,10 +5,18 @@ import { drawingColors, drawingColorCodes } from '#constants';
 
 import { SWrapper, SIcon } from './styled';
 
+const testId = 'toolbutton-component';
+
 const ToolButton = forwardRef(({
   icon, color, selected, onClick, children,
 }, ref) => (
-  <SWrapper ref={ref} color={drawingColorCodes[color]} onClick={onClick} selected={selected}>
+  <SWrapper
+    ref={ref}
+    color={drawingColorCodes[color]}
+    onClick={onClick}
+    selected={selected}
+    data-testid={testId}
+  >
     <SIcon color={drawingColorCodes[color]}>
       {icon}
     </SIcon>

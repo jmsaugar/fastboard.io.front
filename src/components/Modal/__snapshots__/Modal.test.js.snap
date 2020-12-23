@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : Modal Snapshot : not visible 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="target-id"
+    id="target-id"
+  >
+    <div
+      class="sc-pscky icaHKU"
+    >
+      <div
+        class="sc-qQYBZ jJphDG"
+      >
+        modal content
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component : Modal Snapshot : visible 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="target-id"
+    id="target-id"
+  >
+    <div
+      class="sc-pscky egBrLx"
+    >
+      <div
+        class="sc-qQYBZ iGLbHn"
+      >
+        modal content
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -4,7 +4,7 @@ import start from './start';
 
 jest.mock(
   'socket.io-client',
-  () => jest.fn().mockImplementation(() => ({
+  () => jest.fn(() => ({
     __esModule : true,
     default    : jest.fn(),
   })),

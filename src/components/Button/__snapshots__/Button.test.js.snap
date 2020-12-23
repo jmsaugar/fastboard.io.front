@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : Button Snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-qQYBZ fAclfc"
+    type="primary"
+  >
+    Button label
+  </button>
+</DocumentFragment>
+`;
