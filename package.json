@@ -31,21 +31,23 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint ./src",
+    "lint:js": "eslint ./src ./devTools",
     "lint:css": "stylelint \"./src/**/*.js\"",
-    "lint:all": "eslint ./src; stylelint \"./src/**/*.js\"",
+    "lint:all": "eslint ./src ./devTools; stylelint \"./src/**/*.js\"",
     "clean": "rm -rf ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/devTools/tests/setup.js"],
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",
       "#hooks": "<rootDir>/src/hooks",
       "#services": "<rootDir>/src/services",
       "#store": "<rootDir>/src/store",
-      "#utils": "<rootDir>/src/utils"
+      "#utils": "<rootDir>/src/utils",
+      "#devTools/(.*)": "<rootDir>/devTools/$1"
     }
   },
   "browserslist": {

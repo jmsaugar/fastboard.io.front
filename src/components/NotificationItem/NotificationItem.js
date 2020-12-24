@@ -6,11 +6,13 @@ import { notificationTypes } from '#constants';
 
 import SWrapper from './styled';
 
+const testId = 'notificationitem-component';
+
 const NotificationItem = ({ type, data }) => {
   const { t } = useTranslation('board');
 
   return (
-    <SWrapper>
+    <SWrapper data-testid={testId}>
       {t(`notifications.${type}`, { ...data })}
     </SWrapper>
   );

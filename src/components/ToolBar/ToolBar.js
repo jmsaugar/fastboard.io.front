@@ -9,13 +9,16 @@ import ToolBarItem from '../ToolBarItem';
 
 import { SWrapper, SMeta, STools } from './styled';
 
+const toolbarTestId = 'toolbar-component';
+const metaTestId = 'toolbar-meta-component';
+
 const ToolBar = () => {
   const isJoined = useSelector(isJoinedSelector);
 
   return (
-    <SWrapper>
+    <SWrapper data-testid={toolbarTestId}>
       {isJoined && (
-        <SMeta>
+        <SMeta data-testid={metaTestId}>
           <BoardMeta />
         </SMeta>
       )}
