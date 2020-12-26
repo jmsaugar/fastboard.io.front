@@ -7,10 +7,10 @@ exports[`Component : Modal Snapshot : not visible 1`] = `
     id="target-id"
   >
     <div
-      class="sc-pscky icaHKU"
+      class="sc-pscky sc-qQYBZ hyDDvc"
     >
       <div
-        class="sc-qQYBZ jJphDG"
+        class="sc-pscky sc-qZtCU bLCuKf"
       >
         modal content
       </div>
@@ -26,10 +26,10 @@ exports[`Component : Modal Snapshot : visible 1`] = `
     id="target-id"
   >
     <div
-      class="sc-pscky egBrLx"
+      class="sc-pscky sc-qQYBZ bCswed"
     >
       <div
-        class="sc-qQYBZ iGLbHn"
+        class="sc-pscky sc-qZtCU dboiiq"
       >
         modal content
       </div>

@@ -43,21 +43,17 @@ export const SActions = styled.div`
 export const SAction = styled.button`
   width: 300px;
   height: 80px;
-
   border-width: lg;
   border-style: default;
   border-color: white;
   margin-top: 30px;
   background-color: transparent;
   border-radius: rounded;
-
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-
   color: white;
   cursor : pointer;
   font-size: 30px;
-
   outline: 0;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 
   &:hover, &:focus {
     background-color: rgba(255, 255, 255, 0.1);
@@ -66,18 +62,18 @@ export const SAction = styled.button`
 
 export const SInput = styled.input`
   display: block;
-  height: calc(80px - 2*${getBorderWidth('lg')});
   width: calc(2*300px + 30px - 80px - 4px);
+  height: calc(80px - 2*${getBorderWidth('lg')});
+  padding: 0 40px;
   border-width: lg;
   border-style: default;
   border-color: white;
+  margin-top: 20px;
   background-color: transparent;
   border-radius: rounded;
   color: white;
   font-size: 30px;
   outline: 0;
-  padding: 0 40px;
-  margin-top: 20px;
 
   text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 
