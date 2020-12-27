@@ -1,20 +1,30 @@
-import React, { forwardRef } from 'react';
+import React, { useCallback, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import SInput from './styled';
 
+const testId = 'input-component';
+
 const Input = forwardRef(({
-  name, value, placeholder, onChange, fullWidth,
-}, ref) => (
-  <SInput
-    ref={ref}
-    name={name}
-    value={value}
-    placeholder={placeholder}
-    onChange={onChange}
-    fullWidth={fullWidth}
-  />
-));
+  name, value, placeholder, onChange : onChangeProp, fullWidth,
+}, ref) => {
+  const onChange = useCallback(
+    (evt) => onChangeProp(evt.target.value),
+    [onChangeProp],
+  );
+
+  return (
+    <SInput
+      ref={ref}
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+      fullWidth={fullWidth}
+      data-testid={testId}
+    />
+  );
+});
 
 Input.defaultProps = {
   value       : undefined,

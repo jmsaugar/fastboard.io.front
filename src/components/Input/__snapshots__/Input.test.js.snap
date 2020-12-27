@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : Input Snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="sc-pscky hhRpgo"
+    data-testid="input-component"
+    name="sample"
+    value="some original text"
+  />
+</DocumentFragment>
+`;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -12,11 +12,6 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
   const { t } = useTranslation('board');
   const [newUserName, setNewUserName] = useState(initialUserName);
 
-  const onUserNameChange = useCallback(
-    (evt) => setNewUserName(evt.target.value),
-    [setNewUserName],
-  );
-
   return (
     <SWrapper>
       <SHeader>
@@ -26,7 +21,7 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
         <Input
           name="userName"
           value={newUserName}
-          onChange={onUserNameChange}
+          onChange={setNewUserName}
           fullWidth
         />
       </SContent>

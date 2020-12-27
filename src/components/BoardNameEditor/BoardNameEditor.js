@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -12,11 +12,6 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
   const { t } = useTranslation('board');
   const [newBoardName, setNewBoardName] = useState(initialBoardName);
 
-  const onBoardNameChange = useCallback(
-    (evt) => setNewBoardName(evt.target.value),
-    [setNewBoardName],
-  );
-
   return (
     <SWrapper>
       <SHeader>
@@ -26,7 +21,7 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
         <Input
           name="boardName"
           value={newBoardName}
-          onChange={onBoardNameChange}
+          onChange={setNewBoardName}
           fullWidth
         />
       </SContent>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -13,11 +13,6 @@ const BoardJoinedWelcome = ({
 }) => {
   const { t } = useTranslation('board');
   const [userName, setUserName] = useState('');
-
-  const onBoardNameChange = useCallback(
-    (evt) => setUserName(evt.target.value),
-    [setUserName],
-  );
 
   return (
     <SWrapper>
@@ -34,7 +29,7 @@ const BoardJoinedWelcome = ({
         <Input
           name="userName"
           placeholder={t('welcome.joined.userNamePlaceholder')}
-          onChange={onBoardNameChange}
+          onChange={setUserName}
           fullWidth
         />
       </SContent>
