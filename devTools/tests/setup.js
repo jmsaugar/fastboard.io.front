@@ -15,7 +15,7 @@ Log.setConfig({
   debug   : false,
 });
 
-// Setup i18n mock for all compònents using useTranslation hook
+// Setup i18n mock for all components using useTranslation hook
 jest.mock('react-i18next', () => ({
   useTranslation : () => ({
     t    : (str) => str,

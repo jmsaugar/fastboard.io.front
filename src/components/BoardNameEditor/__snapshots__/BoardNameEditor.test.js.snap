@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : BoardNameEditor Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pzMyG biyPWW"
+  >
+    <h2
+      class="sc-pHIBf hewvQA"
+    >
+      meta.boardNameEditor.title
+    </h2>
+    <div
+      class="sc-pQEbo geQkjx"
+    >
+      <input
+        class="sc-qZtCU bEnsXe"
+        data-testid="input-component"
+        name="boardName"
+        value="initial board name"
+      />
+    </div>
+    <div
+      class="sc-pYA-dN jsALAG"
+    >
+      <button
+        class="sc-qQYBZ hUMZgX"
+        type="secondary"
+      >
+        meta.boardNameEditor.cancel
+      </button>
+      <button
+        class="sc-qQYBZ fAclfc"
+        type="primary"
+      >
+        meta.boardNameEditor.save
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

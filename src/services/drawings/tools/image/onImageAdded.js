@@ -23,7 +23,7 @@ export default function onImageAdded({ image, itemName }) {
     position : this.dependencies.project.view.bounds.center,
   });
 
-  raster.scale(1/3); // @todo fix this
+  raster.scale(1 / 3); // @todo fix this
 
   return new Promise((res, rej) => {
     raster.on('load', () => res(raster.name));

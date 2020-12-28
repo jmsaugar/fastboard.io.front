@@ -44,6 +44,7 @@
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",
       "#hooks": "<rootDir>/src/hooks",
+      "#routes": "<rootDir>/src/routes",
       "#services": "<rootDir>/src/services",
       "#store": "<rootDir>/src/store",
       "#utils": "<rootDir>/src/utils",

@@ -13,7 +13,6 @@ export default function activate(image) {
 
   return onImageAdded.call(this, { image })
     .then((itemName) => {
-
       // @todo .catch? rework this
       this.dependencies.realtimeService.send(
         drawingsMessages.doAddImage,

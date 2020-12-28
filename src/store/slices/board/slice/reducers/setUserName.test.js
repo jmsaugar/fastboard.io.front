@@ -1,4 +1,3 @@
-import { setUserNameReducer } from '.';
 import setUserName from './setUserName';
 
 const newUserName = 'new user name';

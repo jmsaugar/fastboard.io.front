@@ -15,7 +15,7 @@ const mockStore = {
 
 describe('Component : NotificationsList', () => {
   test('Is visible with list of notification items', () => {
-    const { queryAllByTestId } = render(<NotificationsList />, mockStore);
+    const { queryAllByTestId } = render(<NotificationsList />, { store : mockStore });
 
     const items = queryAllByTestId('notificationitem-component');
 

@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -95,9 +97,7 @@ const Board = () => {
 
   // Page unload prevention
   useEffect(() => {
-    const unblock = block(() => {
-      return window.confirm('leave?'); // @todo text and ¿custom modal?
-    });
+    const unblock = block(() => window.confirm('leave?')); // @todo text and ¿custom modal);
 
     setPreventUnload(true);
 

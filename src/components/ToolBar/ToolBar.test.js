@@ -28,21 +28,21 @@ const mockStore = {
 
 describe('Component : ToolBar', () => {
   test('Is visible with hidden meta', () => {
-    const { queryByTestId } = render(<ToolBar />, mockStore);
+    const { queryByTestId } = render(<ToolBar />, { store : mockStore });
 
     expect(queryByTestId('toolbar-component')).toBeInTheDocument();
     expect(queryByTestId('toolbar-meta-component')).not.toBeInTheDocument();
   });
 
   test('Is visible with visible meta', () => {
-    const { queryByTestId } = render(<ToolBar />, { joined : true, ...mockStore });
+    const { queryByTestId } = render(<ToolBar />, { store : { joined : true, ...mockStore } });
 
     expect(queryByTestId('toolbar-component')).toBeInTheDocument();
     expect(queryByTestId('toolbar-meta-component')).not.toBeInTheDocument();
   });
 
   test('Snapshot', () => {
-    const { asFragment } = render(<ToolBar />, mockStore);
+    const { asFragment } = render(<ToolBar />, { store : mockStore });
 
     const componentRender = asFragment();
     expect(componentRender).toMatchSnapshot();
