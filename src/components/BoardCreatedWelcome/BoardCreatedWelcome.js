@@ -4,7 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { escapeKeyCode } from '#constants';
+import { baseUrl, escapeKeyCode } from '#constants';
 import { toClipboard } from '#utils';
 import { useKey } from '#hooks';
 import routes from '#routes';
@@ -31,7 +31,7 @@ const BoardCreatedWelcome = ({ boardId, onClose }) => {
   useKey(escapeKeyCode, onClose);
 
   const boardUrl = useMemo(
-    () => `${process.env.REACT_APP_BASE_URL}${routes.board.replace(':id', boardId)}`,
+    () => `${baseUrl}${routes.board.replace(':id', boardId)}`,
     [boardId],
   );
 
