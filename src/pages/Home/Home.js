@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
+import { HeadMeta } from '#components';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
 import { setCreated } from '#store';
@@ -47,23 +48,26 @@ const Home = () => {
   );
 
   return (
-    <SWrapper>
-      <HomeStep
-        show={step === steps.home}
-        onCreate={() => setStep(steps.create)}
-        onJoin={() => setStep(steps.join)}
-      />
-      <CreateStep
-        show={step === steps.create}
-        onCreate={create}
-        onCancel={() => setStep(steps.home)}
-      />
-      <JoinStep
-        show={step === steps.join}
-        onJoin={join}
-        onCancel={() => setStep(steps.home)}
-      />
-    </SWrapper>
+    <>
+      <HeadMeta route={routes.home} />
+      <SWrapper>
+        <HomeStep
+          show={step === steps.home}
+          onCreate={() => setStep(steps.create)}
+          onJoin={() => setStep(steps.join)}
+        />
+        <CreateStep
+          show={step === steps.create}
+          onCreate={create}
+          onCancel={() => setStep(steps.home)}
+        />
+        <JoinStep
+          show={step === steps.join}
+          onJoin={join}
+          onCancel={() => setStep(steps.home)}
+        />
+      </SWrapper>
+    </>
   );
 };
 

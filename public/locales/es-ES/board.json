@@ -1,4 +1,8 @@
 {
+  "head": {
+    "title": "{{title}} - fastboard.io",
+    "boardId": "Panel {{boardId}}"
+  },
   "meta": {
     "userNameEditor": {
       "title": "Configura tu nombre de usuario",

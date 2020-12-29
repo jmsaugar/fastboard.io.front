@@ -8,13 +8,20 @@ import { Log, setPreventUnload } from '#utils';
 import routes from '#routes';
 import { mainLayoutId } from '#constants';
 import {
-  BoardError, BoardCreatedWelcome, BoardJoinedWelcome, Canvas, Modal, NotificationsList, ToolBar,
+  BoardError,
+  BoardCreatedWelcome,
+  BoardJoinedWelcome,
+  Canvas,
+  HeadMeta,
+  Modal,
+  NotificationsList,
+  ToolBar,
 } from '#components';
 import {
   boardsService, drawingsService, realtimeService, urlsService,
 } from '#services';
 import {
-  isOwnerSelector, isJoinedSelector, setJoined, setUnjoined,
+  boardNameSelector, isJoinedSelector, isOwnerSelector, setJoined, setUnjoined,
 } from '#store';
 
 import SWrapper from './styled';
@@ -34,6 +41,7 @@ const Board = () => {
   const { state : routeState } = useLocation();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
+  const boardName = useSelector(boardNameSelector);
   const isOwner = useSelector(isOwnerSelector);
   const isJoined = useSelector(isJoinedSelector);
   const isOwnerOnLoad = useRef(isOwner);
@@ -51,11 +59,11 @@ const Board = () => {
 
       realtimeService.start();
       boardsService.join(boardId, userName)
-        .then(({ boardId : joinedBoardId, boardName, users }) => {
-          Log.debug('Component : Board : join : joined', { joinedBoardId, boardName, users });
+        .then(({ boardId : joinedBoardId, boardName : joinedBoardName, users }) => {
+          Log.debug('Component : Board : join : joined', { joinedBoardId, joinedBoardName, users });
 
           drawingsService.start(canvasId);
-          dispatch(setJoined({ boardName, userName, users }));
+          dispatch(setJoined({ boardName : joinedBoardName, userName, users }));
 
           setModalStep(modalSteps.none);
           setIsLoading(false);
@@ -110,30 +118,37 @@ const Board = () => {
   const goHome = () => redirectTo(routes.home);
 
   return (
-    <SWrapper>
-      <ToolBar />
-      <Canvas id={canvasId} />
-      <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
-        {modalStep === modalSteps.created && (
-          <BoardCreatedWelcome
-            boardId={boardId}
-            onClose={() => setModalStep(modalSteps.none)}
-          />
-        )}
-        {modalStep === modalSteps.joined && (
-          <BoardJoinedWelcome
-            isLoading={isLoading}
-            boardId={boardId}
-            onJoin={join}
-            onCancel={goHome}
-          />
-        )}
-        {modalStep === modalSteps.error && (
-          <BoardError code={errorCode} onClose={goHome} />
-        )}
-      </Modal>
-      <NotificationsList />
-    </SWrapper>
+    <>
+      <HeadMeta
+        route={routes.board}
+        boardId={boardId}
+        boardName={boardName}
+      />
+      <SWrapper>
+        <ToolBar />
+        <Canvas id={canvasId} />
+        <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
+          {modalStep === modalSteps.created && (
+            <BoardCreatedWelcome
+              boardId={boardId}
+              onClose={() => setModalStep(modalSteps.none)}
+            />
+          )}
+          {modalStep === modalSteps.joined && (
+            <BoardJoinedWelcome
+              isLoading={isLoading}
+              boardId={boardId}
+              onJoin={join}
+              onCancel={goHome}
+            />
+          )}
+          {modalStep === modalSteps.error && (
+            <BoardError code={errorCode} onClose={goHome} />
+          )}
+        </Modal>
+        <NotificationsList />
+      </SWrapper>
+    </>
   );
 };
 

@@ -17,6 +17,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.1.2",
@@ -40,7 +41,9 @@
     "extends": "react-app"
   },
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>/devTools/tests/setup.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/devTools/tests/setup.js"
+    ],
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",
       "#hooks": "<rootDir>/src/hooks",

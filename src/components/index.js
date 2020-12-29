@@ -8,6 +8,7 @@ export { default as Canvas } from './Canvas';
 export { default as Dropdown } from './Dropdown';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
+export { default as HeadMeta } from './HeadMeta';
 export { default as Input } from './Input';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as Loading } from './Loading';

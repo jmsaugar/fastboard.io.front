@@ -1,4 +1,8 @@
 {
+  "head": {
+    "title": "{{title}} - fastboard.io",
+    "boardId": "Board {{boardId}}"
+  },
   "meta": {
     "userNameEditor": {
       "title": "Set your user name",
