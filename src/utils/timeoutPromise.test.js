@@ -17,7 +17,7 @@ describe('Utils : timeoutPromise', () => {
       rej(rejected);
     }, 10000);
 
-    return expect(promise).rejects.toThrow(rejected);
+    return expect(promise).rejects.toBe(rejected);
   });
 
   test('Timeout rejection', () => {

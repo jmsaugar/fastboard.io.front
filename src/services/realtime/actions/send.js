@@ -1,4 +1,4 @@
-import { timeoutPromise } from '#utils';
+import { timeoutPromise, BoardError } from '#utils';
 
 const timeout = 5000; // @todo to constants?
 
@@ -18,7 +18,9 @@ export default function send(eventName, data) {
       this.socket.emit(
         eventName,
         data,
-        (success, receivedData) => (success ? res(receivedData) : rej(receivedData)),
+        (success, receivedData) => (
+          success ? res(receivedData) : rej(new BoardError(receivedData?.code))
+        ),
       )
     ),
     timeout,

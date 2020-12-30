@@ -1,6 +1,9 @@
+import { BoardError } from '#utils';
+
 import send from './send';
 
 const data = { data : 123 };
+const error = { code : 456 };
 
 describe('Service : realtime : send', () => {
   let scope;
@@ -18,8 +21,8 @@ describe('Service : realtime : send', () => {
   });
 
   test('Sending action is rejected', () => {
-    scope.socket.emit = jest.fn((_, receivedData, callback) => callback(false, receivedData));
+    scope.socket.emit = jest.fn((_, receivedData, callback) => callback(false, error));
 
-    return expect(send.call(scope, 'event', data)).rejects.toEqual(new Error(data));
+    return expect(send.call(scope, 'event', data)).rejects.toThrow(new BoardError(error.code));
   });
 });

@@ -68,10 +68,10 @@ const Board = () => {
           setModalStep(modalSteps.none);
           setIsLoading(false);
         })
-        .catch(({ message }) => {
+        .catch(({ code }) => {
           // @todo stop services?
           setModalStep(modalSteps.error);
-          setErrorCode(message);
+          setErrorCode(code);
         });
     },
     [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],

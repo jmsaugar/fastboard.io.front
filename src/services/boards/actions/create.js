@@ -1,4 +1,4 @@
-import { Log } from '#utils';
+import { Log, BoardError } from '#utils';
 import { boardsMessages, boardsErrors } from '#constants';
 
 /**
@@ -20,7 +20,7 @@ export default function create(boardName, userName) {
 
       // Check join data is correct
       if (!boardId || boardName !== joinedBoardName) {
-        return Promise.reject(boardsErrors.generic);
+        return Promise.reject(new BoardError(boardsErrors.generic));
       }
 
       // Add handlers for messages

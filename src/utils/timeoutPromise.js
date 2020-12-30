@@ -1,3 +1,5 @@
+import TimeoutError from './TimeoutError';
+
 /**
  * Creates a Promise with a rejection timeout.
  *
@@ -9,16 +11,16 @@
 export default function timeoutPromise(callback, timeout) {
   return new Promise(
     (res, rej) => {
-      const timeoutId = setTimeout(() => rej(new Error()), timeout);
+      const timeoutId = setTimeout(() => rej(new TimeoutError()), timeout);
 
       callback(
-        (...args) => {
+        (value) => {
           clearTimeout(timeoutId);
-          res(...args);
+          res(value);
         },
-        (...args) => {
+        (error) => {
           clearTimeout(timeoutId);
-          rej(new Error(...args));
+          rej(error);
         },
       );
     },

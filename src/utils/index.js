@@ -7,3 +7,5 @@ export { default as toClipboard } from './toClipboard';
 export { default as triggerDownload } from './triggerDownload';
 export { default as triggerUpload } from './triggerUpload';
 export { default as validBoardId } from './validBoardId';
+export { default as TimeoutError } from './TimeoutError';
+export { default as BoardError } from './BoardError';

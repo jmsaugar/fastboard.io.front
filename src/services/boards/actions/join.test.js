@@ -1,4 +1,5 @@
 import { boardsMessages, boardsErrors } from '#constants';
+import { BoardError } from '#utils';
 
 import join from './join';
 
@@ -47,6 +48,6 @@ describe('Service : boards : join', () => {
     const promise = join.call(scope, boardId, userName);
 
     expect(scope.dependencies.realtimeService.send).toHaveBeenCalledTimes(1);
-    return expect(promise).rejects.toEqual(boardsErrors.generic);
+    return expect(promise).rejects.toThrow(new BoardError(boardsErrors.generic));
   });
 });

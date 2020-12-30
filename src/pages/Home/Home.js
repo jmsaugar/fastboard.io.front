@@ -34,7 +34,11 @@ const Home = () => {
           dispatch(setCreated({ boardName, userName }));
           redirectTo(routes.board.replace(':id', boardId));
         })
-        .catch(() => Log.error('Component : Home : create : error creating board')); // @todo stop services
+        .catch(({ code }) => {
+          // @todo stop services
+          Log.error('Component : Home : create : error creating board', { code });
+          // @todo do something with code and show error on UI
+        });
     },
     [dispatch, redirectTo],
   );
