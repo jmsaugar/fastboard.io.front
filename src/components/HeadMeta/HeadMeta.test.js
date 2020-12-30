@@ -10,7 +10,7 @@ describe('Component : HeadMeta', () => {
   test('Renders correct meta in home page', async () => {
     render(<HeadMeta route={routes.home} />);
 
-    await wait(() => expect(document.title).toBe('common:brand'));
+    await wait(() => expect(document.title).toBe('home:head.title'));
   });
 
   test('Renders correct meta in board page', async () => {
@@ -20,6 +20,6 @@ describe('Component : HeadMeta', () => {
       />,
     );
 
-    await wait(() => expect(document.title).toBe('head.title'));
+    await wait(() => expect(document.title).toBe('board:head.title'));
   });
 });

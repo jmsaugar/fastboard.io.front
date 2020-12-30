@@ -7,16 +7,16 @@ import routes from '#routes';
 
 // @todo add more meta tags
 const HeadMeta = ({ route, boardId, boardName }) => {
-  const { t } = useTranslation(['board']);
+  const { t } = useTranslation(['home', 'board']);
 
   let title;
   switch (route) {
     case routes.home:
-      title = t('common:brand');
+      title = t('home:head.title');
       break;
 
     case routes.board:
-      title = t('head.title', { boardId, title : boardName || '$t(head.boardId)' });
+      title = t('board:head.title', { boardId, title : boardName || '$t(board:head.boardId)' });
       break;
 
     default:
