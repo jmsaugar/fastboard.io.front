@@ -1,10 +1,11 @@
 {
   "short_name": "Fastboard.io",
-  "name": "Fastboard.io - draw & share realtime with others",
+  "name": "Fastboard.io",
+  "description": "Draw & share real-time with anyone on the other side",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "40x40",
       "type": "image/x-icon"
     },
     {
@@ -18,8 +19,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#333333",
   "background_color": "#ffffff"
 }
