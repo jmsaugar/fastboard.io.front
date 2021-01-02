@@ -9,7 +9,6 @@ import {
   SWrapper, SLabel, SCaret, SMenu, SItem,
 } from './styled';
 
-// @todo does not close when open and clicking again on the main button
 const Dropdown = ({ label, options }) => {
   const menuRef = useRef();
   const [showMenu, setShowMenu] = useState(false);
@@ -27,7 +26,7 @@ const Dropdown = ({ label, options }) => {
   useOutsideClick(menuRef, hide);
 
   return (
-    <SWrapper>
+    <SWrapper ref={menuRef}>
       <Button
         type="secondary"
         onClick={() => setShowMenu(!showMenu)}
@@ -39,7 +38,7 @@ const Dropdown = ({ label, options }) => {
         </SLabel>
       </Button>
       {showMenu && (
-        <SMenu ref={menuRef}>
+        <SMenu>
           {options.map(({ id, label: optionLabel, onClick }) => (
             <SItem
               key={id}
