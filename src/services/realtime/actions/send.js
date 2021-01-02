@@ -1,6 +1,5 @@
+import { networkTimeout } from '#constants';
 import { timeoutPromise, BoardError } from '#utils';
-
-const timeout = 5000; // @todo to constants?
 
 /**
  * Send boards event trough the network.
@@ -23,6 +22,6 @@ export default function send(eventName, data) {
         ),
       )
     ),
-    timeout,
+    networkTimeout,
   );
 }
