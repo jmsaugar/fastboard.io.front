@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 import {
-  SWrapper, STitle, SActions, SAction, SInput,
+  SWrapper, STitle, SActions, SAction, SInputs, SInput,
 } from './styled';
 
 const CreateStep = ({ show, onCreate, onCancel }) => {
@@ -41,7 +41,7 @@ const CreateStep = ({ show, onCreate, onCancel }) => {
       <STitle>
         {t('create.title')}
       </STitle>
-      <SActions>
+      <SInputs>
         <SInput
           name="userName"
           ref={userNameRef}
@@ -54,6 +54,8 @@ const CreateStep = ({ show, onCreate, onCancel }) => {
           onChange={onBoardNameChange}
           placeholder={t('create.boardName')}
         />
+      </SInputs>
+      <SActions>
         <SAction onClick={onCancel}>
           {t('create.cancel')}
         </SAction>

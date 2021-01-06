@@ -47,7 +47,7 @@ export default function createSelectionHandlers(selectedItem, selectionLayer) {
   // Reproduce the selected item transformations on the handler items group
   selectionLayer.children.selectionHandlers.transform(selectedItem.matrix);
 
-  // // Except the scaling of the handler items themselves, which retain the original size
+  // Except the scaling of the handler items themselves, which retain the original size
   selectionLayer.children.selectionHandlers.children.forEach((handlerItem) => {
     handlerItem.set({ scaling : 1 });
   });

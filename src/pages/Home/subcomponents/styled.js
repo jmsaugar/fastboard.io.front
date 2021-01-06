@@ -1,11 +1,25 @@
-import styled, { css } from '@xstyled/styled-components';
-import { getBorderWidth, variant } from '@xstyled/system';
+import styled, { css, breakpoints, up } from '@xstyled/styled-components';
+import { getSpace, variant } from '@xstyled/system';
 
-// @todo refactor all this
+const actionWidth = '300px';
+const formElementHeight = '80px';
+const textShadow = '2px 2px 2px rgba(0,0,0,0.2)';
+const focusedBgColor = 'rgba(255, 255, 255, 0.2)';
+const stepsTransitionDelay = '0.4s';
+const formsFontSize = '30px';
+
 export const SWrapper = styled.div`
   position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'MontserratBold';
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  text-align: center;
+  text-shadow: ${textShadow};
   transition: long;
 
   ${variant({
@@ -13,75 +27,125 @@ export const SWrapper = styled.div`
     prop     : 'show',
     variants : {
       true : css`
-        transition-delay: .4s;
+        transition-delay: ${stepsTransitionDelay};
+        transition-property: opacity;
       `,
       false : css`
         opacity: 0;
         pointer-events: none;
+        visibility: hidden;
       `,
     },
   })}
+
+  ${breakpoints({
+    xs : css`padding: default;`,
+    sm : css`padding: 40px;`,
+    md : css`padding: 80px;`,
+    lg : css`padding: 120px;`,
+    xl : css`
+      padding-left: 200px;
+      align-items: unset;
+      text-align: left;
+    `,
+  })}
 `;
 
+// @todo line-height
 export const STitle = styled.div`
-  font-size: 90px;
+  line-height: 80%;
+
+  ${breakpoints({
+    xs : css`font-size:  40px;`,
+    sm : css`font-size:  50px;`,
+    md : css`font-size:  60px;`,
+    xl : css`font-size:  90px;`,
+  })}
 `;
 
-export const STagLine = styled.div`
-  width: 700px;
-  font-size: 30px;
+const SBlock = styled.div`
+  margin-top: default;
+`;
+
+export const STagLine = styled(SBlock)`
+  font-size: 20px;
   font-weight: bold;
+
+  ${up('md', css`font-size: 24px;`)}
+  ${up('xl', css`
+    width: 700px;
+    font-size: 30px;
+  `)}
 `;
 
-export const SActions = styled.div`
+export const SInputs = styled(SBlock)`
+  display: flex;
   width: 100%;
-  & > button + button {
-    margin-left: 30px;
-  }
+  flex-direction: column;
+
+  ${up('md', css`width: calc(2 * ${actionWidth} + ${getSpace('default')});`)}
 `;
 
-export const SAction = styled.button`
-  width: 300px;
-  height: 80px;
-  border-width: lg;
-  border-style: default;
-  border-color: white;
-  margin-top: 30px;
-  background-color: transparent;
-  border-radius: rounded;
-  color: white;
-  cursor : pointer;
-  font-size: 30px;
-  outline: 0;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+// @todo gap property not working on mobile
+export const SActions = styled(SBlock)`
+  display: flex;
+  flex-direction: ${({ isHomeStep }) => (isHomeStep ? 'column' : 'column-reverse')};
+  align-items: center;
+  justify-content: center;
+  gap: ${getSpace('default')};
 
-  &:hover, &:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  ${up('md', css`
+    flex-direction: row;
+    justify-content: left;
+  `)}
 `;
 
 export const SInput = styled.input`
   display: block;
-  width: calc(2*300px + 30px - 80px - 4px);
-  height: calc(80px - 2*${getBorderWidth('lg')});
+  width: 100%;
+  height: ${formElementHeight};
+  box-sizing: border-box;
   padding: 0 40px;
   border-width: lg;
   border-style: default;
   border-color: white;
-  margin-top: 20px;
   background-color: transparent;
   border-radius: rounded;
   color: white;
-  font-size: 30px;
+  font-size: ${formsFontSize};
   outline: 0;
 
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  text-shadow: ${textShadow};
+  transition: default;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
     font-size: 22px;
   }
   &:focus {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: ${focusedBgColor};
+  }
+  & + & {
+    margin-top: ${getSpace('default')};
+  }
+`;
+
+export const SAction = styled.button`
+  width: ${actionWidth};
+  height: ${formElementHeight};
+  border-width: lg;
+  border-style: default;
+  border-color: white;
+  background-color: transparent;
+  border-radius: rounded;
+  color: white;
+  cursor : pointer;
+  font-size: ${formsFontSize};
+  outline: 0;
+  text-shadow: ${textShadow};
+  transition: default;
+
+  &:hover, &:focus {
+    background-color: ${focusedBgColor};
   }
 `;

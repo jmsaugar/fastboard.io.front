@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 import {
-  SWrapper, STitle, SActions, SAction, SInput,
+  SWrapper, STitle, SActions, SAction, SInputs, SInput,
 } from './styled';
 
 const JoinStep = ({ show, onJoin, onCancel }) => {
@@ -41,7 +41,7 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
       <STitle>
         {t('join.title')}
       </STitle>
-      <SActions>
+      <SInputs>
         <SInput
           name="boardId"
           ref={boardIdRef}
@@ -54,6 +54,8 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
           onChange={onUserNameChange}
           placeholder={t('join.userName')}
         />
+      </SInputs>
+      <SActions>
         <SAction onClick={onCancel}>
           {t('join.cancel')}
         </SAction>
