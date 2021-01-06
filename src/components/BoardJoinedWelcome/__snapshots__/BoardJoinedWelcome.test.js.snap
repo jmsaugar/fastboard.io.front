@@ -20,7 +20,7 @@ exports[`Component : BoardJoinedWelcome Snapshot 1`] = `
         welcome.joined.chooseUserName
       </div>
       <input
-        class="sc-qZtCU bEnsXe"
+        class="sc-qZtCU jmxDcL"
         data-testid="input-component"
         name="userName"
         placeholder="welcome.joined.userNamePlaceholder"

@@ -1,10 +1,11 @@
 import styled, { css } from '@xstyled/styled-components';
-import {
-  getBorderWidth, getColor, getSize, getTransition, variant,
-} from '@xstyled/system';
+import { getColor, getTransition, variant } from '@xstyled/system';
 
 export const SWrapper = styled.div`
   display: flex;
+  width: toolButton;
+  height: toolButton;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   border-style: default;
@@ -12,8 +13,8 @@ export const SWrapper = styled.div`
   margin: auto sm;
   background-color: bg;
   border-radius: rounded;
-
   transition: box-shadow ${getTransition('default')};
+
   &:hover {
     box-shadow: default;
     cursor: pointer;
@@ -26,16 +27,8 @@ export const SWrapper = styled.div`
     default  : false,
     prop     : 'selected',
     variants : {
-      true : css`
-        width: calc(${getSize('toolButton')} - 2*(${getBorderWidth('xlg')}));
-        height: calc(${getSize('toolButton')} - 2*(${getBorderWidth('xlg')}));
-        border-width: xlg;
-      `,
-      false : css`
-        width: calc(${getSize('toolButton')} - 2*(${getBorderWidth('default')}));
-        height: calc(${getSize('toolButton')} - 2*(${getBorderWidth('default')}));
-        border-width: default;
-      `,
+      true  : css`border-width: xlg;`,
+      false : css`border-width: default;`,
     },
   })}
 `;

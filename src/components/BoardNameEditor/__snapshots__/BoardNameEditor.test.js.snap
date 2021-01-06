@@ -14,7 +14,7 @@ exports[`Component : BoardNameEditor Snapshot 1`] = `
       class="sc-pQEbo geQkjx"
     >
       <input
-        class="sc-qZtCU bEnsXe"
+        class="sc-qZtCU jmxDcL"
         data-testid="input-component"
         name="boardName"
         value="initial board name"

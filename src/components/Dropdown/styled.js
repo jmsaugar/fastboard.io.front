@@ -1,5 +1,5 @@
 import styled, { css } from '@xstyled/styled-components';
-import { getBorderWidth, variant } from '@xstyled/system';
+import { variant } from '@xstyled/system';
 import { ChevronDown } from '@styled-icons/fa-solid/ChevronDown';
 
 const menuOffset = '40px';
@@ -39,7 +39,8 @@ export const SMenu = styled.div`
   z-index: top;
   top: ${menuOffset};
   left: 0;
-  width: calc(100% - 2*${getBorderWidth('default')});
+  width: 100%;
+  box-sizing: border-box;
   border-width: default;
   border-style: default;
   border-color: border;

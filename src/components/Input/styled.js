@@ -1,9 +1,9 @@
-import styled, { css } from '@xstyled/styled-components';
-import { getSize, getSpace, getBorderWidth } from '@xstyled/system';
+import styled from '@xstyled/styled-components';
 
 export default styled.input`
-  width: ${({ fullWidth }) => (fullWidth ? css`calc(100% - 2*${getSpace('md')} - 2*${getBorderWidth('default')})` : 'auto')};
-  height: calc(${getSize('formHeight')} - 2*${getSpace('xs')} - 2*${getBorderWidth('default')});
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
+  height: formHeight;
+  box-sizing: border-box;
   padding: xs md;
   border-width: default;
   border-style: default;
