@@ -89,15 +89,14 @@ export const SInputs = styled(SBlock)`
 // @todo gap property not working on mobile
 export const SActions = styled(SBlock)`
   display: flex;
+  width: 100%;
   flex-direction: ${({ isHomeStep }) => (isHomeStep ? 'column' : 'column-reverse')};
   align-items: center;
   justify-content: center;
   gap: ${getSpace('default')};
 
-  ${up('md', css`
-    flex-direction: row;
-    justify-content: left;
-  `)}
+  ${up('md', css`flex-direction: row;`)}
+  ${up('xl', css`justify-content: left;`)}
 `;
 
 export const SInput = styled.input`
@@ -131,7 +130,7 @@ export const SInput = styled.input`
 `;
 
 export const SAction = styled.button`
-  width: ${actionWidth};
+  width: 100%;
   height: ${formElementHeight};
   border-width: lg;
   border-style: default;
@@ -148,4 +147,6 @@ export const SAction = styled.button`
   &:hover, &:focus {
     background-color: ${focusedBgColor};
   }
+
+  ${up('sm', css`width: ${actionWidth};`)}
 `;
