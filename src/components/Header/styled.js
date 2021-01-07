@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export const SWrapper = styled.header`
   display: flex;
   height: header;
+  min-height: header;
   align-items: center;
   justify-content: space-between;
   padding-right: default;

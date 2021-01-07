@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export const SWrapper = styled.footer`
   display: flex;
   height: footer;
+  min-height: footer;
   align-items: center;
   justify-content: flex-end;
   padding-right: default;

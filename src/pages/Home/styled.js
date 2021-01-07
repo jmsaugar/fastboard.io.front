@@ -2,7 +2,6 @@ import styled from '@xstyled/styled-components';
 
 import backgroundImg from '#theme/images/homebg.jpg';
 
-// @todo min-height
 export default styled.div`
   position: relative;
   width: 100%;

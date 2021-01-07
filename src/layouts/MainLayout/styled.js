@@ -8,5 +8,6 @@ export const SWrapper = styled.div`
 
 export const SContent = styled.div`
   display: flex;
+  min-height: minLayoutHeight;
   flex: 1;
 `;
