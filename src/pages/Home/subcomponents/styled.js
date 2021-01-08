@@ -2,12 +2,13 @@ import styled, { css, breakpoints, up } from '@xstyled/styled-components';
 import { getSpace, variant } from '@xstyled/system';
 import { ExclamationCircle as ErrorIcon } from '@styled-icons/fa-solid/ExclamationCircle';
 
-import { Input } from '#components';
+import { Button, Input } from '#components';
 
 const actionWidth = '300px';
 const formElementHeight = '80px';
 const textShadow = '2px 2px 2px rgba(0,0,0,0.2)';
 const focusedBgColor = 'rgba(255, 255, 255, 0.2)';
+const formFgAlphaColor = 'rgba(255, 255, 255, 0.7)';
 const stepsTransitionDelay = '0.4s';
 const formsFontSize = '30px';
 
@@ -124,7 +125,7 @@ export const SInput = styled(Input)`
   transition: default;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: ${formFgAlphaColor};
     font-size: 22px;
   }
   &:focus {
@@ -136,15 +137,13 @@ export const SInput = styled(Input)`
   }
 `;
 
-export const SAction = styled.button`
+export const SAction = styled(Button)`
   width: 100%;
   height: ${formElementHeight};
   border-width: lg;
   border-style: default;
-  border-color: white;
   background-color: transparent;
   border-radius: rounded;
-  color: white;
   cursor : pointer;
   font-size: ${formsFontSize};
   outline: 0;
@@ -156,6 +155,21 @@ export const SAction = styled.button`
   }
 
   ${up('md', css`width: ${actionWidth};`)}
+
+  ${variant({
+    default  : false,
+    prop     : 'isDisabled',
+    variants : {
+      true : css`
+        border-color: ${formFgAlphaColor};
+        color: ${formFgAlphaColor};
+      `,
+      false : css`
+        border-color: white;
+        color: white;
+      `,
+    },
+  })}
 `;
 
 export const SErrorIcon = styled(ErrorIcon)`

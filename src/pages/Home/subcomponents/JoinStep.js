@@ -18,12 +18,16 @@ const JoinStep = ({
   const [boardId, setBoardId] = useState();
   const [userName, setUserName] = useState();
 
+  // Reset form state when showing
   useEffect(
     () => {
       if (show) {
         boardIdRef.current.value = '';
         userNameRef.current.value = '';
         boardIdRef.current.focus();
+
+        setBoardId();
+        setUserName();
       }
     },
     [show, boardIdRef, userNameRef],
@@ -54,7 +58,10 @@ const JoinStep = ({
         <SAction onClick={onCancel}>
           {t('join.cancel')}
         </SAction>
-        <SAction onClick={() => onJoin(boardId, userName)}>
+        <SAction
+          onClick={() => onJoin(boardId, userName)}
+          isDisabled={!boardId || !userName}
+        >
           {t('join.join')}
         </SAction>
         {errorCode && <ErrorMessage code={errorCode} />}

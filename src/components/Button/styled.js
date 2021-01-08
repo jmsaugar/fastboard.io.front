@@ -17,7 +17,7 @@ export default styled.button`
   transition: default;
 
   ${variant({
-    default  : 'default',
+    default  : 'primary',
     prop     : 'type',
     variants : {
       primary : css`

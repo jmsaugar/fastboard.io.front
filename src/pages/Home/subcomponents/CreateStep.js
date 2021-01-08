@@ -18,12 +18,16 @@ const CreateStep = ({
   const [boardName, setBoardName] = useState();
   const [userName, setUserName] = useState();
 
+  // Reset form state when showing
   useEffect(
     () => {
       if (show) {
         boardNameRef.current.value = '';
         userNameRef.current.value = '';
         userNameRef.current.focus();
+
+        setBoardName();
+        setUserName();
       }
     },
     [show, boardNameRef, userNameRef],
@@ -54,7 +58,10 @@ const CreateStep = ({
         <SAction onClick={onCancel}>
           {t('create.cancel')}
         </SAction>
-        <SAction onClick={() => onCreate(boardName, userName)}>
+        <SAction
+          onClick={() => onCreate(boardName, userName)}
+          isDisabled={!boardName || !userName}
+        >
           {t('create.create')}
         </SAction>
         {errorCode && <ErrorMessage code={errorCode} />}

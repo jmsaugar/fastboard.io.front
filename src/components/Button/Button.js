@@ -6,7 +6,7 @@ import Spinner from '../Spinner';
 import SWrapper from './styled';
 
 const Button = ({
-  children, onClick, isDisabled, isLoading, type, fullWidth,
+  children, onClick, isDisabled, isLoading, type, fullWidth, className,
 }) => {
   const onClickMemo = useMemo(
     () => (isDisabled ? undefined : onClick),
@@ -20,6 +20,7 @@ const Button = ({
       isDisabled={isDisabled || isLoading}
       fullWidth={fullWidth}
       type={type}
+      className={className}
     >
       {isLoading ? <Spinner /> : children}
     </SWrapper>
@@ -31,6 +32,8 @@ Button.defaultProps = {
   isDisabled : false,
   isLoading  : false,
   fullWidth  : false,
+  className  : undefined,
+  type       : 'primary',
 };
 
 Button.propTypes = {
@@ -39,7 +42,8 @@ Button.propTypes = {
   isDisabled : PropTypes.bool,
   isLoading  : PropTypes.bool,
   fullWidth  : PropTypes.bool,
-  type       : PropTypes.string.isRequired,
+  className  : PropTypes.string,
+  type       : PropTypes.string,
 };
 
 export default Button;
