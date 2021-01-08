@@ -2,6 +2,8 @@ import styled, { css, breakpoints, up } from '@xstyled/styled-components';
 import { getSpace, variant } from '@xstyled/system';
 import { ExclamationCircle as ErrorIcon } from '@styled-icons/fa-solid/ExclamationCircle';
 
+import { Input } from '#components';
+
 const actionWidth = '300px';
 const formElementHeight = '80px';
 const textShadow = '2px 2px 2px rgba(0,0,0,0.2)';
@@ -103,7 +105,7 @@ export const SActions = styled(SBlock)`
   ${up('xl', css`justify-content: left;`)}
 `;
 
-export const SInput = styled.input`
+export const SInput = styled(Input)`
   display: block;
   width: 100%;
   height: ${formElementHeight};
@@ -126,6 +128,7 @@ export const SInput = styled.input`
     font-size: 22px;
   }
   &:focus {
+    border-color: white;
     background-color: ${focusedBgColor};
   }
   & + & {

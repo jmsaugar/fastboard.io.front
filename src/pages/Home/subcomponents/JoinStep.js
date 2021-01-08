@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -19,16 +17,6 @@ const JoinStep = ({
   const userNameRef = useRef();
   const [boardId, setBoardId] = useState();
   const [userName, setUserName] = useState();
-
-  const onBoardIdChange = useCallback(
-    (evt) => setBoardId(evt.target.value),
-    [setBoardId],
-  );
-
-  const onUserNameChange = useCallback(
-    (evt) => setUserName(evt.target.value),
-    [setUserName],
-  );
 
   useEffect(
     () => {
@@ -50,14 +38,16 @@ const JoinStep = ({
         <SInput
           name="boardId"
           ref={boardIdRef}
-          onChange={onBoardIdChange}
+          onChange={setBoardId}
           placeholder={t('join.boardId')}
+          isRequired
         />
         <SInput
           name="userName"
           ref={userNameRef}
-          onChange={onUserNameChange}
+          onChange={setUserName}
           placeholder={t('join.userName')}
+          isRequired
         />
       </SInputs>
       <SActions>

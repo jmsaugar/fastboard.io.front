@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -19,16 +17,6 @@ const CreateStep = ({
   const userNameRef = useRef();
   const [boardName, setBoardName] = useState();
   const [userName, setUserName] = useState();
-
-  const onBoardNameChange = useCallback(
-    (evt) => setBoardName(evt.target.value),
-    [setBoardName],
-  );
-
-  const onUserNameChange = useCallback(
-    (evt) => setUserName(evt.target.value),
-    [setUserName],
-  );
 
   useEffect(
     () => {
@@ -50,14 +38,16 @@ const CreateStep = ({
         <SInput
           name="userName"
           ref={userNameRef}
-          onChange={onUserNameChange}
+          onChange={setUserName}
           placeholder={t('create.userName')}
+          isRequired
         />
         <SInput
           name="boardName"
           ref={boardNameRef}
-          onChange={onBoardNameChange}
+          onChange={setBoardName}
           placeholder={t('create.boardName')}
+          isRequired
         />
       </SInputs>
       <SActions>
