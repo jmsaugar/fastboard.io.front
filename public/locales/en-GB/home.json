@@ -21,5 +21,9 @@
     "userName": "Your name",
     "cancel": "Cancel",
     "join": "Join"
+  },
+  "error": {
+    "generic": "There was an error. Please, try again.",
+    "noBoard": "The board you are trying to join does not exist."
   }
 }

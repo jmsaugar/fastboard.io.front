@@ -4,11 +4,16 @@ import React, {
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import { boardsErrors } from '#constants';
+
+import ErrorMessage from './ErrorMessage';
 import {
   SWrapper, STitle, SActions, SAction, SInputs, SInput,
 } from './styled';
 
-const CreateStep = ({ show, onCreate, onCancel }) => {
+const CreateStep = ({
+  show, errorCode, onCreate, onCancel,
+}) => {
   const { t } = useTranslation('home');
   const boardNameRef = useRef();
   const userNameRef = useRef();
@@ -62,15 +67,21 @@ const CreateStep = ({ show, onCreate, onCancel }) => {
         <SAction onClick={() => onCreate(boardName, userName)}>
           {t('create.create')}
         </SAction>
+        {errorCode && <ErrorMessage code={errorCode} />}
       </SActions>
     </SWrapper>
   );
 };
 
+CreateStep.defaultProps = {
+  errorCode : undefined,
+};
+
 CreateStep.propTypes = {
-  show     : PropTypes.bool.isRequired,
-  onCreate : PropTypes.func.isRequired,
-  onCancel : PropTypes.func.isRequired,
+  show      : PropTypes.bool.isRequired,
+  errorCode : PropTypes.oneOf(Object.values(boardsErrors)),
+  onCreate  : PropTypes.func.isRequired,
+  onCancel  : PropTypes.func.isRequired,
 };
 
 export default CreateStep;

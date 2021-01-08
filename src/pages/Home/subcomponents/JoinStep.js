@@ -4,11 +4,16 @@ import React, {
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import { boardsErrors } from '#constants';
+
+import ErrorMessage from './ErrorMessage';
 import {
   SWrapper, STitle, SActions, SAction, SInputs, SInput,
 } from './styled';
 
-const JoinStep = ({ show, onJoin, onCancel }) => {
+const JoinStep = ({
+  show, errorCode, onJoin, onCancel,
+}) => {
   const { t } = useTranslation('home');
   const boardIdRef = useRef();
   const userNameRef = useRef();
@@ -62,15 +67,21 @@ const JoinStep = ({ show, onJoin, onCancel }) => {
         <SAction onClick={() => onJoin(boardId, userName)}>
           {t('join.join')}
         </SAction>
+        {errorCode && <ErrorMessage code={errorCode} />}
       </SActions>
     </SWrapper>
   );
 };
 
+JoinStep.defaultProps = {
+  errorCode : undefined,
+};
+
 JoinStep.propTypes = {
-  show     : PropTypes.bool.isRequired,
-  onJoin   : PropTypes.func.isRequired,
-  onCancel : PropTypes.func.isRequired,
+  show      : PropTypes.bool.isRequired,
+  errorCode : PropTypes.oneOf(Object.values(boardsErrors)),
+  onJoin    : PropTypes.func.isRequired,
+  onCancel  : PropTypes.func.isRequired,
 };
 
 export default JoinStep;

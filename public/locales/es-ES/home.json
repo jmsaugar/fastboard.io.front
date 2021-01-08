@@ -21,5 +21,9 @@
     "userName": "Tu nombre",
     "cancel": "Cancelar",
     "join": "Unirse"
+  },
+  "error": {
+    "generic": "Hubo un error. Por favor, prueba otra vez.",
+    "noBoard": "El panel al que estás tratando de unirte no existe."
   }
 }

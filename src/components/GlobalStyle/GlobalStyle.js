@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       height: 100%;
       background-color: ${getColor('bg')};
-      color: ${getColor('fg')};;
+      color: ${getColor('fg')};
       font-family: ${getFont('default')};
       font-size: ${getFontSize('default')};
 

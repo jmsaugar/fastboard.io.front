@@ -1,5 +1,6 @@
 import styled, { css, breakpoints, up } from '@xstyled/styled-components';
 import { getSpace, variant } from '@xstyled/system';
+import { ExclamationCircle as ErrorIcon } from '@styled-icons/fa-solid/ExclamationCircle';
 
 const actionWidth = '300px';
 const formElementHeight = '80px';
@@ -81,6 +82,7 @@ export const STagLine = styled(SBlock)`
 export const SInputs = styled(SBlock)`
   display: flex;
   width: 100%;
+  max-width: 100%;
   flex-direction: column;
 
   ${up('md', css`width: calc(2 * ${actionWidth} + ${getSpace('default')});`)}
@@ -88,8 +90,10 @@ export const SInputs = styled(SBlock)`
 
 // @todo gap property not working on mobile
 export const SActions = styled(SBlock)`
+  position: relative;
   display: flex;
   width: 100%;
+  max-width: 100%;
   flex-direction: ${({ isHomeStep }) => (isHomeStep ? 'column' : 'column-reverse')};
   align-items: center;
   justify-content: center;
@@ -148,5 +152,34 @@ export const SAction = styled.button`
     background-color: ${focusedBgColor};
   }
 
-  ${up('sm', css`width: ${actionWidth};`)}
+  ${up('md', css`width: ${actionWidth};`)}
+`;
+
+export const SErrorIcon = styled(ErrorIcon)`
+  width: 32px;
+  height: 32px;
+  margin-top: -2px;
+  margin-right: sm;
+`;
+
+// @todo to constants
+// @todo improve positioning of this
+export const SErrorMessage = styled.div`
+  position: absolute;
+  bottom: -80px;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 12px default;
+  margin-top: 40px;
+  background-color: errorAlpha;
+  border-radius: rounded;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+
+  ${up('md', css`
+    width: calc(2 * ${actionWidth} + ${getSpace('default')});
+  `)}
 `;

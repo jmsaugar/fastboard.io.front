@@ -8,4 +8,5 @@ export default {
   primaryActive   : '#027beb',
   primaryContrast : '#fff',
   error           : '#da0000',
+  errorAlpha      : '#da000080',
 };

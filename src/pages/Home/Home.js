@@ -21,11 +21,13 @@ const Home = () => {
   const { push : redirectTo } = useHistory();
   const dispatch = useDispatch();
   const [step, setStep] = useState(steps.home);
+  const [errorCode, setErrorCode] = useState();
 
   const create = useCallback(
     (boardName, userName) => {
       Log.debug('Component : Home : create', { boardName, userName });
 
+      setErrorCode();
       realtimeService.start();
       boardsService.create(boardName, userName)
         .then(({ boardId, boardName : joinedBoardName }) => {
@@ -35,9 +37,8 @@ const Home = () => {
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(({ code }) => {
-          // @todo stop services
-          Log.error('Component : Home : create : error creating board', { code });
-          // @todo do something with code and show error on UI
+          setErrorCode(code);
+          realtimeService.stop();
         });
     },
     [dispatch, redirectTo],
@@ -62,11 +63,13 @@ const Home = () => {
         />
         <CreateStep
           show={step === steps.create}
+          errorCode={errorCode}
           onCreate={create}
           onCancel={() => setStep(steps.home)}
         />
         <JoinStep
           show={step === steps.join}
+          errorCode={errorCode}
           onJoin={join}
           onCancel={() => setStep(steps.home)}
         />
