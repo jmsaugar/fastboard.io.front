@@ -21,13 +21,16 @@ const Home = () => {
   const { push : redirectTo } = useHistory();
   const dispatch = useDispatch();
   const [step, setStep] = useState(steps.home);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorCode, setErrorCode] = useState();
 
   const create = useCallback(
     (boardName, userName) => {
       Log.debug('Component : Home : create', { boardName, userName });
 
+      setIsLoading(true);
       setErrorCode();
+
       realtimeService.start();
       boardsService.create(boardName, userName)
         .then(({ boardId, boardName : joinedBoardName }) => {
@@ -39,7 +42,8 @@ const Home = () => {
         .catch(({ code }) => {
           setErrorCode(code);
           realtimeService.stop();
-        });
+        })
+        .finally(() => setIsLoading(false));
     },
     [dispatch, redirectTo],
   );
@@ -63,6 +67,7 @@ const Home = () => {
         />
         <CreateStep
           show={step === steps.create}
+          isLoading={isLoading}
           errorCode={errorCode}
           onCreate={create}
           onCancel={() => setStep(steps.home)}

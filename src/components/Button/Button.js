@@ -5,8 +5,14 @@ import Spinner from '../Spinner';
 
 import SWrapper from './styled';
 
+// @todo variants to constants exported by each component?
+const button2SpinnerSize = {
+  default : 'sm',
+  lg      : 'md',
+};
+
 const Button = ({
-  children, onClick, isDisabled, isLoading, type, fullWidth, className,
+  children, onClick, isDisabled, isLoading, type, fullWidth, size, className,
 }) => {
   const onClickMemo = useMemo(
     () => (isDisabled ? undefined : onClick),
@@ -20,9 +26,10 @@ const Button = ({
       isDisabled={isDisabled || isLoading}
       fullWidth={fullWidth}
       type={type}
+      size={size}
       className={className}
     >
-      {isLoading ? <Spinner /> : children}
+      {isLoading ? <Spinner size={button2SpinnerSize[size]} /> : children}
     </SWrapper>
   );
 };
@@ -33,6 +40,7 @@ Button.defaultProps = {
   isLoading  : false,
   fullWidth  : false,
   className  : undefined,
+  size       : 'default',
   type       : 'primary',
 };
 
@@ -43,6 +51,7 @@ Button.propTypes = {
   isLoading  : PropTypes.bool,
   fullWidth  : PropTypes.bool,
   className  : PropTypes.string,
+  size       : PropTypes.string,
   type       : PropTypes.string,
 };
 

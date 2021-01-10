@@ -24,13 +24,13 @@ exports[`Component : UserNameEditor Snapshot 1`] = `
       class="sc-pYA-dN jsALAG"
     >
       <button
-        class="sc-qQYBZ hUMZgX"
+        class="sc-qQYBZ eDYpWi"
         type="secondary"
       >
         meta.userNameEditor.cancel
       </button>
       <button
-        class="sc-qQYBZ fAclfc"
+        class="sc-qQYBZ iOGUEF"
         type="primary"
       >
         meta.userNameEditor.save

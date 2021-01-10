@@ -18,10 +18,10 @@ const HomeStep = ({ show, onCreate, onJoin }) => {
         {t('home.tagline')}
       </STagLine>
       <SActions isHomeStep>
-        <SAction onClick={onCreate}>
+        <SAction size="lg" onClick={onCreate}>
           {t('home.create')}
         </SAction>
-        <SAction onClick={onJoin}>
+        <SAction size="lg" onClick={onJoin}>
           {t('home.join')}
         </SAction>
       </SActions>

@@ -2,10 +2,9 @@
 
 exports[`Component : Spinner Renders correctly 1`] = `
 <DocumentFragment>
-  <img
-    class="sc-pscky bDrLCf"
+  <div
+    class="sc-pscky bYGvBA"
     data-testid="spinner-component"
-    src="spinner.svg"
   />
 </DocumentFragment>
 `;

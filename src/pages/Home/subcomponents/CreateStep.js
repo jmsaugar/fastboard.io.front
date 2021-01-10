@@ -10,7 +10,7 @@ import {
 } from './styled';
 
 const CreateStep = ({
-  show, errorCode, onCreate, onCancel,
+  show, isLoading, errorCode, onCreate, onCancel,
 }) => {
   const { t } = useTranslation('home');
   const boardNameRef = useRef();
@@ -55,12 +55,14 @@ const CreateStep = ({
         />
       </SInputs>
       <SActions>
-        <SAction onClick={onCancel}>
+        <SAction size="lg" onClick={onCancel}>
           {t('create.cancel')}
         </SAction>
         <SAction
+          size="lg"
           onClick={() => onCreate(boardName, userName)}
           isDisabled={!boardName || !userName}
+          isLoading={isLoading}
         >
           {t('create.create')}
         </SAction>
@@ -76,6 +78,7 @@ CreateStep.defaultProps = {
 
 CreateStep.propTypes = {
   show      : PropTypes.bool.isRequired,
+  isLoading : PropTypes.bool.isRequired,
   errorCode : PropTypes.oneOf(Object.values(boardsErrors)),
   onCreate  : PropTypes.func.isRequired,
   onCancel  : PropTypes.func.isRequired,

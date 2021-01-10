@@ -8,7 +8,7 @@ const testId = 'spinner-component';
 
 describe('Component : Spinner', () => {
   test('Renders correctly', () => {
-    const { getByTestId, asFragment } = render(<Spinner />);
+    const { getByTestId, asFragment } = render(<Spinner size="md" />);
 
     expect(getByTestId(testId)).toBeInTheDocument();
 

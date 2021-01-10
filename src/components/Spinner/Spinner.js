@@ -1,11 +1,16 @@
 import React from 'react';
-
-import SpinnerIcon from './assets/spinner.svg';
+import propTypes from 'prop-types';
 
 import SImg from './styled';
 
 const testId = 'spinner-component';
 
-const Spinner = () => <SImg src={SpinnerIcon} data-testid={testId} />;
+const Spinner = ({ size }) => (
+  <SImg size={size} data-testid={testId} />
+);
+
+Spinner.propTypes = {
+  size : propTypes.string.isRequired,
+};
 
 export default Spinner;

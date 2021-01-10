@@ -1,11 +1,9 @@
 import styled, { css, breakpoints, up } from '@xstyled/styled-components';
-import { getSpace, variant } from '@xstyled/system';
+import { getSize, getSpace, variant } from '@xstyled/system';
 import { ExclamationCircle as ErrorIcon } from '@styled-icons/fa-solid/ExclamationCircle';
 
 import { Button, Input } from '#components';
 
-const actionWidth = '300px';
-const formElementHeight = '80px';
 const textShadow = '2px 2px 2px rgba(0,0,0,0.2)';
 const focusedBgColor = 'rgba(255, 255, 255, 0.2)';
 const formFgAlphaColor = 'rgba(255, 255, 255, 0.7)';
@@ -88,7 +86,7 @@ export const SInputs = styled(SBlock)`
   max-width: 100%;
   flex-direction: column;
 
-  ${up('md', css`width: calc(2 * ${actionWidth} + ${getSpace('default')});`)}
+  ${up('md', css`width: calc(2 * ${getSize('buttonWidthLg')} + ${getSpace('default')});`)}
 `;
 
 // @todo gap property not working on mobile
@@ -109,7 +107,7 @@ export const SActions = styled(SBlock)`
 export const SInput = styled(Input)`
   display: block;
   width: 100%;
-  height: ${formElementHeight};
+  height: formHeightLg;
   box-sizing: border-box;
   padding: 0 40px;
   border-width: lg;
@@ -139,22 +137,17 @@ export const SInput = styled(Input)`
 
 export const SAction = styled(Button)`
   width: 100%;
-  height: ${formElementHeight};
   border-width: lg;
-  border-style: default;
   background-color: transparent;
   border-radius: rounded;
-  cursor : pointer;
   font-size: ${formsFontSize};
-  outline: 0;
   text-shadow: ${textShadow};
-  transition: default;
 
   &:hover, &:focus {
     background-color: ${focusedBgColor};
   }
 
-  ${up('md', css`width: ${actionWidth};`)}
+  ${up('md', css`width: buttonWidthLg;`)}
 
   ${variant({
     default  : false,
@@ -197,6 +190,6 @@ export const SErrorMessage = styled.div`
   text-align: center;
 
   ${up('md', css`
-    width: calc(2 * ${actionWidth} + ${getSpace('default')});
+    width: calc(2 * ${getSize('buttonWidthLg')} + ${getSpace('default')});
   `)}
 `;

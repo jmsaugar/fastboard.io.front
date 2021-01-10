@@ -4,16 +4,12 @@ import { variant, getSize, getSpace } from '@xstyled/system';
 export default styled.button`
   position: relative;
   display: inline-flex;
-  width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidth'))};
-  height: formHeight;
   align-items: center;
   justify-content: center;
-  padding: ${({ isLoading }) => (isLoading ? getSpace('xxs') : getSpace('xs'))} ${getSpace('md')};
   border-width: default;
   border-style: default;
   border-radius: default;
   outline: 0;
-
   transition: default;
 
   ${variant({
@@ -40,6 +36,23 @@ export default styled.button`
   })}
 
   ${variant({
+    default  : 'default',
+    prop     : 'size',
+    variants : {
+      default : css`
+        width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidth'))};
+        height: formHeight;
+        padding: ${({ isLoading }) => (isLoading ? getSpace('xxs') : getSpace('xs'))} ${getSpace('md')};
+      `,
+      lg : css`
+        width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidthLg'))};
+        height: formHeightLg;
+        padding: default;
+      `,
+    },
+  })}
+
+  ${variant({
     default  : false,
     prop     : 'isDisabled',
     variants : {
@@ -48,7 +61,6 @@ export default styled.button`
       `,
       false : css`
         cursor: pointer;
-
         &:hover {
           box-shadow: default;
         }
