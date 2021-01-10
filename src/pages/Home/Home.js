@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { Log } from '#utils';
+import { boardsErrors } from '#constants';
 import { HeadMeta } from '#components';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
@@ -40,7 +41,7 @@ const Home = () => {
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(({ code }) => {
-          setErrorCode(code);
+          setErrorCode(code || boardsErrors.generic);
           realtimeService.stop();
         })
         .finally(() => setIsLoading(false));
@@ -54,6 +55,12 @@ const Home = () => {
       redirectTo(routes.board.replace(':id', boardId), { userName });
     },
     [redirectTo],
+  );
+
+  // Clean errors when switching step
+  useEffect(
+    () => setErrorCode(),
+    [step],
   );
 
   return (

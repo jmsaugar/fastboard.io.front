@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Log, setPreventUnload } from '#utils';
 import routes from '#routes';
-import { mainLayoutId } from '#constants';
+import { mainLayoutId, boardsErrors } from '#constants';
 import {
   BoardError,
   BoardCreatedWelcome,
@@ -69,9 +69,9 @@ const Board = () => {
           setIsLoading(false);
         })
         .catch(({ code }) => {
-          // @todo stop services?
           setModalStep(modalSteps.error);
-          setErrorCode(code);
+          setErrorCode(code || boardsErrors.generic);
+          realtimeService.stop();
         });
     },
     [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],
