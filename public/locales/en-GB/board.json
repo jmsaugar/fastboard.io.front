@@ -35,6 +35,15 @@
       "accept": "Accept"
     }
   },
+  "leave": {
+    "title": "Are you sure you want to leave?",
+    "message": {
+      "lastUser": "The board content will be lost when you leave.",
+      "notLastUser": "The rest of the users will continue on the board."
+    },
+    "cancel": "Cancel",
+    "leave": "Leave"
+  },
   "error": {
     "title": "Error joining the board",
     "messages": {

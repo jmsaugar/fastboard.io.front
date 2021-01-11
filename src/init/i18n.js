@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { defaultLanguageCode, i18nNamespaces } from '#constants';
 
+// @todo fix issue in dropdown menu when default language not supported
 export default () => i18n
   .use(Backend)
   .use(LanguageDetector)

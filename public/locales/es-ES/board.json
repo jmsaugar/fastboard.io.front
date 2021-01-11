@@ -35,6 +35,15 @@
       "accept": "Aceptar"
     }
   },
+  "leave": {
+    "title": "¿Seguro que quieres salir?",
+    "message": {
+      "lastUser": "El contenido del panel se perderá cuando salgas.",
+      "notLastUser": "El resto de usuarios continuarán en el panel."
+    },
+    "cancel": "Cancelar",
+    "leave": "Salir"
+  },
   "error": {
     "title": "Error al unirse al panel",
     "messages": {

@@ -9,4 +9,5 @@ export default {
   primaryContrast : '#fff',
   error           : '#da0000',
   errorAlpha      : '#da000080',
+  warning         : '#e48900',
 };

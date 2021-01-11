@@ -9,19 +9,21 @@ import routes from '#routes';
 import { mainLayoutId, boardsErrors } from '#constants';
 import {
   BoardError,
+  BoardLeave,
   BoardCreatedWelcome,
   BoardJoinedWelcome,
   Canvas,
   HeadMeta,
   Modal,
   NotificationsList,
+  Spinner,
   ToolBar,
 } from '#components';
 import {
   boardsService, drawingsService, realtimeService, urlsService,
 } from '#services';
 import {
-  boardNameSelector, isJoinedSelector, isOwnerSelector, setJoined, setUnjoined,
+  boardNameSelector, isJoinedSelector, isOwnerSelector, setJoined, setUnjoined, usersCountSelector,
 } from '#store';
 
 import SWrapper from './styled';
@@ -29,10 +31,12 @@ import SWrapper from './styled';
 const canvasId = 'canvas';
 
 const modalSteps = Object.freeze({
-  none    : 0,
-  created : 1,
-  joined  : 2,
-  error   : 3,
+  none           : 0,
+  created        : 1,
+  joinedFromHome : 2,
+  joinedFromUrl  : 3,
+  leave          : 4,
+  error          : 5,
 });
 
 // @ todo check params.id
@@ -41,11 +45,14 @@ const Board = () => {
   const { state : routeState } = useLocation();
   const { id : boardId } = useParams();
   const dispatch = useDispatch();
+  const usersCount = useSelector(usersCountSelector);
   const boardName = useSelector(boardNameSelector);
   const isOwner = useSelector(isOwnerSelector);
   const isJoined = useSelector(isJoinedSelector);
+  const unblockRef = useRef();
   const isOwnerOnLoad = useRef(isOwner);
   const isJoinedOnLoad = useRef(isJoined);
+  const [nextLocation, setNextLocation] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [modalStep, setModalStep] = useState(modalSteps.none);
   const [errorCode, setErrorCode] = useState();
@@ -66,13 +73,13 @@ const Board = () => {
           dispatch(setJoined({ boardName : joinedBoardName, userName, users }));
 
           setModalStep(modalSteps.none);
-          setIsLoading(false);
         })
         .catch(({ code }) => {
           setModalStep(modalSteps.error);
           setErrorCode(code || boardsErrors.generic);
           realtimeService.stop();
-        });
+        })
+        .finally(() => setIsLoading(false));
     },
     [boardId, dispatch, setErrorCode, setModalStep, setIsLoading],
   );
@@ -96,26 +103,46 @@ const Board = () => {
       }
     } else if (routeState?.userName) {
       // User came from home page - join board
+      setModalStep(modalSteps.joinedFromHome);
       join(routeState?.userName);
     } else {
       // User came directly to the board page
-      setModalStep(modalSteps.joined);
+      setModalStep(modalSteps.joinedFromUrl);
     }
   }, [join, routeState]);
 
   // Page unload prevention
   useEffect(() => {
-    const unblock = block(() => window.confirm('leave?')); // @todo text and ¿custom modal);
+    if (isJoined) {
+      // In-app page unload
+      unblockRef.current = block(({ pathname }) => {
+        setNextLocation(pathname);
+        setModalStep(modalSteps.leave);
 
-    setPreventUnload(true);
+        return false;
+      });
 
-    return () => {
-      unblock();
-      setPreventUnload(false);
-    };
-  }, [block]);
+      // Outside-of-app page unload
+      setPreventUnload(true);
+
+      return () => {
+        if (unblockRef.current) {
+          unblockRef.current();
+        }
+
+        setPreventUnload(false);
+      };
+    }
+
+    return () => {};
+  }, [block, isJoined, setModalStep, setNextLocation]);
 
   const goHome = () => redirectTo(routes.home);
+
+  const leavePage = () => {
+    unblockRef.current();
+    redirectTo(nextLocation);
+  };
 
   return (
     <>
@@ -134,12 +161,22 @@ const Board = () => {
               onClose={() => setModalStep(modalSteps.none)}
             />
           )}
-          {modalStep === modalSteps.joined && (
+          {modalStep === modalSteps.joinedFromUrl && (
             <BoardJoinedWelcome
               isLoading={isLoading}
               boardId={boardId}
               onJoin={join}
               onCancel={goHome}
+            />
+          )}
+          {modalStep === modalSteps.joinedFromHome && isLoading && (
+            <Spinner size="md" />
+          )}
+          {modalStep === modalSteps.leave && (
+            <BoardLeave
+              isLast={usersCount === 1}
+              onLeave={leavePage}
+              onCancel={() => setModalStep(modalSteps.none)}
             />
           )}
           {modalStep === modalSteps.error && (
