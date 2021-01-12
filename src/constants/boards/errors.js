@@ -1,4 +1,5 @@
 export default Object.freeze({
-  generic : 'generic',
-  noBoard : 'noBoard',
+  generic   : 'generic',
+  invalidId : 'invalidId',
+  noBoard   : 'noBoard',
 });

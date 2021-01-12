@@ -24,6 +24,7 @@
   },
   "error": {
     "generic": "Hubo un error. Por favor, prueba otra vez.",
+    "invalidId": "El id o url del panel no es válido.",
     "noBoard": "El panel al que estás tratando de unirte no existe."
   }
 }

@@ -20,7 +20,7 @@ exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
         class="sc-pQEbo cNjqCi"
         id="link"
       >
-        http://fastboard.io/board/123456
+        https://fastboard.io/board/123456
       </div>
       <button
         class="sc-qQYBZ gyWeCS"

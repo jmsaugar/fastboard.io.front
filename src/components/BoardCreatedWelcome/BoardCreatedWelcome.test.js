@@ -9,10 +9,6 @@ import BoardCreatedWelcome from './BoardCreatedWelcome';
 
 const boardId = '123456';
 
-jest.mock('#constants', () => ({
-  baseUrl : 'http://fastboard.io',
-}));
-
 jest.mock('#utils', () => ({
   toClipboard : jest.fn(() => new Promise((res) => res())),
 }));

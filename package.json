@@ -41,8 +41,11 @@
     "extends": "react-app"
   },
   "jest": {
-    "setupFilesAfterEnv": [
+    "setupFiles": [
       "<rootDir>/devTools/tests/setup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/devTools/tests/setupAfterEnv.js"
     ],
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",

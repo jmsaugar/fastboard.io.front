@@ -2,7 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { Log } from '#utils';
+import {
+  Log, validBoardId, validBoardUrl, extractBoardId,
+} from '#utils';
 import { boardsErrors } from '#constants';
 import { HeadMeta } from '#components';
 import routes from '#routes';
@@ -52,7 +54,20 @@ const Home = () => {
   const join = useCallback(
     (boardId, userName) => {
       Log.debug('Component : Home : join', { boardId, userName });
-      redirectTo(routes.board.replace(':id', boardId), { userName });
+
+      switch (true) {
+        case validBoardId(boardId):
+          redirectTo(routes.board.replace(':id', boardId), { userName });
+          break;
+
+        case validBoardUrl(boardId):
+          redirectTo(routes.board.replace(':id', extractBoardId(boardId)), { userName });
+          break;
+
+        default:
+          setErrorCode(boardsErrors.invalidId);
+          break;
+      }
     },
     [redirectTo],
   );

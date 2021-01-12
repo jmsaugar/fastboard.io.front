@@ -24,6 +24,7 @@
   },
   "error": {
     "generic": "There was an error. Please, try again.",
+    "invalidId": "The board id or url is not valid.",
     "noBoard": "The board you are trying to join does not exist."
   }
 }

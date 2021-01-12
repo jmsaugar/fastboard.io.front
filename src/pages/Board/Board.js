@@ -4,7 +4,7 @@ import React, {
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Log, setPreventUnload } from '#utils';
+import { Log, setPreventUnload, validBoardId } from '#utils';
 import routes from '#routes';
 import { mainLayoutId, boardsErrors } from '#constants';
 import {
@@ -39,7 +39,6 @@ const modalSteps = Object.freeze({
   error          : 5,
 });
 
-// @ todo check params.id
 const Board = () => {
   const { push : redirectTo, block } = useHistory();
   const { state : routeState } = useLocation();
@@ -94,22 +93,34 @@ const Board = () => {
 
   // Already joined vs joining pending logic
   useEffect(() => {
-    if (isJoinedOnLoad.current) {
-      // User came from home page - create board
-      drawingsService.start(canvasId);
+    switch (true) {
+      // Check valid board id first
+      case !validBoardId(boardId):
+        setModalStep(modalSteps.error);
+        setErrorCode(boardsErrors.invalidId);
+        break;
 
-      if (isOwnerOnLoad.current) {
-        setModalStep(modalSteps.created);
-      }
-    } else if (routeState?.userName) {
+      // User came from home page - create board
+      case isJoinedOnLoad.current:
+        drawingsService.start(canvasId);
+
+        if (isOwnerOnLoad.current) {
+          setModalStep(modalSteps.created);
+        }
+        break;
+
       // User came from home page - join board
-      setModalStep(modalSteps.joinedFromHome);
-      join(routeState?.userName);
-    } else {
+      case !!routeState?.userName:
+        setModalStep(modalSteps.joinedFromHome);
+        join(routeState?.userName);
+        break;
+
       // User came directly to the board page
-      setModalStep(modalSteps.joinedFromUrl);
+      default:
+        setModalStep(modalSteps.joinedFromUrl);
+        break;
     }
-  }, [join, routeState]);
+  }, [join, routeState, boardId]);
 
   // Page unload prevention
   useEffect(() => {

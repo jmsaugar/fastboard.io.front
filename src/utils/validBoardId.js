@@ -1,3 +1,5 @@
+import { boardIdRegex } from '#constants';
+
 /**
  * Check if a board id is valid.
  *
@@ -6,5 +8,5 @@
  * @returns {Boolean} True if the board is is valid; false otherwise.
  */
 export default function validBoardId(boardId) {
-  return typeof boardId === 'string' && /^[0-9]{6}$/.test(boardId);
+  return typeof boardId === 'string' && boardIdRegex.test(boardId);
 }
