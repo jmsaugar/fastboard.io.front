@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SWrapper, SLink, SSeparator } from './styled';
+import {
+  SWrapper, SLink, SExternalLink, SSeparator,
+} from './styled';
 
 const Separator = () => <SSeparator>·</SSeparator>;
 
 // @todo routes to constants
-// @todo fix external link
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -31,9 +32,12 @@ const Footer = () => {
 
       <Separator />
 
-      <SLink to="http://www.github.com">
+      <SExternalLink
+        href={process.env.REACT_APP_EXTERNAL_LINK_GITHUB}
+        target="_blank"
+      >
         {t('footer.github')}
-      </SLink>
+      </SExternalLink>
     </SWrapper>
   );
 };
