@@ -28,7 +28,8 @@ import {
 
 import SWrapper from './styled';
 
-const canvasId = 'canvas';
+const drawingsId = 'drawings-canvas';
+const mapId = 'map-canvas';
 
 const modalSteps = Object.freeze({
   none           : 0,
@@ -68,7 +69,7 @@ const Board = () => {
         .then(({ boardId : joinedBoardId, boardName : joinedBoardName, users }) => {
           Log.debug('Component : Board : join : joined', { joinedBoardId, joinedBoardName, users });
 
-          drawingsService.start(canvasId);
+          drawingsService.start(drawingsId, mapId);
           dispatch(setJoined({ boardName : joinedBoardName, userName, users }));
 
           setModalStep(modalSteps.none);
@@ -102,7 +103,7 @@ const Board = () => {
 
       // User came from home page - create board
       case isJoinedOnLoad.current:
-        drawingsService.start(canvasId);
+        drawingsService.start(drawingsId, mapId);
 
         if (isOwnerOnLoad.current) {
           setModalStep(modalSteps.created);
@@ -164,7 +165,7 @@ const Board = () => {
       />
       <SWrapper>
         <ToolBar />
-        <Canvas id={canvasId} />
+        <Canvas drawingsId={drawingsId} mapId={mapId} />
         <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
           {modalStep === modalSteps.created && (
             <BoardCreatedWelcome

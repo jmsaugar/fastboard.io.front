@@ -20,6 +20,7 @@ export default function onMouseDrag(event) {
   if (this.selectedItem) {
     switch (this.operation) {
       case operations.translate:
+        // @todo could be done with event.delta
         translate(
           this.currentTranslationPoint,
           point,

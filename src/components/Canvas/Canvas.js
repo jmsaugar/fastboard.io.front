@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { selectedToolSelector, toolsColorsSelector } from '#store';
 
 import { tool2cursor } from './constants';
-import SCanvas from './styled';
+import { SCanvas, SViewControl } from './styled';
 
-const Canvas = ({ id }) => {
+const Canvas = ({ drawingsId, mapId }) => {
   const tool = useSelector(selectedToolSelector);
   const colors = useSelector(toolsColorsSelector);
 
@@ -17,16 +17,16 @@ const Canvas = ({ id }) => {
   );
 
   return (
-    <SCanvas
-      id={id}
-      cursor={cursor}
-      resize
-    />
+    <>
+      <SCanvas id={drawingsId} cursor={cursor} resize />
+      <SViewControl id={mapId} />
+    </>
   );
 };
 
 Canvas.propTypes = {
-  id : PropTypes.string.isRequired,
+  drawingsId : PropTypes.string.isRequired,
+  mapId      : PropTypes.string.isRequired,
 };
 
 export default Canvas;

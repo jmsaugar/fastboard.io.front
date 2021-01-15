@@ -19,10 +19,17 @@ export default (dependencies) => {
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
     tool        : new Tool(),
     strokeColor : drawingColorCodes[defaultDrawingColor],
-    currentPath : undefined,
+    currentPath : {
+      drawings : undefined,
+      map      : undefined,
+    },
   };
 
   scope.tool.on('mousedown', (event) => {

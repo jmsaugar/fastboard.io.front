@@ -9,18 +9,16 @@ import {
   onMouseDown, onMouseDrag, onMouseUp, onKeyDown, onImageAdded, onBoardCleared,
 } from './handlers';
 
-// @todo http://paperjs.org/examples/path-simplification/
-
 export default () => {
   Log.info('Service : Drawings : create');
 
-  const scope = {
+  const scope = Object.seal({
     dependencies : {},
     isStarted    : false,
-    project      : undefined,
+    projects     : {},
     users        : {},
     tools        : {},
-  };
+  });
 
   return Object.freeze({
     injectDependencies : injectDependencies.bind(scope),

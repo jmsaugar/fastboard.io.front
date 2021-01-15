@@ -1,5 +1,7 @@
 import styled, { css } from '@xstyled/styled-components';
-import { variant } from '@xstyled/system';
+import { variant, getSpace } from '@xstyled/system';
+
+import { mapHeight, mapWidth } from '#constants';
 
 import eraserCursor from '#theme/images/cursors/eraser.svg';
 import pointerCursor from '#theme/images/cursors/pointer.svg';
@@ -24,9 +26,10 @@ import greenHighlighterCursor from '#theme/images/cursors/green-highlighter.svg'
 
 import { cursorTypes } from './constants';
 
-export default styled.canvas`
+export const SCanvas = styled.canvas`
   width: 100%;
   height: 100%;
+  background-color: boardBg;
 
   ${variant({
     default  : cursorTypes.default,
@@ -52,4 +55,17 @@ export default styled.canvas`
       [cursorTypes.pointer]           : css`cursor: url(${pointerCursor}) 5 5, auto;`,
     },
   })}
+`;
+
+export const SViewControl = styled.canvas`
+  position: absolute;
+  bottom: ${getSpace('default')};
+  left: ${getSpace('default')};
+  width: ${mapWidth}px;
+  height: ${mapHeight}px;
+  border-width: default;
+  border-style: default;
+  border-color: border;
+  background-color: boardBg;
+  box-shadow: default;
 `;
