@@ -20,6 +20,7 @@ exports[`Component : BoardJoinedWelcome Snapshot 1`] = `
         welcome.joined.chooseUserName
       </div>
       <input
+        autocomplete="on"
         class="sc-qZtCU jmxDcL"
         data-testid="input-component"
         name="userName"

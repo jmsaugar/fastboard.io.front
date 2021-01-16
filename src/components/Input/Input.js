@@ -5,9 +5,14 @@ import SInput from './styled';
 
 const testId = 'input-component';
 
+const autocomplete = Object.freeze({
+  on  : 'on',
+  off : 'off',
+});
+
 const Input = forwardRef(({
   name, value, placeholder : placeholderProp, onChange : onChangeProp,
-  fullWidth, isRequired, className,
+  fullWidth, isAutocomplete, isRequired, className,
 }, ref) => {
   const onChange = useCallback(
     (evt) => onChangeProp(evt.target.value),
@@ -28,28 +33,31 @@ const Input = forwardRef(({
       placeholder={placeholder}
       onChange={onChange}
       fullWidth={fullWidth}
+      autoComplete={isAutocomplete ? autocomplete.on : autocomplete.off}
       data-testid={testId}
     />
   );
 });
 
 Input.defaultProps = {
-  value       : undefined,
-  placeholder : undefined,
-  fullWidth   : false,
-  isRequired  : false,
-  className   : undefined,
-  onChange    : undefined,
+  value          : undefined,
+  placeholder    : undefined,
+  fullWidth      : false,
+  isRequired     : false,
+  isAutocomplete : true,
+  className      : undefined,
+  onChange       : undefined,
 };
 
 Input.propTypes = {
-  name        : PropTypes.string.isRequired,
-  value       : PropTypes.string,
-  placeholder : PropTypes.string,
-  className   : PropTypes.string,
-  isRequired  : PropTypes.bool,
-  fullWidth   : PropTypes.bool,
-  onChange    : PropTypes.func,
+  name           : PropTypes.string.isRequired,
+  value          : PropTypes.string,
+  placeholder    : PropTypes.string,
+  className      : PropTypes.string,
+  isRequired     : PropTypes.bool,
+  isAutocomplete : PropTypes.bool,
+  fullWidth      : PropTypes.bool,
+  onChange       : PropTypes.func,
 };
 
 export default Input;

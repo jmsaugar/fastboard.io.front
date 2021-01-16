@@ -44,6 +44,7 @@ const JoinStep = ({
           ref={boardIdRef}
           onChange={setBoardId}
           placeholder={t('join.boardId')}
+          isAutocomplete={false}
           isRequired
         />
         <SInput

@@ -3,6 +3,7 @@
 exports[`Component : Input Snapshot 1`] = `
 <DocumentFragment>
   <input
+    autocomplete="on"
     class="sc-pscky hiczCD"
     data-testid="input-component"
     name="sample"
