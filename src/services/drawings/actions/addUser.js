@@ -22,15 +22,24 @@ export default function addUser(userId) {
   Log.info('Service : Drawings : addUser', { userId });
 
   this.users[userId] = {
-    [tools.eraser]      : eraserToolFactory(),
-    [tools.pen]         : penToolFactory({ drawingsProject : this.projects.drawings, mapProject : this.projects.map }),
-    [tools.pencil]      : pencilToolFactory({ drawingsProject : this.projects.drawings, mapProject : this.projects.map }),
-    [tools.highlighter] : highlighterToolFactory(),
-    [tools.pointer]     : pointerToolFactory(),
-    [tools.text]        : textToolFactory(), // @todo project dependency?
-    [tools.clear]       : clearToolFactory({ project : this.project }),
-    [tools.selector]    : selectorToolFactory({ project : this.project }),
-    [tools.image]       : imageToolFactory({
+    [tools.eraser] : eraserToolFactory(),
+    [tools.pen]    : penToolFactory({
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
+    [tools.pencil] : pencilToolFactory({
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
+    [tools.highlighter] : highlighterToolFactory({
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
+    [tools.pointer]  : pointerToolFactory(),
+    [tools.text]     : textToolFactory(), // @todo project dependency?
+    [tools.clear]    : clearToolFactory({ project : this.project }),
+    [tools.selector] : selectorToolFactory({ project : this.project }),
+    [tools.image]    : imageToolFactory({
       urlsService : this.dependencies.urlsService,
       project     : this.project,
     }),
