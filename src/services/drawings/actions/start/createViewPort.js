@@ -2,13 +2,16 @@ import { Path, Point } from 'paper';
 
 import { mapViewPortColorCode } from '#constants';
 import store, { setMapDragging } from '#store';
+
 /**
- * Setup Paper project used for canvas navigation map.
+ * Create navigation map viewport item.
  *
  * @param {Object} center Center point of the drawings project view.
  * @param {Number} width Width of the drawings canvas.
  * @param {Number} height Height of the drawings canvas.
  * @param {Object} project Paperjs navigation map project.
+ *
+ * @returns {Object} Viewport item object.
  */
 export default function createViewPort(center, width, height, project) {
   const viewPort = new Path.Rectangle({

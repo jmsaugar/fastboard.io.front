@@ -17,4 +17,6 @@ export default function onMouseUp() {
   if (this.currentPath.map) {
     this.currentPath.map.simplify(0);
   }
+
+  this.currentPath = {};
 }
