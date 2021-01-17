@@ -1,5 +1,6 @@
 import { Path, Point } from 'paper';
 
+import { layers, canvasIds } from '#constants';
 import { Log, point2net } from '#utils';
 
 // @todo to constants
@@ -11,8 +12,24 @@ const shadowColor = '#ff4747';
 const shadowBlur = 8;
 const shadowOffset = new Point(2, 2);
 
+/**
+ * Mouse down event pointer handler.
+ *
+ * Draws on the drawings canvas only.
+ *
+ * @param {Object} event Mouse down event.
+ *
+ * @returns {Object|undefined} Pointer drawing information or undefined if not applicable.
+ */
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Pointer : onMouseDown', { event });
+
+  // @todo get canvas drawings id from dependencies?
+  // Check that the event is triggered on the drawings canvas
+  const element = event?.event?.path[0];
+  if (element && element.id !== canvasIds.drawings) {
+    return undefined;
+  }
 
   const point = point2net(event.point);
   const newPath = new Path({
@@ -23,6 +40,7 @@ export default function onMouseDown(event) {
     shadowColor,
     shadowBlur,
     shadowOffset,
+    parent : this.dependencies.projects.drawings.layers[layers.drawings],
   });
 
   newPath.add(point);

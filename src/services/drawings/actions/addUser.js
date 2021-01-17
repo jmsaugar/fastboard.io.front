@@ -38,7 +38,9 @@ export default function addUser(userId) {
       drawingsProject : this.projects.drawings,
       mapProject      : this.projects.map,
     }),
-    [tools.pointer]  : pointerToolFactory(),
+    [tools.pointer] : pointerToolFactory({
+      drawingsProject : this.projects.drawings,
+    }),
     [tools.text]     : textToolFactory(), // @todo project dependency?
     [tools.clear]    : clearToolFactory({ project : this.project }),
     [tools.selector] : selectorToolFactory({ project : this.project }),

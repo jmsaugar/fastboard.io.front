@@ -36,7 +36,10 @@ export default function setupTools() {
       drawingsProject : this.projects.drawings,
       mapProject      : this.projects.map,
     }),
-    [tools.pointer]  : pointerToolFactory({ realtimeService }),
+    [tools.pointer] : pointerToolFactory({
+      realtimeService,
+      drawingsProject : this.projects.drawings,
+    }),
     [tools.text]     : textToolFactory({ realtimeService, project : this.project }),
     [tools.clear]    : clearToolFactory({ realtimeService, project : this.project }),
     [tools.selector] : selectorToolFactory({ realtimeService, project : this.project }),
