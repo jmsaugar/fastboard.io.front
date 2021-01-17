@@ -40,8 +40,12 @@ export default function setupTools() {
       realtimeService,
       drawingsProject : this.projects.drawings,
     }),
-    [tools.text]     : textToolFactory({ realtimeService, project : this.project }),
-    [tools.clear]    : clearToolFactory({ realtimeService, project : this.project }),
+    [tools.text]  : textToolFactory({ realtimeService, project : this.project }),
+    [tools.clear] : clearToolFactory({
+      realtimeService,
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
     [tools.selector] : selectorToolFactory({ realtimeService, project : this.project }),
     [tools.image]    : imageToolFactory({
       urlsService,
