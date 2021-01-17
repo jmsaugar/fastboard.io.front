@@ -31,7 +31,11 @@ export default function setupTools() {
       drawingsProject : this.projects.drawings,
       mapProject      : this.projects.map,
     }),
-    [tools.eraser]   : eraserToolFactory({ realtimeService }),
+    [tools.eraser] : eraserToolFactory({
+      realtimeService,
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
     [tools.pointer]  : pointerToolFactory({ realtimeService }),
     [tools.text]     : textToolFactory({ realtimeService, project : this.project }),
     [tools.clear]    : clearToolFactory({ realtimeService, project : this.project }),

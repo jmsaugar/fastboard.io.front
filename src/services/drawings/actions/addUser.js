@@ -22,8 +22,11 @@ export default function addUser(userId) {
   Log.info('Service : Drawings : addUser', { userId });
 
   this.users[userId] = {
-    [tools.eraser] : eraserToolFactory(),
-    [tools.pen]    : penToolFactory({
+    [tools.eraser] : eraserToolFactory({
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
+    [tools.pen] : penToolFactory({
       drawingsProject : this.projects.drawings,
       mapProject      : this.projects.map,
     }),

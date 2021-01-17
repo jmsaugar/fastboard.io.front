@@ -6,6 +6,7 @@ import { drawingsMessages, tools } from '#constants';
 import activate from './activate';
 import onMouseDown from './onMouseDown';
 import onMouseDrag from './onMouseDrag';
+import onMouseUp from './onMouseUp';
 
 const throttleDelay = 5; // In milliseconds
 
@@ -15,41 +16,61 @@ export default (dependencies) => {
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
     tool        : new Tool(),
-    currentPath : undefined,
+    currentPath : {
+      drawings : undefined,
+      map      : undefined,
+    },
   };
 
   scope.tool.on('mousedown', (event) => {
     Log.debug('Eraser : onMouseDown');
 
-    dependencies.realtimeService.send(
-      drawingsMessages.doMouseDown,
-      {
-        tool : tools.eraser,
-        ...onMouseDown.call(scope, event),
-      },
-    ).catch(() => {}); // @todo;
+    const drawingData = onMouseDown.call(scope, event);
+
+    if (drawingData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDown,
+        { tool : tools.eraser, ...drawingData },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
       Log.debug('Eraser : onMouseDrag');
 
-      dependencies.realtimeService.send(
-        drawingsMessages.doMouseDrag,
-        {
-          tool : tools.eraser,
-          ...onMouseDrag.call(scope, event),
-        },
-      ).catch(() => {}); // @todo;
+      const drawingData = onMouseDrag.call(scope, event);
+
+      if (drawingData) {
+        dependencies.realtimeService.send(
+          drawingsMessages.doMouseDrag,
+          { tool : tools.eraser, ...drawingData },
+        ).catch(() => {}); // @todo;
+      }
     },
     throttleDelay,
   ));
+
+  scope.tool.on('mouseup', () => {
+    Log.debug('Eraser : onMouseUp');
+
+    onMouseUp.call(scope);
+    dependencies.realtimeService.send(
+      drawingsMessages.doMouseUp,
+      { tool : tools.eraser },
+    ).catch(() => {}); // @todo;
+  });
 
   return Object.freeze({
     activate    : activate.bind(scope),
     onMouseDown : onMouseDown.bind(scope),
     onMouseDrag : onMouseDrag.bind(scope),
+    onMouseUp   : onMouseUp.bind(scope),
   });
 };
