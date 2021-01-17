@@ -3,6 +3,7 @@ export { default as removeUserReducer } from './removeUser';
 export { default as setBoardNameReducer } from './setBoardName';
 export { default as setCreatedReducer } from './setCreated';
 export { default as setJoinedReducer } from './setJoined';
+export { default as setMapDraggingReducer } from './setMapDragging';
 export { default as setMyUserNameReducer } from './setMyUserName';
 export { default as setSelectedToolReducer } from './setSelectedTool';
 export { default as setToolColorReducer } from './setToolColor';

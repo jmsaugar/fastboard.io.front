@@ -1,7 +1,7 @@
 import { Path, Point } from 'paper';
 
 import { mapViewPortColorCode } from '#constants';
-
+import store, { setMapDragging } from '#store';
 /**
  * Setup Paper project used for canvas navigation map.
  *
@@ -11,7 +11,7 @@ import { mapViewPortColorCode } from '#constants';
  * @param {Object} project Paperjs navigation map project.
  */
 export default function createViewPort(center, width, height, project) {
-  return new Path.Rectangle({
+  const viewPort = new Path.Rectangle({
     topLeft : new Point(
       center.x - (width / 2),
       center.y - (height / 2),
@@ -27,4 +27,9 @@ export default function createViewPort(center, width, height, project) {
     position      : center,
     parent        : project.activeLayer,
   });
+
+  viewPort.onMouseEnter = () => store.dispatch(setMapDragging(true));
+  viewPort.onMouseLeave = () => store.dispatch(setMapDragging(false));
+
+  return viewPort;
 }

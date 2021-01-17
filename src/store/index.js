@@ -5,6 +5,7 @@ export {
   setBoardName,
   setMyUserName,
   setUserName,
+  setMapDragging,
   addUser,
   removeUser,
   setSelectedTool,
@@ -17,6 +18,7 @@ export {
   usersCountSelector,
   selectedToolSelector,
   toolsColorsSelector,
+  isDraggingMapSelector,
 } from './slices/board';
 export {
   notificationsSelector,

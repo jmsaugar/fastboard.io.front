@@ -9,6 +9,7 @@ import {
   usersCountSelector,
   selectedToolSelector,
   toolsColorsSelector,
+  isDraggingMapSelector,
 } from './selectors';
 
 const joined = true;
@@ -19,14 +20,10 @@ const others = [
   { id : 1 },
   { id : 2 },
 ];
-const users = {
-  me,
-  others,
-};
+const users = { me, others };
 const selectedTool = tools.pencil;
-const colors = {
-  pencil : defaultDrawingColor,
-};
+const colors = { pencil : defaultDrawingColor };
+const isDraggingMap = true;
 
 describe('Store : board : selectors', () => {
   let state;
@@ -41,6 +38,9 @@ describe('Store : board : selectors', () => {
         tools : {
           selected : selectedTool,
           colors,
+        },
+        map : {
+          isDragging : isDraggingMap,
         },
       },
     };
@@ -76,5 +76,9 @@ describe('Store : board : selectors', () => {
 
   test('Tools colors selector working correctly', () => {
     expect(toolsColorsSelector(state)).toBe(colors);
+  });
+
+  test('Is dragging map selector working correctly', () => {
+    expect(isDraggingMapSelector(state)).toBe(isDraggingMap);
   });
 });

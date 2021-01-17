@@ -1,3 +1,5 @@
+import { defaultDrawingColor } from '#constants';
+
 /**
  * Set board created reducer.
  *
@@ -17,6 +19,18 @@ export default function setCreated(state, action) {
         users     : {
           me     : action.payload.userName,
           others : [],
+        },
+        tools : {
+          selected : undefined,
+          colors   : {
+            pencil      : defaultDrawingColor,
+            pen         : defaultDrawingColor,
+            highlighter : defaultDrawingColor,
+            text        : defaultDrawingColor,
+          },
+        },
+        map : {
+          isDragging : false,
         },
       }
       : state

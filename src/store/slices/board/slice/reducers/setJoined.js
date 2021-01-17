@@ -1,3 +1,5 @@
+import { defaultDrawingColor } from '#constants';
+
 /**
  * Set board joined reducer.
  *
@@ -17,6 +19,18 @@ export default function setJoined(state, action) {
         users     : {
           me     : action.payload.userName,
           others : action.payload.users,
+        },
+        tools : {
+          selected : undefined,
+          colors   : {
+            pencil      : defaultDrawingColor,
+            pen         : defaultDrawingColor,
+            highlighter : defaultDrawingColor,
+            text        : defaultDrawingColor,
+          },
+        },
+        map : {
+          isDragging : false,
         },
       }
       : state

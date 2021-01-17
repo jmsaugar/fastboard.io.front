@@ -57,7 +57,7 @@ export const SCanvas = styled.canvas`
   })}
 `;
 
-export const SViewControl = styled.canvas`
+export const SMap = styled.canvas`
   position: absolute;
   bottom: ${getSpace('default')};
   left: ${getSpace('default')};
@@ -68,4 +68,13 @@ export const SViewControl = styled.canvas`
   border-color: border;
   background-color: boardBg;
   box-shadow: default;
+
+  ${variant({
+    default  : false,
+    prop     : 'isDragging',
+    variants : {
+      false : css`cursor: auto;`,
+      true  : css`cursor: move;`,
+    },
+  })}
 `;

@@ -1,3 +1,5 @@
+import initialState from '../initialState';
+
 /**
  * Set unjoined reducer.
  *
@@ -5,15 +7,6 @@
  *
  * @returns {Object} New state.
  */
-export default function setUnjoined(state) {
-  return {
-    ...state,
-    joined    : false,
-    owner     : undefined,
-    boardName : undefined,
-    users     : {
-      me     : undefined,
-      others : [],
-    },
-  };
+export default function setUnjoined() {
+  return { ...initialState };
 }

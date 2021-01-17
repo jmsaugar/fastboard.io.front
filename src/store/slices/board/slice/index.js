@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { defaultDrawingColor } from '#constants';
-
+import initialState from './initialState';
 import {
   addUserReducer,
   removeUserReducer,
   setBoardNameReducer,
   setCreatedReducer,
   setJoinedReducer,
+  setMapDraggingReducer,
   setMyUserNameReducer,
   setSelectedToolReducer,
   setToolColorReducer,
@@ -16,31 +16,15 @@ import {
 } from './reducers';
 
 const boardSlice = createSlice({
-  name         : 'board',
-  initialState : {
-    joined    : false,
-    owner     : undefined,
-    boardName : undefined,
-    users     : {
-      me     : undefined,
-      others : [],
-    },
-    tools : {
-      selected : undefined,
-      colors   : {
-        pencil      : defaultDrawingColor,
-        pen         : defaultDrawingColor,
-        highlighter : defaultDrawingColor,
-        text        : defaultDrawingColor,
-      },
-    },
-  },
+  initialState,
+  name     : 'board',
   reducers : {
     addUser         : addUserReducer,
     removeUser      : removeUserReducer,
     setBoardName    : setBoardNameReducer,
     setCreated      : setCreatedReducer,
     setJoined       : setJoinedReducer,
+    setMapDragging  : setMapDraggingReducer,
     setMyUserName   : setMyUserNameReducer,
     setSelectedTool : setSelectedToolReducer,
     setToolColor    : setToolColorReducer,
@@ -55,6 +39,7 @@ export const {
   setBoardName,
   setCreated,
   setJoined,
+  setMapDragging,
   setMyUserName,
   setSelectedTool,
   setToolColor,

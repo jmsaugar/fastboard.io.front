@@ -51,3 +51,13 @@ export const toolsColorsSelector = createSelector(
   toolsSelector,
   (tools) => tools.colors,
 );
+
+const mapSelector = createSelector(
+  boardSelector,
+  (board) => board.map,
+);
+
+export const isDraggingMapSelector = createSelector(
+  mapSelector,
+  (map) => map.isDragging,
+);
