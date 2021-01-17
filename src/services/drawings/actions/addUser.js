@@ -24,7 +24,7 @@ export default function addUser(userId) {
   this.users[userId] = {
     [tools.eraser]      : eraserToolFactory(),
     [tools.pen]         : penToolFactory(),
-    [tools.pencil]      : pencilToolFactory(),
+    [tools.pencil]      : pencilToolFactory({ drawingsProject : this.projects.drawings, mapProject : this.projects.map }),
     [tools.highlighter] : highlighterToolFactory(),
     [tools.pointer]     : pointerToolFactory(),
     [tools.text]        : textToolFactory(), // @todo project dependency?

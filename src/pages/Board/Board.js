@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Log, setPreventUnload, validBoardId } from '#utils';
 import routes from '#routes';
-import { mainLayoutId, boardsErrors } from '#constants';
+import { mainLayoutId, canvasIds, boardsErrors } from '#constants';
 import {
   BoardError,
   BoardLeave,
@@ -27,9 +27,6 @@ import {
 } from '#store';
 
 import SWrapper from './styled';
-
-const drawingsId = 'drawings-canvas';
-const mapId = 'map-canvas';
 
 const modalSteps = Object.freeze({
   none           : 0,
@@ -69,7 +66,7 @@ const Board = () => {
         .then(({ boardId : joinedBoardId, boardName : joinedBoardName, users }) => {
           Log.debug('Component : Board : join : joined', { joinedBoardId, joinedBoardName, users });
 
-          drawingsService.start(drawingsId, mapId);
+          drawingsService.start(canvasIds.drawings, canvasIds.map);
           dispatch(setJoined({ boardName : joinedBoardName, userName, users }));
 
           setModalStep(modalSteps.none);
@@ -103,7 +100,7 @@ const Board = () => {
 
       // User came from home page - create board
       case isJoinedOnLoad.current:
-        drawingsService.start(drawingsId, mapId);
+        drawingsService.start(canvasIds.drawings, canvasIds.map);
 
         if (isOwnerOnLoad.current) {
           setModalStep(modalSteps.created);
@@ -165,7 +162,7 @@ const Board = () => {
       />
       <SWrapper>
         <ToolBar />
-        <Canvas drawingsId={drawingsId} mapId={mapId} />
+        <Canvas drawingsId={canvasIds.drawings} mapId={canvasIds.map} />
         <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
           {modalStep === modalSteps.created && (
             <BoardCreatedWelcome

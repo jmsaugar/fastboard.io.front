@@ -21,3 +21,8 @@ export const layers = Object.freeze({
   drawings  : 'drawings',
   selection : 'selection',
 });
+
+export const canvasIds = Object.freeze({
+  drawings : 'drawings-canvas',
+  map      : 'map-canvas',
+});

@@ -1,12 +1,20 @@
 import { point2net } from '#utils';
 
-// @tod check return values to not be send to network if no valid action
+/**
+ * Mouse drag event pencil handler.
+ *
+ * Draws on the drawings and map canvases.
+ *
+ * @param {Object} event Mouse drag event.
+ *
+ * @returns {Object|undefined} Pencil drawing information or undefined if not applicable.
+ */
 export default function onMouseDrag(event) {
-  const point = point2net(event.point);
-
-  if (!this.currentPath.drawings) {
-    return {};
+  if (!this.currentPath.drawings || !this.currentPath.map) {
+    return undefined;
   }
+
+  const point = point2net(event.point);
 
   this.currentPath.drawings.add(point);
   this.currentPath.map.add(point);

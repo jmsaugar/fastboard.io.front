@@ -1,18 +1,28 @@
 import { Path } from 'paper';
 
-import { layers } from '#constants';
+import { layers, canvasIds } from '#constants';
 import { Log, point2net } from '#utils';
 
 const strokeWidth = 2;
 const strokeCap = 'round';
 
-// @tod check return values to not be send to network if no valid action
+/**
+ * Mouse down event pencil handler.
+ *
+ * Draws on the drawings and map canvases.
+ *
+ * @param {Object} event Mouse down event.
+ *
+ * @returns {Object|undefined} Pencil drawing information or undefined if not applicable.
+ */
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Pencil : onMouseDown', { event });
 
-  const element = event.event.path[0];
-  if (element.id !== 'drawings-canvas') { // @todo read from constants and put in a function to be used by other tools
-    return {};
+  // @todo get canvas drawings id from dependencies?
+  // Check that the event is triggered on the drawings canvas
+  const element = event?.event?.path[0];
+  if (element && element.id !== canvasIds.drawings) {
+    return undefined;
   }
 
   const point = point2net(event.point);
@@ -31,7 +41,7 @@ export default function onMouseDown(event) {
   this.currentPath.map = new Path({
     strokeColor,
     strokeCap,
-    strokeWidth   : 1, // @todo half the equivalen on the drawings project
+    strokeWidth   : strokeWidth / 2,
     strokeScaling : false,
     parent        : this.dependencies.projects.map.activeLayer,
   });

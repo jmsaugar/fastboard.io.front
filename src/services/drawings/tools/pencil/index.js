@@ -35,26 +35,28 @@ export default (dependencies) => {
   scope.tool.on('mousedown', (event) => {
     Log.debug('Pencil : onMouseDown');
 
-    dependencies.realtimeService.send(
-      drawingsMessages.doMouseDown,
-      {
-        tool : tools.pencil,
-        ...onMouseDown.call(scope, event),
-      },
-    ).catch(() => {}); // @todo;
+    const drawingData = onMouseDown.call(scope, event);
+
+    if (drawingData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDown,
+        { tool : tools.pencil, ...drawingData },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
       Log.debug('Pencil : onMouseDrag');
 
-      dependencies.realtimeService.send(
-        drawingsMessages.doMouseDrag,
-        {
-          tool : tools.pencil,
-          ...onMouseDrag.call(scope, event),
-        },
-      ).catch(() => {}); // @todo;
+      const drawingData = onMouseDrag.call(scope, event);
+
+      if (drawingData) {
+        dependencies.realtimeService.send(
+          drawingsMessages.doMouseDrag,
+          { tool : tools.pencil, ...drawingData },
+        ).catch(() => {}); // @todo;
+      }
     },
     throttleDelay,
   ));
@@ -65,9 +67,7 @@ export default (dependencies) => {
     onMouseUp.call(scope);
     dependencies.realtimeService.send(
       drawingsMessages.doMouseUp,
-      {
-        tool : tools.pencil,
-      },
+      { tool : tools.pencil },
     ).catch(() => {}); // @todo;
   });
 
