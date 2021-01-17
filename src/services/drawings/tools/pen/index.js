@@ -19,35 +19,44 @@ export default (dependencies) => {
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
     tool        : new Tool(),
     strokeColor : drawingColorCodes[defaultDrawingColor],
-    currentPath : undefined,
+    currentPath : {
+      drawings : undefined,
+      map      : undefined,
+    },
   };
 
   scope.tool.on('mousedown', (event) => {
     Log.debug('Pen : onMouseDown');
 
-    dependencies.realtimeService.send(
-      drawingsMessages.doMouseDown,
-      {
-        tool : tools.pen,
-        ...onMouseDown.call(scope, event),
-      },
-    ).catch(() => {}); // @todo;
+    const drawingData = onMouseDown.call(scope, event);
+
+    if (drawingData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDown,
+        { tool : tools.pen, ...drawingData },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
       Log.debug('Pen : onMouseDrag');
 
-      dependencies.realtimeService.send(
-        drawingsMessages.doMouseDrag,
-        {
-          tool : tools.pen,
-          ...onMouseDrag.call(scope, event),
-        },
-      ).catch(() => {}); // @todo;
+      const drawingData = onMouseDrag.call(scope, event);
+
+      if (drawingData) {
+        dependencies.realtimeService.send(
+          drawingsMessages.doMouseDrag,
+          { tool : tools.pen, ...drawingData },
+        ).catch(() => {}); // @todo;
+      }
     },
     throttleDelay,
   ));
@@ -58,9 +67,7 @@ export default (dependencies) => {
     onMouseUp.call(scope);
     dependencies.realtimeService.send(
       drawingsMessages.doMouseUp,
-      {
-        tool : tools.pen,
-      },
+      { tool : tools.pen },
     ).catch(() => {}); // @todo;
   });
 

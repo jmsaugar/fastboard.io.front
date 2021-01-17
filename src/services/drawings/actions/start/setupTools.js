@@ -21,7 +21,11 @@ export default function setupTools() {
       drawingsProject : this.projects.drawings,
       mapProject      : this.projects.map,
     }),
-    [tools.pen]         : penToolFactory({ realtimeService }),
+    [tools.pen] : penToolFactory({
+      realtimeService,
+      drawingsProject : this.projects.drawings,
+      mapProject      : this.projects.map,
+    }),
     [tools.highlighter] : highlighterToolFactory({ realtimeService }),
     [tools.eraser]      : eraserToolFactory({ realtimeService }),
     [tools.pointer]     : pointerToolFactory({ realtimeService }),
