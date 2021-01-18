@@ -43,6 +43,7 @@ export default function onMouseDown(event) {
     strokeColor,
     strokeWidth   : strokeWidth / 2,
     strokeScaling : false,
+    locked        : true,
     parent        : this.dependencies.projects.map.activeLayer,
   });
   this.currentPath.map.add(point);
