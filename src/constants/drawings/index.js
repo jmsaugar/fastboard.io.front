@@ -1,5 +1,5 @@
 export {
-  mapHeight, mapWidth, mapZoom, layers, canvasIds,
+  mapHeight, mapWidth, mapZoom, drawingsLayers, mapLayers, canvasIds,
 } from './canvas';
 export {
   drawingColors, drawingColorCodes, defaultDrawingColor, selectionColorCode, mapViewPortColorCode,

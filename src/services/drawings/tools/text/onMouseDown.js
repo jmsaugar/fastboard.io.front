@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { PointText } from 'paper';
 
 import { Log } from '#utils';
+import { drawingsLayers } from '#constants';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 
@@ -12,7 +13,7 @@ export default function onMouseDown(event) {
   if (this.isWriting) {
     removeSelectionHandlers(
       this.currentText,
-      this.dependencies.project.layers.selection,
+      this.dependencies.project.layers[drawingsLayers.selection],
     );
 
     this.isWriting = false;
@@ -37,7 +38,7 @@ export default function onMouseDown(event) {
 
   createSelectionHandlers(
     this.currentText,
-    this.dependencies.project.layers.selection,
+    this.dependencies.project.layers[drawingsLayers.selection],
   );
 
   return { point, itemName : this.currentText.name };

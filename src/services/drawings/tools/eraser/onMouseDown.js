@@ -1,6 +1,6 @@
 import { Path } from 'paper';
 
-import { layers, canvasIds } from '#constants';
+import { drawingsLayers, mapLayers, canvasIds } from '#constants';
 import { Log, point2net } from '#utils';
 
 const strokeColor = 'white'; // @todo read from constant?
@@ -33,7 +33,7 @@ export default function onMouseDown(event) {
     strokeColor,
     strokeWidth,
     strokeCap,
-    parent : this.dependencies.projects.drawings.layers[layers.drawings],
+    parent : this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
   });
   this.currentPath.drawings.add(point);
 
@@ -44,7 +44,7 @@ export default function onMouseDown(event) {
     strokeWidth   : strokeWidth / 2,
     strokeScaling : false,
     locked        : true,
-    parent        : this.dependencies.projects.map.activeLayer,
+    parent        : this.dependencies.projects.map.layers[mapLayers.drawings],
   });
   this.currentPath.map.add(point);
 

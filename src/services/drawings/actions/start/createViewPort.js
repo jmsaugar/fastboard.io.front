@@ -1,6 +1,6 @@
 import { Path, Point } from 'paper';
 
-import { mapViewPortColorCode } from '#constants';
+import { mapLayers, mapViewPortColorCode } from '#constants';
 import store, { setMapDragging } from '#store';
 
 // @todo viewPort item has to be recreated when the board is cleared
@@ -30,7 +30,7 @@ export default function createViewPort(center, width, height, project) {
     strokewidth   : 10, // @todo
     strokeScaling : false,
     position      : center,
-    parent        : project.activeLayer,
+    parent        : project.layers[mapLayers.viewport],
   });
 
   viewPort.onMouseEnter = () => store.dispatch(setMapDragging(true));

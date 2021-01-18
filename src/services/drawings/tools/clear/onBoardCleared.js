@@ -1,4 +1,5 @@
 import { Log } from '#utils';
+import { drawingsLayers, mapLayers } from '#constants';
 
 /**
  * Handler for board clear message.
@@ -8,6 +9,7 @@ import { Log } from '#utils';
 export default function onBoardCleared() {
   Log.info('Service : Drawings : Tools : Clear : onBoardCleared');
 
-  this.dependencies.projects.drawings.clear(); // @todo recreate layers
-  this.dependencies.projects.map.clear();
+  this.dependencies.projects.drawings.layers[drawingsLayers.drawings].clear();
+  this.dependencies.projects.drawings.layers[drawingsLayers.selection].clear();
+  this.dependencies.projects.map.layers[mapLayers.drawings].clear();
 }

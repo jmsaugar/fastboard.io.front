@@ -1,3 +1,5 @@
+import { drawingsLayers } from '#constants';
+
 import { removeSelectionHandlers } from '../utils';
 
 /**
@@ -8,7 +10,7 @@ export default function reset() {
   if (this.selectedItem) {
     removeSelectionHandlers(
       this.selectedItem,
-      this.dependencies.project.layers.selection,
+      this.dependencies.project.layers[drawingsLayers.selection],
     );
 
     this.selectedItem = undefined;

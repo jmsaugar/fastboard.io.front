@@ -1,6 +1,6 @@
 import { Path, Point } from 'paper';
 
-import { layers, canvasIds } from '#constants';
+import { drawingsLayers, canvasIds } from '#constants';
 import { Log, point2net } from '#utils';
 
 // @todo to constants
@@ -40,7 +40,7 @@ export default function onMouseDown(event) {
     shadowColor,
     shadowBlur,
     shadowOffset,
-    parent : this.dependencies.projects.drawings.layers[layers.drawings],
+    parent : this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
   });
 
   newPath.add(point);

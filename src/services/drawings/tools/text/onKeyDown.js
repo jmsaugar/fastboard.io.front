@@ -1,4 +1,5 @@
 import { Log } from '#utils';
+import { drawingsLayers } from '#constants';
 
 import { resizeSelectionHandlers, removeSelectionHandlers } from '../utils';
 
@@ -32,12 +33,12 @@ export default function onKeyDown(event) {
   if (this.isWriting) {
     resizeSelectionHandlers(
       this.currentText,
-      this.dependencies.project.layers.selection.children.selectionHandlers,
+      this.dependencies.project.layers[drawingsLayers.selection].children.selectionHandlers,
     );
   } else {
     removeSelectionHandlers(
       this.currentText,
-      this.dependencies.project.layers.selection,
+      this.dependencies.project.layers[drawingsLayers.selection],
     );
     this.currentText = undefined;
   }

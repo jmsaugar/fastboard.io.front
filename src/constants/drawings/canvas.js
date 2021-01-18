@@ -17,9 +17,14 @@ export const mapWidth = Math.ceil(canvasSize.width / (canvasSize.height / mapHei
 
 export const mapZoom = mapHeight / canvasSize.height;
 
-export const layers = Object.freeze({
+export const drawingsLayers = Object.freeze({
   drawings  : 'drawings',
   selection : 'selection',
+});
+
+export const mapLayers = Object.freeze({
+  drawings : 'drawings',
+  viewport : 'viewport',
 });
 
 export const canvasIds = Object.freeze({

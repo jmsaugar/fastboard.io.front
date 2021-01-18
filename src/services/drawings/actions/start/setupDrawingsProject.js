@@ -1,6 +1,6 @@
 import { Layer } from 'paper';
 
-import { layers } from '#constants';
+import { drawingsLayers } from '#constants';
 
 /**
  * Setup Paper project used for drawings.
@@ -13,6 +13,6 @@ export default function setupDrawingsProject(project, width, height) {
   project.view.setCenter(0, 0);
   project.view.setViewSize(width, height);
 
-  project.addLayer(new Layer({ name : layers.drawings }));
-  project.addLayer(new Layer({ name : layers.selection }));
+  project.addLayer(new Layer({ name : drawingsLayers.drawings }));
+  project.addLayer(new Layer({ name : drawingsLayers.selection }));
 }

@@ -1,6 +1,7 @@
 import { Point } from 'paper';
 
 import { Log, point2net } from '#utils';
+import { drawingsLayers } from '#constants';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
@@ -74,7 +75,7 @@ export default function onMouseDown(event) {
       // @todo deselect also when tool is unselected
       removeSelectionHandlers(
         this.selectedItem,
-        this.dependencies.project.layers.selection,
+        this.dependencies.project.layers[drawingsLayers.selection],
       );
       this.selectedItemHandlers = undefined;
     }
@@ -83,7 +84,7 @@ export default function onMouseDown(event) {
     this.selectedItem = item;
     this.selectedItemHandlers = createSelectionHandlers(
       this.selectedItem,
-      this.dependencies.project.layers.selection,
+      this.dependencies.project.layers[drawingsLayers.selection],
     );
   }
 
