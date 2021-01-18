@@ -16,24 +16,31 @@ export default (dependencies) => {
   const scope = {
     dependencies : {
       realtimeService : dependencies?.realtimeService,
-      project         : dependencies?.project,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
     tool        : new Tool(),
-    currentText : undefined,
     strokeColor : drawingColorCodes[defaultDrawingColor],
     isWriting   : false,
+    currentText : {
+      drawings : undefined,
+      map      : undefined,
+    },
   };
 
   scope.tool.on('mousedown', (event) => {
     Log.debug('Text : onMouseDown', { event });
 
-    dependencies.realtimeService.send(
-      drawingsMessages.doMouseDown,
-      {
-        tool : tools.text,
-        ...onMouseDown.call(scope, event),
-      },
-    ).catch(() => {}); // @todo;
+    const drawingData = onMouseDown.call(scope, event);
+
+    if (drawingData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doMouseDown,
+        { tool : tools.text, ...drawingData },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   scope.tool.on('keydown', (event) => {
@@ -41,13 +48,14 @@ export default (dependencies) => {
 
     event.preventDefault();
 
-    dependencies.realtimeService.send(
-      drawingsMessages.doKeyDown,
-      {
-        tool : tools.text,
-        ...onKeyDown.call(scope, event),
-      },
-    ).catch(() => {}); // @todo;
+    const drawingData = onKeyDown.call(scope, event);
+
+    if (drawingData) {
+      dependencies.realtimeService.send(
+        drawingsMessages.doKeyDown,
+        { tool : tools.text, ...drawingData },
+      ).catch(() => {}); // @todo;
+    }
   });
 
   return Object.freeze({

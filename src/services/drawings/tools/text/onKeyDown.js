@@ -13,6 +13,12 @@ const keys = Object.freeze({
 export default function onKeyDown(event) {
   Log.debug('Service : Drawings : Tools : Text : onKeyDown', { event });
 
+  if (!this.currentText.drawings || !this.currentText.map) {
+    return undefined;
+  }
+
+  const drawingsProject = this.dependencies.projects.drawings;
+
   // @todo check this for missing cases
   switch (event.key) {
     case keys.escape:
@@ -20,27 +26,30 @@ export default function onKeyDown(event) {
       break;
 
     case keys.backspace:
-      this.currentText.content = this.currentText.content.slice(0, -1);
+      this.currentText.drawings.content = this.currentText.drawings.content.slice(0, -1);
+      this.currentText.map.content = this.currentText.map.content.slice(0, -1);
       break;
 
     case keys.dead:
     case keys.enter:
     default:
-      this.currentText.content += event.character;
+      this.currentText.drawings.content += event.character;
+      this.currentText.map.content += event.character;
       break;
   }
 
   if (this.isWriting) {
     resizeSelectionHandlers(
-      this.currentText,
-      this.dependencies.project.layers[drawingsLayers.selection].children.selectionHandlers,
+      this.currentText.drawings,
+      drawingsProject.layers[drawingsLayers.selection].children.selectionHandlers,
     );
   } else {
     removeSelectionHandlers(
-      this.currentText,
-      this.dependencies.project.layers[drawingsLayers.selection],
+      this.currentText.drawings,
+      drawingsProject.layers[drawingsLayers.selection],
     );
-    this.currentText = undefined;
+    this.currentText.drawings = undefined;
+    this.currentText.map = undefined;
   }
 
   return { key : event.key, character : event.character };
