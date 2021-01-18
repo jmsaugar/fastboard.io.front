@@ -55,16 +55,17 @@ const CreateStep = ({
         />
       </SInputs>
       <SActions>
-        <SAction size="lg" onClick={onCancel}>
-          {t('create.cancel')}
-        </SAction>
         <SAction
           size="lg"
           onClick={() => onCreate(boardName, userName)}
           isDisabled={!boardName || !userName}
           isLoading={isLoading}
+          isMainAction
         >
           {t('create.create')}
+        </SAction>
+        <SAction size="lg" onClick={onCancel}>
+          {t('create.cancel')}
         </SAction>
         {errorCode && <ErrorMessage code={errorCode} />}
       </SActions>

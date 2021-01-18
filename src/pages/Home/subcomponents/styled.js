@@ -95,7 +95,7 @@ export const SActions = styled(SBlock)`
   display: flex;
   width: 100%;
   max-width: 100%;
-  flex-direction: ${({ isHomeStep }) => (isHomeStep ? 'column' : 'column-reverse')};
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: ${getSpace('default')};
@@ -147,7 +147,10 @@ export const SAction = styled(Button)`
     background-color: ${focusedBgColor};
   }
 
-  ${up('md', css`width: buttonWidthLg;`)}
+  ${up('md', css`
+    width: buttonWidthLg;
+    order: ${({ isMainAction }) => (isMainAction ? 1 : 0)};
+  `)}
 
   ${variant({
     default  : false,

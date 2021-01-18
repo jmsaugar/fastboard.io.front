@@ -56,15 +56,16 @@ const JoinStep = ({
         />
       </SInputs>
       <SActions>
-        <SAction size="lg" onClick={onCancel}>
-          {t('join.cancel')}
-        </SAction>
         <SAction
           size="lg"
           onClick={() => onJoin(boardId, userName)}
           isDisabled={!boardId || !userName}
+          isMainAction
         >
           {t('join.join')}
+        </SAction>
+        <SAction size="lg" onClick={onCancel}>
+          {t('join.cancel')}
         </SAction>
         {errorCode && <ErrorMessage code={errorCode} />}
       </SActions>
