@@ -1,7 +1,7 @@
 import { Point } from 'paper';
 
 import { Log, point2net } from '#utils';
-import { drawingsLayers } from '#constants';
+import { drawingsLayers, mapLayers, canvasIds } from '#constants';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
@@ -18,6 +18,13 @@ import reset from './reset';
  */
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Selector : onMouseDown', { event });
+
+  // @todo get canvas drawings id from dependencies?
+  // Check that the event is triggered on the drawings canvas
+  const element = event?.event?.path[0];
+  if (element && element.id !== canvasIds.drawings) {
+    return undefined;
+  }
 
   const point = event.point instanceof Point
     ? event.point
@@ -58,7 +65,7 @@ export default function onMouseDown(event) {
   }
 
   // If clicked on the content of an item, translation operation is set up
-  const item = checkContentHit.call(this, this.dependencies.project, point);
+  const item = checkContentHit.call(this, this.dependencies.projects.drawings, point);
 
   if (!item) {
     reset.call(this);
@@ -69,22 +76,26 @@ export default function onMouseDown(event) {
   this.operation = operations.translate;
   this.currentTranslationPoint = point;
 
-  if (this.selectedItem !== item) {
+  if (this.selectedItem.drawings !== item) {
     // Deselect previous item
-    if (this.selectedItem) {
+    if (this.selectedItem.drawings) {
       // @todo deselect also when tool is unselected
       removeSelectionHandlers(
-        this.selectedItem,
-        this.dependencies.project.layers[drawingsLayers.selection],
+        this.selectedItem.drawings,
+        this.dependencies.projects.drawings.layers[drawingsLayers.selection],
       );
       this.selectedItemHandlers = undefined;
     }
 
     // Select new one
-    this.selectedItem = item;
+    this.selectedItem = {
+      drawings : item,
+      // @todo what if children[iten.name] does not exist?
+      map      : this.dependencies.projects.map.layers[mapLayers.drawings].children[item.name],
+    };
     this.selectedItemHandlers = createSelectionHandlers(
-      this.selectedItem,
-      this.dependencies.project.layers[drawingsLayers.selection],
+      this.selectedItem.drawings,
+      this.dependencies.projects.drawings.layers[drawingsLayers.selection],
     );
   }
 

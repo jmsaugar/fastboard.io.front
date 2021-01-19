@@ -9,7 +9,7 @@ import { bounds } from '../constants';
  *
  * @param {Object} resizeOriginBound Bound used as origin for dragging action.
  * @param {Object} targetPoint Current point dragged to by the user cursor.
- * @param {Object} selectedItem Actual item to be resized.
+ * @param {Object} selectedItem Actual items to be resized - in drawing canvas and map.
  * @param {Object} handlersItem Handlers item.
  */
 export default function resize(resizeOriginBound, targetPoint, selectedItem, handlersItem) {
@@ -19,39 +19,48 @@ export default function resize(resizeOriginBound, targetPoint, selectedItem, han
   // Determine delta depending on the drag origin and the current point
   switch (resizeOriginBound) {
     case bounds.bottomRight:
-      delta = targetPoint.subtract(selectedItem.bounds.bottomRight);
-      resizeOriginPoint = selectedItem.bounds.topLeft;
+      delta = targetPoint.subtract(selectedItem.drawings.bounds.bottomRight);
+      resizeOriginPoint = selectedItem.drawings.bounds.topLeft;
       break;
 
     case bounds.bottomLeft:
       delta = new Point(
-        selectedItem.bounds.bottomLeft.x - targetPoint.x,
-        targetPoint.y - selectedItem.bounds.bottomLeft.y,
+        selectedItem.drawings.bounds.bottomLeft.x - targetPoint.x,
+        targetPoint.y - selectedItem.drawings.bounds.bottomLeft.y,
       );
-      resizeOriginPoint = selectedItem.bounds.topRight;
+      resizeOriginPoint = selectedItem.drawings.bounds.topRight;
       break;
 
     case bounds.topRight:
       delta = new Point(
-        targetPoint.x - selectedItem.bounds.topRight.x,
-        selectedItem.bounds.topRight.y - targetPoint.y,
+        targetPoint.x - selectedItem.drawings.bounds.topRight.x,
+        selectedItem.drawings.bounds.topRight.y - targetPoint.y,
       );
-      resizeOriginPoint = selectedItem.bounds.bottomLeft;
+      resizeOriginPoint = selectedItem.drawings.bounds.bottomLeft;
       break;
 
     default:
       break;
   }
 
-  // Scale the selected item based on the given delta
-  selectedItem.scale(
-    new Point(
-      (selectedItem.bounds.width + delta.x) / selectedItem.bounds.width,
-      (selectedItem.bounds.height + delta.y) / selectedItem.bounds.height,
-    ),
+  // Calculate scaling factor based on the given delta
+  const scalingFactor = {
+    x : (selectedItem.drawings.bounds.width + delta.x) / selectedItem.drawings.bounds.width,
+    y : (selectedItem.drawings.bounds.height + delta.y) / selectedItem.drawings.bounds.height,
+  };
+
+  // Scale the selected item in the drawings canvas
+  selectedItem.drawings.scale(
+    new Point(scalingFactor.x, scalingFactor.y),
+    resizeOriginPoint,
+  );
+
+  // Scale the selected item in the map
+  selectedItem.map.scale(
+    new Point(scalingFactor.x, scalingFactor.y),
     resizeOriginPoint,
   );
 
   // Scale the handlers item to match the selected item
-  resizeSelectionHandlers(selectedItem, handlersItem);
+  resizeSelectionHandlers(selectedItem.drawings, handlersItem);
 }

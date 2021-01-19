@@ -6,8 +6,12 @@ import { Log } from '#utils';
 export default function stop() {
   Log.info('Service : Drawings : stop');
 
-  this.project.remove();
-  this.project = undefined;
+  this.projects.drawings.remove();
+  this.projects.map.remove();
+  this.projects = {
+    drawings : undefined,
+    map      : undefined,
+  };
   this.users = {};
   this.tools = {};
   this.isStarted = false;

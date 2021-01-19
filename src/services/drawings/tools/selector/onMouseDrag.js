@@ -1,6 +1,7 @@
 import { Point } from 'paper';
 
 import { point2net } from '#utils';
+import { canvasIds } from '#constants';
 
 import { operations } from './constants';
 import { resize, rotate, translate } from './operations';
@@ -13,11 +14,18 @@ import { resize, rotate, translate } from './operations';
  * @param {Object} event Mouse down event object.
  */
 export default function onMouseDrag(event) {
+  // @todo get canvas drawings id from dependencies?
+  // Check that the event is triggered on the drawings canvas
+  const element = event?.event?.path[0];
+  if (element && element.id !== canvasIds.drawings) {
+    return undefined;
+  }
+
   const point = event.point instanceof Point
     ? event.point
     : new Point(event.point);
 
-  if (this.selectedItem) {
+  if (this.selectedItem.drawings) {
     switch (this.operation) {
       case operations.translate:
         // @todo could be done with event.delta

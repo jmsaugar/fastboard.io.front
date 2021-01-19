@@ -1,5 +1,5 @@
 import { Log } from '#utils';
-import { drawingsLayers } from '#constants';
+import { drawingsLayers, mapLayers } from '#constants';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 
@@ -9,23 +9,27 @@ import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 export default function activate(itemName) {
   Log.debug('Service : Drawings : Tools : Selector : activate');
 
-  const { project } = this.dependencies;
+  const { drawings : drawingsProject, map : mapProject } = this.dependencies.projects;
 
   this.tool.activate();
 
-  if (this.selectedItem) {
+  if (this.selectedItem.drawings) {
     removeSelectionHandlers(
-      this.selectedItem,
-      project.layers[drawingsLayers.selection],
+      this.selectedItem.drawings,
+      drawingsProject.layers[drawingsLayers.selection],
     );
     this.selectedItemHandlers = undefined;
   }
 
   if (itemName) {
-    this.selectedItem = project.layers[drawingsLayers.drawings].children[itemName];
+    this.selectedItem = {
+      drawings : drawingsProject.layers[drawingsLayers.drawings].children[itemName],
+      map      : mapProject.layers[mapLayers.drawings].children[itemName],
+    };
+
     this.selectedItemHandlers = createSelectionHandlers(
-      this.selectedItem,
-      project.layers[drawingsLayers.selection],
+      this.selectedItem.drawings,
+      drawingsProject.layers[drawingsLayers.selection],
     );
   }
 }

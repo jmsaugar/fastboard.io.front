@@ -16,10 +16,16 @@ export default (dependencies) => {
   const scope = Object.seal({
     dependencies : {
       realtimeService : dependencies?.realtimeService,
-      project         : dependencies?.project,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
-    tool                    : new Tool(),
-    selectedItem            : undefined,
+    tool         : new Tool(),
+    selectedItem : {
+      drawings : undefined,
+      map      : undefined,
+    },
     selectedItemHandlers    : undefined,
     operation               : undefined,
     currentTranslationPoint : undefined,

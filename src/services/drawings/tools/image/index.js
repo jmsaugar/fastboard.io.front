@@ -10,7 +10,10 @@ export default (dependencies) => {
     dependencies : {
       urlsService     : dependencies?.urlsService,
       realtimeService : dependencies?.realtimeService,
-      project         : dependencies?.project,
+      projects        : {
+        drawings : dependencies?.drawingsProject,
+        map      : dependencies?.mapProject,
+      },
     },
   };
 

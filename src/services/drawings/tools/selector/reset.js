@@ -7,13 +7,16 @@ import { removeSelectionHandlers } from '../utils';
  * Used when mouse down hit no actionable item.
  */
 export default function reset() {
-  if (this.selectedItem) {
+  if (this.selectedItem.drawings) {
     removeSelectionHandlers(
-      this.selectedItem,
-      this.dependencies.project.layers[drawingsLayers.selection],
+      this.selectedItem.drawings,
+      this.dependencies.projects.drawings.layers[drawingsLayers.selection],
     );
 
-    this.selectedItem = undefined;
+    this.selectedItem = {
+      drawings : undefined,
+      map      : undefined,
+    };
     this.selectedItemHandlers = undefined;
   }
 

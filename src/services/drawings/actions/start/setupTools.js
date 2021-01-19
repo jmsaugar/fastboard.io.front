@@ -14,47 +14,20 @@ import {
 
 export default function setupTools() {
   const { urlsService, realtimeService } = this.dependencies;
+  const drawingsProject = this.projects.drawings;
+  const mapProject = this.projects.map;
 
   return {
-    [tools.pencil] : pencilToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.pen] : penToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.highlighter] : highlighterToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.eraser] : eraserToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.pointer] : pointerToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-    }),
-    [tools.text] : textToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.clear] : clearToolFactory({
-      realtimeService,
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.selector] : selectorToolFactory({ realtimeService, project : this.project }),
-    [tools.image]    : imageToolFactory({
-      urlsService,
-      realtimeService,
-      project : this.project,
+    [tools.pencil]      : pencilToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.pen]         : penToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.highlighter] : highlighterToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.eraser]      : eraserToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.pointer]     : pointerToolFactory({ realtimeService, drawingsProject }),
+    [tools.text]        : textToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.clear]       : clearToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.selector]    : selectorToolFactory({ realtimeService, drawingsProject, mapProject }),
+    [tools.image]       : imageToolFactory({
+      urlsService, realtimeService, drawingsProject, mapProject,
     }),
   };
 }

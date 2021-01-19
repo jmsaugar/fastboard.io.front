@@ -30,6 +30,7 @@ export default (dependencies) => {
     },
   };
 
+  // @todo color not being the same in the other end
   scope.tool.on('mousedown', (event) => {
     Log.debug('Text : onMouseDown', { event });
 

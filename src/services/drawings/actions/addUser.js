@@ -21,38 +21,19 @@ import {
 export default function addUser(userId) {
   Log.info('Service : Drawings : addUser', { userId });
 
+  const { urlsService } = this.dependencies;
+  const drawingsProject = this.projects.drawings;
+  const mapProject = this.projects.map;
+
   this.users[userId] = {
-    [tools.eraser] : eraserToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.pen] : penToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.pencil] : pencilToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.highlighter] : highlighterToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.pointer] : pointerToolFactory({
-      drawingsProject : this.projects.drawings,
-    }),
-    [tools.text] : textToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.clear] : clearToolFactory({
-      drawingsProject : this.projects.drawings,
-      mapProject      : this.projects.map,
-    }),
-    [tools.selector] : selectorToolFactory({ project : this.project }),
-    [tools.image]    : imageToolFactory({
-      urlsService : this.dependencies.urlsService,
-      project     : this.project,
-    }),
+    [tools.eraser]      : eraserToolFactory({ drawingsProject, mapProject }),
+    [tools.pen]         : penToolFactory({ drawingsProject, mapProject }),
+    [tools.pencil]      : pencilToolFactory({ drawingsProject, mapProject }),
+    [tools.highlighter] : highlighterToolFactory({ drawingsProject, mapProject }),
+    [tools.pointer]     : pointerToolFactory({ drawingsProject }),
+    [tools.text]        : textToolFactory({ drawingsProject, mapProject }),
+    [tools.clear]       : clearToolFactory({ drawingsProject, mapProject }),
+    [tools.selector]    : selectorToolFactory({ drawingsProject, mapProject }),
+    [tools.image]       : imageToolFactory({ urlsService, drawingsProject, mapProject }),
   };
 }

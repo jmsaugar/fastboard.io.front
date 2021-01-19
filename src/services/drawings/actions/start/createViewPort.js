@@ -3,8 +3,6 @@ import { Path, Point } from 'paper';
 import { mapLayers, mapViewPortColorCode } from '#constants';
 import store, { setMapDragging } from '#store';
 
-// @todo viewPort item has to be recreated when the board is cleared
-
 /**
  * Create navigation map viewport item.
  *
