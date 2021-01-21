@@ -3,21 +3,21 @@
 exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qZtCU quiCN"
+    class="sc-qZtCU XqBnS sc-pzMyG gEsWbO"
   >
     <h2
-      class="sc-pzMyG hXmaiE"
+      class="sc-pHIBf hewvQA"
     >
       welcome.created.title
     </h2>
     <div
-      class="sc-pHIBf hfxtqR"
+      class="sc-pQEbo jSDMVi"
     >
       <div>
         welcome.created.about
       </div>
       <div
-        class="sc-pQEbo cNjqCi"
+        class="sc-pYA-dN iTrmwg"
         id="link"
       >
         https://fastboard.io/board/123456
@@ -28,7 +28,7 @@ exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="StyledIconBase-ea9ulj-0 jVnGjM sc-pYA-dN kRBtXC"
+          class="StyledIconBase-ea9ulj-0 jVnGjM sc-oUcyK gmCAfa"
           fill="currentColor"
           focusable="false"
           viewBox="0 0 448 512"
@@ -43,7 +43,7 @@ exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
       </button>
     </div>
     <div
-      class="sc-oUcyK cTibrb"
+      class="sc-pbYBj lhVhNu"
     >
       <button
         class="sc-qQYBZ eDYpWi"

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../Button';
 import Input from '../Input';
 import {
-  SWrapper, SHeader, SContent, SFooter,
+  SCard, SHeader, SContent, SFooter,
 } from './styled';
 
 const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
@@ -13,7 +13,7 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
   const [newBoardName, setNewBoardName] = useState(initialBoardName);
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         {t('meta.boardNameEditor.title')}
       </SHeader>
@@ -33,7 +33,7 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
           {t('meta.boardNameEditor.save')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 

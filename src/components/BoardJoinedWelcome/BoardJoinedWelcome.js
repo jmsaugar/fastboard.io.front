@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../Button';
 import Input from '../Input';
 import {
-  SWrapper, SHeader, SContent, SFooter,
+  SCard, SHeader, SContent, SFooter,
 } from './styled';
 
 const BoardJoinedWelcome = ({
@@ -15,7 +15,7 @@ const BoardJoinedWelcome = ({
   const [userName, setUserName] = useState('');
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         {t('welcome.joined.title', { boardId })}
       </SHeader>
@@ -41,7 +41,7 @@ const BoardJoinedWelcome = ({
           {t('welcome.joined.join')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 

@@ -5,7 +5,7 @@ export default {
   footer            : '80px',
   buttonWidth       : '100px',
   buttonWidthLg     : '300px',
-  modalWidth        : '440px',
+  cardWidth         : '440px',
   notificationWidth : '240px',
   formHeight        : '34px',
   formHeightLg      : '80px',

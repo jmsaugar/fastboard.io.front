@@ -3,14 +3,14 @@
 exports[`Component : BoardLeave Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qZtCU jmRUCG"
+    class="sc-qZtCU XqBnS sc-pzMyG gEsWbO"
   >
     <h2
-      class="sc-pzMyG jKanyH"
+      class="sc-pHIBf bQYmRH"
     >
       <svg
         aria-hidden="true"
-        class="StyledIconBase-ea9ulj-0 jVnGjM sc-pHIBf pRRVs"
+        class="StyledIconBase-ea9ulj-0 jVnGjM sc-pQEbo eheZPo"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 512 512"
@@ -24,12 +24,12 @@ exports[`Component : BoardLeave Snapshot 1`] = `
       leave.title
     </h2>
     <div
-      class="sc-pQEbo geQkjx"
+      class="sc-pYA-dN jOHHWI"
     >
       leave.message.lastUser
     </div>
     <div
-      class="sc-pYA-dN jsALAG"
+      class="sc-oUcyK gRJMGp"
     >
       <button
         class="sc-qQYBZ eDYpWi"

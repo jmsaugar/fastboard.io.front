@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 import Button from '../Button';
 
 import {
-  SWrapper, SHeader, SErrorIcon, SContent, SFooter,
+  SCard, SHeader, SErrorIcon, SContent, SFooter,
 } from './styled';
 
 const BoardLeave = ({ isLast, onCancel, onLeave }) => {
   const { t } = useTranslation('board');
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         <SErrorIcon />
         {t('leave.title')}
@@ -28,7 +28,7 @@ const BoardLeave = ({ isLast, onCancel, onLeave }) => {
           {t('leave.leave')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 

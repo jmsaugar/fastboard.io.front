@@ -11,7 +11,7 @@ import routes from '#routes';
 
 import Button from '../Button';
 import {
-  SWrapper, SHeader, SContent, SLink, SCopyIcon, SFooter,
+  SCard, SHeader, SContent, SLink, SCopyIcon, SFooter,
 } from './styled';
 
 const copiedMessageTimeout = 2000;
@@ -63,7 +63,7 @@ const BoardCreatedWelcome = ({ boardId, onClose }) => {
   );
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         {t('welcome.created.title', { boardId })}
       </SHeader>
@@ -84,7 +84,7 @@ const BoardCreatedWelcome = ({ boardId, onClose }) => {
           {t('welcome.created.accept')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 

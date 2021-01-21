@@ -1,13 +1,13 @@
-import styled from '@xstyled/styled-components';
+import styled, { css, down } from '@xstyled/styled-components';
 import { ExclamationCircle as ErrorIcon } from '@styled-icons/fa-solid/ExclamationCircle';
 
-export const SWrapper = styled.div`
+import Card from '../Card';
+
+export const SCard = styled(Card)`
   display: flex;
-  width: modalWidth;
   flex-direction: column;
-  padding: default;
-  background-color: bg;
-  border-radius: default;
+  justify-content: center;
+  ${down('md', css`text-align: center;`)}
 `;
 
 export const SHeader = styled.h2`
@@ -24,7 +24,6 @@ export const SErrorIcon = styled(ErrorIcon)`
 `;
 
 export const SContent = styled.div`
-  flex: 1;
   margin: default 0;
 `;
 
@@ -36,4 +35,6 @@ export const SFooter = styled.div`
   button + button {
     margin-left: sm;
   }
+
+  ${down('md', css`button { width: 100%; }`)}
 `;

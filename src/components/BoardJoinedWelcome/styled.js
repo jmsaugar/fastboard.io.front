@@ -1,10 +1,12 @@
-import styled from '@xstyled/styled-components';
+import styled, { css, down } from '@xstyled/styled-components';
 
-export const SWrapper = styled.div`
-  width: modalWidth;
-  padding: default;
-  background-color: bg;
-  border-radius: default;
+import Card from '../Card';
+
+export const SCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  ${down('md', css`text-align: center;`)}
 `;
 
 export const SHeader = styled.h2`
@@ -13,9 +15,7 @@ export const SHeader = styled.h2`
 `;
 
 export const SContent = styled.div`
-  flex: 1;
   margin: default 0;
-
   div {
     margin-bottom: default;
   }
@@ -29,4 +29,6 @@ export const SFooter = styled.div`
   button + button {
     margin-left: sm;
   }
+
+  ${down('md', css`button { width: 100%; }`)}
 `;

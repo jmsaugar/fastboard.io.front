@@ -6,14 +6,14 @@ import { boardsErrors } from '#constants';
 import Button from '../Button';
 
 import {
-  SWrapper, SHeader, SErrorIcon, SContent, SFooter,
+  SCard, SHeader, SErrorIcon, SContent, SFooter,
 } from './styled';
 
 const BoardError = ({ code, onClose }) => {
   const { t } = useTranslation('board');
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         <SErrorIcon />
         {t('error.title')}
@@ -26,7 +26,7 @@ const BoardError = ({ code, onClose }) => {
           {t('error.accept')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 

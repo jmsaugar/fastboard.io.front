@@ -9,7 +9,6 @@ const common = styled.div`
   opacity: ${({ show }) => (show ? '1' : '0')};
   transition: default;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-
 `;
 
 export const SBackground = styled(common)`

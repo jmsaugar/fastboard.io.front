@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../Button';
 import Input from '../Input';
 import {
-  SWrapper, SHeader, SContent, SFooter,
+  SCard, SHeader, SContent, SFooter,
 } from './styled';
 
 const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
@@ -13,7 +13,7 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
   const [newUserName, setNewUserName] = useState(initialUserName);
 
   return (
-    <SWrapper>
+    <SCard>
       <SHeader>
         {t('meta.userNameEditor.title')}
       </SHeader>
@@ -33,7 +33,7 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
           {t('meta.userNameEditor.save')}
         </Button>
       </SFooter>
-    </SWrapper>
+    </SCard>
   );
 };
 
