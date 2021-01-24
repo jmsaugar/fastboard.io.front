@@ -1,7 +1,9 @@
 import { Path, Point } from 'paper';
 
-import { mapLayers, mapViewPortColorCode } from '#constants';
+import { mapLayers, mapViewPortColorCode, viewPortItemName } from '#constants';
 import store, { setMapDragging } from '#store';
+
+const borderWidth = 10;
 
 /**
  * Create navigation map viewport item.
@@ -15,6 +17,7 @@ import store, { setMapDragging } from '#store';
  */
 export default function createViewPort(center, width, height, project) {
   const viewPort = new Path.Rectangle({
+    name    : viewPortItemName,
     topLeft : new Point(
       center.x - (width / 2),
       center.y - (height / 2),
@@ -25,12 +28,13 @@ export default function createViewPort(center, width, height, project) {
     ),
     strokeColor   : mapViewPortColorCode,
     fillColor     : mapViewPortColorCode,
-    strokewidth   : 10, // @todo
+    strokewidth   : borderWidth,
     strokeScaling : false,
     position      : center,
     parent        : project.layers[mapLayers.viewport],
   });
 
+  // This will allow for cursor change when hovering on the viewport item.
   viewPort.onMouseEnter = () => store.dispatch(setMapDragging(true));
   viewPort.onMouseLeave = () => store.dispatch(setMapDragging(false));
 

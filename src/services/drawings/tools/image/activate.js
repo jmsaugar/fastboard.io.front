@@ -12,11 +12,16 @@ export default function activate(image) {
   Log.info('Service : Drawings : Tools : Image : activate', { image });
 
   return onImageAdded.call(this, { image })
-    .then((itemName) => {
+    .then(({ itemName, position }) => {
       // @todo .catch? rework this
       this.dependencies.realtimeService.send(
         drawingsMessages.doAddImage,
-        { tool : tools.image, image, itemName },
+        {
+          tool : tools.image,
+          image,
+          itemName,
+          position,
+        },
       );
 
       return itemName;

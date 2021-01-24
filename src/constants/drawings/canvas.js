@@ -31,3 +31,5 @@ export const canvasIds = Object.freeze({
   drawings : 'drawings-canvas',
   map      : 'map-canvas',
 });
+
+export const viewPortItemName = 'viewport-item';
