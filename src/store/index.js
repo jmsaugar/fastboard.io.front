@@ -14,6 +14,7 @@ export {
   isJoinedSelector,
   boardNameSelector,
   myUserNameSelector,
+  myJoinDateSelector,
   otherUsersSelector,
   usersCountSelector,
   selectedToolSelector,

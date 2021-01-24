@@ -63,11 +63,17 @@ const Board = () => {
 
       realtimeService.start();
       boardsService.join(boardId, userName)
-        .then(({ boardId : joinedBoardId, boardName : joinedBoardName, users }) => {
-          Log.debug('Component : Board : join : joined', { joinedBoardId, joinedBoardName, users });
+        .then(({
+          boardId : joinedBoardId, joinDate, boardName : joinedBoardName, users,
+        }) => {
+          Log.debug('Component : Board : join : joined', {
+            joinedBoardId, joinDate, joinedBoardName, users,
+          });
 
           drawingsService.start(canvasIds.drawings, canvasIds.map);
-          dispatch(setJoined({ boardName : joinedBoardName, userName, users }));
+          dispatch(setJoined({
+            boardName : joinedBoardName, joinDate, userName, users,
+          }));
 
           setModalStep(modalSteps.none);
         })

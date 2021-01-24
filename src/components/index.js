@@ -21,4 +21,5 @@ export { default as Spinner } from './Spinner';
 export { default as ToolBar } from './ToolBar';
 export { default as ToolBarItem } from './ToolBarItem';
 export { default as ToolButton } from './ToolButton';
+export { default as UsersList } from './UsersList';
 export { default as UserNameEditor } from './UserNameEditor';

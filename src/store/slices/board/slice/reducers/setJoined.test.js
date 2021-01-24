@@ -4,6 +4,7 @@ const boardData = {
   boardName : 'board name',
   userName  : 'user name',
   users     : [{ id : 1 }],
+  joinDate  : '2021-02-28T12:14:15.000Z',
 };
 
 describe('Store : board : reducers : setJoined', () => {
@@ -15,7 +16,10 @@ describe('Store : board : reducers : setJoined', () => {
       owner     : undefined,
       boardName : undefined,
       users     : {
-        me     : undefined,
+        me : {
+          name     : undefined,
+          joinDate : undefined,
+        },
         others : [],
       },
     };
@@ -26,7 +30,8 @@ describe('Store : board : reducers : setJoined', () => {
 
     expect(newState).not.toBe(state);
     expect(newState.boardName).toBe(boardData.boardName);
-    expect(newState.users.me).toBe(boardData.userName);
+    expect(newState.users.me.name).toBe(boardData.userName);
+    expect(newState.users.me.joinDate).toBe(boardData.joinDate);
     expect(newState.joined).toBe(true);
     expect(newState.owner).toBe(false);
     expect(newState.users.others).toHaveLength(1);

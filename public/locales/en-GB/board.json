@@ -14,6 +14,14 @@
       "cancel": "Cancel",
       "save": "Save"
     },
+    "usersList": {
+      "title": "{{count}} user on {{boardName}}",
+      "title_plural": "{{count}} users on {{boardName}}",
+      "you": "{{name}} (you)",
+      "youJoined": "joined: {{date}}",
+      "otherJoined": "joined: {{date}}",
+      "accept": "Accept"
+    },
     "usersCount" : "({{count}} user)",
     "usersCount_plural" : "({{count}} users)"
   },

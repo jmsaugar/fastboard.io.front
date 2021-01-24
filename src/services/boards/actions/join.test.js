@@ -7,6 +7,7 @@ const boardId = '123456';
 const wrongBoardId = '987654';
 const boardName = 'board name';
 const userName = 'user name';
+const joinDate = '2021-02-28T12:14:15.000Z';
 const users = [
   { id : 1 },
   { id : 2 },
@@ -27,7 +28,7 @@ describe('Service : boards : join', () => {
 
   test('Correctly join board', () => {
     scope.dependencies.realtimeService.send = jest.fn(() => (Promise.resolve({
-      boardId, boardName, users,
+      boardId, boardName, users, joinDate,
     })));
 
     const promise = join.call(scope, boardId, userName);
@@ -37,7 +38,9 @@ describe('Service : boards : join', () => {
       boardsMessages.doJoin,
       { boardId, userName },
     );
-    return expect(promise).resolves.toEqual({ boardId, boardName, users });
+    return expect(promise).resolves.toEqual({
+      boardId, boardName, users, joinDate,
+    });
   });
 
   test('Error in board joining - wrong board id', () => {

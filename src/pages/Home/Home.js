@@ -36,10 +36,10 @@ const Home = () => {
 
       realtimeService.start();
       boardsService.create(boardName, userName)
-        .then(({ boardId, boardName : joinedBoardName }) => {
-          Log.debug('Component : Home : create : created', { boardId, joinedBoardName });
+        .then(({ boardId, boardName : joinedBoardName, joinDate }) => {
+          Log.debug('Component : Home : create : created', { boardId, joinedBoardName, joinDate });
 
-          dispatch(setCreated({ boardName, userName }));
+          dispatch(setCreated({ boardName, userName, joinDate }));
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(({ code }) => {

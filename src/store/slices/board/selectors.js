@@ -22,9 +22,19 @@ const usersSelector = createSelector(
   (board) => board.users,
 );
 
-export const myUserNameSelector = createSelector(
+const meSelector = createSelector(
   usersSelector,
   (users) => users.me,
+);
+
+export const myUserNameSelector = createSelector(
+  meSelector,
+  (me) => me.name,
+);
+
+export const myJoinDateSelector = createSelector(
+  meSelector,
+  (me) => me.joinDate,
 );
 
 export const otherUsersSelector = createSelector(

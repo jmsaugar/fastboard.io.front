@@ -6,11 +6,18 @@ import { escapeKeyCode, mainLayoutId } from '#constants';
 import { useKey } from '#hooks';
 import { boardsService } from '#services';
 import {
-  boardNameSelector, myUserNameSelector, usersCountSelector, setBoardName, setMyUserName,
+  boardNameSelector,
+  myUserNameSelector,
+  myJoinDateSelector,
+  usersCountSelector,
+  otherUsersSelector,
+  setBoardName,
+  setMyUserName,
 } from '#store';
 
 import UserNameEditor from '../UserNameEditor';
 import BoardNameEditor from '../BoardNameEditor';
+import UsersList from '../UsersList';
 import Modal from '../Modal';
 
 import SWrapper from './styled';
@@ -19,6 +26,7 @@ const types = Object.freeze({
   none      : 0,
   userName  : 1,
   boardName : 2,
+  usersList : 3,
 });
 
 const BoardMeta = () => {
@@ -26,8 +34,10 @@ const BoardMeta = () => {
   const dispatch = useDispatch();
 
   const boardName = useSelector(boardNameSelector);
-  const userName = useSelector(myUserNameSelector);
+  const myUserName = useSelector(myUserNameSelector);
+  const myJoinDate = useSelector(myJoinDateSelector);
   const usersCount = useSelector(usersCountSelector);
+  const otherUsers = useSelector(otherUsersSelector);
 
   const [type, setType] = useState(types.none);
 
@@ -57,12 +67,12 @@ const BoardMeta = () => {
   const UserNameEditorComponent = useMemo(
     () => (
       <UserNameEditor
-        initialUserName={userName}
+        initialUserName={myUserName}
         onCancel={hide}
         onSave={saveUserName}
       />
     ),
-    [userName, hide, saveUserName],
+    [myUserName, hide, saveUserName],
   );
 
   const BoardNameEditorComponent = useMemo(
@@ -76,21 +86,39 @@ const BoardMeta = () => {
     [boardName, hide, saveBoardName],
   );
 
+  const UsersListComponent = useMemo(
+    () => (
+      <UsersList
+        boardName={boardName}
+        myUserName={myUserName}
+        myJoinDate={myJoinDate}
+        others={otherUsers}
+        onClose={hide}
+      />
+    ),
+    [boardName, myUserName, myJoinDate, otherUsers, hide],
+  );
+
   useKey(escapeKeyCode, hide);
 
   return (
     <>
-      <SWrapper onClick={() => setType(types.userName)}>
-        {userName}
+      <SWrapper onClick={() => setType(types.userName)} isClickable>
+        {myUserName}
       </SWrapper>
-      @
-      <SWrapper onClick={() => setType(types.boardName)}>
+      <SWrapper>
+        @
+      </SWrapper>
+      <SWrapper onClick={() => setType(types.boardName)} isClickable>
         {boardName}
+      </SWrapper>
+      <SWrapper onClick={() => setType(types.usersList)} isClickable>
         {t('meta.usersCount', { count : usersCount })}
       </SWrapper>
       <Modal target={mainLayoutId} show={type !== types.none}>
         {type === types.userName && UserNameEditorComponent}
         {type === types.boardName && BoardNameEditorComponent}
+        {type === types.usersList && UsersListComponent}
       </Modal>
     </>
   );

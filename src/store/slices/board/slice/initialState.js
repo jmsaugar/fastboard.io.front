@@ -5,7 +5,10 @@ export default {
   owner     : undefined,
   boardName : undefined,
   users     : {
-    me     : undefined,
+    me : {
+      name     : undefined,
+      joinDate : undefined,
+    },
     others : [],
   },
   tools : {

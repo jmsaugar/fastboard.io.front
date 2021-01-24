@@ -6,6 +6,7 @@ import create from './create';
 const boardId = '123456';
 const boardName = 'board name';
 const userName = 'user name';
+const joinDate = '2021-02-28T12:14:15.000Z';
 
 describe('Service : boards : create', () => {
   let scope;
@@ -22,7 +23,7 @@ describe('Service : boards : create', () => {
 
   test('Correctly create board', () => {
     scope.dependencies.realtimeService.send = jest.fn(() => (Promise.resolve({
-      boardId, boardName,
+      boardId, boardName, joinDate,
     })));
 
     const promise = create.call(scope, boardName, userName);
@@ -32,7 +33,7 @@ describe('Service : boards : create', () => {
       boardsMessages.doCreate,
       { boardName, userName },
     );
-    return expect(promise).resolves.toEqual({ boardId, boardName });
+    return expect(promise).resolves.toEqual({ boardId, boardName, joinDate });
   });
 
   test('Error in board creation - wrong board id', () => {

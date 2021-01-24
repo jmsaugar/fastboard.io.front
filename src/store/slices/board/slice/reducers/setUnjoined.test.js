@@ -9,7 +9,10 @@ describe('Store : board : reducers : setUnjoined', () => {
       owner     : true,
       boardName : 'board name',
       users     : {
-        me     : 'my name',
+        me : {
+          name     : 'my user name',
+          joinDate : '2021-02-28T12:14:15.000Z',
+        },
         others : [{ id : 1 }],
       },
     };
@@ -22,7 +25,8 @@ describe('Store : board : reducers : setUnjoined', () => {
     expect(newState.joined).toBe(false);
     expect(newState.owner).toBeUndefined();
     expect(newState.boardName).toBeUndefined();
-    expect(newState.users.me).toBeUndefined();
+    expect(newState.users.me.name).toBeUndefined();
+    expect(newState.users.me.joinDate).toBeUndefined();
     expect(newState.users.others).toHaveLength(0);
   });
 });

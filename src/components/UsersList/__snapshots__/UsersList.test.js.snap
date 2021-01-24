@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : UsersList Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-qZtCU XqBnS sc-pzMyG gEsWbO"
+  >
+    <h2
+      class="sc-pHIBf hewvQA"
+    >
+      meta.usersList.title
+    </h2>
+    <ul
+      class="sc-pQEbo iICRvb"
+    >
+      <li
+        class="sc-pYA-dN bzRDoT"
+      >
+        meta.usersList.you
+        <span
+          class="sc-oUcyK bWYQaI"
+        >
+          meta.usersList.youJoined
+        </span>
+      </li>
+      <li
+        class="sc-pYA-dN bzRDoT"
+      >
+        other user 1
+        <span
+          class="sc-oUcyK bWYQaI"
+        >
+          meta.usersList.otherJoined
+        </span>
+      </li>
+      <li
+        class="sc-pYA-dN bzRDoT"
+      >
+        other user 2
+        <span
+          class="sc-oUcyK bWYQaI"
+        >
+          meta.usersList.otherJoined
+        </span>
+      </li>
+    </ul>
+    <div
+      class="sc-pbYBj jxvTZU"
+    >
+      <button
+        class="sc-qQYBZ eDYpWi"
+        type="secondary"
+      >
+        meta.usersList.accept
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

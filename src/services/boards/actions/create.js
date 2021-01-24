@@ -15,17 +15,17 @@ export default function create(boardName, userName) {
   Log.info('Service : Boards : create', { boardName, userName });
 
   return this.dependencies.realtimeService.send(boardsMessages.doCreate, { boardName, userName })
-    .then(({ boardId, boardName : joinedBoardName }) => {
-      Log.debug('Service : Boards : create : ack', { boardId, joinedBoardName });
+    .then(({ boardId, boardName : joinedBoardName, joinDate }) => {
+      Log.debug('Service : Boards : create : ack', { boardId, joinedBoardName, joinDate });
 
       // Check join data is correct
-      if (!boardId || boardName !== joinedBoardName) {
+      if (!boardId || !joinDate || boardName !== joinedBoardName) {
         return Promise.reject(new BoardError(boardsErrors.generic));
       }
 
       // Add handlers for messages
       this.dependencies.realtimeService.setMessageHandlers();
 
-      return { boardId, boardName };
+      return { boardId, boardName, joinDate };
     });
 }

@@ -16,17 +16,23 @@ export default function join(boardId, userName) {
 
   // @todo check parameters before requesting
   return this.dependencies.realtimeService.send(boardsMessages.doJoin, { boardId, userName })
-    .then(({ boardId : joinedBoardId, boardName, users }) => {
-      Log.debug('Service : Boards : join : ack', { joinedBoardId, boardName, users });
+    .then(({
+      boardId : joinedBoardId, joinDate, boardName, users,
+    }) => {
+      Log.debug('Service : Boards : join : ack', {
+        joinedBoardId, joinDate, boardName, users,
+      });
 
       // Check join data is correct
-      if (!boardName || boardId !== joinedBoardId) {
+      if (!boardName || !joinDate || boardId !== joinedBoardId) {
         return Promise.reject(new BoardError(boardsErrors.generic));
       }
 
       // Add handlers for messages
       this.dependencies.realtimeService.setMessageHandlers();
 
-      return { boardId, boardName, users };
+      return {
+        boardId, joinDate, boardName, users,
+      };
     });
 }

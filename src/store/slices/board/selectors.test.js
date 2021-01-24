@@ -5,6 +5,7 @@ import {
   isJoinedSelector,
   boardNameSelector,
   myUserNameSelector,
+  myJoinDateSelector,
   otherUsersSelector,
   usersCountSelector,
   selectedToolSelector,
@@ -15,10 +16,13 @@ import {
 const joined = true;
 const owner = true;
 const boardName = 'board name';
-const me = 'my user name';
+const me = {
+  name     : 'my user name',
+  joinDate : '2021-02-28T12:14:15.000Z',
+};
 const others = [
-  { id : 1 },
-  { id : 2 },
+  { id : 1, joinDate : '2021-02-28T12:24:15.000Z' },
+  { id : 2, joinDate : '2021-02-28T12:34:15.000Z' },
 ];
 const users = { me, others };
 const selectedTool = tools.pencil;
@@ -59,7 +63,11 @@ describe('Store : board : selectors', () => {
   });
 
   test('My user name selector working correctly', () => {
-    expect(myUserNameSelector(state)).toBe(me);
+    expect(myUserNameSelector(state)).toBe(me.name);
+  });
+
+  test('My join date selector working correctly', () => {
+    expect(myJoinDateSelector(state)).toBe(me.joinDate);
   });
 
   test('Users selector working correctly', () => {

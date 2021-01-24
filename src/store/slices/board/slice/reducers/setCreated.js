@@ -17,7 +17,10 @@ export default function setCreated(state, action) {
         owner     : true,
         boardName : action.payload.boardName,
         users     : {
-          me     : action.payload.userName,
+          me : {
+            name     : action.payload.userName,
+            joinDate : action.payload.joinDate,
+          },
           others : [],
         },
         tools : {

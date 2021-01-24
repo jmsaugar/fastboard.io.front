@@ -1,10 +1,24 @@
-import styled from '@xstyled/styled-components';
+import styled, { css } from '@xstyled/styled-components';
+import { variant } from '@xstyled/system';
 
 export default styled.div`
   display: inline;
-  cursor: pointer;
 
-  &:hover {
-    text-decoration: underline;
+  ${variant({
+    default  : false,
+    prop     : 'isClickable',
+    variants : {
+      true : css`
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      `,
+      false : '',
+    },
+  })}
+
+  & + & {
+    margin-left: xxs;
   }
 `;
