@@ -41,7 +41,7 @@ export default function onMouseDown(event) {
   this.currentPath.map = new Path({
     strokeColor,
     strokeCap,
-    strokeWidth   : strokeWidth / 2,
+    strokeWidth   : strokeWidth / 4,
     strokeScaling : false,
     locked        : true,
     parent        : this.dependencies.projects.map[mapLayers.drawings],
