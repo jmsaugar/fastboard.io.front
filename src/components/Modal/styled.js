@@ -12,6 +12,7 @@ const common = styled.div`
 `;
 
 export const SBackground = styled(common)`
+  backdrop-filter: blur(2px);
   background-color: rgba(0, 0, 0, 0.47);
 `;
 
