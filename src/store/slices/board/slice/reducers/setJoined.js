@@ -24,8 +24,12 @@ export default function setJoined(state, action) {
           others : action.payload.users,
         },
         tools : {
-          selected : undefined,
-          colors   : {
+          selected       : undefined,
+          selectorCursor : {
+            operation : undefined,
+            hover     : undefined,
+          },
+          colors : {
             pencil      : defaultDrawingColor,
             pen         : defaultDrawingColor,
             highlighter : defaultDrawingColor,

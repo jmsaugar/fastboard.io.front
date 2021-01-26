@@ -2,6 +2,7 @@ import { Tool } from 'paper';
 
 import { Log, throttle } from '#utils';
 import { drawingsMessages, tools } from '#constants';
+import store, { setSelectorCursorOperation } from '#store';
 
 import activate from './activate';
 import onMouseDown from './onMouseDown';
@@ -67,6 +68,11 @@ export default (dependencies) => {
     },
     throttleDelay,
   ));
+
+  scope.tool.on(
+    'mouseup',
+    () => store.dispatch(setSelectorCursorOperation()),
+  );
 
   return Object.freeze({
     activate    : activate.bind(scope),

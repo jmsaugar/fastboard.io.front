@@ -6,6 +6,8 @@ export { default as setJoinedReducer } from './setJoined';
 export { default as setMapDraggingReducer } from './setMapDragging';
 export { default as setMyUserNameReducer } from './setMyUserName';
 export { default as setSelectedToolReducer } from './setSelectedTool';
+export { default as setSelectorCursorHoverReducer } from './setSelectorCursorHover';
+export { default as setSelectorCursorOperationReducer } from './setSelectorCursorOperation';
 export { default as setToolColorReducer } from './setToolColor';
 export { default as setUnjoinedReducer } from './setUnjoined';
 export { default as setUserNameReducer } from './setUserName';

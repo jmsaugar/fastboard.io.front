@@ -1,7 +1,10 @@
 import { Point } from 'paper';
 
 import { Log, point2net } from '#utils';
-import { drawingsLayers, mapLayers, canvasIds } from '#constants';
+import {
+  drawingsLayers, mapLayers, canvasIds, cursorTypes,
+} from '#constants';
+import store, { setSelectorCursorOperation } from '#store';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
@@ -39,6 +42,9 @@ export default function onMouseDown(event) {
       case bounds.topLeft:
         this.operation = operations.rotate;
         this.currentRotationAngle = 0;
+
+        // @todo only if local event:
+        store.dispatch(setSelectorCursorOperation(cursorTypes.rotating));
         break;
 
       // All other handlers are for resizing operation
@@ -50,11 +56,17 @@ export default function onMouseDown(event) {
       case bounds.bottomLeft:
         this.operation = operations.resize;
         this.resizeOriginBound = bounds.bottomLeft;
+
+        // @todo only if local event:
+        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSW));
         break;
 
       case bounds.bottomRight:
         this.operation = operations.resize;
         this.resizeOriginBound = bounds.bottomRight;
+
+        // @todo only if local event:
+        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSE));
         break;
 
       default:
@@ -75,6 +87,8 @@ export default function onMouseDown(event) {
   // If no bounds hit, default operation is translation
   this.operation = operations.translate;
   this.currentTranslationPoint = point;
+  // @todo only if local event:
+  store.dispatch(setSelectorCursorOperation(cursorTypes.dragging));
 
   if (this.selectedItem.drawings !== item) {
     // Deselect previous item

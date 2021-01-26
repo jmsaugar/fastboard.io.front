@@ -1,11 +1,18 @@
 import { Group, Shape } from 'paper';
 
 import { Log } from '#utils';
-import { selectionColorCode } from '#constants';
+import { cursorTypes, selectionColorCode } from '#constants';
+import store, { setSelectorCursorHover } from '#store';
 
 import { bounds } from '../selector/constants';
 
 const boundsArray = Object.values(bounds);
+const bounds2cursorType = Object.freeze({
+  [bounds.topLeft]     : cursorTypes.rotating,
+  [bounds.topRight]    : cursorTypes.menu,
+  [bounds.bottomLeft]  : cursorTypes.resizingSW,
+  [bounds.bottomRight] : cursorTypes.resizingSE,
+});
 
 /**
  * Add selection handlers to the selected item.
@@ -22,15 +29,19 @@ export default function createSelectionHandlers(selectedItem, selectionLayer) {
   selectedItem.set({
     selected      : true,
     selectedColor : selectionColorCode,
+    onMouseEnter  : () => store.dispatch(setSelectorCursorHover(cursorTypes.dragging)),
+    onMouseLeave  : () => store.dispatch(setSelectorCursorHover()),
   });
 
   // Create bound handlers on the selection layer
   boundsArray.forEach((bound) => {
     selectionLayer.addChild(new Shape.Circle({
-      name      : bound,
-      center    : selectedItem.internalBounds[bound],
-      radius    : 5,
-      fillColor : selectionColorCode,
+      name         : bound,
+      center       : selectedItem.internalBounds[bound],
+      radius       : 6,
+      fillColor    : selectionColorCode,
+      onMouseEnter : () => store.dispatch(setSelectorCursorHover(bounds2cursorType[bound])),
+      onMouseLeave : () => store.dispatch(setSelectorCursorHover()),
     }));
   });
 

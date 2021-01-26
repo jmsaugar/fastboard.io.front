@@ -24,8 +24,12 @@ export default function setCreated(state, action) {
           others : [],
         },
         tools : {
-          selected : undefined,
-          colors   : {
+          selected       : undefined,
+          selectorCursor : {
+            operation : undefined,
+            hover     : undefined,
+          },
+          colors : {
             pencil      : defaultDrawingColor,
             pen         : defaultDrawingColor,
             highlighter : defaultDrawingColor,

@@ -2,19 +2,30 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { selectedToolSelector, toolsColorsSelector, isDraggingMapSelector } from '#store';
+import { tools } from '#constants';
+import {
+  selectedToolSelector,
+  selectorCursorSelector,
+  toolsColorsSelector,
+  isDraggingMapSelector,
+} from '#store';
 
-import { tool2cursor } from './constants';
+import tool2cursor from './constants';
 import { SCanvas, SMap } from './styled';
 
 const Canvas = ({ drawingsId, mapId }) => {
   const tool = useSelector(selectedToolSelector);
   const colors = useSelector(toolsColorsSelector);
   const isDraggingMap = useSelector(isDraggingMapSelector);
+  const selectorCursor = useSelector(selectorCursorSelector);
 
   const cursor = useMemo(
-    () => (tool2cursor[tool]?.[colors[tool]] || tool2cursor[tool]),
-    [tool, colors],
+    () => (
+      (tool === tools.selector && selectorCursor)
+        ? selectorCursor
+        : (tool2cursor[tool]?.[colors[tool]] || tool2cursor[tool])
+    ),
+    [tool, colors, selectorCursor],
   );
 
   return (

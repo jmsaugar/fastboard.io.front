@@ -1,19 +1,23 @@
 import { defaultDrawingColor } from '#constants';
 
 export default {
-  joined    : false,
-  owner     : undefined,
+  joined    : false, // You joined the board
+  owner     : undefined, // You own the board // @todo has to be reassigned when creator leaves
   boardName : undefined,
   users     : {
     me : {
       name     : undefined,
       joinDate : undefined,
     },
-    others : [],
+    others : [], // User === { id, name, joinDate }
   },
   tools : {
-    selected : undefined,
-    colors   : {
+    selected       : undefined, // Currently selected tool
+    selectorCursor : {
+      operation : undefined, // Selector cursor based on current operation
+      hover     : undefined, // Selector cursor based on current hover position
+    },
+    colors : {
       pencil      : defaultDrawingColor,
       pen         : defaultDrawingColor,
       highlighter : defaultDrawingColor,
@@ -21,6 +25,6 @@ export default {
     },
   },
   map : {
-    isDragging : false,
+    isDragging : false, // The map viewport is being dragged
   },
 };

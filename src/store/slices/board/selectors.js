@@ -57,6 +57,16 @@ export const selectedToolSelector = createSelector(
   (tools) => tools.selected,
 );
 
+const selectorCursorSliceSelector = createSelector(
+  toolsSelector,
+  (tools) => tools.selectorCursor,
+);
+
+export const selectorCursorSelector = createSelector(
+  selectorCursorSliceSelector,
+  (selectorCursor) => (selectorCursor.operation || selectorCursor.hover),
+);
+
 export const toolsColorsSelector = createSelector(
   toolsSelector,
   (tools) => tools.colors,

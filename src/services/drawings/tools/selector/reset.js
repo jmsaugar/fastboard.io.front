@@ -1,4 +1,5 @@
 import { drawingsLayers } from '#constants';
+import store, { setSelectorCursorOperation, setSelectorCursorHover } from '#store';
 
 import { removeSelectionHandlers } from '../utils';
 
@@ -24,4 +25,7 @@ export default function reset() {
   this.currentTranslationPoint = undefined;
   this.currentRotationAngle = undefined;
   this.resizeOriginBound = undefined;
+
+  store.dispatch(setSelectorCursorOperation());
+  store.dispatch(setSelectorCursorHover());
 }

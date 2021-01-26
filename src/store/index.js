@@ -9,6 +9,8 @@ export {
   addUser,
   removeUser,
   setSelectedTool,
+  setSelectorCursorHover,
+  setSelectorCursorOperation,
   setToolColor,
   isOwnerSelector,
   isJoinedSelector,
@@ -18,6 +20,7 @@ export {
   otherUsersSelector,
   usersCountSelector,
   selectedToolSelector,
+  selectorCursorSelector,
   toolsColorsSelector,
   isDraggingMapSelector,
 } from './slices/board';

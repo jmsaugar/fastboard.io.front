@@ -1,27 +1,6 @@
-import { drawingColors, tools } from '#constants';
+import { cursorTypes, drawingColors, tools } from '#constants';
 
-export const cursorTypes = Object.freeze({
-  default           : 0,
-  blackPencil       : 1,
-  redPencil         : 2,
-  bluePencil        : 3,
-  orangePencil      : 4,
-  greenPencil       : 5,
-  blackPen          : 6,
-  redPen            : 7,
-  bluePen           : 8,
-  orangePen         : 9,
-  greenPen          : 10,
-  blackHighlighter  : 11,
-  redHighlighter    : 12,
-  blueHighlighter   : 13,
-  orangeHighlighter : 14,
-  greenHighlighter  : 15,
-  eraser            : 16,
-  pointer           : 17,
-});
-
-export const tool2cursor = Object.freeze({
+export default Object.freeze({
   [tools.pencil] : {
     [drawingColors.black]  : cursorTypes.blackPencil,
     [drawingColors.red]    : cursorTypes.redPencil,

@@ -7,6 +7,7 @@ export {
   otherUsersSelector,
   usersCountSelector,
   selectedToolSelector,
+  selectorCursorSelector,
   toolsColorsSelector,
   isDraggingMapSelector,
 } from './selectors';
@@ -17,6 +18,8 @@ export {
   setMyUserName,
   setUserName,
   setSelectedTool,
+  setSelectorCursorHover,
+  setSelectorCursorOperation,
   setToolColor,
   setMapDragging,
   default as boardSlice,

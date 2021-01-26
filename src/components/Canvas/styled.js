@@ -1,7 +1,7 @@
 import styled, { css } from '@xstyled/styled-components';
 import { variant, getSpace } from '@xstyled/system';
 
-import { mapHeight, mapWidth } from '#constants';
+import { cursorTypes, mapHeight, mapWidth } from '#constants';
 
 import eraserCursor from '#theme/images/cursors/eraser.svg';
 import pointerCursor from '#theme/images/cursors/pointer.svg';
@@ -23,8 +23,6 @@ import redHighlighterCursor from '#theme/images/cursors/red-highlighter.svg';
 import blueHighlighterCursor from '#theme/images/cursors/blue-highlighter.svg';
 import orangeHighlighterCursor from '#theme/images/cursors/orange-highlighter.svg';
 import greenHighlighterCursor from '#theme/images/cursors/green-highlighter.svg';
-
-import { cursorTypes } from './constants';
 
 export const SCanvas = styled.canvas`
   width: 100%;
@@ -53,6 +51,11 @@ export const SCanvas = styled.canvas`
       [cursorTypes.greenHighlighter]  : css`cursor: url(${greenHighlighterCursor}) 15 15, auto;`,
       [cursorTypes.eraser]            : css`cursor: url(${eraserCursor}) 15 15, auto;`,
       [cursorTypes.pointer]           : css`cursor: url(${pointerCursor}) 5 5, auto;`,
+      [cursorTypes.dragging]          : css`cursor: move`,
+      [cursorTypes.rotating]          : css`cursor: crosshair;`,
+      [cursorTypes.resizingSW]        : css`cursor: sw-resize`,
+      [cursorTypes.resizingSE]        : css`cursor: se-resize;`,
+      [cursorTypes.menu]              : css`cursor:context-menu;`,
     },
   })}
 `;
