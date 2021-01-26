@@ -29,10 +29,8 @@ export default function onMouseDown(event) {
     return undefined;
   }
 
-  const point = event.point instanceof Point
-    ? event.point
-    : new Point(event.point);
-
+  const isLocalEvent = event.point instanceof Point;
+  const point = isLocalEvent ? event.point : new Point(event.point);
   const boundsHit = checkBoundsHit.call(this, this.selectedItemHandlers, point);
 
   if (boundsHit) {
@@ -43,8 +41,9 @@ export default function onMouseDown(event) {
         this.operation = operations.rotate;
         this.currentRotationAngle = 0;
 
-        // @todo only if local event:
-        store.dispatch(setSelectorCursorOperation(cursorTypes.rotating));
+        if (isLocalEvent) {
+          store.dispatch(setSelectorCursorOperation(cursorTypes.rotating));
+        }
         break;
 
       // All other handlers are for resizing operation
@@ -57,23 +56,30 @@ export default function onMouseDown(event) {
         this.operation = operations.resize;
         this.resizeOriginBound = bounds.bottomLeft;
 
-        // @todo only if local event:
-        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSW));
+        if (isLocalEvent) {
+          store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSW));
+        }
         break;
 
       case bounds.bottomRight:
         this.operation = operations.resize;
         this.resizeOriginBound = bounds.bottomRight;
 
-        // @todo only if local event:
-        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSE));
+        if (isLocalEvent) {
+          store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSE));
+        }
         break;
 
       default:
         break;
     }
 
-    return { point : point2net(point) };
+    return {
+      point     : point2net(point),
+      operation : this.operation,
+      itemName  : this.selectedItem.drawings.name,
+      boundsHit,
+    };
   }
 
   // If clicked on the content of an item, translation operation is set up
@@ -87,8 +93,10 @@ export default function onMouseDown(event) {
   // If no bounds hit, default operation is translation
   this.operation = operations.translate;
   this.currentTranslationPoint = point;
-  // @todo only if local event:
-  store.dispatch(setSelectorCursorOperation(cursorTypes.dragging));
+
+  if (isLocalEvent) {
+    store.dispatch(setSelectorCursorOperation(cursorTypes.dragging));
+  }
 
   if (this.selectedItem.drawings !== item) {
     // Deselect previous item
@@ -107,11 +115,18 @@ export default function onMouseDown(event) {
       // @todo what if children[iten.name] does not exist?
       map      : this.dependencies.projects.map.layers[mapLayers.drawings].children[item.name],
     };
-    this.selectedItemHandlers = createSelectionHandlers(
-      this.selectedItem.drawings,
-      this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-    );
+
+    if (isLocalEvent) {
+      this.selectedItemHandlers = createSelectionHandlers(
+        this.selectedItem.drawings,
+        this.dependencies.projects.drawings.layers[drawingsLayers.selection],
+      );
+    }
   }
 
-  return { point : point2net(point) };
+  return {
+    point     : point2net(point),
+    operation : this.operation,
+    itemName  : item.name,
+  };
 }

@@ -7,6 +7,7 @@ import store, { setSelectorCursorOperation } from '#store';
 import activate from './activate';
 import onMouseDown from './onMouseDown';
 import onMouseDrag from './onMouseDrag';
+import onOperationStart from './onOperationStart';
 
 const throttleDelay = 5; // In milliseconds
 
@@ -76,7 +77,7 @@ export default (dependencies) => {
 
   return Object.freeze({
     activate    : activate.bind(scope),
-    onMouseDown : onMouseDown.bind(scope),
+    onMouseDown : onOperationStart.bind(scope),
     onMouseDrag : onMouseDrag.bind(scope),
   });
 };
