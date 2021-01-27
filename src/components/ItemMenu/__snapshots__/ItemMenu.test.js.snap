@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : ItemMenu Snapshot : not visible 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pscky hrVfUg"
+  >
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.bringForward
+    </div>
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.sendBackward
+    </div>
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.remove
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component : ItemMenu Snapshot : visible 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pscky jlucIJ"
+  >
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.bringForward
+    </div>
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.sendBackward
+    </div>
+    <div
+      class="sc-qQYBZ kyFabS"
+    >
+      itemMenu.remove
+    </div>
+  </div>
+</DocumentFragment>
+`;

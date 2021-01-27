@@ -6,7 +6,15 @@ import {
   injectDependencies, start, stop, addUser, removeUser, exportBoard,
 } from './actions';
 import {
-  onMouseDown, onMouseDrag, onMouseUp, onKeyDown, onImageAdded, onBoardCleared,
+  onMouseDown,
+  onMouseDrag,
+  onMouseUp,
+  onKeyDown,
+  onImageAdded,
+  onItem2Back,
+  onItem2Front,
+  onItemRemoved,
+  onBoardCleared,
 } from './handlers';
 
 export default () => {
@@ -33,6 +41,9 @@ export default () => {
     onKeyDown          : onKeyDown.bind(scope),
     onImageAdded       : onImageAdded.bind(scope),
     onBoardCleared     : onBoardCleared.bind(scope),
+    onItemRemoved      : onItemRemoved.bind(scope),
+    onItem2Front       : onItem2Front.bind(scope),
+    onItem2Back        : onItem2Back.bind(scope),
     tools              : {
       // @todo rework this
       [tools.pencil] : {
@@ -92,6 +103,9 @@ export default () => {
           scope.tools.selector.activate();
           store.dispatch(setSelectedTool(tools.selector));
         },
+        removeItem      : () => scope.tools.selector.removeItem(),
+        sendItem2Back   : () => scope.tools.selector.sendItem2Back(),
+        bringItem2Front : () => scope.tools.selector.bringItem2Front(),
       },
       [tools.image] : {
         activate : (image) => {

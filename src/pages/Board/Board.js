@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Log, setPreventUnload, validBoardId } from '#utils';
 import routes from '#routes';
-import { mainLayoutId, canvasIds, boardsErrors } from '#constants';
+import {
+  mainLayoutId, canvasIds, boardsErrors, tools,
+} from '#constants';
 import {
   BoardError,
   BoardLeave,
@@ -14,6 +16,7 @@ import {
   BoardJoinedWelcome,
   Canvas,
   HeadMeta,
+  ItemMenu,
   Modal,
   NotificationsList,
   Spinner,
@@ -22,8 +25,15 @@ import {
 import {
   boardsService, drawingsService, realtimeService, urlsService,
 } from '#services';
-import {
-  boardNameSelector, isJoinedSelector, isOwnerSelector, setJoined, setUnjoined, usersCountSelector,
+import store, {
+  boardNameSelector,
+  isJoinedSelector,
+  isOwnerSelector,
+  itemMenuSelector,
+  setJoined,
+  setUnjoined,
+  usersCountSelector,
+  hideItemMenu,
 } from '#store';
 
 import SWrapper from './styled';
@@ -46,6 +56,7 @@ const Board = () => {
   const boardName = useSelector(boardNameSelector);
   const isOwner = useSelector(isOwnerSelector);
   const isJoined = useSelector(isJoinedSelector);
+  const itemMenu = useSelector(itemMenuSelector);
   const unblockRef = useRef();
   const isOwnerOnLoad = useRef(isOwner);
   const isJoinedOnLoad = useRef(isJoined);
@@ -159,6 +170,22 @@ const Board = () => {
     redirectTo(nextLocation);
   };
 
+  // @todo useCallback for those?
+  const item2Front = () => {
+    drawingsService.tools[tools.selector].bringItem2Front();
+    store.dispatch(hideItemMenu());
+  };
+
+  const item2Back = () => {
+    drawingsService.tools[tools.selector].sendItem2Back();
+    store.dispatch(hideItemMenu());
+  };
+
+  const itemRemove = () => {
+    drawingsService.tools[tools.selector].removeItem();
+    store.dispatch(hideItemMenu());
+  };
+
   return (
     <>
       <HeadMeta
@@ -168,6 +195,14 @@ const Board = () => {
       />
       <SWrapper>
         <ToolBar />
+        <ItemMenu
+          show={itemMenu.show}
+          top={itemMenu.top}
+          left={itemMenu.left}
+          onItem2Front={item2Front}
+          onItem2Back={item2Back}
+          onItemRemove={itemRemove}
+        />
         <Canvas drawingsId={canvasIds.drawings} mapId={canvasIds.map} />
         <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>
           {modalStep === modalSteps.created && (

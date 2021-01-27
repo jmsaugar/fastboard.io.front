@@ -22,4 +22,7 @@ export default function setMessageHandlers() {
   this.socket.on(drawingsMessages.didKeyDown, drawingsService.onKeyDown);
   this.socket.on(drawingsMessages.didAddImage, drawingsService.onImageAdded);
   this.socket.on(drawingsMessages.didClearBoard, drawingsService.onBoardCleared);
+  this.socket.on(drawingsMessages.didRemoveItem, drawingsService.onItemRemoved);
+  this.socket.on(drawingsMessages.didBringItemForward, drawingsService.onItem2Front);
+  this.socket.on(drawingsMessages.didSendItemBackward, drawingsService.onItem2Back);
 }

@@ -67,6 +67,11 @@ export const selectorCursorSelector = createSelector(
   (selectorCursor) => (selectorCursor.operation || selectorCursor.hover),
 );
 
+export const itemMenuSelector = createSelector(
+  toolsSelector,
+  (tools) => tools.itemMenu,
+);
+
 export const toolsColorsSelector = createSelector(
   toolsSelector,
   (tools) => tools.colors,

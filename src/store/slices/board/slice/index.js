@@ -4,6 +4,8 @@ import initialState from './initialState';
 import {
   addUserReducer,
   removeUserReducer,
+  showItemMenuReducer,
+  hideItemMenuReducer,
   setBoardNameReducer,
   setCreatedReducer,
   setJoinedReducer,
@@ -23,6 +25,8 @@ const boardSlice = createSlice({
   reducers : {
     addUser                    : addUserReducer,
     removeUser                 : removeUserReducer,
+    showItemMenu               : showItemMenuReducer,
+    hideItemMenu               : hideItemMenuReducer,
     setBoardName               : setBoardNameReducer,
     setCreated                 : setCreatedReducer,
     setJoined                  : setJoinedReducer,
@@ -40,6 +44,8 @@ const boardSlice = createSlice({
 export const {
   addUser,
   removeUser,
+  showItemMenu,
+  hideItemMenu,
   setBoardName,
   setCreated,
   setJoined,

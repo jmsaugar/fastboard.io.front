@@ -29,6 +29,11 @@ export default function setCreated(state, action) {
             operation : undefined,
             hover     : undefined,
           },
+          itemMenu : {
+            show : false,
+            top  : undefined,
+            left : undefined,
+          },
           colors : {
             pencil      : defaultDrawingColor,
             pen         : defaultDrawingColor,

@@ -1,6 +1,7 @@
 export {
   isOwnerSelector,
   isJoinedSelector,
+  itemMenuSelector,
   boardNameSelector,
   myUserNameSelector,
   myJoinDateSelector,
@@ -14,6 +15,8 @@ export {
 export {
   setCreated,
   setUnjoined,
+  showItemMenu,
+  hideItemMenu,
   setBoardName,
   setMyUserName,
   setUserName,

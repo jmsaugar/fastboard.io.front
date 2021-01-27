@@ -17,6 +17,11 @@ export default {
       operation : undefined, // Selector cursor based on current operation
       hover     : undefined, // Selector cursor based on current hover position
     },
+    itemMenu : {
+      show : false,
+      top  : undefined,
+      left : undefined,
+    },
     colors : {
       pencil      : defaultDrawingColor,
       pen         : defaultDrawingColor,

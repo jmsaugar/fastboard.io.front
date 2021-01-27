@@ -4,3 +4,6 @@ export { default as onKeyDown } from './onKeyDown';
 export { default as onMouseDown } from './onMouseDown';
 export { default as onMouseDrag } from './onMouseDrag';
 export { default as onMouseUp } from './onMouseUp';
+export { default as onItem2Back } from './onItem2Back';
+export { default as onItem2Front } from './onItem2Front';
+export { default as onItemRemoved } from './onItemRemoved';

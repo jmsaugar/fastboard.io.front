@@ -4,7 +4,7 @@ import { Log, point2net } from '#utils';
 import {
   drawingsLayers, mapLayers, canvasIds, cursorTypes,
 } from '#constants';
-import store, { setSelectorCursorOperation } from '#store';
+import store, { setSelectorCursorOperation, showItemMenu, hideItemMenu } from '#store';
 
 import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
@@ -33,6 +33,10 @@ export default function onMouseDown(event) {
   const point = isLocalEvent ? event.point : new Point(event.point);
   const boundsHit = checkBoundsHit.call(this, this.selectedItemHandlers, point);
 
+  if (isLocalEvent) {
+    store.dispatch(hideItemMenu());
+  }
+
   if (boundsHit) {
     // If clicked on the bounds of an item, rotation or resizing operation is set up
     switch (boundsHit) {
@@ -46,12 +50,17 @@ export default function onMouseDown(event) {
         }
         break;
 
-      // All other handlers are for resizing operation
+      // Top right handler is for item menu operation
       case bounds.topRight:
-        this.operation = operations.resize;
-        this.resizeOriginBound = bounds.topRight;
+        if (isLocalEvent) {
+          store.dispatch(showItemMenu({
+            top  : event.event.layerY,
+            left : event.event.layerX,
+          }));
+        }
         break;
 
+      // All other handlers are for resizing operation
       case bounds.bottomLeft:
         this.operation = operations.resize;
         this.resizeOriginBound = bounds.bottomLeft;

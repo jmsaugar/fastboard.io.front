@@ -1,4 +1,6 @@
 export {
+  showItemMenu,
+  hideItemMenu,
   setCreated,
   setJoined,
   setUnjoined,
@@ -14,6 +16,7 @@ export {
   setToolColor,
   isOwnerSelector,
   isJoinedSelector,
+  itemMenuSelector,
   boardNameSelector,
   myUserNameSelector,
   myJoinDateSelector,

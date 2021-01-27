@@ -66,5 +66,10 @@
     "userNameSet": "{{oldUserName}} changed name to {{newUserName}}.",
     "boardNameSet": "Board name was changed to {{boardName}}.",
     "boardCleared": "{{userName}} cleared the board."
+  },
+  "itemMenu": {
+    "bringForward": "Bring forward",
+    "sendBackward": "Send backward",
+    "remove": "Remove"
   }
 }

@@ -66,5 +66,10 @@
     "userNameSet": "{{oldUserName}} cambió su nombre a {{newUserName}}.",
     "boardNameSet": "El nombre del panel se cambió a {{boardName}}.",
     "boardCleared": "{{userName}} limpió el panel."
+  },
+  "itemMenu": {
+    "bringForward": "Traer al frente",
+    "sendBackward": "Enviar al fondo",
+    "remove": "Eliminar"
   }
 }

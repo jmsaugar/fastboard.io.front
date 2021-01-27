@@ -7,6 +7,7 @@ export default {
   buttonWidthLg     : '300px',
   cardWidth         : '500px',
   notificationWidth : '240px',
+  itemMenuWidth     : '160px',
   formHeight        : '34px',
   formHeightLg      : '80px',
   toolButton        : '44px',
