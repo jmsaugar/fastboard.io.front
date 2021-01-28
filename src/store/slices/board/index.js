@@ -20,7 +20,6 @@ export {
   setBoardName,
   setMyUserName,
   setUserName,
-  setSelectedTool,
   setSelectorCursorHover,
   setSelectorCursorOperation,
   setToolColor,
@@ -31,4 +30,5 @@ export {
   addUser,
   removeUser,
   setJoined,
+  setSelectedTool,
 } from './thunks';

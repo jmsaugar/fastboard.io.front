@@ -1,9 +1,11 @@
+import { tools } from '#constants';
 import { drawingsService } from '#services';
 
 import {
   addUser as addUserAction,
   removeUser as removeUserAction,
   setJoined as setJoinedAction,
+  setSelectedTool as setSelectedToolAction,
 } from './slice';
 
 /**
@@ -40,4 +42,18 @@ export const setJoined = (payload) => (dispatch) => {
   }
 
   dispatch(setJoinedAction(payload));
+};
+
+/**
+ * Set a new tool in use.
+ * Reset the item selection if needed.
+ *
+ * @param {String} payload New tool to be selected.
+ */
+export const setSelectedTool = (payload) => (dispatch) => {
+  if (payload !== tools.export && payload !== tools.selector) {
+    drawingsService.tools[tools.selector].reset();
+  }
+
+  dispatch(setSelectedToolAction(payload));
 };

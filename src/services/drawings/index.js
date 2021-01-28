@@ -100,12 +100,14 @@ export default () => {
       },
       [tools.selector] : {
         activate : () => {
+          scope.tools.selector.reset();
           scope.tools.selector.activate();
           store.dispatch(setSelectedTool(tools.selector));
         },
         removeItem      : () => scope.tools.selector.removeItem(),
         sendItem2Back   : () => scope.tools.selector.sendItem2Back(),
         bringItem2Front : () => scope.tools.selector.bringItem2Front(),
+        reset           : () => scope.tools.selector.reset(),
       },
       [tools.image] : {
         activate : (image) => {

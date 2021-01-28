@@ -14,6 +14,7 @@ import sendItem2Back from './sendItem2Back';
 import onItem2Back from './onItem2Back';
 import bringItem2Front from './bringItem2Front';
 import onItem2Front from './onItem2Front';
+import reset from './reset';
 
 const throttleDelay = 5; // In milliseconds
 
@@ -91,5 +92,6 @@ export default (dependencies) => {
     onItem2Back     : onItem2Back.bind(scope),
     bringItem2Front : bringItem2Front.bind(scope),
     onItem2Front    : onItem2Front.bind(scope),
+    reset           : reset.bind(scope),
   });
 };

@@ -5,7 +5,8 @@ import { removeSelectionHandlers } from '../utils';
 
 /**
  * Reset tool.
- * Used when mouse down hit no actionable item.
+ * Used when mouse down hit no actionable item
+ * or when a different tool is selected.
  */
 export default function reset() {
   if (this.selectedItem.drawings) {
