@@ -4,10 +4,16 @@ import onItemRemoved from './onItemRemoved';
 
 /**
  * Remove an item from the board
- * and notify other users..
+ * and notify other users.
  */
 export default function removeItem() {
-  const itemName = onItemRemoved.call(this);
+  if (!this.selectedItem.drawings) {
+    return;
+  }
+
+  const itemName = this.selectedItem.drawings.name;
+
+  onItemRemoved.call(this, itemName);
 
   this.dependencies.realtimeService.send(
     drawingsMessages.doRemoveItem,

@@ -1,32 +1,27 @@
 import { drawingsLayers } from '#constants';
-import store, { setSelectorCursorOperation, setSelectorCursorHover } from '#store';
+import store, { setSelectorCursorOperation, setSelectorCursorHover, hideItemMenu } from '#store';
 
-import { removeSelectionHandlers } from '../utils';
+import { removeSelectionHandlers } from './selectionHandlers';
 
 /**
- * Reset tool.
- * Used when mouse down hit no actionable item
- * or when a different tool is selected.
+ * Reset the selection tool.
  */
 export default function reset() {
-  if (this.selectedItem.drawings) {
+  if (this.selectedItem.handlers) {
     removeSelectionHandlers(
-      this.selectedItem.drawings,
       this.dependencies.projects.drawings.layers[drawingsLayers.selection],
     );
-
-    this.selectedItem = {
-      drawings : undefined,
-      map      : undefined,
-    };
-    this.selectedItemHandlers = undefined;
   }
 
-  this.operation = undefined;
-  this.currentTranslationPoint = undefined;
-  this.currentRotationAngle = undefined;
-  this.resizeOriginBound = undefined;
+  this.selectedItem = {
+    drawings : undefined,
+    map      : undefined,
+    handlers : undefined,
+  };
+
+  this.operation = {};
 
   store.dispatch(setSelectorCursorOperation());
   store.dispatch(setSelectorCursorHover());
+  store.dispatch(hideItemMenu());
 }

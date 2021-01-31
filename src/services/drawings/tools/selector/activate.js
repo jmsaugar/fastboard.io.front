@@ -1,35 +1,36 @@
 import { Log } from '#utils';
 import { drawingsLayers, mapLayers } from '#constants';
 
-import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
+import reset from './reset';
+import { createSelectionHandlers } from './selectionHandlers';
 
 /**
- * Activate selector tool.
+ * Activate selection tool.
+ *
+ * @param {String} itemName Item to be selected by default. Can be undefined.
  */
 export default function activate(itemName) {
-  Log.debug('Service : Drawings : Tools : Selector : activate');
+  Log.debug('Service : Drawings : Tools : Selector : activate', { itemName });
 
-  const { drawings : drawingsProject, map : mapProject } = this.dependencies.projects;
-
-  this.tool.activate();
-
+  // If there is a previous selection, remove it
   if (this.selectedItem.drawings) {
-    removeSelectionHandlers(
-      this.selectedItem.drawings,
-      drawingsProject.layers[drawingsLayers.selection],
-    );
-    this.selectedItemHandlers = undefined;
+    reset.call(this);
   }
 
+  // In case an item is to be selected by default
   if (itemName) {
+    const { drawings : drawingsProject, map : mapProject } = this.dependencies.projects;
+
     this.selectedItem = {
       drawings : drawingsProject.layers[drawingsLayers.drawings].children[itemName],
       map      : mapProject.layers[mapLayers.drawings].children[itemName],
     };
 
-    this.selectedItemHandlers = createSelectionHandlers(
+    this.selectedItem.handlers = createSelectionHandlers(
       this.selectedItem.drawings,
       drawingsProject.layers[drawingsLayers.selection],
     );
   }
+
+  this.tool.activate();
 }

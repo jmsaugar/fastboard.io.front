@@ -25,4 +25,6 @@ export default function setMessageHandlers() {
   this.socket.on(drawingsMessages.didRemoveItem, drawingsService.onItemRemoved);
   this.socket.on(drawingsMessages.didBringItemForward, drawingsService.onItem2Front);
   this.socket.on(drawingsMessages.didSendItemBackward, drawingsService.onItem2Back);
+  this.socket.on(drawingsMessages.didSelectItem, drawingsService.onItemSelected);
+  this.socket.on(drawingsMessages.didOperateItem, drawingsService.onItemOperation);
 }

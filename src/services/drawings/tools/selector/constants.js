@@ -10,3 +10,5 @@ export const bounds = Object.freeze({
   bottomLeft  : 'bottomLeft',
   bottomRight : 'bottomRight',
 });
+
+export const handlersBorderName = 'selectionBorderItem';

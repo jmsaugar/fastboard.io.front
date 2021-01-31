@@ -1,7 +1,7 @@
 import { Log } from '#utils';
-import { drawingsLayers } from '#constants';
+// import { drawingsLayers } from '#constants';
 
-import { resizeSelectionHandlers, removeSelectionHandlers } from '../utils';
+// import { removeSelectionHandlers } from '../utils';
 
 const keys = Object.freeze({
   backspace : 'backspace',
@@ -10,6 +10,7 @@ const keys = Object.freeze({
   dead      : 'dead',
 });
 
+// @todo refactor pending - related to selection
 export default function onKeyDown(event) {
   Log.debug('Service : Drawings : Tools : Text : onKeyDown', { event });
 
@@ -17,7 +18,7 @@ export default function onKeyDown(event) {
     return undefined;
   }
 
-  const drawingsProject = this.dependencies.projects.drawings;
+  // const drawingsProject = this.dependencies.projects.drawings;
 
   // @todo check this for missing cases
   switch (event.key) {
@@ -39,15 +40,15 @@ export default function onKeyDown(event) {
   }
 
   if (this.isWriting) {
-    resizeSelectionHandlers(
-      this.currentText.drawings,
-      drawingsProject.layers[drawingsLayers.selection].children.selectionHandlers,
-    );
+    // resizeSelectionHandlers(
+    //   this.currentText.drawings,
+    //   drawingsProject.layers[drawingsLayers.selection].children.selectionHandlers,
+    // );
   } else {
-    removeSelectionHandlers(
-      this.currentText.drawings,
-      drawingsProject.layers[drawingsLayers.selection],
-    );
+    // removeSelectionHandlers(
+    //   this.currentText.drawings,
+    //   drawingsProject.layers[drawingsLayers.selection],
+    // );
     this.currentText.drawings = undefined;
     this.currentText.map = undefined;
   }

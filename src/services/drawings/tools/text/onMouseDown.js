@@ -4,7 +4,7 @@ import { PointText } from 'paper';
 import { Log } from '#utils';
 import { drawingsLayers, mapLayers, canvasIds } from '#constants';
 
-import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
+// import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Text : onMouseDown', { event });
@@ -18,10 +18,10 @@ export default function onMouseDown(event) {
 
   // If the user was writing, leave the writing state
   if (this.isWriting) {
-    removeSelectionHandlers(
-      this.currentText.drawings,
-      this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-    );
+    // removeSelectionHandlers(
+    //   this.currentText.drawings,
+    //   this.dependencies.projects.drawings.layers[drawingsLayers.selection],
+    // );
 
     this.isWriting = false;
     this.currentText = {
@@ -49,10 +49,10 @@ export default function onMouseDown(event) {
     parent    : this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
   });
 
-  createSelectionHandlers(
-    this.currentText.drawings,
-    this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-  );
+  // createSelectionHandlers(
+  //   this.currentText.drawings,
+  //   this.dependencies.projects.drawings.layers[drawingsLayers.selection],
+  // );
 
   // Replicate the text item in the map project
   this.currentText.map = new PointText({

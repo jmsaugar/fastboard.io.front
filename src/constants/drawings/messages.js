@@ -17,4 +17,8 @@ export default Object.freeze({
   didBringItemForward : 'didBringItemForward',
   doSendItemBackward  : 'doSendItemBackward',
   didSendItemBackward : 'didSendItemBackward',
+  doSelectItem        : 'doSelectItem',
+  didSelectItem       : 'didSelectItem',
+  doOperateItem       : 'doOperateItem',
+  didOperateItem      : 'didOperateItem',
 });

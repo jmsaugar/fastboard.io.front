@@ -15,6 +15,8 @@ import {
   onItem2Front,
   onItemRemoved,
   onBoardCleared,
+  onItemSelected,
+  onItemOperation,
 } from './handlers';
 
 export default () => {
@@ -44,6 +46,8 @@ export default () => {
     onItemRemoved      : onItemRemoved.bind(scope),
     onItem2Front       : onItem2Front.bind(scope),
     onItem2Back        : onItem2Back.bind(scope),
+    onItemSelected     : onItemSelected.bind(scope),
+    onItemOperation    : onItemOperation.bind(scope),
     tools              : {
       // @todo rework this
       [tools.pencil] : {
@@ -108,6 +112,8 @@ export default () => {
         sendItem2Back   : () => scope.tools.selector.sendItem2Back(),
         bringItem2Front : () => scope.tools.selector.bringItem2Front(),
         reset           : () => scope.tools.selector.reset(),
+        unselectItem    : (itemName) => scope.tools.selector.unselectItem(itemName),
+        operateItem     : (operationData) => scope.tools.selector.operateItem(operationData),
       },
       [tools.image] : {
         activate : (image) => {

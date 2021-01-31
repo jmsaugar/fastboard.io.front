@@ -1,15 +1,15 @@
-import { Point } from 'paper';
-
-import { Log, point2net } from '#utils';
+import { Log } from '#utils';
 import {
-  drawingsLayers, mapLayers, canvasIds, cursorTypes,
+  canvasIds, cursorTypes, drawingsLayers, mapLayers,
 } from '#constants';
-import store, { setSelectorCursorOperation, showItemMenu, hideItemMenu } from '#store';
+import store, {
+  setSelectorCursorOperation, showItemMenu, hideItemMenu,
+} from '#store';
 
-import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
 import { bounds, operations } from './constants';
 import { checkBoundsHit, checkContentHit } from './hitTesting';
 import reset from './reset';
+import { createSelectionHandlers, removeSelectionHandlers } from './selectionHandlers';
 
 /**
  * onMouseDown handler for selection tool.
@@ -18,124 +18,108 @@ import reset from './reset';
  * If so, sets the proper config for next mouse drag operations.
  *
  * @param {Object} event Mouse down event object.
+ *
+ * @returns {String|undefined} Item name in case an item was selected; undefined in other case.
  */
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Selector : onMouseDown', { event });
 
-  // @todo get canvas drawings id from dependencies?
   // Check that the event is triggered on the drawings canvas
   const element = event?.event?.path[0];
   if (element && element.id !== canvasIds.drawings) {
     return undefined;
   }
 
-  const isLocalEvent = event.point instanceof Point;
-  const point = isLocalEvent ? event.point : new Point(event.point);
-  const boundsHit = checkBoundsHit.call(this, this.selectedItemHandlers, point);
+  // New operation, so the item menu is hidden
+  store.dispatch(hideItemMenu());
 
-  if (isLocalEvent) {
-    store.dispatch(hideItemMenu());
-  }
+  const boundHit = checkBoundsHit.call(this, this.selectedItem.handlers, event.point);
 
-  if (boundsHit) {
+  if (boundHit) {
     // If clicked on the bounds of an item, rotation or resizing operation is set up
-    switch (boundsHit) {
+    switch (boundHit) {
       // Top left handler is for rotation operation
       case bounds.topLeft:
-        this.operation = operations.rotate;
-        this.currentRotationAngle = 0;
-
-        if (isLocalEvent) {
-          store.dispatch(setSelectorCursorOperation(cursorTypes.rotating));
-        }
+        this.operation = {
+          type         : operations.rotate,
+          currentAngle : 0,
+        };
+        store.dispatch(setSelectorCursorOperation(cursorTypes.rotating));
         break;
 
       // Top right handler is for item menu operation
       case bounds.topRight:
-        if (isLocalEvent) {
-          store.dispatch(showItemMenu({
-            top  : event.event.layerY,
-            left : event.event.layerX,
-          }));
-        }
+        store.dispatch(showItemMenu({
+          top  : event.event.layerY,
+          left : event.event.layerX,
+        }));
         break;
 
-      // All other handlers are for resizing operation
+      // Both bottom handlers are for resizing operation
       case bounds.bottomLeft:
-        this.operation = operations.resize;
-        this.resizeOriginBound = bounds.bottomLeft;
-
-        if (isLocalEvent) {
-          store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSW));
-        }
+        this.operation = {
+          type        : operations.resize,
+          originBound : bounds.bottomLeft,
+        };
+        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSW));
         break;
 
       case bounds.bottomRight:
-        this.operation = operations.resize;
-        this.resizeOriginBound = bounds.bottomRight;
-
-        if (isLocalEvent) {
-          store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSE));
-        }
+        this.operation = {
+          type        : operations.resize,
+          originBound : bounds.bottomRight,
+        };
+        store.dispatch(setSelectorCursorOperation(cursorTypes.resizingSE));
         break;
 
       default:
         break;
     }
 
-    return {
-      point     : point2net(point),
-      operation : this.operation,
-      itemName  : this.selectedItem.drawings.name,
-      boundsHit,
-    };
+    return undefined;
   }
 
   // If clicked on the content of an item, translation operation is set up
-  const item = checkContentHit.call(this, this.dependencies.projects.drawings, point);
+  const item = checkContentHit.call(this, this.dependencies.projects.drawings, event.point);
 
+  // If no item selected, just reset the tool
   if (!item) {
     reset.call(this);
     return undefined;
   }
 
-  // If no bounds hit, default operation is translation
-  this.operation = operations.translate;
-  this.currentTranslationPoint = point;
-
-  if (isLocalEvent) {
-    store.dispatch(setSelectorCursorOperation(cursorTypes.dragging));
-  }
-
-  if (this.selectedItem.drawings !== item) {
-    // Deselect previous item
-    if (this.selectedItem.drawings) {
-      // @todo deselect also when tool is unselected
-      removeSelectionHandlers(
-        this.selectedItem.drawings,
-        this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-      );
-      this.selectedItemHandlers = undefined;
-    }
-
-    // Select new one
-    this.selectedItem = {
-      drawings : item,
-      // @todo what if children[iten.name] does not exist?
-      map      : this.dependencies.projects.map.layers[mapLayers.drawings].children[item.name],
-    };
-
-    if (isLocalEvent) {
-      this.selectedItemHandlers = createSelectionHandlers(
-        this.selectedItem.drawings,
-        this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-      );
-    }
-  }
-
-  return {
-    point     : point2net(point),
-    operation : this.operation,
-    itemName  : item.name,
+  // If item content hit, operation is translation
+  this.operation = {
+    type        : operations.translate,
+    originPoint : event.point,
   };
+
+  // Set translation cursor
+  store.dispatch(setSelectorCursorOperation(cursorTypes.dragging));
+
+  // If reselecting same item that was selected, do nothing
+  if (this.selectedItem.drawings === item) {
+    return undefined;
+  }
+
+  // If there was a different item selected, unselect it
+  if (this.selectedItem.drawings) {
+    removeSelectionHandlers(
+      this.dependencies.projects.drawings.layers[drawingsLayers.selection],
+    );
+  }
+
+  // Save new selected item
+  this.selectedItem = {
+    drawings : item,
+    map      : this.dependencies.projects.map.layers[mapLayers.drawings].children[item.name],
+  };
+
+  // Create selection handlers for the selected item
+  this.selectedItem.handlers = createSelectionHandlers(
+    this.selectedItem.drawings,
+    this.dependencies.projects.drawings.layers[drawingsLayers.selection],
+  );
+
+  return item.name;
 }

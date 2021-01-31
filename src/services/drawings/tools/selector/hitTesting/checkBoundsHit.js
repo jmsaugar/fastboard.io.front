@@ -14,7 +14,7 @@ export default function checkBoundsHit(handlersItem, point) {
   }
 
   const hits = handlersItem.hitTestAll(point, {
-    class     : Shape,
+    class     : Shape, // Checks only the 4 bounds, which are a Shape.Circle
     fill      : true,
     stroke    : true,
     tolerance : 1,

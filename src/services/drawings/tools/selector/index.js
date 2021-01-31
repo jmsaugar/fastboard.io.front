@@ -4,24 +4,24 @@ import { Log, throttle } from '#utils';
 import { drawingsMessages, tools } from '#constants';
 import store, { setSelectorCursorOperation } from '#store';
 
+import reset from './reset';
 import activate from './activate';
 import onMouseDown from './onMouseDown';
 import onMouseDrag from './onMouseDrag';
-import onOperationStart from './onOperationStart';
-import removeItem from './removeItem';
-import onItemRemoved from './onItemRemoved';
-import sendItem2Back from './sendItem2Back';
-import onItem2Back from './onItem2Back';
-import bringItem2Front from './bringItem2Front';
 import onItem2Front from './onItem2Front';
-import reset from './reset';
+import onItem2Back from './onItem2Back';
+import onRemoveItem from './onItemRemoved';
+import bringItem2Front from './bringItem2Front';
+import sendItem2Back from './sendItem2Back';
+import removeItem from './removeItem';
+import unselectItem from './unselectItem';
+import operateItem from './operateItem';
 
 const throttleDelay = 5; // In milliseconds
 
 export default (dependencies) => {
   Log.info('Service : Drawings : Tools : Selector : create');
 
-  // @todo freeze/seal other scope objects
   const scope = Object.seal({
     dependencies : {
       realtimeService : dependencies?.realtimeService,
@@ -32,46 +32,35 @@ export default (dependencies) => {
     },
     tool         : new Tool(),
     selectedItem : {
-      drawings : undefined,
-      map      : undefined,
+      drawings : undefined, // Selected item in the drawings project
+      map      : undefined, // Selected item in the map project
+      handlers : undefined, // Selected item handlers
     },
-    selectedItemHandlers    : undefined,
-    operation               : undefined,
-    currentTranslationPoint : undefined,
-    currentRotationAngle    : undefined,
-    resizeOriginBound       : undefined,
+    operation : {}, // Current operation data
   });
 
   scope.tool.on('mousedown', (event) => {
-    Log.debug('Selector : onMouseDown');
+    const itemName = onMouseDown.call(scope, event);
 
-    const drawingData = onMouseDown.call(scope, event);
-
-    if (drawingData) {
+    // If an item was selected, notify other users
+    if (itemName) {
       dependencies.realtimeService.send(
-        drawingsMessages.doMouseDown,
-        {
-          tool : tools.selector,
-          ...drawingData,
-        },
-      ).catch(() => {}); // @todo;
+        drawingsMessages.doSelectItem,
+        { tool : tools.selector, itemName },
+      ).catch(() => {}); // @todo
     }
   });
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Selector : onMouseDrag');
+      const operationData = onMouseDrag.call(scope, event);
 
-      const drawingData = onMouseDrag.call(scope, event);
-
-      if (drawingData) {
+      // If operating an item, notify other users
+      if (operationData) {
         dependencies.realtimeService.send(
-          drawingsMessages.doMouseDrag,
-          {
-            tool : tools.selector,
-            ...drawingData,
-          },
-        ).catch(() => {}); // @todo;
+          drawingsMessages.doOperateItem,
+          { tool : tools.selector, ...operationData },
+        ).catch(() => {}); // @todo
       }
     },
     throttleDelay,
@@ -83,15 +72,15 @@ export default (dependencies) => {
   );
 
   return Object.freeze({
-    activate        : activate.bind(scope),
-    onMouseDown     : onOperationStart.bind(scope),
-    onMouseDrag     : onMouseDrag.bind(scope),
-    removeItem      : removeItem.bind(scope),
-    onItemRemoved   : onItemRemoved.bind(scope),
-    sendItem2Back   : sendItem2Back.bind(scope),
-    onItem2Back     : onItem2Back.bind(scope),
-    bringItem2Front : bringItem2Front.bind(scope),
-    onItem2Front    : onItem2Front.bind(scope),
     reset           : reset.bind(scope),
+    activate        : activate.bind(scope),
+    bringItem2Front : bringItem2Front.bind(scope),
+    sendItem2Back   : sendItem2Back.bind(scope),
+    removeItem      : removeItem.bind(scope),
+    onItem2Front    : onItem2Front.bind(scope),
+    onItem2Back     : onItem2Back.bind(scope),
+    onItemRemoved   : onRemoveItem.bind(scope),
+    unselectItem    : unselectItem.bind(scope),
+    operateItem     : operateItem.bind(scope),
   });
 };

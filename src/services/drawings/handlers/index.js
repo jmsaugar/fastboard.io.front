@@ -7,3 +7,5 @@ export { default as onMouseUp } from './onMouseUp';
 export { default as onItem2Back } from './onItem2Back';
 export { default as onItem2Front } from './onItem2Front';
 export { default as onItemRemoved } from './onItemRemoved';
+export { default as onItemSelected } from './onItemSelected';
+export { default as onItemOperation } from './onItemOperation';
