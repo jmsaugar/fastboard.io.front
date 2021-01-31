@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Fastboard.io
+---
+### Frontend project
+### What is Fastboard.io?
 
-## Available Scripts
+Fastboard.io is a real-time online collaborative whiteboard. It features a clean, touchscreen-friendly web interface for quick and easy sessions, without any login or registration required, allowing the users to create and share drawings, sketches, text and images.
 
-In the project directory, you can run:
+####**This is still a work in progress**
 
-### `npm start`
+### Related projects
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Backend project is [here](https://github.com/jmsaugar/fastboard.io.back)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Technology stack
 
-### `npm test`
+- [React](https://github.com/facebook/react)
+- [Redux](https://github.com/reduxjs/redux)
+- [PaperJS](https://github.com/paperjs)
+- [Styled Components](https://github.com/styled-components/styled-components)
+- [XStyled](https://github.com/gregberge/xstyled)
+- Many others, check `package.json` for full list.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Getting started
 
-### `npm run build`
+To launch the project locally and be able to use it, you will need to have the backend project running. More information [here](https://github.com/jmsaugar/fastboard.io.back/blob/master/README.md).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Basic requirements
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/en/) (developed under v12.18.1, but probably previous ones are compatible too).
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) (I used the latter).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Configure environment
 
-### `npm run eject`
+Copy the file `env.template` into a new one called `env.local`. There you will be able to set those environment variables:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `REACT_APP_SOCKETIO_ENDPOINT` The host and port that the backend project is running in (e.g. `localhost:9000/`).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `REACT_APP_SOCKETIO_PATH` The path to be used in the socket.io connection. This has to be the same as configured in the backend project (e.g. `/`).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `REACT_APP_BASE_URL` The base url which will be used to build the session sharing link and validation in the join form (e.g. https://fastboard.io).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `REACT_APP_EXTERNAL_LINK_GITHUB` Footer link. Not required for local development.
 
-## Learn More
+- `REACT_APP_GA_ID` Google Analytics ID. Not required for local development.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm install` or `yarn install`
 
-### Code Splitting
+#### Run the app
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+`npm start` or `yarn start`
 
-### Analyzing the Bundle Size
+#### Other scripts
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The project was setup using [Create React App](https://github.com/facebook/create-react-app) so the usual list of scripts is present.
 
-### Making a Progressive Web App
+* **Build**: `npm build` / `yarn build`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* **Linting**:
+  - CSS-in-JS linting (using [stylelint](https://github.com/stylelint/stylelint))
+  `npm lint:css` / `yarn lint:css`
 
-### Advanced Configuration
+  - JS linting (using [AirBnB JS style guide](https://github.com/airbnb/javascript) and some other packages and customizations)
+  `npm lint:js` / `yarn lint:js`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  - Lint all - self explanatory
+  `npm lint:all` / `yarn lint:all`
 
-### Deployment
+* **Testing**: [React Testing Library](https://github.com/testing-library/react-testing-library) and [Jest](https://github.com/facebook/jest) are used for testing.
+  `npm test` / `yarn test`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### More
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+As the work is still in progress, I will keep updating this document. Feel free to reach me, I welcome any contributions :)

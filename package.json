@@ -1,6 +1,12 @@
 {
   "name": "fastboard.io.front",
   "version": "0.1.0",
+  "description": "Real-time online collaborative whiteboard",
+  "license": "MIT",
+  "homepage": "https://fastboard.io",
+  "repository": "https://github.com/jmsaugar/fastboard.io.front",
+  "bugs": "https://github.com/jmsaugar/fastboard.io.front/issues",
+  "author": "Jesús Martínez Saugar <jesus.martinez.saugar@gmail.com> (https://github.com/jmsaugar)",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
