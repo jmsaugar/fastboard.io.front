@@ -17,6 +17,7 @@ Backend project is [here](https://github.com/jmsaugar/fastboard.io.back)
 - [React](https://github.com/facebook/react)
 - [Redux](https://github.com/reduxjs/redux)
 - [PaperJS](https://github.com/paperjs)
+- [Socket.io](https://github.com/socketio/socket.io)
 - [Styled Components](https://github.com/styled-components/styled-components)
 - [XStyled](https://github.com/gregberge/xstyled)
 - Many others, check `package.json` for full list.
