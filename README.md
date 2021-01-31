@@ -1,9 +1,10 @@
 # Fastboard.io
----
+
 ### Frontend project
+
 ### What is Fastboard.io?
 
-Fastboard.io is a real-time online collaborative whiteboard. It features a clean, touchscreen-friendly web interface for quick and easy sessions, without any login or registration required, allowing the users to create and share drawings, sketches, text and images.
+[Fastboard.io](https://fastboard.io) is a real-time online collaborative whiteboard. It features a clean, touchscreen-friendly web interface for quick and easy sessions, without any login or registration required, allowing the users to create and share drawings, sketches, text and images.
 
 ####**This is still a work in progress**
 
