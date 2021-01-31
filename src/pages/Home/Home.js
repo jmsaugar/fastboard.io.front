@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import ReactGA from 'react-ga';
 
 import {
   Log, validBoardId, validBoardUrl, extractBoardId,
 } from '#utils';
-import { boardsErrors } from '#constants';
+import {
+  boardsErrors, gaCategories, gaActions, gaLabels,
+} from '#constants';
 import { HeadMeta } from '#components';
 import routes from '#routes';
 import { boardsService, realtimeService } from '#services';
@@ -39,10 +42,22 @@ const Home = () => {
         .then(({ boardId, boardName : joinedBoardName, joinDate }) => {
           Log.debug('Component : Home : create : created', { boardId, joinedBoardName, joinDate });
 
+          ReactGA.event({
+            category : gaCategories.board,
+            action   : gaActions.create,
+            label    : gaLabels.ok,
+          });
+
           dispatch(setCreated({ boardName, userName, joinDate }));
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(({ code }) => {
+          ReactGA.event({
+            category : gaCategories.board,
+            action   : gaActions.create,
+            label    : gaLabels.ko,
+          });
+
           setErrorCode(code || boardsErrors.generic);
           realtimeService.stop();
         })
@@ -77,6 +92,9 @@ const Home = () => {
     () => setErrorCode(),
     [step],
   );
+
+  // Analytics pageview
+  useEffect(() => ReactGA.pageview(routes.home), []);
 
   return (
     <>

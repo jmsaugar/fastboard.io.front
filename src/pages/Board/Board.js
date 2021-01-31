@@ -3,11 +3,18 @@ import React, {
 } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactGA from 'react-ga';
 
 import { Log, setPreventUnload, validBoardId } from '#utils';
 import routes from '#routes';
 import {
-  mainLayoutId, canvasIds, boardsErrors, tools,
+  mainLayoutId,
+  canvasIds,
+  boardsErrors,
+  tools,
+  gaCategories,
+  gaActions,
+  gaLabels,
 } from '#constants';
 import {
   BoardError,
@@ -81,6 +88,12 @@ const Board = () => {
             joinedBoardId, joinDate, joinedBoardName, users,
           });
 
+          ReactGA.event({
+            category : gaCategories.board,
+            action   : gaActions.join,
+            label    : gaLabels.ok,
+          });
+
           drawingsService.start(canvasIds.drawings, canvasIds.map);
           dispatch(setJoined({
             boardName : joinedBoardName, joinDate, userName, users,
@@ -89,6 +102,12 @@ const Board = () => {
           setModalStep(modalSteps.none);
         })
         .catch(({ code }) => {
+          ReactGA.event({
+            category : gaCategories.board,
+            action   : gaActions.join,
+            label    : gaLabels.ko,
+          });
+
           setModalStep(modalSteps.error);
           setErrorCode(code || boardsErrors.generic);
           realtimeService.stop();
@@ -162,6 +181,12 @@ const Board = () => {
 
     return () => {};
   }, [block, isJoined, setModalStep, setNextLocation]);
+
+  // Analytics pageview
+  useEffect(
+    () => ReactGA.pageview(routes.board.replace(':id', boardId)),
+    [boardId],
+  );
 
   const goHome = () => redirectTo(routes.home);
 
