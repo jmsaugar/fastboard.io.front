@@ -15,7 +15,10 @@ export default function setMyUserName(state, action) {
     ...state,
     users : {
       ...state.users,
-      me : action.payload,
+      me : {
+        ...state.users.me,
+        name : action.payload,
+      },
     },
   };
 }

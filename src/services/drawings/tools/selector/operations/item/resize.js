@@ -10,7 +10,7 @@ import { bounds } from '../../constants';
  * @param {Object} originBound Bound used as origin for dragging action.
  * @param {Object} destinationPoint Current point dragged to by the user cursor.
  */
-export default function traresizenslate({ drawings, map }, originBound, destinationPoint) {
+export default function resize({ drawings, map }, originBound, destinationPoint) {
   if (!drawings || !map) {
     return;
   }
