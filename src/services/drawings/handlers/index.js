@@ -9,3 +9,6 @@ export { default as onItem2Front } from './onItem2Front';
 export { default as onItemRemoved } from './onItemRemoved';
 export { default as onItemSelected } from './onItemSelected';
 export { default as onItemOperation } from './onItemOperation';
+export { default as onTextCreated } from './onTextCreated';
+export { default as onTextUpdated } from './onTextUpdated';
+export { default as onTextUnselected } from './onTextUnselected';

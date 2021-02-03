@@ -1,13 +1,24 @@
 import { v4 as uuidv4 } from 'uuid';
-import { PointText } from 'paper';
 
-import { Log } from '#utils';
-import { drawingsLayers, mapLayers, canvasIds } from '#constants';
+import { Log, point2net } from '#utils';
+import {
+  drawingsMessages, drawingsLayers, mapLayers, canvasIds,
+} from '#constants';
+import { drawingsService } from '#services';
 
-// import { createSelectionHandlers, removeSelectionHandlers } from '../utils';
+import { createItem, selectItem, unselectItem } from './item';
 
+/**
+ * Mouse down event handler.
+ *
+ * @param {Object} event Mouse down event.
+ *
+ * @returns {Object|undefined} Object with operation data; undefined if no relevant operation.
+ */
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Text : onMouseDown', { event });
+
+  // @todo if unselected empty text item, remove it
 
   // @todo get canvas drawings id from dependencies?
   // Check that the event is triggered on the drawings canvas
@@ -16,12 +27,10 @@ export default function onMouseDown(event) {
     return undefined;
   }
 
-  // If the user was writing, leave the writing state
+  // If the user was writing, leave the writing state and select the item
   if (this.isWriting) {
-    // removeSelectionHandlers(
-    //   this.currentText.drawings,
-    //   this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-    // );
+    drawingsService.tools.selector.activate(this.currentText.drawings.name);
+    unselectItem(this.currentText.drawings);
 
     this.isWriting = false;
     this.currentText = {
@@ -29,41 +38,35 @@ export default function onMouseDown(event) {
       map      : undefined,
     };
 
-    return undefined;
+    return { type : drawingsMessages.doUnselectText };
   }
 
   // If the user was not writing, create a new text item
-  const point = {
-    x : event.point.x,
-    y : event.point.y,
-  };
-
-  const itemName = event.itemName || uuidv4();
+  const itemName = uuidv4();
 
   this.isWriting = true;
-  this.currentText.drawings = new PointText({
-    point,
-    name      : itemName,
-    fillColor : this.strokeColor,
-    fontSize  : 18, // @todo to constants
-    parent    : this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
-  });
-
-  // createSelectionHandlers(
-  //   this.currentText.drawings,
-  //   this.dependencies.projects.drawings.layers[drawingsLayers.selection],
-  // );
+  this.currentText.drawings = createItem(
+    event.point,
+    this.strokeColor,
+    itemName,
+    this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
+  );
 
   // Replicate the text item in the map project
-  this.currentText.map = new PointText({
-    point,
-    name          : itemName,
-    fillColor     : this.strokeColor,
-    fontSize      : 18, // @todo to constants
-    strokeScaling : false,
-    locked        : true,
-    parent        : this.dependencies.projects.map.layers[mapLayers.drawings],
-  });
+  this.currentText.map = createItem(
+    event.point,
+    this.strokeColor,
+    itemName,
+    this.dependencies.projects.map.layers[mapLayers.drawings],
+  );
 
-  return { point, itemName };
+  // Set item as selected
+  selectItem(this.currentText.drawings);
+
+  return {
+    type  : drawingsMessages.doCreateText,
+    point : point2net(event.point),
+    color : this.strokeColor,
+    itemName,
+  };
 }

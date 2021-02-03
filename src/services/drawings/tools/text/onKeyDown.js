@@ -1,16 +1,16 @@
 import { Log } from '#utils';
-// import { drawingsLayers } from '#constants';
+import { drawingsMessages } from '#constants';
+import { drawingsService } from '#services';
 
-// import { removeSelectionHandlers } from '../utils';
+import { updateItem, unselectItem } from './item';
 
-const keys = Object.freeze({
-  backspace : 'backspace',
-  escape    : 'escape',
-  enter     : 'enter',
-  dead      : 'dead',
-});
-
-// @todo refactor pending - related to selection
+/**
+ * Key down event handler.
+ *
+ * @param {Object} event Key down event.
+ *
+ * @returns {Object|undefined} Object with operation data; undefined if no relevant operation.
+ */
 export default function onKeyDown(event) {
   Log.debug('Service : Drawings : Tools : Text : onKeyDown', { event });
 
@@ -18,40 +18,32 @@ export default function onKeyDown(event) {
     return undefined;
   }
 
-  // const drawingsProject = this.dependencies.projects.drawings;
+  // Update text items
+  this.isWriting = updateItem(
+    this.currentText.drawings,
+    event.key,
+    event.character,
+  );
+  this.currentText.map.set({ content : this.currentText.drawings.content });
 
-  // @todo check this for missing cases
-  switch (event.key) {
-    case keys.escape:
-      this.isWriting = false;
-      break;
-
-    case keys.backspace:
-      this.currentText.drawings.content = this.currentText.drawings.content.slice(0, -1);
-      this.currentText.map.content = this.currentText.map.content.slice(0, -1);
-      break;
-
-    case keys.dead:
-    case keys.enter:
-    default:
-      this.currentText.drawings.content += event.character;
-      this.currentText.map.content += event.character;
-      break;
-  }
-
+  // If the user is writing, return operation data
   if (this.isWriting) {
-    // resizeSelectionHandlers(
-    //   this.currentText.drawings,
-    //   drawingsProject.layers[drawingsLayers.selection].children.selectionHandlers,
-    // );
-  } else {
-    // removeSelectionHandlers(
-    //   this.currentText.drawings,
-    //   drawingsProject.layers[drawingsLayers.selection],
-    // );
-    this.currentText.drawings = undefined;
-    this.currentText.map = undefined;
+    return {
+      type      : drawingsMessages.doUpdateText,
+      key       : event.key,
+      character : event.character,
+    };
   }
 
-  return { key : event.key, character : event.character };
+  // If the user is not writing anymore, finish writing operation and activate selector
+  unselectItem(this.currentText.drawings);
+
+  drawingsService.tools.selector.activate(this.currentText.drawings.name);
+
+  this.currentText.drawings = undefined;
+  this.currentText.map = undefined;
+
+  return {
+    type : drawingsMessages.doUnselectText,
+  };
 }

@@ -51,8 +51,14 @@ export const setJoined = (payload) => (dispatch) => {
  * @param {String} payload New tool to be selected.
  */
 export const setSelectedTool = (payload) => (dispatch) => {
-  if (payload !== tools.export && payload !== tools.selector) {
-    drawingsService.tools[tools.selector].reset();
+  if (payload !== tools.export) {
+    if (payload !== tools.selector) {
+      drawingsService.tools[tools.selector].reset();
+    }
+
+    if (payload !== tools.text) {
+      drawingsService.tools[tools.text].unselectText();
+    }
   }
 
   dispatch(setSelectedToolAction(payload));

@@ -2,13 +2,17 @@ import { Tool } from 'paper';
 
 import { Log } from '#utils';
 import {
-  drawingColorCodes, defaultDrawingColor, drawingsMessages, tools,
+  drawingColorCodes, defaultDrawingColor, tools,
 } from '#constants';
 
 import activate from './activate';
 import setColor from './setColor';
 import onMouseDown from './onMouseDown';
 import onKeyDown from './onKeyDown';
+import onTextCreated from './onTextCreated';
+import onTextUpdated from './onTextUpdated';
+import onTextUnselected from './onTextUnselected';
+import unselectText from './unselectText';
 
 export default (dependencies) => {
   Log.info('Service : Drawings : Tools : Text : create');
@@ -30,16 +34,17 @@ export default (dependencies) => {
     },
   };
 
-  // @todo color not being the same in the other end
   scope.tool.on('mousedown', (event) => {
     Log.debug('Text : onMouseDown', { event });
 
     const drawingData = onMouseDown.call(scope, event);
 
     if (drawingData) {
+      const { type : messageType, ...data } = drawingData;
+
       dependencies.realtimeService.send(
-        drawingsMessages.doMouseDown,
-        { tool : tools.text, ...drawingData },
+        messageType,
+        { tool : tools.text, ...data },
       ).catch(() => {}); // @todo;
     }
   });
@@ -52,17 +57,21 @@ export default (dependencies) => {
     const drawingData = onKeyDown.call(scope, event);
 
     if (drawingData) {
+      const { type : messageType, ...data } = drawingData;
+
       dependencies.realtimeService.send(
-        drawingsMessages.doKeyDown,
-        { tool : tools.text, ...drawingData },
+        messageType,
+        { tool : tools.text, ...data },
       ).catch(() => {}); // @todo;
     }
   });
 
   return Object.freeze({
-    setColor    : setColor.bind(scope),
-    activate    : activate.bind(scope),
-    onMouseDown : onMouseDown.bind(scope),
-    onKeyDown   : onKeyDown.bind(scope),
+    setColor         : setColor.bind(scope),
+    activate         : activate.bind(scope),
+    onTextCreated    : onTextCreated.bind(scope),
+    onTextUpdated    : onTextUpdated.bind(scope),
+    onTextUnselected : onTextUnselected.bind(scope),
+    unselectText     : unselectText.bind(scope),
   });
 };

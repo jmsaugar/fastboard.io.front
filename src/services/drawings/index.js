@@ -17,6 +17,9 @@ import {
   onBoardCleared,
   onItemSelected,
   onItemOperation,
+  onTextCreated,
+  onTextUpdated,
+  onTextUnselected,
 } from './handlers';
 
 export default () => {
@@ -48,6 +51,9 @@ export default () => {
     onItem2Back        : onItem2Back.bind(scope),
     onItemSelected     : onItemSelected.bind(scope),
     onItemOperation    : onItemOperation.bind(scope),
+    onTextCreated      : onTextCreated.bind(scope),
+    onTextUpdated      : onTextUpdated.bind(scope),
+    onTextUnselected   : onTextUnselected.bind(scope),
     tools              : {
       // @todo rework this
       [tools.pencil] : {
@@ -101,11 +107,12 @@ export default () => {
           scope.tools.text.setColor(color);
           store.dispatch(setToolColor({ tool : tools.text, color }));
         },
+        unselectText : () => scope.tools.text.unselectText(),
       },
       [tools.selector] : {
-        activate : () => {
+        activate : (itemName) => {
           scope.tools.selector.reset();
-          scope.tools.selector.activate();
+          scope.tools.selector.activate(itemName);
           store.dispatch(setSelectedTool(tools.selector));
         },
         removeItem      : () => scope.tools.selector.removeItem(),

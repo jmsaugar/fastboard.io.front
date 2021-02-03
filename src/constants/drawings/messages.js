@@ -21,4 +21,10 @@ export default Object.freeze({
   didSelectItem       : 'didSelectItem',
   doOperateItem       : 'doOperateItem',
   didOperateItem      : 'didOperateItem',
+  doCreateText        : 'doCreateText',
+  didCreateText       : 'didCreateText',
+  doUpdateText        : 'doUpdateText',
+  didUpdateText       : 'didUpdateText',
+  doUnselectText      : 'doUnselectText',
+  didUnselectText     : 'didUnselectText',
 });

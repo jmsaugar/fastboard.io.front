@@ -59,6 +59,7 @@ export default function start(drawingsId, mapId) {
      */
     window.onresize = () => {
       viewPort.remove();
+      // @todo update viewport instead of recreating
       viewPort = createViewPort(
         this.projects.drawings.view.center,
         canvas.offsetWidth,
