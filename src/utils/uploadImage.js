@@ -15,7 +15,7 @@ export default function uploadImage(name, file, boardId) {
   formData.append('itemName', name);
   formData.append('boardId', boardId);
 
-  return fetch(`${process.env.REACT_APP_SERVER}${httpRoutes.createImage.path}`, {
+  return fetch(`${process.env.REACT_APP_SERVER}${process.env.REACT_APP_API_PATH}${httpRoutes.createImage.path}`, {
     method : httpRoutes.createImage.method,
     body   : formData,
   }).then((response) => (response.status === httpStatusCreated
