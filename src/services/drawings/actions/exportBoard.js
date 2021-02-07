@@ -8,5 +8,5 @@ import { Log } from '#utils';
 export default function exportBoard() {
   Log.info('Service : Drawings : exportBoard');
 
-  return this.project.exportSVG({ asString : true });
+  return this.projects.drawings.exportSVG({ asString : true });
 }

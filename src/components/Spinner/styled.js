@@ -1,10 +1,10 @@
 import styled, { css } from '@xstyled/styled-components';
-import { variant } from '@xstyled/system';
+import { getColor, variant } from '@xstyled/system';
 
 export default styled.div`
   display: inline-block;
   border-style: solid;
-  border-color: white;
+  border-color: ${({ dark }) => (dark ? getColor('border') : 'white')};
   border-right-color: transparent;
   animation-duration: 1000ms;
   animation-iteration-count: infinite;
@@ -22,7 +22,7 @@ export default styled.div`
   }
 
   ${variant({
-    default  : 'small',
+    default  : 'sm',
     prop     : 'size',
     variants : {
       sm : css`
@@ -31,11 +31,16 @@ export default styled.div`
         border-width: 2px;
       `,
       md : css`
+        width: 18px;
+        height: 18px;
+        border-width: 6px;
+      `,
+      lg : css`
         width: 30px;
         height: 30px;
         border-width: 6px;
       `,
-      // @todo lg, for Loading component
+      // @todo xlg, for Loading component
     },
   })}
 `;

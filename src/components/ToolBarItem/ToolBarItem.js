@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Pen as PencilIcon } from '@styled-icons/fa-solid/Pen';
 import { Marker as PenIcon } from '@styled-icons/fa-solid/Marker';
@@ -35,7 +35,7 @@ const tool2icon = Object.freeze({
   [tools.export]      : <DownloadIcon />,
 });
 
-const ToolBarItem = ({ tool }) => {
+const ToolBarItem = ({ boardId, tool }) => {
   const ref = useRef();
   const [showOptions, setShowOptions] = useState(false);
   const boardName = useSelector(boardNameSelector);
@@ -44,6 +44,7 @@ const ToolBarItem = ({ tool }) => {
   const toolsColors = useSelector(toolsColorsSelector);
   const selectedToolColor = toolsColors[tool];
 
+  const [isLoading, setIsLoading] = useState(false);
   const isSelected = selectedTool === tool;
 
   const hideOptions = useCallback(
@@ -78,10 +79,13 @@ const ToolBarItem = ({ tool }) => {
           break;
 
         case tools.image:
-          triggerUpload().then(
-            drawingsService.tools[tool].activate,
-            () => console.log('!!!.upload.cancelled'),
-          );
+          triggerUpload()
+            .then((image) => {
+              setIsLoading(true);
+              return drawingsService.tools[tool].activate(image, boardId);
+            })
+            .catch(() => console.log('!!!.upload.cancelled'))
+            .finally(() => setIsLoading(false));
           break;
 
         case tools.clear:
@@ -99,7 +103,7 @@ const ToolBarItem = ({ tool }) => {
           break;
       }
     },
-    [showOptions, isSelected, tool, boardName, hideOptions],
+    [showOptions, isSelected, tool, boardName, hideOptions, boardId],
   );
 
   return (
@@ -108,7 +112,8 @@ const ToolBarItem = ({ tool }) => {
       icon={tool2icon[tool]}
       color={selectedToolColor}
       onClick={useTool}
-      selected={isSelected}
+      isSelected={isSelected}
+      isLoading={isLoading}
     >
       <ToolOptions show={showOptions}>
         {Object.values(drawingColors).map((color) => (
@@ -128,8 +133,13 @@ const ToolBarItem = ({ tool }) => {
   );
 };
 
+ToolBarItem.defaultProps = {
+  boardId : undefined,
+};
+
 ToolBarItem.propTypes = {
-  tool : propTypes.oneOf(Object.values(tools)).isRequired,
+  tool    : PropTypes.oneOf(Object.values(tools)).isRequired,
+  boardId : PropTypes.string,
 };
 
 export default ToolBarItem;

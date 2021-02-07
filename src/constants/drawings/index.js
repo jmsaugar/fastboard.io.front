@@ -4,6 +4,7 @@ export {
 export {
   drawingColors, drawingColorCodes, defaultDrawingColor, selectionColorCode, mapViewPortColorCode,
 } from './colors';
+export { imageType, imageQuality, maxImageSize } from './images';
 export { default as drawingsMessages } from './messages';
 export { default as tools } from './tools';
 export { default as cursorTypes } from './cursorTypes';

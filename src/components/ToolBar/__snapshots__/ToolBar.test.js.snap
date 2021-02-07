@@ -10,7 +10,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
       class="sc-oUDcU jGQqCG"
     >
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         color="#333"
         data-testid="toolbutton-component"
       >
@@ -36,7 +36,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -60,7 +60,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -84,7 +84,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -108,7 +108,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -132,7 +132,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -158,7 +158,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         color="#333"
         data-testid="toolbutton-component"
       >
@@ -184,7 +184,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -208,7 +208,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -232,7 +232,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -256,7 +256,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -280,7 +280,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -306,7 +306,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         color="#333"
         data-testid="toolbutton-component"
       >
@@ -332,7 +332,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -356,7 +356,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -380,7 +380,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -404,7 +404,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -428,7 +428,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -454,7 +454,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -478,7 +478,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -502,7 +502,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -526,7 +526,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -550,7 +550,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -574,7 +574,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -600,7 +600,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -624,7 +624,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -648,7 +648,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -672,7 +672,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -696,7 +696,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -720,7 +720,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -746,7 +746,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -770,7 +770,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -794,7 +794,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -818,7 +818,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -842,7 +842,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -866,7 +866,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -892,7 +892,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         color="#333"
         data-testid="toolbutton-component"
       >
@@ -918,7 +918,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -942,7 +942,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -966,7 +966,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -990,7 +990,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -1014,7 +1014,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -1040,7 +1040,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -1064,7 +1064,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -1088,7 +1088,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -1112,7 +1112,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -1136,7 +1136,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -1160,7 +1160,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -1186,7 +1186,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -1210,7 +1210,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -1234,7 +1234,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -1258,7 +1258,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -1282,7 +1282,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -1306,7 +1306,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
@@ -1332,7 +1332,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-qXRQq gQqXlL"
+        class="sc-qXRQq cpMrCI"
         data-testid="toolbutton-component"
       >
         <span
@@ -1356,7 +1356,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           class="sc-pIjat lpmByH"
         >
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#333"
             data-testid="toolbutton-component"
           >
@@ -1380,7 +1380,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#da0000"
             data-testid="toolbutton-component"
           >
@@ -1404,7 +1404,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
@@ -1428,7 +1428,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
@@ -1452,7 +1452,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
             </span>
           </div>
           <div
-            class="sc-qXRQq gQqXlL"
+            class="sc-qXRQq cpMrCI"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >

@@ -1,16 +1,21 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import SImg from './styled';
 
 const testId = 'spinner-component';
 
-const Spinner = ({ size }) => (
-  <SImg size={size} data-testid={testId} />
+const Spinner = ({ size, dark }) => (
+  <SImg dark={dark} size={size} data-testid={testId} />
 );
 
+Spinner.defaultProps = {
+  dark : false,
+};
+
 Spinner.propTypes = {
-  size : propTypes.string.isRequired,
+  size : PropTypes.string.isRequired,
+  dark : PropTypes.bool,
 };
 
 export default Spinner;

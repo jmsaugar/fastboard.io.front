@@ -13,7 +13,7 @@ import {
 } from '../../tools';
 
 export default function setupTools() {
-  const { urlsService, realtimeService } = this.dependencies;
+  const { realtimeService } = this.dependencies;
   const drawingsProject = this.projects.drawings;
   const mapProject = this.projects.map;
 
@@ -26,8 +26,6 @@ export default function setupTools() {
     [tools.text]        : textToolFactory({ realtimeService, drawingsProject, mapProject }),
     [tools.clear]       : clearToolFactory({ realtimeService, drawingsProject, mapProject }),
     [tools.selector]    : selectorToolFactory({ realtimeService, drawingsProject, mapProject }),
-    [tools.image]       : imageToolFactory({
-      urlsService, realtimeService, drawingsProject, mapProject,
-    }),
+    [tools.image]       : imageToolFactory({ realtimeService, drawingsProject, mapProject }),
   };
 }

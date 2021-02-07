@@ -30,7 +30,9 @@ import {
   ToolBar,
 } from '#components';
 import {
-  boardsService, drawingsService, realtimeService, urlsService,
+  boardsService,
+  drawingsService,
+  realtimeService,
 } from '#services';
 import store, {
   boardNameSelector,
@@ -122,7 +124,6 @@ const Board = () => {
     dispatch(setUnjoined());
     realtimeService.stop();
     drawingsService.stop();
-    urlsService.revokeAll();
   }, [dispatch]);
 
   // Already joined vs joining pending logic
@@ -219,7 +220,7 @@ const Board = () => {
         boardName={boardName}
       />
       <SWrapper>
-        <ToolBar />
+        <ToolBar boardId={boardId} />
         <ItemMenu
           show={itemMenu.show}
           top={itemMenu.top}
@@ -245,7 +246,7 @@ const Board = () => {
             />
           )}
           {modalStep === modalSteps.joinedFromHome && isLoading && (
-            <Spinner size="md" />
+            <Spinner size="lg" />
           )}
           {modalStep === modalSteps.leave && (
             <BoardLeave

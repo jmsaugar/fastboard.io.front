@@ -5,6 +5,7 @@ import { defaultDrawingColor } from '#constants';
 
 import ToolBar from './ToolBar';
 
+const boardId = '123456';
 const mockStore = {
   board : {
     joined    : false,
@@ -28,21 +29,24 @@ const mockStore = {
 
 describe('Component : ToolBar', () => {
   test('Is visible with hidden meta', () => {
-    const { queryByTestId } = render(<ToolBar />, { store : mockStore });
+    const { queryByTestId } = render(<ToolBar boardId={boardId} />, { store : mockStore });
 
     expect(queryByTestId('toolbar-component')).toBeInTheDocument();
     expect(queryByTestId('toolbar-meta-component')).not.toBeInTheDocument();
   });
 
   test('Is visible with visible meta', () => {
-    const { queryByTestId } = render(<ToolBar />, { store : { joined : true, ...mockStore } });
+    const { queryByTestId } = render(
+      <ToolBar boardId={boardId} />,
+      { store : { joined : true, ...mockStore } },
+    );
 
     expect(queryByTestId('toolbar-component')).toBeInTheDocument();
     expect(queryByTestId('toolbar-meta-component')).not.toBeInTheDocument();
   });
 
   test('Snapshot', () => {
-    const { asFragment } = render(<ToolBar />, { store : mockStore });
+    const { asFragment } = render(<ToolBar boardId={boardId} />, { store : mockStore });
 
     const componentRender = asFragment();
     expect(componentRender).toMatchSnapshot();

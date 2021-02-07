@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 
 import { Log } from '#utils';
 
-const socketIOEndpoint = process.env.REACT_APP_SOCKETIO_ENDPOINT;
+const socketIOEndpoint = process.env.REACT_APP_SERVER;
 
 /**
  * Start socket connection.

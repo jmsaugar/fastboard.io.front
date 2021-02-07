@@ -8,7 +8,6 @@ export default (dependencies) => {
 
   const scope = {
     dependencies : {
-      urlsService     : dependencies?.urlsService,
       realtimeService : dependencies?.realtimeService,
       projects        : {
         drawings : dependencies?.drawingsProject,

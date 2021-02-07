@@ -8,7 +8,7 @@ import SWrapper from './styled';
 // @todo variants to constants exported by each component?
 const button2SpinnerSize = {
   default : 'sm',
-  lg      : 'md',
+  lg      : 'lg',
 };
 
 const Button = ({

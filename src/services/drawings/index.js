@@ -123,13 +123,11 @@ export default () => {
         operateItem     : (operationData) => scope.tools.selector.operateItem(operationData),
       },
       [tools.image] : {
-        activate : (image) => {
-          scope.tools.image.activate(image)
-            .then((itemName) => {
-              scope.tools.selector.activate(itemName);
-              store.dispatch(setSelectedTool(tools.selector));
-            });
-        },
+        activate : (image, boardId) => scope.tools.image.activate(image, boardId)
+          .then((itemName) => {
+            scope.tools.selector.activate(itemName);
+            store.dispatch(setSelectedTool(tools.selector));
+          }),
       },
       [tools.clear] : {
         activate : () => scope.tools.clear.activate(),

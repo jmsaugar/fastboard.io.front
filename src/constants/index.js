@@ -5,3 +5,4 @@ export * from './i18n';
 export * from './misc';
 export * from './notifications';
 export { default as envs } from './envs';
+export { default as httpRoutes } from './httpRoutes';

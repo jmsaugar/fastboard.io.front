@@ -10,3 +10,5 @@ export const baseUrl = process.env.REACT_APP_BASE_URL;
 export const analyticsId = process.env.REACT_APP_GA_ID;
 
 export const networkTimeout = 5000;
+
+export const httpStatusCreated = 201;

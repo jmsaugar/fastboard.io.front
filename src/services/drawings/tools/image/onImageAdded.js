@@ -1,30 +1,28 @@
-import { v4 as uuidv4 } from 'uuid';
 import { Raster } from 'paper';
 
-import { Log, point2net } from '#utils';
-import { drawingsLayers, mapLayers, viewPortItemName } from '#constants';
+import { Log, getScaleFactor, point2net } from '#utils';
+import {
+  canvasIds, drawingsLayers, mapLayers, viewPortItemName,
+} from '#constants';
+
+const maxRatio = 0.8; // Max ratio for created raster compared to current viewport
 
 /**
  * Handler for image added to the board.
  *
  * Deals with the project logic.
  *
- * @param {Object} image Image data { image, itemName, position }.
+ * @param {Object} image Image data { url, itemName, position, ratio }.
  *
  * @returns {Promise} Resolved when image loaded with item name (which is a uuidv4).
  */
 export default function onImageAdded({
-  image, itemName : receivedItemName, position : receivedPosition,
+  url, itemName, position : receivedPosition, ratio : receivedRatio,
 }) {
-  Log.info('Service : Drawings : Tools : Image : onImageAdded', { image });
-
-  // @todo reduce image resolution if over certain size
+  Log.info('Service : Drawings : Tools : Image : onImageAdded', { url });
 
   const drawingsProject = this.dependencies.projects.drawings;
   const mapProject = this.dependencies.projects.map;
-
-  const itemName = receivedItemName || uuidv4();
-  const source = this.dependencies.urlsService.create(image);
 
   // Position of the raster on the projects
   const drawingsPosition = receivedPosition || drawingsProject.view.bounds.center;
@@ -32,25 +30,48 @@ export default function onImageAdded({
     || mapProject.layers[mapLayers.viewport].children[viewPortItemName].position;
 
   const raster = new Raster({
-    source,
+    source   : url,
     name     : itemName,
     position : drawingsPosition,
     parent   : drawingsProject.layers[drawingsLayers.drawings],
   });
 
-  raster.scale(1 / 3); // @todo fix this
-
   const mapRaster = new Raster({
-    source,
+    source   : url,
     name     : itemName,
     position : mapPosition,
     parent   : mapProject.layers[mapLayers.drawings],
   });
 
-  mapRaster.scale(1 / 3); // @todo fix this
-
   return new Promise((res, rej) => {
-    raster.on('load', () => res({ itemName : raster.name, position : point2net(raster.position) }));
+    raster.on('load', () => {
+      let scaleRatio;
+
+      // Scale the inserted image if too large for the canvas dimensions
+      if (receivedRatio === undefined) {
+        const canvas = document.getElementById(canvasIds.drawings);
+        scaleRatio = getScaleFactor(
+          maxRatio,
+          raster.width,
+          raster.height,
+          canvas.offsetWidth,
+          canvas.offsetHeight,
+        );
+      } else {
+        scaleRatio = receivedRatio;
+      }
+
+      raster.scale(scaleRatio);
+      mapRaster.scale(scaleRatio);
+
+      res({
+        url,
+        itemName : raster.name,
+        position : point2net(raster.position),
+        ratio    : scaleRatio,
+      });
+    });
+
     raster.on('error', rej);
   });
 }

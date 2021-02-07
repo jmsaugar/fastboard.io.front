@@ -1,5 +1,7 @@
 export { default as Log } from './logger';
+export { default as compressImage } from './compressImage';
 export { default as formatDate } from './formatDate';
+export { default as getScaleFactor } from './getScaleFactor';
 export { default as point2net } from './point2net';
 export { default as setPreventUnload } from './setPreventUnload';
 export { default as throttle } from './throttle';
@@ -7,6 +9,7 @@ export { default as timeoutPromise } from './timeoutPromise';
 export { default as toClipboard } from './toClipboard';
 export { default as triggerDownload } from './triggerDownload';
 export { default as triggerUpload } from './triggerUpload';
+export { default as uploadImage } from './uploadImage';
 export { default as validBoardId } from './validBoardId';
 export { default as validBoardUrl } from './validBoardUrl';
 export { default as extractBoardId } from './extractBoardId';

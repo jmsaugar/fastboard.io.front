@@ -35,7 +35,7 @@ To launch the project locally and be able to use it, you will need to have the b
 
 Copy the file `env.template` into a new one called `env.local`. There you will be able to set those environment variables:
 
-- `REACT_APP_SOCKETIO_ENDPOINT` The host and port that the backend project is running in (e.g. `localhost:9000/`).
+- `REACT_APP_SERVER` The host and port that the backend project is running in (e.g. `localhost:9000/`).
 
 - `REACT_APP_SOCKETIO_PATH` The path to be used in the socket.io connection. This has to be the same as configured in the backend project (e.g. `/`).
 

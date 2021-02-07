@@ -25,7 +25,23 @@ export const SWrapper = styled.div`
 
   ${variant({
     default  : false,
-    prop     : 'selected',
+    prop     : 'isLoading',
+    variants : {
+      true : css`
+        pointer-events: none;
+      `,
+      false : css`
+        cursor: pointer;
+        &:hover {
+          box-shadow: default;
+        }
+      `,
+    },
+  })}
+
+  ${variant({
+    default  : false,
+    prop     : 'isSelected',
     variants : {
       true  : css`border-width: xlg;`,
       false : css`border-width: default;`,

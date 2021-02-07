@@ -21,7 +21,6 @@ import {
 export default function addUser(userId) {
   Log.info('Service : Drawings : addUser', { userId });
 
-  const { urlsService } = this.dependencies;
   const drawingsProject = this.projects.drawings;
   const mapProject = this.projects.map;
 
@@ -34,6 +33,6 @@ export default function addUser(userId) {
     [tools.text]        : textToolFactory({ drawingsProject, mapProject }),
     [tools.clear]       : clearToolFactory({ drawingsProject, mapProject }),
     [tools.selector]    : selectorToolFactory({ drawingsProject, mapProject }),
-    [tools.image]       : imageToolFactory({ urlsService, drawingsProject, mapProject }),
+    [tools.image]       : imageToolFactory({ drawingsProject, mapProject }),
   };
 }
