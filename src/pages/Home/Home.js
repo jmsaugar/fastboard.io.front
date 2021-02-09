@@ -58,10 +58,10 @@ const Home = () => {
             label    : gaLabels.ko,
           });
 
+          setIsLoading(false);
           setErrorCode(code || boardsErrors.generic);
           realtimeService.stop();
-        })
-        .finally(() => setIsLoading(false));
+        });
     },
     [dispatch, redirectTo],
   );

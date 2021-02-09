@@ -1,4 +1,3 @@
-import { Log } from '#utils';
 import { tools } from '#constants';
 import store, { setSelectedTool, setToolColor } from '#store';
 
@@ -24,8 +23,6 @@ import {
 } from './handlers';
 
 export default () => {
-  Log.info('Service : Drawings : create');
-
   const scope = Object.seal({
     dependencies : {},
     isStarted    : false,

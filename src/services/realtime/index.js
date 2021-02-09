@@ -1,12 +1,8 @@
-import { Log } from '#utils';
-
 import {
   injectDependencies, start, stop, setMessageHandlers, send, isStarted,
 } from './actions';
 
 export default () => {
-  Log.info('Service : Realtime : create');
-
   const scope = {
     dependencies : {},
     isStarted    : false,

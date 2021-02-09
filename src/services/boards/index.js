@@ -1,5 +1,3 @@
-import { Log } from '#utils';
-
 import {
   injectDependencies, create, join, setUserName, setBoardName,
 } from './actions';
@@ -8,8 +6,6 @@ import {
 } from './handlers';
 
 export default () => {
-  Log.info('Service : Boards : create');
-
   const scope = {
     dependencies : {},
   };

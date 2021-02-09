@@ -1,5 +1,3 @@
-import { Log } from '#utils';
-
 /**
  * Inject service dependencies.
  *
@@ -8,8 +6,6 @@ import { Log } from '#utils';
  * @throws {Error} In case dependencies are not passed.
  */
 export default function injectDependencies({ realtimeService }) {
-  Log.info('Service : Boards : injectDependencies', { realtimeService });
-
   if (!realtimeService) {
     throw new Error('Service : Boards : injectDependencies : missing dependencies');
   }

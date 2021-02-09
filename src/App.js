@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
@@ -28,21 +29,23 @@ const App = () => {
   );
 
   return (
-    <StoreProvider store={store}>
-      <ThemeProvider theme={theme}>
-        <Suspense fallback={<Loading />}>
-          <Router>
-            <GlobalStyle />
-            <MainLayout
-              id={mainLayoutId}
-              header={<Header />}
-              content={content}
-              footer={<Footer />}
-            />
-          </Router>
-        </Suspense>
-      </ThemeProvider>
-    </StoreProvider>
+    <HelmetProvider>
+      <StoreProvider store={store}>
+        <ThemeProvider theme={theme}>
+          <Suspense fallback={<Loading />}>
+            <Router>
+              <GlobalStyle />
+              <MainLayout
+                id={mainLayoutId}
+                header={<Header />}
+                content={content}
+                footer={<Footer />}
+              />
+            </Router>
+          </Suspense>
+        </ThemeProvider>
+      </StoreProvider>
+    </HelmetProvider>
   );
 };
 

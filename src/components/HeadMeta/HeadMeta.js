@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import propTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
 import routes from '#routes';
