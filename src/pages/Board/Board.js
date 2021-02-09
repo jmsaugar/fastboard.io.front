@@ -110,8 +110,8 @@ const Board = () => {
             label    : gaLabels.ko,
           });
 
-          setModalStep(modalSteps.error);
           setErrorCode(code || boardsErrors.generic);
+          setModalStep(modalSteps.error);
           realtimeService.stop();
         })
         .finally(() => setIsLoading(false));
