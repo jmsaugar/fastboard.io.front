@@ -26,7 +26,7 @@ export default function onMouseDown(event) {
 
   // @todo get canvas drawings id from dependencies?
   // Check that the event is triggered on the drawings canvas
-  const element = event?.event?.path[0];
+  const element = event?.event?.path?.[0];
   if (element && element.id !== canvasIds.drawings) {
     return undefined;
   }
