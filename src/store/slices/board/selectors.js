@@ -2,11 +2,6 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const boardSelector = (state) => state.board;
 
-export const isOwnerSelector = createSelector(
-  boardSelector,
-  (board) => board.owner,
-);
-
 export const isJoinedSelector = createSelector(
   boardSelector,
   (board) => board.joined,
@@ -20,6 +15,14 @@ export const boardNameSelector = createSelector(
 const usersSelector = createSelector(
   boardSelector,
   (board) => board.users,
+);
+
+// Oldest user in the board is the owner
+export const isOwnerSelector = createSelector(
+  usersSelector,
+  (users) => users.others.every(
+    (user) => (user.joinDate > users.me.joinDate),
+  ),
 );
 
 const meSelector = createSelector(

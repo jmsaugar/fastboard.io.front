@@ -13,7 +13,6 @@ describe('Store : board : reducers : setJoined', () => {
   beforeEach(() => {
     state = {
       joined    : false,
-      owner     : undefined,
       boardName : undefined,
       users     : {
         me : {
@@ -33,7 +32,6 @@ describe('Store : board : reducers : setJoined', () => {
     expect(newState.users.me.name).toBe(boardData.userName);
     expect(newState.users.me.joinDate).toBe(boardData.joinDate);
     expect(newState.joined).toBe(true);
-    expect(newState.owner).toBe(false);
     expect(newState.users.others).toHaveLength(1);
     expect(newState.users.others[0].id).toBe(boardData.users[0].id);
   });

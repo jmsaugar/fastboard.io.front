@@ -2,7 +2,6 @@ import { defaultDrawingColor } from '#constants';
 
 export default {
   joined    : false, // You joined the board
-  owner     : undefined, // You own the board // @todo has to be reassigned when creator leaves
   boardName : undefined,
   users     : {
     me : {

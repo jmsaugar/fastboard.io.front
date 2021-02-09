@@ -14,7 +14,6 @@ export default function setJoined(state, action) {
       ? {
         ...state,
         joined    : true,
-        owner     : false,
         boardName : action.payload.boardName,
         users     : {
           me : {

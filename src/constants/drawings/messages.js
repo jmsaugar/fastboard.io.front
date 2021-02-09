@@ -27,4 +27,6 @@ export default Object.freeze({
   didUpdateText       : 'didUpdateText',
   doUnselectText      : 'doUnselectText',
   didUnselectText     : 'didUnselectText',
+  doSendBoardState    : 'doSendBoardState',
+  didSendBoardState   : 'didSendBoardState',
 });

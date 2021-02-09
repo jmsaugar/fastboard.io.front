@@ -1,5 +1,6 @@
 import { Log } from '#utils';
-import { tools } from '#constants';
+import { drawingsLayers, drawingsMessages, tools } from '#constants';
+import store, { isOwnerSelector } from '#store';
 
 import {
   eraserToolFactory,
@@ -35,4 +36,15 @@ export default function addUser(userId) {
     [tools.selector]    : selectorToolFactory({ drawingsProject, mapProject }),
     [tools.image]       : imageToolFactory({ drawingsProject, mapProject }),
   };
+
+  // Owner has to send the new user the current state of the board
+  if (isOwnerSelector(store.getState())) {
+    this.dependencies.realtimeService.send(
+      drawingsMessages.doSendBoardState,
+      {
+        userId,
+        state : drawingsProject.layers[drawingsLayers.drawings].exportJSON(),
+      },
+    );
+  }
 }

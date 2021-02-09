@@ -9,7 +9,7 @@ export const SWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-style: default;
-  border-color: ${({ color, selected }) => ((color && selected) ? color : getColor('border'))};
+  border-color: ${({ color, isSelected }) => ((color && isSelected) ? color : getColor('border'))};
   margin: auto sm;
   background-color: bg;
   border-radius: rounded;

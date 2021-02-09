@@ -6,6 +6,7 @@ import {
   injectDependencies, start, stop, addUser, removeUser, exportBoard,
 } from './actions';
 import {
+  onBoardState,
   onMouseDown,
   onMouseDrag,
   onMouseUp,
@@ -40,6 +41,7 @@ export default () => {
     addUser            : addUser.bind(scope),
     removeUser         : removeUser.bind(scope),
     exportBoard        : exportBoard.bind(scope),
+    onBoardState       : onBoardState.bind(scope),
     onMouseDown        : onMouseDown.bind(scope),
     onMouseDrag        : onMouseDrag.bind(scope),
     onMouseUp          : onMouseUp.bind(scope),

@@ -12,7 +12,6 @@ describe('Store : board : reducers : setCreated', () => {
   beforeEach(() => {
     state = {
       joined    : false,
-      owner     : undefined,
       boardName : undefined,
       users     : {
         me : {
@@ -32,7 +31,6 @@ describe('Store : board : reducers : setCreated', () => {
     expect(newState.users.me.name).toBe(boardData.userName);
     expect(newState.users.me.joinDate).toBe(boardData.joinDate);
     expect(newState.joined).toBe(true);
-    expect(newState.owner).toBe(true);
   });
 
   test('Do not modify state if no payload', () => {

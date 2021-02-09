@@ -11,7 +11,8 @@ import setupTools from './setupTools';
 /**
  * Start project for the specified canvas.
  *
- * @param {String} canvasId Id of the canvas html element.
+ * @param {String} drawingsId Id of the drawing canvas html element.
+ * @param {String} mapId Id of the map canvas html element.
  */
 export default function start(drawingsId, mapId) {
   Log.info('Service : Drawings : start', { drawingsId, mapId });
@@ -24,7 +25,7 @@ export default function start(drawingsId, mapId) {
     // Get drawings canvas DOM element to get its dimensions
     const canvas = document.getElementById(drawingsId);
 
-    // Setup projects project
+    // Setup projects
     setupDrawingsProject(this.projects.drawings, canvas.offsetWidth, canvas.offsetHeight);
     setupMapProject(this.projects.map);
 

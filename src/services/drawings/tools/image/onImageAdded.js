@@ -6,6 +6,7 @@ import {
 } from '#constants';
 
 const maxRatio = 0.8; // Max ratio for created raster compared to current viewport
+const crossOrigin = 'anonymous'; // @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin
 
 /**
  * Handler for image added to the board.
@@ -30,6 +31,7 @@ export default function onImageAdded({
     || mapProject.layers[mapLayers.viewport].children[viewPortItemName].position;
 
   const raster = new Raster({
+    crossOrigin,
     source   : url,
     name     : itemName,
     position : drawingsPosition,

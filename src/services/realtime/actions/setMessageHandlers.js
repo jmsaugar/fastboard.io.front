@@ -30,4 +30,5 @@ export default function setMessageHandlers() {
   this.socket.on(drawingsMessages.didCreateText, drawingsService.onTextCreated);
   this.socket.on(drawingsMessages.didUpdateText, drawingsService.onTextUpdated);
   this.socket.on(drawingsMessages.didUnselectText, drawingsService.onTextUnselected);
+  this.socket.on(drawingsMessages.didSendBoardState, drawingsService.onBoardState);
 }

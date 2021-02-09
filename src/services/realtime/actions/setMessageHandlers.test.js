@@ -32,6 +32,6 @@ describe('Service : realtime : setMessageHandlers', () => {
   test('Message handlers correctly set', () => {
     setMessageHandlers.call(scope);
 
-    expect(scope.socket.on).toHaveBeenCalledTimes(18);
+    expect(scope.socket.on).toHaveBeenCalledTimes(19);
   });
 });

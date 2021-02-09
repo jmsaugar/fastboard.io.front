@@ -14,11 +14,10 @@ import {
 } from './selectors';
 
 const joined = true;
-const owner = true;
 const boardName = 'board name';
 const me = {
   name     : 'my user name',
-  joinDate : '2021-02-28T12:14:15.000Z',
+  joinDate : '2021-02-28T12:30:15.000Z',
 };
 const others = [
   { id : 1, joinDate : '2021-02-28T12:24:15.000Z' },
@@ -36,7 +35,6 @@ describe('Store : board : selectors', () => {
     state = {
       board : {
         joined,
-        owner,
         boardName,
         users,
         tools : {
@@ -51,7 +49,7 @@ describe('Store : board : selectors', () => {
   });
 
   test('Is owner selector working correctly', () => {
-    expect(isOwnerSelector(state)).toBe(owner);
+    expect(isOwnerSelector(state)).toBe(false);
   });
 
   test('Is joined selector working correctly', () => {
