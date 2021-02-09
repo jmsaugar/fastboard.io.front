@@ -1,4 +1,5 @@
 export default Object.freeze({
+  idle        : 'idle',
   pencil      : 'pencil',
   pen         : 'pen',
   highlighter : 'highlighter',

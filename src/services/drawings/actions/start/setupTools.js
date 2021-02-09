@@ -1,3 +1,5 @@
+import { Tool } from 'paper';
+
 import { tools } from '#constants';
 
 import {
@@ -18,6 +20,7 @@ export default function setupTools() {
   const mapProject = this.projects.map;
 
   return {
+    [tools.idle]        : new Tool(), // Has to be first, so no other tools are selected by default
     [tools.pencil]      : pencilToolFactory({ realtimeService, drawingsProject, mapProject }),
     [tools.pen]         : penToolFactory({ realtimeService, drawingsProject, mapProject }),
     [tools.highlighter] : highlighterToolFactory({ realtimeService, drawingsProject, mapProject }),
