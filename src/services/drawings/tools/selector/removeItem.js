@@ -1,4 +1,5 @@
 import { drawingsMessages, tools } from '#constants';
+import { noop } from '#utils';
 
 import onItemRemoved from './onItemRemoved';
 
@@ -18,5 +19,5 @@ export default function removeItem() {
   this.dependencies.realtimeService.send(
     drawingsMessages.doRemoveItem,
     { tool : tools.selector, itemName },
-  ).catch(() => {}); // @todo
+  ).catch(noop); // @todo decide what to do with those cases
 }

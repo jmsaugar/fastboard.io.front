@@ -1,4 +1,8 @@
-import { imageType, imageQuality, maxImageSize } from '#constants';
+import {
+  uploadedImageType as imageType,
+  uploadedImageQuality as imageQuality,
+  uploadedImageMaxSize as maxSize,
+} from '#constants';
 
 /**
  * Compress an image - in size and quality - to jpeg format.
@@ -26,8 +30,8 @@ export default function compressImage(file) {
         let canvasHeight = image.height;
 
         // Calculate the final image dimensions, as it may need resizing
-        if (canvasWidth > maxImageSize || canvasHeight > maxImageSize) {
-          const ratio = Math.min(maxImageSize / image.width, maxImageSize / image.height);
+        if (canvasWidth > maxSize || canvasHeight > maxSize) {
+          const ratio = Math.min(maxSize / image.width, maxSize / image.height);
 
           canvasWidth = image.width * ratio;
           canvasHeight = image.height * ratio;

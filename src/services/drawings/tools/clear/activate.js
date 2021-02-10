@@ -1,4 +1,4 @@
-import { Log } from '#utils';
+import { Log, noop } from '#utils';
 import { drawingsMessages, tools } from '#constants';
 
 import onBoardCleared from './onBoardCleared';
@@ -14,5 +14,5 @@ export default function activate() {
   this.dependencies.realtimeService.send(
     drawingsMessages.doClearBoard,
     { tool : tools.clear },
-  ); // @todo .catch?
+  ).catch(noop); // @todo decide what to do with those cases
 }

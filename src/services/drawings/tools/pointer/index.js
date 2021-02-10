@@ -1,6 +1,6 @@
 import { Tool } from 'paper';
 
-import { Log, throttle } from '#utils';
+import { Log, throttle, noop } from '#utils';
 
 import { drawingsMessages, tools } from '#constants';
 
@@ -35,7 +35,7 @@ export default (dependencies) => {
       dependencies.realtimeService.send(
         drawingsMessages.doMouseDown,
         { tool : tools.pointer, ...drawingData },
-      ).catch(() => {}); // @todo;
+      ).catch(noop); // @todo decide what to do with those cases
     }
   });
 
@@ -49,7 +49,7 @@ export default (dependencies) => {
         dependencies.realtimeService.send(
           drawingsMessages.doMouseDrag,
           { tool : tools.pointer, ...drawingData },
-        ).catch(() => {}); // @todo;
+        ).catch(noop); // @todo decide what to do with those cases
       }
     },
     throttleDelay,

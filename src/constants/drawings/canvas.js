@@ -1,3 +1,5 @@
+export const canvasBgColor = '#fff';
+
 // Full drawings canvas size: 4k
 const canvasSize = Object.freeze({
   width  : 3840,

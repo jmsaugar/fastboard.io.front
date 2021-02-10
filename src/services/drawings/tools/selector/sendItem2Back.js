@@ -1,4 +1,5 @@
 import { drawingsMessages, tools } from '#constants';
+import { noop } from '#utils';
 
 import onItem2Back from './onItem2Back';
 
@@ -18,5 +19,5 @@ export default function sendItem2Back() {
   this.dependencies.realtimeService.send(
     drawingsMessages.doSendItemBackward,
     { tool : tools.selector, itemName },
-  ).catch(() => {}); // @todo
+  ).catch(noop); // @todo decide what to do with those cases
 }

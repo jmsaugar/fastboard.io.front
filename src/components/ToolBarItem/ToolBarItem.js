@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Pen as PencilIcon } from '@styled-icons/fa-solid/Pen';
 import { Marker as PenIcon } from '@styled-icons/fa-solid/Marker';
 import { Highlighter as HighlighterIcon } from '@styled-icons/fa-solid/Highlighter';
@@ -13,11 +13,15 @@ import { FileDownload as DownloadIcon } from '@styled-icons/fa-solid/FileDownloa
 import { Trash as ResetIcon } from '@styled-icons/fa-solid/Trash';
 import { Circle as CircleIcon } from '@styled-icons/fa-solid/Circle';
 
-import { drawingColors, tools } from '#constants';
+import {
+  exportedImageExtension, drawingColors, tools, notificationTypes,
+} from '#constants';
 import { useOutsideClick } from '#hooks';
 import { drawingsService } from '#services';
-import { triggerDownload, triggerUpload } from '#utils';
-import { boardNameSelector, selectedToolSelector, toolsColorsSelector } from '#store';
+import { triggerDownload, triggerUpload, noop } from '#utils';
+import {
+  addNotification, boardNameSelector, selectedToolSelector, toolsColorsSelector,
+} from '#store';
 
 import ToolButton from '../ToolButton';
 import ToolOptions from '../ToolOptions';
@@ -39,6 +43,7 @@ const ToolBarItem = ({ boardId, tool }) => {
   const ref = useRef();
   const [showOptions, setShowOptions] = useState(false);
   const boardName = useSelector(boardNameSelector);
+  const dispatch = useDispatch();
 
   const selectedTool = useSelector(selectedToolSelector);
   const toolsColors = useSelector(toolsColorsSelector);
@@ -84,7 +89,7 @@ const ToolBarItem = ({ boardId, tool }) => {
               setIsLoading(true);
               return drawingsService.tools[tool].activate(image, boardId);
             })
-            .catch(() => console.log('!!!.upload.cancelled'))
+            .catch(noop) // Upload cancelled, do nothing
             .finally(() => setIsLoading(false));
           break;
 
@@ -93,17 +98,18 @@ const ToolBarItem = ({ boardId, tool }) => {
           break;
 
         case tools.export:
-          triggerDownload(
-            new Blob([drawingsService.exportBoard()]),
-            `${boardName}.svg`,
-          );
+          setIsLoading(true);
+          drawingsService.exportBoard()
+            .then((blob) => triggerDownload(blob, `${boardName}.${exportedImageExtension}`))
+            .catch(() => dispatch(addNotification({ type : notificationTypes.boardExportError })))
+            .finally(() => setIsLoading(false));
           break;
 
         default:
           break;
       }
     },
-    [showOptions, isSelected, tool, boardName, hideOptions, boardId],
+    [dispatch, showOptions, isSelected, tool, boardName, hideOptions, boardId],
   );
 
   return (

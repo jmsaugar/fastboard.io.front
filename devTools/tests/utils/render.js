@@ -1,7 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
+jest.mock('react-redux', () => ({
+  useDispatch : jest.fn(),
+  useSelector : jest.fn(),
+}));
 
 /**
  * Render component using react-testing library
@@ -17,6 +22,7 @@ import { BrowserRouter } from 'react-router-dom';
  */
 export default function(component, options = {}) {
   if (options.store) {
+    useDispatch.mockImplementation(() => ({ dispatch : jest.fn() }));
     useSelector.mockImplementation((callback) => callback(options.store));
   }
 

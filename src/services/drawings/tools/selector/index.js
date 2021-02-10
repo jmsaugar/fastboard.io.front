@@ -1,6 +1,6 @@
 import { Tool } from 'paper';
 
-import { Log, throttle } from '#utils';
+import { Log, throttle, noop } from '#utils';
 import { drawingsMessages, tools } from '#constants';
 import store, { setSelectorCursorOperation } from '#store';
 
@@ -47,7 +47,7 @@ export default (dependencies) => {
       dependencies.realtimeService.send(
         drawingsMessages.doSelectItem,
         { tool : tools.selector, itemName },
-      ).catch(() => {}); // @todo
+      ).catch(noop); // @todo decide what to do with those cases
     }
   });
 
@@ -60,7 +60,7 @@ export default (dependencies) => {
         dependencies.realtimeService.send(
           drawingsMessages.doOperateItem,
           { tool : tools.selector, ...operationData },
-        ).catch(() => {}); // @todo
+        ).catch(noop); // @todo decide what to do with those cases
       }
     },
     throttleDelay,

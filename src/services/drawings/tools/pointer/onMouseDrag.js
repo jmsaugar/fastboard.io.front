@@ -1,5 +1,7 @@
 import { point2net } from '#utils';
 
+import { disappearTimeout } from './constants';
+
 /**
  * Mouse drag event pointer handler.
  *
@@ -18,8 +20,7 @@ export default function onMouseDrag(event) {
   const path = this.currentPath;
   path.add(point);
 
-  // @todo time to constants
-  setTimeout(() => path.removeSegment(0), 500);
+  setTimeout(() => path.removeSegment(0), disappearTimeout);
 
   return { point };
 }

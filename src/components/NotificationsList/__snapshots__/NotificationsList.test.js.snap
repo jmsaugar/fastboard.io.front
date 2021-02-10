@@ -6,19 +6,19 @@ exports[`Component : NotificationsList Snapshot 1`] = `
     class="sc-qQYBZ jMsjSa"
   >
     <div
-      class="sc-pscky hqToYu"
+      class="sc-pscky iSRUFQ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined
     </div>
     <div
-      class="sc-pscky hqToYu"
+      class="sc-pscky iSRUFQ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined
     </div>
     <div
-      class="sc-pscky hqToYu"
+      class="sc-pscky iSRUFQ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined

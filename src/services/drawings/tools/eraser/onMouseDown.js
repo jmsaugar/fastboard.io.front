@@ -3,7 +3,7 @@ import { Path } from 'paper';
 import { drawingsLayers, mapLayers, canvasIds } from '#constants';
 import { Log, point2net } from '#utils';
 
-const strokeColor = 'white'; // @todo read from constant?
+const strokeColor = 'white';
 const strokeWidth = 20;
 const strokeCap = 'round';
 

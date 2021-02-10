@@ -9,7 +9,6 @@ const boardId = '123456';
 const mockStore = {
   board : {
     joined    : false,
-    owner     : undefined,
     boardName : undefined,
     users     : {
       me     : undefined,

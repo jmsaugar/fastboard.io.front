@@ -1,5 +1,5 @@
-export const imageType = 'image/jpeg';
+export const uploadedImageType = 'image/jpeg';
 
-export const imageQuality = 0.8;
+export const uploadedImageQuality = 0.8;
 
-export const maxImageSize = 1500; // In pixels
+export const uploadedImageMaxSize = 1500; // In pixels

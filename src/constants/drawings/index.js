@@ -1,10 +1,28 @@
 export {
-  mapHeight, mapWidth, mapZoom, drawingsLayers, mapLayers, canvasIds, viewPortItemName,
+  canvasBgColor,
+  mapHeight,
+  mapWidth,
+  mapZoom,
+  drawingsLayers,
+  mapLayers,
+  canvasIds,
+  viewPortItemName,
 } from './canvas';
 export {
-  drawingColors, drawingColorCodes, defaultDrawingColor, selectionColorCode, mapViewPortColorCode,
+  drawingColors,
+  drawingColorCodes,
+  defaultDrawingColor,
+  selectionColorCode,
+  mapViewPortColorCode,
 } from './colors';
-export { imageType, imageQuality, maxImageSize } from './images';
+export {
+  exportedImageType,
+  exportedImageQuality,
+  exportedImageMargin,
+  exportedImageExtension,
+  exportImageTimeout,
+} from './export';
+export { uploadedImageType, uploadedImageQuality, uploadedImageMaxSize } from './images';
 export { default as drawingsMessages } from './messages';
 export { default as tools } from './tools';
 export { default as cursorTypes } from './cursorTypes';

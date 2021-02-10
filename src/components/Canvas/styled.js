@@ -1,7 +1,9 @@
 import styled, { css } from '@xstyled/styled-components';
 import { variant, getSpace } from '@xstyled/system';
 
-import { cursorTypes, mapHeight, mapWidth } from '#constants';
+import {
+  canvasBgColor, cursorTypes, mapHeight, mapWidth,
+} from '#constants';
 
 import eraserCursor from '#theme/images/cursors/eraser.svg';
 import pointerCursor from '#theme/images/cursors/pointer.svg';
@@ -27,7 +29,7 @@ import greenHighlighterCursor from '#theme/images/cursors/green-highlighter.svg'
 export const SCanvas = styled.canvas`
   width: 100%;
   height: 100%;
-  background-color: boardBg;
+  background-color: ${canvasBgColor};
 
   ${variant({
     default  : cursorTypes.default,
@@ -69,7 +71,7 @@ export const SMap = styled.canvas`
   border-width: default;
   border-style: default;
   border-color: border;
-  background-color: boardBg;
+  background-color: ${canvasBgColor};
   box-shadow: default;
 
   ${variant({

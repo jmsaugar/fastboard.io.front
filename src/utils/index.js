@@ -2,6 +2,7 @@ export { default as Log } from './logger';
 export { default as compressImage } from './compressImage';
 export { default as formatDate } from './formatDate';
 export { default as getScaleFactor } from './getScaleFactor';
+export { default as noop } from './noop';
 export { default as point2net } from './point2net';
 export { default as setPreventUnload } from './setPreventUnload';
 export { default as throttle } from './throttle';

@@ -65,7 +65,8 @@
     "userLeft": "{{userName}} abandonó el panel.",
     "userNameSet": "{{oldUserName}} cambió su nombre a {{newUserName}}.",
     "boardNameSet": "El nombre del panel se cambió a {{boardName}}.",
-    "boardCleared": "{{userName}} limpió el panel."
+    "boardCleared": "{{userName}} limpió el panel.",
+    "boardExportError": "Hubo un error exportando el panel."
   },
   "itemMenu": {
     "bringForward": "Traer al frente",

@@ -1,4 +1,5 @@
 import { drawingsMessages, tools } from '#constants';
+import { noop } from '#utils';
 
 import onTextUnselected from './onTextUnselected';
 
@@ -16,5 +17,5 @@ export default function unselectText() {
   this.dependencies.realtimeService.send(
     drawingsMessages.doUnselectText,
     { tool : tools.text },
-  ).catch(() => {}); // @todo
+  ).catch(noop); // @todo decide what to do with those cases
 }

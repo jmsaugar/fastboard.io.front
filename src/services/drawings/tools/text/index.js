@@ -1,6 +1,6 @@
 import { Tool } from 'paper';
 
-import { Log } from '#utils';
+import { Log, noop } from '#utils';
 import {
   drawingColorCodes, defaultDrawingColor, tools,
 } from '#constants';
@@ -45,7 +45,7 @@ export default (dependencies) => {
       dependencies.realtimeService.send(
         messageType,
         { tool : tools.text, ...data },
-      ).catch(() => {}); // @todo;
+      ).catch(noop); // @todo decide what to do with those cases
     }
   });
 
@@ -62,7 +62,7 @@ export default (dependencies) => {
       dependencies.realtimeService.send(
         messageType,
         { tool : tools.text, ...data },
-      ).catch(() => {}); // @todo;
+      ).catch(noop); // @todo decide what to do with those cases
     }
   });
 
