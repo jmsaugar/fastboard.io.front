@@ -37,7 +37,9 @@ Copy the file `env.template` into a new one called `env.local`. There you will b
 
 - `REACT_APP_SERVER` The host and port that the backend project is running in (e.g. `localhost:9000/`).
 
-- `REACT_APP_SOCKETIO_PATH` The path to be used in the socket.io connection. This has to be the same as configured in the backend project (e.g. `/`).
+- `REACT_APP_SOCKETIO_PATH` The path to be used in the socket.io connection. This has to be the same as configured in the backend project (e.g. `/socket`).
+
+- `REACT_APP_API_PATH` The path where then backend HTTP API is located.
 
 - `REACT_APP_BASE_URL` The base url which will be used to build the session sharing link and validation in the join form (e.g. https://fastboard.io).
 
