@@ -43,8 +43,6 @@ export default (dependencies) => {
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Eraser : onMouseDrag');
-
       const drawingData = onMouseDrag.call(scope, event);
 
       if (drawingData) {

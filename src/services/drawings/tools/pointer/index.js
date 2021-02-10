@@ -41,8 +41,6 @@ export default (dependencies) => {
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Pointer : onMouseDrag'); // @todo remove logs on all mouse drag events
-
       const drawingData = onMouseDrag.call(scope, event);
 
       if (drawingData) {
@@ -54,6 +52,16 @@ export default (dependencies) => {
     },
     throttleDelay,
   ));
+
+  scope.tool.on('mouseup', () => {
+    Log.debug('Pointer : onMouseUp');
+
+    onMouseUp.call(scope);
+    dependencies.realtimeService.send(
+      drawingsMessages.doMouseUp,
+      { tool : tools.pointer },
+    ).catch(noop); // @todo decide what to do with those cases
+  });
 
   return Object.freeze({
     activate    : activate.bind(scope),

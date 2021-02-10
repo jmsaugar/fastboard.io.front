@@ -47,8 +47,6 @@ export default (dependencies) => {
 
   scope.tool.on('mousedrag', throttle(
     (event) => {
-      Log.debug('Pencil : onMouseDrag');
-
       const drawingData = onMouseDrag.call(scope, event);
 
       if (drawingData) {
