@@ -1,7 +1,6 @@
 import { Log, timeoutPromise } from '#utils';
 import {
   canvasBgColor,
-  drawingsLayers,
   exportedImageType,
   exportedImageQuality,
   exportedImageMargin,
@@ -17,7 +16,7 @@ export default function exportBoard() {
   Log.info('Service : Drawings : exportBoard');
 
   return timeoutPromise((res) => {
-    const svgString = this.projects.drawings.layers[drawingsLayers.drawings].exportSVG({
+    const svgString = this.projects.drawings.exportSVG({
       asString : true,
       bounds   : 'content',
     });
