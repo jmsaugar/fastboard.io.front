@@ -13,9 +13,10 @@ describe('Utils : triggerUpload', () => {
   });
 
   test('Correct upload', async () => {
+    input.files = [file];
     const promise = triggerUpload();
 
-    input.onchange({ path : [{ files : [file] }] });
+    input.onchange();
 
     await expect(promise).resolves.toBe(file);
   });
@@ -23,7 +24,7 @@ describe('Utils : triggerUpload', () => {
   test('Incorrect upload', async () => {
     const promise = triggerUpload();
 
-    input.onchange({});
+    input.onchange();
 
     await expect(promise).rejects.toBeUndefined();
   });
