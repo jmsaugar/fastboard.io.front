@@ -3,11 +3,11 @@
 exports[`Component : ToolBar Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pQdCa fiEtkq"
+    class="sc-pQdCa cNDtYi"
     data-testid="toolbar-component"
   >
     <div
-      class="sc-oUDcU jGQqCG"
+      class="sc-oUDcU bWTJid"
     >
       <div
         class="sc-qXRQq cpMrCI"
@@ -33,7 +33,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -181,7 +181,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -329,7 +329,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -475,7 +475,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -621,7 +621,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -767,7 +767,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -915,7 +915,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -1061,7 +1061,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -1207,7 +1207,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"
@@ -1353,7 +1353,7 @@ exports[`Component : ToolBar Snapshot 1`] = `
           </svg>
         </span>
         <div
-          class="sc-pIjat lpmByH"
+          class="sc-pIjat FhOuv"
         >
           <div
             class="sc-qXRQq cpMrCI"

@@ -16,12 +16,12 @@ export default styled.div`
     variants : {
       true : css`
         opacity : 1;
-        visitibilty: visible;
+        visibility: visible;
       `,
       false : css`
         opacity : 0;
         transform: translate(0, -10%);
-        visitibilty: hidden;
+        visibility: hidden;
         pointer-events:none;
       `,
     },
