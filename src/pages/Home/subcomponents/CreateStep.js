@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { boardsErrors } from '#constants';
+import { boardsErrors, boardFieldsMaxLengths } from '#constants';
 
 import ErrorMessage from './ErrorMessage';
 import {
@@ -43,6 +43,7 @@ const CreateStep = ({
           name="userName"
           ref={userNameRef}
           onChange={setUserName}
+          maxLength={boardFieldsMaxLengths.userName}
           placeholder={t('create.userName')}
           isRequired
         />
@@ -50,6 +51,7 @@ const CreateStep = ({
           name="boardName"
           ref={boardNameRef}
           onChange={setBoardName}
+          maxLength={boardFieldsMaxLengths.boardName}
           placeholder={t('create.boardName')}
           isRequired
         />

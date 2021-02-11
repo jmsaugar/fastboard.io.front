@@ -11,7 +11,7 @@ const autocomplete = Object.freeze({
 });
 
 const Input = forwardRef(({
-  name, value, placeholder : placeholderProp, onChange : onChangeProp,
+  name, value, maxLength, placeholder : placeholderProp, onChange : onChangeProp,
   fullWidth, isAutocomplete, isRequired, className,
 }, ref) => {
   const onChange = useCallback(
@@ -31,6 +31,7 @@ const Input = forwardRef(({
       name={name}
       value={value}
       placeholder={placeholder}
+      maxLength={maxLength}
       onChange={onChange}
       fullWidth={fullWidth}
       autoComplete={isAutocomplete ? autocomplete.on : autocomplete.off}
@@ -45,6 +46,7 @@ Input.defaultProps = {
   fullWidth      : false,
   isRequired     : false,
   isAutocomplete : true,
+  maxLength      : undefined,
   className      : undefined,
   onChange       : undefined,
 };
@@ -57,6 +59,7 @@ Input.propTypes = {
   isRequired     : PropTypes.bool,
   isAutocomplete : PropTypes.bool,
   fullWidth      : PropTypes.bool,
+  maxLength      : PropTypes.number,
   onChange       : PropTypes.func,
 };
 

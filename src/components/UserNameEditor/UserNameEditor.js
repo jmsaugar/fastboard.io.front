@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import { boardFieldsMaxLengths } from '#constants';
+
 import Button from '../Button';
 import Input from '../Input';
 import {
@@ -22,6 +24,7 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
           name="userName"
           value={newUserName}
           onChange={setNewUserName}
+          maxLength={boardFieldsMaxLengths.userName}
           fullWidth
         />
       </SContent>

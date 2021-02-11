@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { boardsErrors } from '#constants';
+import { boardsErrors, boardFieldsMaxLengths } from '#constants';
 
 import ErrorMessage from './ErrorMessage';
 import {
@@ -51,6 +51,7 @@ const JoinStep = ({
           name="userName"
           ref={userNameRef}
           onChange={setUserName}
+          maxLength={boardFieldsMaxLengths.userName}
           placeholder={t('join.userName')}
           isRequired
         />
