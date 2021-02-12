@@ -51,7 +51,7 @@ export default function create(selectedItem, selectionLayer) {
   const boundsItems = boundsArray.map((bound) => new Shape.Circle({
     name         : bound,
     center       : selectedItem.internalBounds[bound],
-    radius       : 6,
+    radius       : 8,
     fillColor    : selectionColorCode,
     onMouseEnter : () => store.dispatch(setSelectorCursorHover(bounds2cursorType[bound])),
     onMouseLeave : () => store.dispatch(setSelectorCursorHover()),

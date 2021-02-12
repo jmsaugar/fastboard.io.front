@@ -1,6 +1,7 @@
 import { Project } from 'paper';
 
 import { Log } from '#utils';
+import store, { hideItemMenu } from '#store';
 
 import setupDrawingsProject from './setupDrawingsProject';
 import setupMapProject from './setupMapProject';
@@ -43,6 +44,10 @@ export default function start(drawingsId, mapId) {
      */
     this.projects.map.view.onMouseDrag = (event) => {
       if (viewPort.hitTest(event.point)) {
+        // Menu item is hiden if viewport moved
+        store.dispatch(hideItemMenu());
+
+        // Move the viewport itself
         viewPort.translate(event.delta);
 
         // Avoid moving the viewport out of the canvas surface

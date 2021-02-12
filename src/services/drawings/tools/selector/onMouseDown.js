@@ -7,7 +7,7 @@ import store, {
 } from '#store';
 
 import { bounds, operations } from './constants';
-import { checkBoundsHit, checkContentHit } from './hitTesting';
+import { checkBoundsHit, checkContentHit, getTouchPosition } from './hitTesting';
 import reset from './reset';
 import { createSelectionHandlers, removeSelectionHandlers } from './selectionHandlers';
 
@@ -49,10 +49,7 @@ export default function onMouseDown(event) {
 
       // Top right handler is for item menu operation
       case bounds.topRight:
-        store.dispatch(showItemMenu({
-          top  : event.event.layerY,
-          left : event.event.layerX,
-        }));
+        store.dispatch(showItemMenu(getTouchPosition(event)));
         break;
 
       // Both bottom handlers are for resizing operation
