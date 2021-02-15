@@ -11,12 +11,15 @@ export {
   selectorCursorSelector,
   toolsColorsSelector,
   isDraggingMapSelector,
+  textAreaItemSelector,
 } from './selectors';
 export {
   setCreated,
   setUnjoined,
   showItemMenu,
+  showTextAreaItem,
   hideItemMenu,
+  hideTextAreaItem,
   setBoardName,
   setMyUserName,
   setUserName,

@@ -1,3 +1,4 @@
+import { Log } from '#utils';
 import { drawingsLayers, mapLayers } from '#constants';
 
 import reset from './reset';
@@ -10,6 +11,8 @@ import reset from './reset';
  * @param {String} itemName Name of the item to be removed.
  */
 export default function onItemRemoved(itemName) {
+  Log.debug('Service : Drawings : Tools : Selector : onItemRemoved', { itemName });
+
   if (!itemName) {
     return;
   }

@@ -1,5 +1,5 @@
+import { Log, noop } from '#utils';
 import { drawingsMessages, tools } from '#constants';
-import { noop } from '#utils';
 
 import onItem2Front from './onItem2Front';
 
@@ -8,6 +8,8 @@ import onItem2Front from './onItem2Front';
  * and notify other users.
  */
 export default function bringItem2Front() {
+  Log.debug('Service : Drawings : Tools : Selector : bringItem2Front');
+
   if (!this.selectedItem.drawings) {
     return;
   }

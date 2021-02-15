@@ -1,5 +1,5 @@
+import { Log, noop } from '#utils';
 import { drawingsMessages, tools } from '#constants';
-import { noop } from '#utils';
 
 import onItemRemoved from './onItemRemoved';
 
@@ -8,6 +8,8 @@ import onItemRemoved from './onItemRemoved';
  * and notify other users.
  */
 export default function removeItem() {
+  Log.debug('Service : Drawings : Tools : Selector : removeItem');
+
   if (!this.selectedItem.drawings) {
     return;
   }

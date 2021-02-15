@@ -106,7 +106,8 @@ export default () => {
           scope.tools.text.setColor(color);
           store.dispatch(setToolColor({ tool : tools.text, color }));
         },
-        unselectText : () => scope.tools.text.unselectText(),
+        unselectText : (selectItem) => scope.tools.text.unselectText(selectItem),
+        updateText   : (text) => scope.tools.text.updateText(text),
       },
       [tools.selector] : {
         activate : (itemName) => {

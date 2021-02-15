@@ -1,3 +1,5 @@
+import { Log } from '#utils';
+
 import reset from './reset';
 
 /**
@@ -6,6 +8,8 @@ import reset from './reset';
  * @param {String} itemName Name of the item to be checked for unselection.
  */
 export default function unselectItem(itemName) {
+  Log.debug('Service : Drawings : Tools : Selector : unselectItem', { itemName });
+
   if (!this.selectedItem.drawings || this.selectedItem.drawings.name !== itemName) {
     return;
   }

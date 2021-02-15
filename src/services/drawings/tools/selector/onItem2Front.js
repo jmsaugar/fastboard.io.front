@@ -1,3 +1,4 @@
+import { Log } from '#utils';
 import { drawingsLayers, mapLayers } from '#constants';
 
 /**
@@ -8,6 +9,8 @@ import { drawingsLayers, mapLayers } from '#constants';
  * @param {String} itemName Name of the item to be brought to front.
  */
 export default function onItem2Front(itemName) {
+  Log.debug('Service : Drawings : Tools : Selector : onItem2Front', { itemName });
+
   if (!itemName) {
     return;
   }

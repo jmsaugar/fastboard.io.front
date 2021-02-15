@@ -4,9 +4,13 @@ import { Log, point2net } from '#utils';
 import {
   drawingsMessages, drawingsLayers, mapLayers, canvasIds,
 } from '#constants';
+import store, { showTextAreaItem } from '#store';
 import { drawingsService } from '#services';
 
-import { createItem, selectItem, unselectItem } from './item';
+import { createItem } from './item';
+import reset from './reset';
+
+import { getTouchPosition } from '../selector/hitTesting';
 
 /**
  * Mouse down event handler.
@@ -29,44 +33,46 @@ export default function onMouseDown(event) {
 
   // If the user was writing, leave the writing state and select the item
   if (this.isWriting) {
-    drawingsService.tools.selector.activate(this.currentText.drawings.name);
-    unselectItem(this.currentText.drawings);
+    const { itemName } = this.currentText;
 
-    this.isWriting = false;
-    this.currentText = {
-      drawings : undefined,
-      map      : undefined,
-    };
+    // Reset the tool, as the user has stopped writing
+    reset.call(this);
 
+    // Activate selection tool on created text item
+    drawingsService.tools.selector.activate(itemName);
+
+    // Return information to be sent to other users
     return { type : drawingsMessages.doUnselectText };
   }
 
   // If the user was not writing, create a new text item
-  const itemName = uuidv4();
-
   this.isWriting = true;
+  this.currentText.itemName = uuidv4();
   this.currentText.drawings = createItem(
     event.point,
     this.strokeColor,
-    itemName,
+    this.currentText.itemName,
     this.dependencies.projects.drawings.layers[drawingsLayers.drawings],
+    false, // visible
   );
-
-  // Replicate the text item in the map project
   this.currentText.map = createItem(
     event.point,
     this.strokeColor,
-    itemName,
+    this.currentText.itemName,
     this.dependencies.projects.map.layers[mapLayers.drawings],
   );
 
-  // Set item as selected
-  selectItem(this.currentText.drawings);
-
-  return {
-    type  : drawingsMessages.doCreateText,
-    point : point2net(event.point),
+  // Show the TextAreaItem component to edit the text
+  store.dispatch(showTextAreaItem({
+    ...getTouchPosition(event),
     color : this.strokeColor,
-    itemName,
+  }));
+
+  // Return data of the operation
+  return {
+    type     : drawingsMessages.doCreateText,
+    point    : point2net(event.point),
+    color    : this.strokeColor,
+    itemName : this.currentText.itemName,
   };
 }

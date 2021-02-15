@@ -1,12 +1,11 @@
 import { Group, Path, Shape } from 'paper';
 
 import { Log } from '#utils';
-import { cursorTypes, selectionColorCode } from '#constants';
+import { cursorTypes, selectionColorCode, selectionHandlersBorderWidth } from '#constants';
 import store, { setSelectorCursorHover } from '#store';
 
 import { bounds, handlersBorderName } from '../constants';
 
-const borderPathWidth = 3;
 const boundsArray = Object.values(bounds);
 const bounds2cursorType = Object.freeze({
   [bounds.topLeft]     : cursorTypes.rotating,
@@ -36,7 +35,7 @@ export default function create(selectedItem, selectionLayer) {
   const borderPath = new Path({
     name        : handlersBorderName,
     strokeColor : selectionColorCode,
-    strokeWidth : borderPathWidth,
+    strokeWidth : selectionHandlersBorderWidth,
     parent      : selectionLayer,
     segments    : [
       selectedItem.internalBounds[bounds.topLeft],

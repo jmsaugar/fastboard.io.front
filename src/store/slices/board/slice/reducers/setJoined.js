@@ -33,6 +33,11 @@ export default function setJoined(state, action) {
             top  : undefined,
             left : undefined,
           },
+          textAreaItem : {
+            show : false,
+            top  : undefined,
+            left : undefined,
+          },
           colors : {
             pencil      : defaultDrawingColor,
             pen         : defaultDrawingColor,

@@ -1,3 +1,4 @@
+import { Log } from '#utils';
 import { drawingsLayers } from '#constants';
 import store, { setSelectorCursorOperation, setSelectorCursorHover, hideItemMenu } from '#store';
 
@@ -7,6 +8,8 @@ import { removeSelectionHandlers } from './selectionHandlers';
  * Reset the selection tool.
  */
 export default function reset() {
+  Log.debug('Service : Drawings : Tools : Selector : reset');
+
   if (this.selectedItem.handlers) {
     removeSelectionHandlers(
       this.dependencies.projects.drawings.layers[drawingsLayers.selection],

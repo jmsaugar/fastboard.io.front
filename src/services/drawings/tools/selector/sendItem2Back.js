@@ -1,5 +1,5 @@
+import { Log, noop } from '#utils';
 import { drawingsMessages, tools } from '#constants';
-import { noop } from '#utils';
 
 import onItem2Back from './onItem2Back';
 
@@ -8,6 +8,8 @@ import onItem2Back from './onItem2Back';
  * and notify other users.
  */
 export default function sendItem2Back() {
+  Log.debug('Service : Drawings : Tools : Selector : sendItem2Back');
+
   if (!this.selectedItem.drawings) {
     return;
   }

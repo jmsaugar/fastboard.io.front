@@ -1,6 +1,8 @@
 export {
   showItemMenu,
+  showTextAreaItem,
   hideItemMenu,
+  hideTextAreaItem,
   setCreated,
   setJoined,
   setUnjoined,
@@ -26,6 +28,7 @@ export {
   selectorCursorSelector,
   toolsColorsSelector,
   isDraggingMapSelector,
+  textAreaItemSelector,
 } from './slices/board';
 export {
   notificationsSelector,

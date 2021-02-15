@@ -8,11 +8,11 @@ import {
 import activate from './activate';
 import setColor from './setColor';
 import onMouseDown from './onMouseDown';
-import onKeyDown from './onKeyDown';
 import onTextCreated from './onTextCreated';
 import onTextUpdated from './onTextUpdated';
 import onTextUnselected from './onTextUnselected';
 import unselectText from './unselectText';
+import updateText from './updateText';
 
 export default (dependencies) => {
   Log.info('Service : Drawings : Tools : Text : create');
@@ -29,6 +29,7 @@ export default (dependencies) => {
     strokeColor : drawingColorCodes[defaultDrawingColor],
     isWriting   : false,
     currentText : {
+      itemName : undefined,
       drawings : undefined,
       map      : undefined,
     },
@@ -49,23 +50,6 @@ export default (dependencies) => {
     }
   });
 
-  scope.tool.on('keydown', (event) => {
-    Log.debug('Text : onKeyDown', { event });
-
-    event.preventDefault();
-
-    const drawingData = onKeyDown.call(scope, event);
-
-    if (drawingData) {
-      const { type : messageType, ...data } = drawingData;
-
-      dependencies.realtimeService.send(
-        messageType,
-        { tool : tools.text, ...data },
-      ).catch(noop); // @todo decide what to do with those cases
-    }
-  });
-
   return Object.freeze({
     setColor         : setColor.bind(scope),
     activate         : activate.bind(scope),
@@ -73,5 +57,6 @@ export default (dependencies) => {
     onTextUpdated    : onTextUpdated.bind(scope),
     onTextUnselected : onTextUnselected.bind(scope),
     unselectText     : unselectText.bind(scope),
+    updateText       : updateText.bind(scope),
   });
 };

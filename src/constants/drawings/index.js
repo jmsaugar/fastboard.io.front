@@ -26,3 +26,4 @@ export { uploadedImageType, uploadedImageQuality, uploadedImageMaxSize } from '.
 export { default as drawingsMessages } from './messages';
 export { default as tools } from './tools';
 export { default as cursorTypes } from './cursorTypes';
+export { textToolFontSize, selectionHandlersBorderWidth } from './misc';

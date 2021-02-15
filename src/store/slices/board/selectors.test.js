@@ -9,6 +9,9 @@ import {
   otherUsersSelector,
   usersCountSelector,
   selectedToolSelector,
+  selectorCursorSelector,
+  textAreaItemSelector,
+  itemMenuSelector,
   toolsColorsSelector,
   isDraggingMapSelector,
 } from './selectors';
@@ -25,6 +28,21 @@ const others = [
 ];
 const users = { me, others };
 const selectedTool = tools.pencil;
+const selectorCursor = {
+  operation : false,
+  hover     : true,
+};
+const itemMenu = {
+  show : true,
+  top  : 10,
+  left : 20,
+};
+const textAreaItem = {
+  show  : true,
+  top   : 30,
+  left  : 40,
+  color : '#123456',
+};
 const colors = { pencil : defaultDrawingColor };
 const isDraggingMap = true;
 
@@ -39,7 +57,10 @@ describe('Store : board : selectors', () => {
         users,
         tools : {
           selected : selectedTool,
+          selectorCursor,
           colors,
+          itemMenu,
+          textAreaItem,
         },
         map : {
           isDragging : isDraggingMap,
@@ -86,5 +107,17 @@ describe('Store : board : selectors', () => {
 
   test('Is dragging map selector working correctly', () => {
     expect(isDraggingMapSelector(state)).toBe(isDraggingMap);
+  });
+
+  test('Selector cursor selector working correctly', () => {
+    expect(selectorCursorSelector(state)).toBe(selectorCursor.operation || selectorCursor.hover);
+  });
+
+  test('Text area item selector working correctly', () => {
+    expect(textAreaItemSelector(state)).toBe(textAreaItem);
+  });
+
+  test('Item menu selector working correctly', () => {
+    expect(itemMenuSelector(state)).toBe(itemMenu);
   });
 });

@@ -75,6 +75,11 @@ export const itemMenuSelector = createSelector(
   (tools) => tools.itemMenu,
 );
 
+export const textAreaItemSelector = createSelector(
+  toolsSelector,
+  (tools) => tools.textAreaItem,
+);
+
 export const toolsColorsSelector = createSelector(
   toolsSelector,
   (tools) => tools.colors,

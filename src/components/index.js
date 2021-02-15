@@ -19,6 +19,7 @@ export { default as Modal } from './Modal';
 export { default as NotificationItem } from './NotificationItem';
 export { default as NotificationsList } from './NotificationsList';
 export { default as Spinner } from './Spinner';
+export { default as TextAreaItem } from './TextAreaItem';
 export { default as ToolBar } from './ToolBar';
 export { default as ToolBarItem } from './ToolBarItem';
 export { default as ToolButton } from './ToolButton';

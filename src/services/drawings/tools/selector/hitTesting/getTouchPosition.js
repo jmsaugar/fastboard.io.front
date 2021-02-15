@@ -8,7 +8,7 @@
  *
  * @returns {Object} Object containing the { top, left } coordinates of the event.
 */
-export default function getTouchCoordinates(event) {
+export default function getTouchPosition(event) {
   // Touchscreen
   if (event?.event?.targetTouches?.[0]) {
     let top = event?.event?.targetTouches?.[0].pageY;

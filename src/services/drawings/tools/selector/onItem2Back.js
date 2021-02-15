@@ -1,3 +1,4 @@
+import { Log } from '#utils';
 import { drawingsLayers, mapLayers } from '#constants';
 
 /**
@@ -8,6 +9,8 @@ import { drawingsLayers, mapLayers } from '#constants';
  * @param {String} itemName Name of the item to be sent to back.
  */
 export default function onItem2Back(itemName) {
+  Log.debug('Service : Drawings : Tools : Selector : onItem2Back', { itemName });
+
   if (!itemName) {
     return;
   }

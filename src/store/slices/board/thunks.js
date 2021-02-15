@@ -57,7 +57,7 @@ export const setSelectedTool = (payload) => (dispatch) => {
     }
 
     if (payload !== tools.text) {
-      drawingsService.tools[tools.text].unselectText();
+      drawingsService.tools[tools.text].unselectText(false);
     }
   }
 

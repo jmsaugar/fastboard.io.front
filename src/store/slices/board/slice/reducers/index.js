@@ -1,7 +1,9 @@
 export { default as addUserReducer } from './addUser';
 export { default as removeUserReducer } from './removeUser';
 export { default as showItemMenuReducer } from './showItemMenu';
+export { default as showTextAreaItemReducer } from './showTextAreaItem';
 export { default as hideItemMenuReducer } from './hideItemMenu';
+export { default as hideTextAreaItemReducer } from './hideTextAreaItem';
 export { default as setBoardNameReducer } from './setBoardName';
 export { default as setCreatedReducer } from './setCreated';
 export { default as setJoinedReducer } from './setJoined';

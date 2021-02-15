@@ -27,6 +27,7 @@ import {
   Modal,
   NotificationsList,
   Spinner,
+  TextAreaItem,
   ToolBar,
 } from '#components';
 import {
@@ -43,6 +44,7 @@ import store, {
   setUnjoined,
   usersCountSelector,
   hideItemMenu,
+  textAreaItemSelector,
 } from '#store';
 
 import SWrapper from './styled';
@@ -66,6 +68,7 @@ const Board = () => {
   const isOwner = useSelector(isOwnerSelector);
   const isJoined = useSelector(isJoinedSelector);
   const itemMenu = useSelector(itemMenuSelector);
+  const textAreaItem = useSelector(textAreaItemSelector);
   const unblockRef = useRef();
   const isOwnerOnLoad = useRef(isOwner);
   const isJoinedOnLoad = useRef(isJoined);
@@ -212,6 +215,10 @@ const Board = () => {
     store.dispatch(hideItemMenu());
   };
 
+  const textAreaItemUpdate = (text) => drawingsService.tools[tools.text].updateText(text);
+
+  const stopWriting = () => drawingsService.tools[tools.text].unselectText();
+
   return (
     <>
       <HeadMeta
@@ -228,6 +235,14 @@ const Board = () => {
           onItem2Front={item2Front}
           onItem2Back={item2Back}
           onItemRemove={itemRemove}
+        />
+        <TextAreaItem
+          show={textAreaItem.show}
+          top={textAreaItem.top}
+          left={textAreaItem.left}
+          textColor={textAreaItem.color}
+          onChange={textAreaItemUpdate}
+          onStop={stopWriting}
         />
         <Canvas drawingsId={canvasIds.drawings} mapId={canvasIds.map} />
         <Modal target={mainLayoutId} show={modalStep !== modalSteps.none}>

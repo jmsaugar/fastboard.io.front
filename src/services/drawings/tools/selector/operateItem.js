@@ -1,5 +1,6 @@
 import { Point } from 'paper';
 
+import { Log } from '#utils';
 import { drawingsLayers, mapLayers } from '#constants';
 
 import { operations } from './constants';
@@ -15,6 +16,8 @@ import {
  * @param {Object} operationData Necessary data for the given operation.
  */
 export default function operateItem({ itemName, ...operationData }) {
+  Log.debug('Service : Drawings : Tools : Selector : operateItem');
+
   const { drawings : drawingsProject, map : mapProject } = this.dependencies.projects;
 
   const item = {
