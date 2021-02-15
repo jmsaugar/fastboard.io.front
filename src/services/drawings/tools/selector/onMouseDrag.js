@@ -35,6 +35,7 @@ export default function onMouseDrag(event) {
 
   let newAngle;
   let operationData;
+  let resizeData;
   switch (this.operation.type) {
     case operations.translate:
       translateItem(this.selectedItem, this.operation.originPoint, event.point);
@@ -53,15 +54,15 @@ export default function onMouseDrag(event) {
       break;
 
     case operations.resize:
-      resizeItem(this.selectedItem, this.operation.originBound, event.point);
-      resizeHandlers(this.selectedItem);
+      resizeData = resizeItem(this.selectedItem, this.operation.originBound, event.delta);
+      resizeHandlers(this.selectedItem, resizeData);
 
       // Prepare operation data to be sent to other users
       operationData = {
-        type             : operations.resize,
-        itemName         : this.selectedItem.drawings.name,
-        originBound      : this.operation.originBound,
-        destinationPoint : point2net(event.point),
+        type        : operations.resize,
+        itemName    : this.selectedItem.drawings.name,
+        originBound : this.operation.originBound,
+        delta       : point2net(event.delta),
       };
       break;
 

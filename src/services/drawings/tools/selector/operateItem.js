@@ -42,7 +42,7 @@ export default function operateItem({ itemName, ...operationData }) {
       resizeItem(
         item,
         operationData.originBound,
-        new Point(operationData.destinationPoint),
+        new Point(operationData.delta),
       );
       break;
 
