@@ -1,7 +1,8 @@
 export {
   resizeLocal as resizeLocalItem,
   resizeRemote as resizeRemoteItem,
-  rotate as rotateItem,
+  rotateLocal as rotateLocalItem,
+  rotateRemote as rotateRemoteItem,
   translate as translateItem,
 } from './item';
 export {

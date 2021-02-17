@@ -4,7 +4,7 @@ import { canvasIds } from '#constants';
 import { operations } from './constants';
 import {
   resizeLocalItem,
-  rotateItem,
+  rotateLocalItem,
   translateItem,
   resizeHandlers,
   rotateHandlers,
@@ -34,6 +34,7 @@ export default function onMouseDrag(event) {
   }
 
   let newAngle;
+  let diffAngle;
   let operationData;
   let resizeData;
   switch (this.operation.type) {
@@ -67,15 +68,15 @@ export default function onMouseDrag(event) {
       break;
 
     case operations.rotate:
-      newAngle = rotateItem(this.selectedItem, this.operation.currentAngle, event.point);
-      rotateHandlers(this.selectedItem, newAngle - this.operation.currentAngle);
+      newAngle = rotateLocalItem(this.selectedItem, this.operation.currentAngle, event.point);
+      diffAngle = newAngle - this.operation.currentAngle;
+      rotateHandlers(this.selectedItem, diffAngle);
 
       // Prepare operation data to be sent to other users
       operationData = {
-        type             : operations.rotate,
-        itemName         : this.selectedItem.drawings.name,
-        currentAngle     : this.operation.currentAngle,
-        destinationPoint : point2net(event.point),
+        type     : operations.rotate,
+        itemName : this.selectedItem.drawings.name,
+        newAngle : diffAngle,
       };
 
       // Update local operation status

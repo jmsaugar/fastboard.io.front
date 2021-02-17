@@ -6,7 +6,7 @@ import { drawingsLayers, mapLayers } from '#constants';
 import { operations } from './constants';
 import {
   resizeRemoteItem,
-  rotateItem,
+  rotateRemoteItem,
   translateItem,
 } from './operations';
 
@@ -47,11 +47,7 @@ export default function operateItem({ itemName, ...operationData }) {
       break;
 
     case operations.rotate:
-      rotateItem(
-        item,
-        operationData.currentAngle,
-        new Point(operationData.destinationPoint),
-      );
+      rotateRemoteItem(item, operationData.newAngle);
       break;
 
     default:
