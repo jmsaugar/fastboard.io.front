@@ -3,7 +3,7 @@ import { canvasIds } from '#constants';
 
 import { operations } from './constants';
 import {
-  resizeItem,
+  resizeLocalItem,
   rotateItem,
   translateItem,
   resizeHandlers,
@@ -54,15 +54,15 @@ export default function onMouseDrag(event) {
       break;
 
     case operations.resize:
-      resizeData = resizeItem(this.selectedItem, this.operation.originBound, event.delta);
+      resizeData = resizeLocalItem(this.selectedItem, this.operation.originBound, event.point);
       resizeHandlers(this.selectedItem, resizeData);
 
       // Prepare operation data to be sent to other users
       operationData = {
-        type        : operations.resize,
-        itemName    : this.selectedItem.drawings.name,
-        originBound : this.operation.originBound,
-        delta       : point2net(event.delta),
+        type          : operations.resize,
+        itemName      : this.selectedItem.drawings.name,
+        scalingFactor : resizeData.scalingFactor,
+        originPoint   : point2net(resizeData.originPoint),
       };
       break;
 

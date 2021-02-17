@@ -1,5 +1,6 @@
 export {
-  resize as resizeItem,
+  resizeLocal as resizeLocalItem,
+  resizeRemote as resizeRemoteItem,
   rotate as rotateItem,
   translate as translateItem,
 } from './item';
