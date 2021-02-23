@@ -93,6 +93,16 @@ exports[`Page : Cookies Snapshot 1`] = `
               </span>
               which.p2.list.thirdParty.cookies.analytics.description
             </li>
+            <li
+              class="sc-pJwpB eVlHBv"
+            >
+              <span
+                class="sc-pRSgm tmcTv"
+              >
+                which.p2.list.thirdParty.cookies.cloudflare.name:
+              </span>
+              which.p2.list.thirdParty.cookies.cloudflare.description
+            </li>
           </ul>
         </li>
       </ul>

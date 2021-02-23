@@ -34,6 +34,10 @@
             "analytics": {
               "name": "Google Analytics (_ga,_gid, _gat, _gali)",
               "description": "used to compile usage statistics."
+            },
+            "cloudflare": {
+              "name": "__cfduid",
+              "description": "technical cookie used by Cloudflare for anti-attack security - exempt from the obligations of article 22.2 of the LSSI."
             }
           }
         }

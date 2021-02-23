@@ -29,11 +29,15 @@
           }
         },
         "thirdParty": {
-          "description": "Cookies de terceros (analíticas):",
+          "description": "Cookies de terceros:",
           "cookies": {
             "analytics": {
               "name": "Google Analytics (_ga,_gid, _gat, _gali)",
               "description": "utilizadas para elaborar estadísticas de uso."
+            },
+            "cloudflare": {
+              "name": "__cfduid",
+              "description": "cookie técnica utilizada por Cloudflare para seguridad anti ataques - exceptuada de las obligaciones del artículo 22.2 de la LSSI"
             }
           }
         }

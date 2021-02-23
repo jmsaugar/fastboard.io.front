@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { HeadMeta } from '#components';
 import routes from '#routes';
+import { analyticsService } from '#services';
 
 import {
   SWrapper, SHeader, SSubHeader, SContent, SList, SListItem, SListItemName,
@@ -10,6 +11,9 @@ import {
 
 const Cookies = () => {
   const { t } = useTranslation('cookies');
+
+  // Analytics pageview
+  useEffect(() => analyticsService.pageview(routes.cookies), []);
 
   return (
     <>
@@ -69,6 +73,13 @@ const Cookies = () => {
                     :
                   </SListItemName>
                   {t('which.p2.list.thirdParty.cookies.analytics.description')}
+                </SListItem>
+                <SListItem>
+                  <SListItemName>
+                    {t('which.p2.list.thirdParty.cookies.cloudflare.name')}
+                    :
+                  </SListItemName>
+                  {t('which.p2.list.thirdParty.cookies.cloudflare.description')}
                 </SListItem>
               </SList>
             </SListItem>
