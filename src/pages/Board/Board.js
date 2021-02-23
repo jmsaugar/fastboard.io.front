@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactGA from 'react-ga';
 
 import { Log, setPreventUnload, validBoardId } from '#utils';
 import routes from '#routes';
@@ -31,6 +30,7 @@ import {
   ToolBar,
 } from '#components';
 import {
+  analyticsService,
   boardsService,
   drawingsService,
   realtimeService,
@@ -93,7 +93,7 @@ const Board = () => {
             joinedBoardId, joinDate, joinedBoardName, users,
           });
 
-          ReactGA.event({
+          analyticsService.event({
             category : gaCategories.board,
             action   : gaActions.join,
             label    : gaLabels.ok,
@@ -107,7 +107,7 @@ const Board = () => {
           setModalStep(modalSteps.none);
         })
         .catch(({ code }) => {
-          ReactGA.event({
+          analyticsService.event({
             category : gaCategories.board,
             action   : gaActions.join,
             label    : gaLabels.ko,
@@ -188,7 +188,7 @@ const Board = () => {
 
   // Analytics pageview
   useEffect(
-    () => ReactGA.pageview(routes.board.replace(':id', boardId)),
+    () => analyticsService.pageview(routes.board.replace(':id', boardId)),
     [boardId],
   );
 

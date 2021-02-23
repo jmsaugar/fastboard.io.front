@@ -6,8 +6,12 @@
   },
   "footer": {
     "about": "About",
-    "legal": "Legal",
+    "cookies": "Cookies policy",
     "contact": "Contact",
     "github": "Github"
+  },
+  "cookies": {
+    "message": "This site uses cookies, as explained in our <linkToLegal>cookies policy</linkToLegal>. If you agree to our use of cookies, please click accept and continue to use this site.",
+    "accept": "Accept"
   }
 }

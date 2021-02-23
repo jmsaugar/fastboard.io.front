@@ -32,13 +32,13 @@ exports[`Component : BoardLeave Snapshot 1`] = `
       class="sc-oUcyK gRJMGp"
     >
       <button
-        class="sc-qQYBZ eDYpWi"
+        class="sc-qQYBZ kBBHFN"
         type="secondary"
       >
         leave.cancel
       </button>
       <button
-        class="sc-qQYBZ iOGUEF"
+        class="sc-qQYBZ bNCOou"
         type="primary"
       >
         leave.leave

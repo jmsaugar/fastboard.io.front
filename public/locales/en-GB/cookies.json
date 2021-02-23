@@ -1,0 +1,49 @@
+{
+  "head": {
+    "title": "Cookies policy - Fastboard.io"
+  },
+  "title": "Cookies policy",
+  "subtitle": "This site uses cookies to facilitate navigation and create statistics on the use of this website.",
+  "what": {
+    "heading": "What are cookies",
+    "p1": "Cookies are small blocks of data sent by web servers that are stored in your browser to be subsequently read or updated by these servers and which play an important role in the operation of a website, for example, allowing us to know the browsing habits of a user and, in this way, offer them a better service.",
+    "p2": "Under no circumstances may this Portal modify cookies sent by other servers."
+  },
+  "which": {
+    "heading": "Cookies used on this website",
+    "p1": "This website uses its own cookies to facilitate browsing the Portal, and third-party cookies to compile statistics on its use.",
+    "p2": {
+      "heading": "These are the cookies used on this website:",
+      "list": {
+        "own": {
+          "description": "Own personalisation and technical cookies, exempt from the obligations of article 22.2 of the LSSI:",
+          "cookies": {
+            "language": {
+              "name": "i18nextLng",
+              "description": "navigation language."
+            },
+            "allow": {
+              "name": "allowCookies",
+              "description": "acceptance of the cookies policy of this Portal."
+            }
+          }
+        },
+        "thirdParty": {
+          "description": "Third-party cookies (analytics):",
+          "cookies": {
+            "analytics": {
+              "name": "Google Analytics (_ga,_gid, _gat, _gali)",
+              "description": "used to compile usage statistics."
+            }
+          }
+        }
+      }
+    }
+  },
+  "acceptance": {
+    "heading": "Acceptance of cookies policy",
+    "p1": "This website assumes that you accept the use of cookies to browse the site.",
+    "p2": "This website contains links to third party websites whose privacy policies are external to the website. By accessing such websites you can decide whether to accept their privacy and cookie policies.",
+    "p3": "The user has the possibility of configuring their browser to be warned on screen of the reception of cookies and to prevent the installation of cookies on their hard drive. Please consult the instructions and manuals of your browser for further information."
+  }
+}

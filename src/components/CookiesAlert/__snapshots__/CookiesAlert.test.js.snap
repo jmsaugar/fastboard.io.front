@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component : CookiesAlert Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-qZtCU lklQul"
+  >
+    <span>
+      cookies.message
+    </span>
+    <button
+      class="sc-qQYBZ bNCOou"
+      type="primary"
+    >
+      cookies.accept
+    </button>
+  </div>
+</DocumentFragment>
+`;

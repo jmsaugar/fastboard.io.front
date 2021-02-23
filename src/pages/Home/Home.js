@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import ReactGA from 'react-ga';
 
 import {
   Log, validBoardId, validBoardUrl, extractBoardId,
@@ -11,7 +10,7 @@ import {
 } from '#constants';
 import { HeadMeta } from '#components';
 import routes from '#routes';
-import { boardsService, realtimeService } from '#services';
+import { analyticsService, boardsService, realtimeService } from '#services';
 import { setCreated } from '#store';
 
 import { HomeStep, CreateStep, JoinStep } from './subcomponents';
@@ -42,7 +41,7 @@ const Home = () => {
         .then(({ boardId, boardName : joinedBoardName, joinDate }) => {
           Log.debug('Component : Home : create : created', { boardId, joinedBoardName, joinDate });
 
-          ReactGA.event({
+          analyticsService.event({
             category : gaCategories.board,
             action   : gaActions.create,
             label    : gaLabels.ok,
@@ -52,7 +51,7 @@ const Home = () => {
           redirectTo(routes.board.replace(':id', boardId));
         })
         .catch(({ code }) => {
-          ReactGA.event({
+          analyticsService.event({
             category : gaCategories.board,
             action   : gaActions.create,
             label    : gaLabels.ko,
@@ -94,7 +93,7 @@ const Home = () => {
   );
 
   // Analytics pageview
-  useEffect(() => ReactGA.pageview(routes.home), []);
+  useEffect(() => analyticsService.pageview(routes.home), []);
 
   return (
     <>

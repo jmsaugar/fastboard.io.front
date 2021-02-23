@@ -56,10 +56,12 @@
     ],
     "moduleNameMapper": {
       "#constants": "<rootDir>/src/constants",
+      "#components": "<rootDir>/src/components",
       "#hooks": "<rootDir>/src/hooks",
       "#routes": "<rootDir>/src/routes",
       "#services": "<rootDir>/src/services",
       "#store": "<rootDir>/src/store",
+      "#theme": "<rootDir>/src/theme",
       "#utils": "<rootDir>/src/utils",
       "#devTools/(.*)": "<rootDir>/devTools/$1"
     }

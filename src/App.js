@@ -1,4 +1,6 @@
-import React, { lazy, Suspense } from 'react';
+import React, {
+  lazy, Suspense, useCallback, useState,
+} from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import {
   BrowserRouter as Router, Switch, Route,
@@ -6,24 +8,37 @@ import {
 import { Provider as StoreProvider } from 'react-redux';
 import { ThemeProvider } from '@xstyled/styled-components';
 
-import { mainLayoutId } from '#constants';
+import { mainLayoutId, allowCookiesStorageKey } from '#constants';
 import routes from '#routes';
 import theme from '#theme';
 import store from '#store';
 import MainLayout from '#layouts';
 import {
-  GlobalStyle, Loading, Header, Footer,
+  GlobalStyle, CookiesAlert, Loading, Header, Footer,
 } from '#components';
+import { analyticsService } from '#services';
 
-const Home = lazy(() => import('./pages/Home/Home'));
-const Board = lazy(() => import('./pages/Board/Board'));
+const Home = lazy(() => import('./pages/Home'));
+const Board = lazy(() => import('./pages/Board'));
+const Cookies = lazy(() => import('./pages/Cookies'));
 
 const App = () => {
+  const [showCookiesAlert, setShowCookiesalert] = useState(
+    !window.localStorage.getItem(allowCookiesStorageKey),
+  );
+
+  const acceptCookies = useCallback(() => {
+    setShowCookiesalert(false);
+    window.localStorage.setItem(allowCookiesStorageKey, true);
+    analyticsService.start();
+  }, [setShowCookiesalert]);
+
   const content = (
     <Suspense fallback={<Loading />}>
       <Switch>
         <Route path={routes.home} component={Home} exact />
         <Route path={routes.board} component={Board} />
+        <Route path={routes.cookies} component={Cookies} exact />
       </Switch>
     </Suspense>
   );
@@ -41,6 +56,7 @@ const App = () => {
                 content={content}
                 footer={<Footer />}
               />
+              {showCookiesAlert && <CookiesAlert onAccept={acceptCookies} />}
             </Router>
           </Suspense>
         </ThemeProvider>

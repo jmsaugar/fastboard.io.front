@@ -1,4 +1,6 @@
 export default Object.freeze({
-  home  : '/',
-  board : '/board/:id',
+  home    : '/',
+  board   : '/board/:id',
+  about   : '/about',
+  cookies : '/cookies',
 });

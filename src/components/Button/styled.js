@@ -43,6 +43,7 @@ export default styled.button`
         width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidth'))};
         height: formHeight;
         padding: ${({ isLoading }) => (isLoading ? getSpace('xxs') : getSpace('xs'))} ${getSpace('md')};
+        font-size: default;
       `,
       lg : css`
         width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidthLg'))};

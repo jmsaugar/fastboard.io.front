@@ -10,4 +10,5 @@ export default {
   error           : '#da0000',
   errorAlpha      : '#da000080',
   warning         : '#e48900',
+  cookiesAlertBg  : '#ffdf70',
 };

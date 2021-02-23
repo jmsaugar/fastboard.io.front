@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page : Cookies Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pjTqr iFXhnN"
+  >
+    <h1
+      class="sc-prQdK kosbln"
+    >
+      title
+    </h1>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      subtitle
+    </div>
+    <h2
+      class="sc-qQlgh dSJdA"
+    >
+      what.heading
+    </h2>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      what.p1
+    </div>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      what.p2
+    </div>
+    <h2
+      class="sc-qQlgh dSJdA"
+    >
+      which.heading
+    </h2>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      which.p1
+    </div>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      which.p2.heading
+      <ul
+        class="sc-pAYXY bXcaEZ"
+      >
+        <li
+          class="sc-pJwpB eVlHBv"
+        >
+          which.p2.list.own.description
+          <ul
+            class="sc-pAYXY bXcaEZ"
+          >
+            <li
+              class="sc-pJwpB eVlHBv"
+            >
+              <span
+                class="sc-pRSgm tmcTv"
+              >
+                which.p2.list.own.cookies.language.name:
+              </span>
+              which.p2.list.own.cookies.language.description
+            </li>
+            <li
+              class="sc-pJwpB eVlHBv"
+            >
+              <span
+                class="sc-pRSgm tmcTv"
+              >
+                which.p2.list.own.cookies.allow.name:
+              </span>
+              which.p2.list.own.cookies.allow.description
+            </li>
+          </ul>
+        </li>
+        <li
+          class="sc-pJwpB eVlHBv"
+        >
+          which.p2.list.thirdParty.description
+          <ul
+            class="sc-pAYXY bXcaEZ"
+          >
+            <li
+              class="sc-pJwpB eVlHBv"
+            >
+              <span
+                class="sc-pRSgm tmcTv"
+              >
+                which.p2.list.thirdParty.cookies.analytics.name:
+              </span>
+              which.p2.list.thirdParty.cookies.analytics.description
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <h2
+      class="sc-qQlgh dSJdA"
+    >
+      acceptance.heading
+    </h2>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      acceptance.p1
+    </div>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      acceptance.p2
+    </div>
+    <div
+      class="sc-qYhTA boNcJI"
+    >
+      acceptance.p3
+    </div>
+  </div>
+</DocumentFragment>
+`;

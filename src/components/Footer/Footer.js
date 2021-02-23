@@ -1,34 +1,37 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import routes from '#routes';
+
 import {
   SWrapper, SLink, SExternalLink, SSeparator,
 } from './styled';
 
 const Separator = () => <SSeparator>·</SSeparator>;
 
-// @todo routes to constants
-
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
     <SWrapper>
-      <SLink to="/about">
+      <SLink to={routes.about}>
         {t('footer.about')}
       </SLink>
 
       <Separator />
 
-      <SLink to="/about">
-        {t('footer.legal')}
+      <SLink to={routes.cookies}>
+        {t('footer.cookies')}
       </SLink>
 
       <Separator />
 
-      <SLink to="/contact">
+      <SExternalLink
+        href="mailto:@todo"
+        target="_blank"
+      >
         {t('footer.contact')}
-      </SLink>
+      </SExternalLink>
 
       <Separator />
 

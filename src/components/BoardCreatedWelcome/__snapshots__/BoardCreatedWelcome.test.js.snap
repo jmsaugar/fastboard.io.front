@@ -23,7 +23,7 @@ exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
         https://fastboard.io/board/123456
       </div>
       <button
-        class="sc-qQYBZ gyWeCS"
+        class="sc-qQYBZ lgxqjZ"
         type="secondary"
       >
         <svg
@@ -46,7 +46,7 @@ exports[`Component : BoardCreatedWelcome Snapshot 1`] = `
       class="sc-pbYBj lhVhNu"
     >
       <button
-        class="sc-qQYBZ eDYpWi"
+        class="sc-qQYBZ kBBHFN"
         type="secondary"
       >
         welcome.created.accept

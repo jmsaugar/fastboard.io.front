@@ -1,9 +1,8 @@
-import ReactGA from 'react-ga';
-
 import { analyticsId } from '#constants';
+import { analyticsService } from '#services';
 
 export default () => {
   if (analyticsId) {
-    ReactGA.initialize(analyticsId);
+    analyticsService.setup(analyticsId);
   }
 };

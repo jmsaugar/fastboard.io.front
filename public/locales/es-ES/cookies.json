@@ -1,0 +1,49 @@
+{
+  "head": {
+    "title": "Política de cookies - Fastboard.io"
+  },
+  "title": "Política de cookies",
+  "subtitle": "Este sitio utiliza cookies para facilitar la navegación y crear estadísticas de uso de esta web.",
+  "what": {
+    "heading": "Qué son las cookies",
+    "p1": "Las cookies son pequeños bloques de datos enviados por los servidores web y que se almacenan en su navegador para posteriormente ser leídos o actualizados por dichos servidores y que juegan un papel importante para el funcionamiento de una web permitiendo, por ejemplo, conocer los hábitos de navegación de un usuario y, de esta forma, ofrecerle un mejor servicio.",
+    "p2": "En ningún caso este Portal podrá modificar cookies enviadas por otros servidores."
+  },
+  "which": {
+    "heading": "Cookies utilizadas en esta web",
+    "p1": "Este sitio web utiliza cookies propias, para facilitar la navegación por el Portal, y cookies de terceros para la elaboración de estadísticas de uso del mismo.",
+    "p2": {
+      "heading": "Estas son las cookies utilizadas en este sitio web:",
+      "list": {
+        "own": {
+          "description": "Cookies propias de personalización y técnicas, exceptuadas de las obligaciones del artículo 22.2 de la LSSI:",
+          "cookies": {
+            "language": {
+              "name": "i18nextLng",
+              "description": "idioma de navegación."
+            },
+            "allow": {
+              "name": "allowCookies",
+              "description": "aceptación de la política de cookies de este Portal."
+            }
+          }
+        },
+        "thirdParty": {
+          "description": "Cookies de terceros (analíticas):",
+          "cookies": {
+            "analytics": {
+              "name": "Google Analytics (_ga,_gid, _gat, _gali)",
+              "description": "utilizadas para elaborar estadísticas de uso."
+            }
+          }
+        }
+      }
+    }
+  },
+  "acceptance": {
+    "heading": "Aceptación de la política de cookies",
+    "p1": "Este sitio web asume que acepta el uso de cookies para navegar por el mismo.",
+    "p2": "Este sitio web contiene enlaces a sitios web de terceros cuyas políticas de privacidad son ajenas al sitio web. Al acceder a tales sitios web usted puede decidir si acepta sus políticas de privacidad y de cookies.",
+    "p3": "El usuario tiene la posibilidad de configurar su navegador para ser avisado en pantalla de la recepción de cookies y para impedir la instalación de cookies en su disco duro. Por favor, consulte las instrucciones y manuales de su navegador para ampliar esta información."
+  }
+}

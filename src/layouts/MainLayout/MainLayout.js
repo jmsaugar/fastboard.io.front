@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { SWrapper, SContent } from './styled';
+import SWrapper from './styled';
 
 const MainLayout = ({
   id, header, content, footer,
 }) => (
   <SWrapper id={id}>
     {header}
-    <SContent>
-      {content}
-    </SContent>
+    {content}
     {footer}
   </SWrapper>
 );

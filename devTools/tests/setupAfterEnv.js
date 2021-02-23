@@ -23,6 +23,7 @@ jest.mock('react-i18next', () => ({
       changeLanguage : () => new Promise(() => {}),
     },
   }),
+  Trans : ({ i18nKey }) => (i18nKey),
 }));
 
 // Mock drawings service by default as paperjs does not play well with tests

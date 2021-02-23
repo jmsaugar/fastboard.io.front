@@ -3,7 +3,7 @@
 exports[`Component : Header Snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="sc-oUcyK dJYnSY"
+    class="sc-oUcyK coJDRw"
   >
     <a
       class="sc-pbYBj blMbZM"
@@ -18,7 +18,7 @@ exports[`Component : Header Snapshot 1`] = `
         class="sc-qZtCU cbMtNr"
       >
         <button
-          class="sc-qQYBZ gyWeCS"
+          class="sc-qQYBZ lgxqjZ"
           type="secondary"
         >
           <div

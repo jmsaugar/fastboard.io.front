@@ -19,6 +19,10 @@ const HeadMeta = ({ route, boardId, boardName }) => {
       title = t('board:head.title', { boardId, title : boardName || '$t(board:head.boardId)' });
       break;
 
+    case routes.cookies:
+      title = t('cookies:head.title');
+      break;
+
     default:
       break;
   }
