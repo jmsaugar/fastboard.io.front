@@ -3,72 +3,72 @@
 exports[`Page : Cookies Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pjTqr iFXhnN"
+    class="sc-prQdK eWlpEI"
   >
     <h1
-      class="sc-prQdK kosbln"
+      class="sc-qQlgh dSJdA"
     >
       title
     </h1>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       subtitle
     </div>
     <h2
-      class="sc-qQlgh dSJdA"
+      class="sc-qYhTA dPgfEO"
     >
       what.heading
     </h2>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       what.p1
     </div>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       what.p2
     </div>
     <h2
-      class="sc-qQlgh dSJdA"
+      class="sc-qYhTA dPgfEO"
     >
       which.heading
     </h2>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       which.p1
     </div>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       which.p2.heading
       <ul
-        class="sc-pAYXY bXcaEZ"
+        class="sc-pJwpB eqQGcv"
       >
         <li
-          class="sc-pJwpB eVlHBv"
+          class="sc-pRSgm fwojeL"
         >
           which.p2.list.own.description
           <ul
-            class="sc-pAYXY bXcaEZ"
+            class="sc-pJwpB eqQGcv"
           >
             <li
-              class="sc-pJwpB eVlHBv"
+              class="sc-pRSgm fwojeL"
             >
               <span
-                class="sc-pRSgm tmcTv"
+                class="sc-qapxP gJoMDM"
               >
                 which.p2.list.own.cookies.language.name:
               </span>
               which.p2.list.own.cookies.language.description
             </li>
             <li
-              class="sc-pJwpB eVlHBv"
+              class="sc-pRSgm fwojeL"
             >
               <span
-                class="sc-pRSgm tmcTv"
+                class="sc-qapxP gJoMDM"
               >
                 which.p2.list.own.cookies.allow.name:
               </span>
@@ -77,27 +77,27 @@ exports[`Page : Cookies Snapshot 1`] = `
           </ul>
         </li>
         <li
-          class="sc-pJwpB eVlHBv"
+          class="sc-pRSgm fwojeL"
         >
           which.p2.list.thirdParty.description
           <ul
-            class="sc-pAYXY bXcaEZ"
+            class="sc-pJwpB eqQGcv"
           >
             <li
-              class="sc-pJwpB eVlHBv"
+              class="sc-pRSgm fwojeL"
             >
               <span
-                class="sc-pRSgm tmcTv"
+                class="sc-qapxP gJoMDM"
               >
                 which.p2.list.thirdParty.cookies.analytics.name:
               </span>
               which.p2.list.thirdParty.cookies.analytics.description
             </li>
             <li
-              class="sc-pJwpB eVlHBv"
+              class="sc-pRSgm fwojeL"
             >
               <span
-                class="sc-pRSgm tmcTv"
+                class="sc-qapxP gJoMDM"
               >
                 which.p2.list.thirdParty.cookies.cloudflare.name:
               </span>
@@ -108,22 +108,22 @@ exports[`Page : Cookies Snapshot 1`] = `
       </ul>
     </div>
     <h2
-      class="sc-qQlgh dSJdA"
+      class="sc-qYhTA dPgfEO"
     >
       acceptance.heading
     </h2>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       acceptance.p1
     </div>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       acceptance.p2
     </div>
     <div
-      class="sc-qYhTA boNcJI"
+      class="sc-pAYXY imdwhw"
     >
       acceptance.p3
     </div>

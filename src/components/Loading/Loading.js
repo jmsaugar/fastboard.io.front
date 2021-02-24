@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Spinner from '../Spinner';
+
+import SWrapper from './styled';
+
 const Loading = () => (
-  <div>Loading...</div>
+  <SWrapper>
+    <Spinner size="lg" dark />
+  </SWrapper>
 );
 
 export default Loading;

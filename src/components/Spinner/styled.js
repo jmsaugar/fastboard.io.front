@@ -40,7 +40,6 @@ export default styled.div`
         height: 30px;
         border-width: 6px;
       `,
-      // @todo xlg, for Loading component
     },
   })}
 `;

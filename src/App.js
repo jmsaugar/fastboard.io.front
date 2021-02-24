@@ -47,9 +47,9 @@ const App = () => {
     <HelmetProvider>
       <StoreProvider store={store}>
         <ThemeProvider theme={theme}>
+          <GlobalStyle />
           <Suspense fallback={<Loading />}>
             <Router>
-              <GlobalStyle />
               <MainLayout
                 id={mainLayoutId}
                 header={<Header />}
