@@ -1,4 +1,5 @@
 export default {
+  xl      : '40px',
   default : '20px',
   md      : '14px',
   sm      : '12px',

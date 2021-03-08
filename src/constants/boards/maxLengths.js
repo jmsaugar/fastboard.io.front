@@ -1,4 +1,4 @@
 export default Object.freeze({
-  boardName : 30,
-  userName  : 30,
+  boardName : 20,
+  userName  : 12,
 });

@@ -17,7 +17,7 @@ exports[`Component : UserNameEditor Snapshot 1`] = `
         autocomplete="on"
         class="sc-qZtCU jmxDcL"
         data-testid="input-component"
-        maxlength="30"
+        maxlength="12"
         name="userName"
         value="initial user name"
       />

@@ -3,11 +3,11 @@
 exports[`Component : ToolButton Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qQYBZ iGSSSO"
+    class="sc-qQYBZ ighBEL"
     data-testid="toolbutton-component"
   >
     <span
-      class="sc-qZtCU kwFhvv"
+      class="sc-qZtCU egfxar"
     >
       <span />
     </span>

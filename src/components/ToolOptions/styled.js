@@ -1,14 +1,19 @@
 import styled, { css } from '@xstyled/styled-components';
 import {
-  getBorderWidth, getSize, getSpace, variant,
+  breakpoints, getBorderWidth, getSize, getSpace, variant,
 } from '@xstyled/system';
 
 export default styled.div`
   position: absolute;
-  top: calc(2 * ${getSpace('sm')} + ${getSize('toolButton')} + 2 * ${getBorderWidth('default')});
   display: flex;
   flex-direction: column;
   transition: fast;
+
+  ${breakpoints({
+    xs : css`top: calc(2 * ${getSpace('xxs')} + ${getSize('toolButtonSm')} + 2 * ${getBorderWidth('default')} + ${getSpace('xl')});`,
+    sm : css`top: calc(2 * ${getSpace('xxs')} + ${getSize('toolButtonMd')} + 2 * ${getBorderWidth('default')} + ${getSpace('xl')});`,
+    xl : css`top: calc(2 * ${getSpace('sm')} + ${getSize('toolButtonLg')} + 2 * ${getBorderWidth('default')});`,
+  })}
 
   ${variant({
     default  : false,

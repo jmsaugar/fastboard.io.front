@@ -1,16 +1,15 @@
 import styled, { css } from '@xstyled/styled-components';
-import { getColor, getTransition, variant } from '@xstyled/system';
+import {
+  breakpoints, getColor, getSize, getTransition, variant,
+} from '@xstyled/system';
 
 export const SWrapper = styled.div`
   display: flex;
-  width: toolButton;
-  height: toolButton;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
   border-style: default;
   border-color: ${({ color, isSelected }) => ((color && isSelected) ? color : getColor('border'))};
-  margin: auto sm;
   background-color: bg;
   border-radius: rounded;
   transition: box-shadow ${getTransition('default')};
@@ -22,6 +21,23 @@ export const SWrapper = styled.div`
   &:active {
     background-color: bgActive;
   }
+
+  ${breakpoints({
+    xs : css`
+      width: ${getSize('toolButtonSm')};
+      height: ${getSize('toolButtonSm')};
+      margin: auto xxs;
+    `,
+    sm : css`
+      width: ${getSize('toolButtonMd')};
+      height: ${getSize('toolButtonMd')};
+    `,
+    xl : css`
+      width: ${getSize('toolButtonLg')};
+      height: ${getSize('toolButtonLg')};
+      margin: auto sm;
+    `,
+  })}
 
   ${variant({
     default  : false,
@@ -51,8 +67,21 @@ export const SWrapper = styled.div`
 
 export const SIcon = styled.span`
   & > svg {
-    width: 18px;
-    height: 18px;
     color: ${({ color }) => color};
+
+    ${breakpoints({
+    xs : css`
+      width: 10px;
+      height: 10px;
+    `,
+    sm : css`
+      width: 14px;
+      height: 14px;
+    `,
+    xl : css`
+      width: 18px;
+      height: 18px;
+    `,
+  })}
   }
 `;

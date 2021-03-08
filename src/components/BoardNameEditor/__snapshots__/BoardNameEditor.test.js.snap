@@ -17,7 +17,7 @@ exports[`Component : BoardNameEditor Snapshot 1`] = `
         autocomplete="on"
         class="sc-qZtCU jmxDcL"
         data-testid="input-component"
-        maxlength="30"
+        maxlength="20"
         name="boardName"
         value="initial board name"
       />

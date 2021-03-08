@@ -1,7 +1,6 @@
-import styled, { css, down } from '@xstyled/styled-components';
+import styled, { css, up } from '@xstyled/styled-components';
 import { getSpace } from '@xstyled/system';
 
-// @todo min-width
 export const SWrapper = styled.div`
   position: absolute;
   display: flex;
@@ -14,17 +13,23 @@ export const SWrapper = styled.div`
 export const SMeta = styled.div`
   position: absolute;
   top: ${getSpace('sm')};
-  left: ${getSpace('default')};
+  right: auto;
+  left: auto;
   pointer-events: all;
+
+  ${up('xl', css`
+    left: ${getSpace('default')};
+  `)}
 `;
 
 export const STools = styled.div`
   display: flex;
-  margin-top: sm;
+  margin-top: xl;
   pointer-events: all;
 
-  ${down('xl', css`
+  ${up('xl', css`
     position: absolute;
     right: 0;
+    margin-top: sm;
   `)}
 `;

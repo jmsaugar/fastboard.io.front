@@ -11,5 +11,7 @@ export default {
   itemMenuWidth     : '160px',
   formHeight        : '34px',
   formHeightLg      : '80px',
-  toolButton        : '44px',
+  toolButtonSm      : '30px',
+  toolButtonMd      : '38px',
+  toolButtonLg      : '44px',
 };
