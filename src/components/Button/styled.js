@@ -45,10 +45,19 @@ export default styled.button`
         padding: ${({ isLoading }) => (isLoading ? getSpace('xxs') : getSpace('xs'))} ${getSpace('md')};
         font-size: default;
       `,
+      md : css`
+        width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidthMd'))};
+        height: formHeightMd;
+        padding: default;
+        font-size: lg;
+        font-weight: bold;
+      `,
       lg : css`
         width: ${({ fullWidth }) => (fullWidth ? '100%' : getSize('buttonWidthLg'))};
         height: formHeightLg;
         padding: default;
+        font-size: xxlg;
+        font-weight: bold;
       `,
     },
   })}

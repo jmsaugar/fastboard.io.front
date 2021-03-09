@@ -3,7 +3,7 @@ import styled, { css, breakpoints } from '@xstyled/styled-components';
 export const SWrapper = styled.div`
   margin: auto;
   text-align: justify;
-  max-width: containerMaxWidth;
+  max-width: 800px;
 
   ${breakpoints({
     xs : css`padding: default;`,

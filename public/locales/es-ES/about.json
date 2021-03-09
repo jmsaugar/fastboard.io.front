@@ -1,0 +1,24 @@
+{
+  "head": {
+    "title": "Sobre Fastboard.io"
+  },
+  "title": "¿Qué es Fastboard.io?",
+  "main": {
+    "t1": "Una pizarra digital colaborativa en tiempo real.",
+    "t2": "Rápida. Gratis. Sin registro.",
+    "t3": "Dibuja, esboza, trabaja con texto e imágenes con cualquiera al otro lado. Explora ideas directamente desde la web de una manera rápida y fácil."
+  },
+  "start": "Empezar",
+  "collaborate": {
+    "header": "Colabora en tiempo real",
+    "content": "Sesiones de colaboración en tiempo real con cualquiera al otro lado, todo vía web. Dibujar, esbozar y trabajar con texto e imágenes, todo online. Reuniones de trabajo, clases o sesiones de lluvia de ideas hechas fácilmente con sólo compartir un enlace."
+  },
+  "easy": {
+    "header": "Empieza fácil y sin registro",
+    "content": "Comienza una sesión con solo dos clicks sin ningún registro. Crea sesiones de colaboración al vuelo y descarga los resultados en una imagen. Olvídate de incómodos pasos extra antes de poder usarlo. Creado con un enfoque directo en mente."
+  },
+  "open": {
+    "header": "Gratis y de código abierto",
+    "content": "Gratis con todas las características. Ideal para su uso tanto en ámbito de negocios como con propósitos educativos. Este es un proyecto de código abierto, no dudes en echarle un vistazo al código o incluso en contribuir al mismo."
+  }
+}

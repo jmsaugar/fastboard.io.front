@@ -20,6 +20,7 @@ import { analyticsService } from '#services';
 
 const Home = lazy(() => import('./pages/Home'));
 const Board = lazy(() => import('./pages/Board'));
+const About = lazy(() => import('./pages/About'));
 const Cookies = lazy(() => import('./pages/Cookies'));
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
       <Switch>
         <Route path={routes.home} component={Home} exact />
         <Route path={routes.board} component={Board} />
+        <Route path={routes.about} component={About} exact />
         <Route path={routes.cookies} component={Cookies} exact />
       </Switch>
     </Suspense>

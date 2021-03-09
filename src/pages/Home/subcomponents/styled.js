@@ -8,7 +8,6 @@ const textShadow = '2px 2px 2px rgba(0,0,0,0.2)';
 const focusedBgColor = 'rgba(255, 255, 255, 0.2)';
 const formFgAlphaColor = 'rgba(255, 255, 255, 0.7)';
 const stepsTransitionDelay = '0.4s';
-const formsFontSize = '30px';
 
 export const SWrapper = styled.div`
   position: absolute;
@@ -116,7 +115,7 @@ export const SInput = styled(Input)`
   background-color: transparent;
   border-radius: rounded;
   color: white;
-  font-size: ${formsFontSize};
+  font-size: xxlg;
   outline: 0;
 
   text-shadow: ${textShadow};
@@ -140,7 +139,7 @@ export const SAction = styled(Button)`
   border-width: lg;
   background-color: transparent;
   border-radius: rounded;
-  font-size: ${formsFontSize};
+  font-size: xxlg;
   text-shadow: ${textShadow};
 
   &:hover, &:focus {

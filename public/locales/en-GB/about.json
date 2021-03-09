@@ -1,0 +1,24 @@
+{
+  "head": {
+    "title": "About Fastboard.io"
+  },
+  "title": "What is Fastboard.io?",
+  "main": {
+    "t1": "A digital, realtime collaboration whiteboard.",
+    "t2": "Fast. Free. No registration.",
+    "t3": "Draw, sketch, work with text and images with anyone on the other side. Explore ideas directly from the web in a fast and easy way."
+  },
+  "start": "Start now",
+  "collaborate": {
+    "header": "Collaborate realtime",
+    "content": "Realtime collaboration sessions with anyone on the other side, everything via web. Drawing, sketching and working with text and images, everything online. Work meetings, classes or brainstorming sessions made easy with just a link to share."
+  },
+  "easy": {
+    "header": "Start easy without registration",
+    "content": "Start a session with just two clicks without any registration. Create ad hoc collaboration sessions and download the results in an image. Forget about inconvenient extra steps before use. Made with an straightforward approach in mind."
+  },
+  "open": {
+    "header": "Free and open source",
+    "content": "Free, fully featured experience. Ideal for use both for business or educational purposes. This is an open source project, feel free to take a look at the code or even to contribute to it."
+  }
+}

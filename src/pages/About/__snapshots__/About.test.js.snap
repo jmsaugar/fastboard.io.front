@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page : About Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-prQdK dobkOb"
+  >
+    <h1
+      class="sc-qQlgh dEyskS"
+    >
+      title
+    </h1>
+    <h2
+      class="sc-qYhTA jYcLpX"
+    >
+      main.t1
+    </h2>
+    <h2
+      class="sc-qYhTA jYcLpX"
+    >
+      main.t2
+    </h2>
+    <div
+      class="sc-pAYXY ciGxoL"
+    >
+      main.t3
+    </div>
+    <div
+      class="sc-pAYXY hgjvpw"
+    >
+      <button
+        class="sc-qQYBZ hDUFJj"
+        type="primary"
+      >
+        start
+      </button>
+    </div>
+    <div
+      class="sc-pAYXY hgjvpw"
+    >
+      <div
+        class="sc-pJwpB cuHQYa"
+      >
+        <div
+          class="sc-pRSgm kPrgJd"
+        />
+        <div
+          class="sc-qapxP gLxKKc"
+        >
+          <h3
+            class="sc-oTmHo dhXOX"
+          >
+            collaborate.header
+          </h3>
+          <div>
+            collaborate.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pJwpB cuHQYa"
+      >
+        <div
+          class="sc-pRSgm goWzTJ"
+        />
+        <div
+          class="sc-qapxP gLxKKc"
+        >
+          <h3
+            class="sc-oTmHo dhXOX"
+          >
+            easy.header
+          </h3>
+          <div>
+            easy.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pJwpB cuHQYa"
+      >
+        <div
+          class="sc-pRSgm kPrgJd"
+        />
+        <div
+          class="sc-qapxP gLxKKc"
+        >
+          <h3
+            class="sc-oTmHo dhXOX"
+          >
+            open.header
+          </h3>
+          <div>
+            open.content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
