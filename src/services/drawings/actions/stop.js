@@ -22,4 +22,7 @@ export default function stop() {
   this.users = {};
   this.tools = {};
   this.isStarted = false;
+
+  // Remove onresize listener that was added on service start
+  window.onresize = undefined;
 }
