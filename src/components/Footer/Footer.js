@@ -33,7 +33,7 @@ const Footer = () => {
       <Separator />
 
       <SExternalLink
-        href="mailto:@todo"
+        href={`mailto:${process.env.REACT_APP_CONTACT_EMAIL}`}
         target="_blank"
       >
         {t('footer.contact')}
