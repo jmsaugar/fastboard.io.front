@@ -1,6 +1,7 @@
 export default {
   minLayoutWidth    : '380px',
   minContentHeight  : '640px',
+  miscSectionWidth  : '1200px',
   header            : '80px',
   footer            : '80px',
   buttonWidth       : '100px',

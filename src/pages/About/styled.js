@@ -5,7 +5,7 @@ import { getSpace } from '@xstyled/system';
 export const SWrapper = styled.div`
   margin: auto;
   text-align: justify;
-  max-width: 1200px;
+  max-width: miscSectionWidth;
 
   ${breakpoints({
     xs : css`padding: default;`,
