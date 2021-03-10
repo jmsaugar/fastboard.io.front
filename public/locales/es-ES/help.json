@@ -1,0 +1,50 @@
+{
+  "head": {
+    "title": "Ayuda - Fastboard.io"
+  },
+  "title": "¿Cómo funciona?",
+  "sessions": {
+    "title": "Sesiones y usuarios",
+    "tagline": "Fastboard.io te permite crear rápidamente una sesión de pizarra digital o unirte a una creada por otro usuario.",
+    "create": {
+      "header": "Crear una sesión",
+      "content": "Tan solo ve a la página inicial y haz click en <strong>crear</strong>. Introduce tu nombre de usuario y el nombre del panel y ya estás listo. Serás recibido con un diálogo que te permitirá copiar el enlace a la sesión para que otros puedan unirse."
+    },
+    "join": {
+      "header": "Unirse a una sesión",
+      "content": "Puedes unirte a una sesión con tan solo visitar su url. Se te preguntará por tu nombre de usuario antes de unirte. De manera alternativa, puedes ir a la página inicial y hacer click en <strong>unirse</strong>. Tendrás que rellenar el identificador del panel (los números) o su url y tu nombre de usuario. Fácil."
+    },
+    "settings": {
+      "header": "Cambiar el nombre de usuario y del panel",
+      "content": "Puedes cambiar tu nombre de usuario y el del panel haciendo click en ellos en la esquina superior izquierda del panel. También podrás ver qué usuarios hay conectados."
+    },
+    "leave": {
+      "header": "Abandonar una sesión",
+      "content": "Tan solo abandona la página. Se te pedirá una confirmación por si acaso. Recuerda que si eres el último usuario que se va, el contenido del panel será borrado automáticamente. ¡Descárgalo como una imagen si lo quieres conservar!"
+    }
+  },
+  "tools": {
+    "title": "Herramientas",
+    "tagline": "Fastboard.io provee una serie de herramientas que te permiten dibujar, manipular texto e imágenes y guardar tu trabajo.",
+    "drawing": {
+      "header": "Dibujando",
+      "content": "Hay tres herramientas de dibujado con distintos grosores de trazo y colores seleccionables. Tan solo haz click en ellas para seleccionarlas y haz click otra vez para mostrar el menú de colores. También hay disponible una herramienta de borrado."
+    },
+    "writing": {
+      "header": "Escribiendo",
+      "content": "Puedes añadir texto fácilmente al panel haciendo click en la herramienta de texto y en el punto del lienzo en el que quieras añadirlo y empezar a escribir. El color de texto puede ser seleccionado también de la misma manera que con las herramientas de dibujo. Los elementos de texto pueden ser después manipulados: puedes redimensionarlos, rotarlos y moverlos de la misma manera que puedes hacerlo con las imágenes."
+    },
+    "manipulating": {
+      "header": "Manipulando texto e imágenes",
+      "content": "Puedes subir imágenes al panel y manipularlas de la misma manera que los elementos de texto. Tan solo haz click en la herramienta de selección y selecciona el texto o imagen deseada. Puedes moverlos, redimensionarlos con las esquinas inferiores, rotarlos con la esquina superior izquierda y mostrar un menú contextual con más opciones haciendo click en la esquina superior derecha."
+    },
+    "pointer": {
+      "header": "Puntero",
+      "content": "Puedes usar la herramienta de puntero para proyectar una especie de puntero láser sobre el lienzo que otros usuarios podrán ver en tiempo real para señalar elementos de interés. El trazo desaparecerá al poco tiempo, por lo que no tienes que preocuparte de hacer trazos y borrarlos tan solo para realizar indicaciones."
+    },
+    "saveOrDelete": {
+      "header": "Guarda o borra tu trabajo",
+      "content": "Puedes descargar el contenido de la pizarra haciendo click en la herramienta de descarga. El contenido será descargado como una imagen jpg para que puedas conservar tu trabajo. También tienes la opción de reiniciar la pizarra entera."
+    }
+  }
+}

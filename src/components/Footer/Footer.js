@@ -20,6 +20,12 @@ const Footer = () => {
 
       <Separator />
 
+      <SLink to={routes.help}>
+        {t('footer.help')}
+      </SLink>
+
+      <Separator />
+
       <SLink to={routes.cookies}>
         {t('footer.cookies')}
       </SLink>

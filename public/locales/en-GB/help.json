@@ -1,0 +1,50 @@
+{
+  "head": {
+    "title": "Help - Fastboard.io"
+  },
+  "title": "How does it work?",
+  "sessions": {
+    "title": "Sessions and users",
+    "tagline": "Fastboard.io allows you to quickly create a whiteboard session or join one created by another user.",
+    "create": {
+      "header": "Create a session",
+      "content": "Just go to the home page and click on <strong>create</strong>. Enter your user name and board name and you are ready to go. You will be greeted with a dialog that will allow you to copy the link to the session so that others can join."
+    },
+    "join": {
+      "header": "Join a session",
+      "content": "You can join a session by simply visiting its url. You will be asked for your user name before joining. Alternatively, you can go to the home page and click <strong>join</strong>. You will have to fill in the board id (the numbers) or its url and your user name. Easy."
+    },
+    "settings": {
+      "header": "Change user and board name",
+      "content": "You can change your user and board names by clicking on them in the upper left corner of the panel.  You will also be able to see which users are in the session."
+    },
+    "leave": {
+      "header": "Leaving a session",
+      "content": "Just leave the page. You will be asked for a confirmation just in case. Remember that if you are the last user to leave, the content of the board will be automatically deleted. Download it as an image if you want to keep it!"
+    }
+  },
+  "tools": {
+    "title": "Tools",
+    "tagline": "Fastboard.io provides a set of tools that allow you to draw, manipulate text and images and save your work.",
+    "drawing": {
+      "header": "Drawing",
+      "content": "There are three drawing tools with different stroke thicknesses and selectable colors. Just click on them to select them and click again to display the color menu. An eraser tool is also available."
+    },
+    "writing": {
+      "header": "Writing",
+      "content": "You can easily add text to the board by clicking on the text tool and clicking on the point on the canvas where you want to add it and start typing. The text color can also be selected in the same way as with the drawing tools. Text elements can be further manipulated: you can resize, rotate and move them in the same way as you can do with images."
+    },
+    "manipulating": {
+      "header": "Manipulating text and images",
+      "content": "You can upload images to the board and manipulate them in the same way as text elements. Just click on the selection tool and select the desired text or image. You can move them, resize them with the lower corners, rotate them with the upper left corner and display a context menu with more options by clicking on the upper right corner."
+    },
+    "pointer": {
+      "header": "Pointer",
+      "content": "You can use the pointer tool to project a kind of laser pointer on the canvas that other users can see in real time to point out items of interest. The stroke will disappear after a short time, so you do not have to worry about about drawing and erasing anything just for indicating purposes."
+    },
+    "saveOrDelete": {
+      "header": "Save or delete your work",
+      "content": "You can download the content of the whiteboard by clicking on the download tool. The content will be downloaded as a jpg image so you can keep your work. You also have the option to reset the entire whiteboard."
+    }
+  }
+}

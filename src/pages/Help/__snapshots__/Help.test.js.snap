@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page : Help Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-prQdK dobkOb"
+  >
+    <h1
+      class="sc-qYhTA fgpbBw"
+    >
+      title
+    </h1>
+    <hr
+      class="sc-qQlgh jSSILe"
+    />
+    <h2
+      class="sc-pAYXY gVPaRf"
+    >
+      sessions.title
+    </h2>
+    <div
+      class="sc-pJwpB bhJGlF"
+    >
+      sessions.tagline
+    </div>
+    <div
+      class="sc-pJwpB dmrkMS"
+    >
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gwcKFP"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            sessions.create.header
+          </h3>
+          <div>
+            sessions.create.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gTalGT"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            sessions.join.header
+          </h3>
+          <div>
+            sessions.join.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gwcKFP"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            sessions.settings.header
+          </h3>
+          <div>
+            sessions.settings.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gTalGT"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            sessions.leave.header
+          </h3>
+          <div>
+            sessions.leave.content
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr
+      class="sc-qQlgh jSSILe"
+    />
+    <h2
+      class="sc-pAYXY gVPaRf"
+    >
+      tools.title
+    </h2>
+    <div
+      class="sc-pJwpB bhJGlF"
+    >
+      tools.tagline
+    </div>
+    <div
+      class="sc-pJwpB dmrkMS"
+    >
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gwcKFP"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            tools.drawing.header
+          </h3>
+          <div>
+            tools.drawing.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gTalGT"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            tools.writing.header
+          </h3>
+          <div>
+            tools.writing.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gwcKFP"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            tools.manipulating.header
+          </h3>
+          <div>
+            tools.manipulating.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gTalGT"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            tools.pointer.header
+          </h3>
+          <div>
+            tools.pointer.content
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-pRSgm jeOlmm"
+      >
+        <div
+          class="sc-qapxP gwcKFP"
+        />
+        <div
+          class="sc-oTmHo cjgrgd"
+        >
+          <h3
+            class="sc-pbJYR gOlCjp"
+          >
+            tools.saveOrDelete.header
+          </h3>
+          <div>
+            tools.saveOrDelete.content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

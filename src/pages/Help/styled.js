@@ -1,7 +1,7 @@
 import styled, { css, breakpoints, up } from '@xstyled/styled-components';
 import { getSpace } from '@xstyled/system';
 
-// @todo refactor this - with Help section
+// @todo refactor this - with About section
 export const SWrapper = styled.div`
   margin: auto;
   text-align: justify;
@@ -13,6 +13,14 @@ export const SWrapper = styled.div`
     md : css`padding: 40px 80px;`,
     lg : css`padding: 40px 120px;`,
   })}
+`;
+
+export const SLine = styled.hr`
+  border-width: default;
+  border-style: solid;
+  border-color: border;
+  margin-top: xl;
+  margin-bottom: xl;
 `;
 
 export const SHeader = styled.h1`
@@ -51,7 +59,8 @@ export const SSectionImage = styled.div`
   height: 200px;
   background-image: url(${({ image }) => image});
   background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   ${up('md', css`
     width: 45%;

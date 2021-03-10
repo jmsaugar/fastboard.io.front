@@ -5,10 +5,11 @@
     "es-ES": "Español"
   },
   "footer": {
-    "about": "Sobre Fastboard.io",
-    "cookies": "Política de cookies",
+    "about": "Acerca de",
+    "cookies": "Cookies",
     "contact": "Contacto",
-    "github": "Github"
+    "github": "Github",
+    "help": "Ayuda"
   },
   "cookies": {
     "message": "Este sitio web usa cookies, como se explica en nuestra <linkToLegal>política de cookies</linkToLegal>. Si aceptas nuestro uso de cookies, por favor haz click en aceptar y continúa navegando.",

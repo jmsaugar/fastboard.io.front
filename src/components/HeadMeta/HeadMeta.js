@@ -7,7 +7,7 @@ import routes from '#routes';
 
 // @todo add more meta tags
 const HeadMeta = ({ route, boardId, boardName }) => {
-  const { t } = useTranslation(['home', 'board', 'about', 'cookies']);
+  const { t } = useTranslation(['home', 'board', 'about', 'help', 'cookies']);
 
   let title;
   switch (route) {
@@ -21,6 +21,10 @@ const HeadMeta = ({ route, boardId, boardName }) => {
 
     case routes.about:
       title = t('about:head.title');
+      break;
+
+    case routes.help:
+      title = t('help:head.title');
       break;
 
     case routes.cookies:
