@@ -23,8 +23,7 @@ import {
  */
 export default function onMouseDrag(event) {
   // Check that the event is triggered on the drawings canvas
-  const element = event?.event?.path?.[0];
-  if (element && element.id !== canvasIds.drawings) {
+  if (event?.event?.target?.id !== canvasIds.drawings) {
     return undefined;
   }
 

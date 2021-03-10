@@ -19,10 +19,8 @@ const strokeCap = 'round';
 export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Eraser : onMouseDown', { event });
 
-  // @todo get canvas drawings id from dependencies?
   // Check that the event is triggered on the drawings canvas
-  const element = event?.event?.path?.[0];
-  if (element && element.id !== canvasIds.drawings) {
+  if (event?.event?.target?.id !== canvasIds.drawings) {
     return undefined;
   }
 
