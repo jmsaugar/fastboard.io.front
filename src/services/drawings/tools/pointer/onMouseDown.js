@@ -27,7 +27,8 @@ export default function onMouseDown(event) {
   Log.debug('Service : Drawings : Tools : Pointer : onMouseDown', { event });
 
   // Check that the event is triggered on the drawings canvas
-  if (event?.event?.target?.id !== canvasIds.drawings) {
+  const eventData = event?.event;
+  if (eventData && eventData?.target?.id !== canvasIds.drawings) {
     return undefined;
   }
 

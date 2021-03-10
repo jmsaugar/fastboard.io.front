@@ -25,7 +25,8 @@ export default function onMouseDown(event) {
   // @todo if unselected empty text item, remove it
 
   // Check that the event is triggered on the drawings canvas
-  if (event?.event?.target?.id !== canvasIds.drawings) {
+  const eventData = event?.event;
+  if (eventData && eventData?.target?.id !== canvasIds.drawings) {
     return undefined;
   }
 
