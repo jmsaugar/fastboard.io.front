@@ -10,8 +10,8 @@ exports[`Page : Help Snapshot 1`] = `
     >
       title
     </h1>
-    <hr
-      class="sc-qQlgh jSSILe"
+    <div
+      class="sc-qQlgh hTJgRz"
     />
     <h2
       class="sc-pAYXY gVPaRf"
@@ -103,8 +103,8 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
     </div>
-    <hr
-      class="sc-qQlgh jSSILe"
+    <div
+      class="sc-qQlgh hTJgRz"
     />
     <h2
       class="sc-pAYXY gVPaRf"

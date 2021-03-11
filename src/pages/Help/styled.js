@@ -15,12 +15,11 @@ export const SWrapper = styled.div`
   })}
 `;
 
-export const SLine = styled.hr`
-  border-width: default;
-  border-style: solid;
-  border-color: border;
+export const SLine = styled.div`
+  height: 1px;
   margin-top: xl;
   margin-bottom: xl;
+  background-color: border;
 `;
 
 export const SHeader = styled.h1`
