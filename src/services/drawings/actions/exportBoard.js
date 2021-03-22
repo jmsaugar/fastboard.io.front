@@ -23,7 +23,7 @@ export default function exportBoard() {
 
     const url = URL.createObjectURL(new Blob(
       [svgString],
-      { type : 'image/svg+xml;charset=utf-8' },
+      { type : 'image/svg+xml' },
     ));
 
     const image = new Image();
