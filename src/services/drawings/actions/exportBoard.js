@@ -15,7 +15,7 @@ import {
 export default function exportBoard() {
   Log.info('Service : Drawings : exportBoard');
 
-  return timeoutPromise((res) => {
+  return timeoutPromise((res, rej) => {
     const svgString = this.projects.drawings.exportSVG({
       asString : true,
       bounds   : 'content',
@@ -28,6 +28,11 @@ export default function exportBoard() {
 
     const image = new Image();
     image.src = url;
+
+    image.onerror = (err) => {
+      URL.revokeObjectURL(url);
+      rej(err)
+    }
 
     image.onload = () => {
       const canvas = document.createElement('canvas');
