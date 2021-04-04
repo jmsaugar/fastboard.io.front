@@ -7,6 +7,7 @@ export { default as BoardJoinedWelcome } from './BoardJoinedWelcome';
 export { default as Button } from './Button';
 export { default as Canvas } from './Canvas';
 export { default as Card } from './Card';
+export { default as ClearConfirmation } from './ClearConfirmation';
 export { default as CookiesAlert } from './CookiesAlert';
 export { default as Dropdown } from './Dropdown';
 export { default as Footer } from './Footer';

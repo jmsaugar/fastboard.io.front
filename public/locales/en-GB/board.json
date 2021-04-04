@@ -72,5 +72,11 @@
     "bringForward": "Bring forward",
     "sendBackward": "Send backward",
     "remove": "Remove"
+  },
+  "clearConfirmation": {
+    "title": "Are you sure?",
+    "about": "The board content will be deleted for all users.",
+    "cancel": "Cancel",
+    "accept": "Accept"
   }
 }

@@ -3,40 +3,40 @@
 exports[`Page : Help Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-prQdK bUkTjn"
+    class="sc-pRSgm cKcxQE"
   >
     <h1
-      class="sc-qYhTA fgpbBw"
+      class="sc-oTmHo dkULRA"
     >
       title
     </h1>
     <div
-      class="sc-qQlgh hTJgRz"
+      class="sc-qapxP fooHqU"
     />
     <h2
-      class="sc-pAYXY gVPaRf"
+      class="sc-pbJYR HEayB"
     >
       sessions.title
     </h2>
     <div
-      class="sc-pJwpB bhJGlF"
+      class="sc-pkfPC hbKItU"
     >
       sessions.tagline
     </div>
     <div
-      class="sc-pJwpB dmrkMS"
+      class="sc-pkfPC lgaZTb"
     >
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP iPPoeu"
+          class="sc-qQxFs iKhIHT"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             sessions.create.header
           </h3>
@@ -46,16 +46,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP eUaoSC"
+          class="sc-qQxFs llvjLv"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             sessions.join.header
           </h3>
@@ -65,16 +65,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP iPPoeu"
+          class="sc-qQxFs iKhIHT"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             sessions.settings.header
           </h3>
@@ -84,16 +84,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP eUaoSC"
+          class="sc-qQxFs llvjLv"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             sessions.leave.header
           </h3>
@@ -104,32 +104,32 @@ exports[`Page : Help Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-qQlgh hTJgRz"
+      class="sc-qapxP fooHqU"
     />
     <h2
-      class="sc-pAYXY gVPaRf"
+      class="sc-pbJYR HEayB"
     >
       tools.title
     </h2>
     <div
-      class="sc-pJwpB bhJGlF"
+      class="sc-pkfPC hbKItU"
     >
       tools.tagline
     </div>
     <div
-      class="sc-pJwpB dmrkMS"
+      class="sc-pkfPC lgaZTb"
     >
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP iPPoeu"
+          class="sc-qQxFs iKhIHT"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             tools.drawing.header
           </h3>
@@ -139,16 +139,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP eUaoSC"
+          class="sc-qQxFs llvjLv"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             tools.writing.header
           </h3>
@@ -158,16 +158,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP iPPoeu"
+          class="sc-qQxFs iKhIHT"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             tools.manipulating.header
           </h3>
@@ -177,16 +177,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP eUaoSC"
+          class="sc-qQxFs llvjLv"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             tools.pointer.header
           </h3>
@@ -196,16 +196,16 @@ exports[`Page : Help Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pRSgm jeOlmm"
+        class="sc-psDhf fhefIM"
       >
         <div
-          class="sc-qapxP iPPoeu"
+          class="sc-qQxFs iKhIHT"
         />
         <div
-          class="sc-oTmHo cjgrgd"
+          class="sc-qYUWV iCIcoo"
         >
           <h3
-            class="sc-pbJYR gOlCjp"
+            class="sc-pBlxj dTBeqC"
           >
             tools.saveOrDelete.header
           </h3>

@@ -72,5 +72,11 @@
     "bringForward": "Traer al frente",
     "sendBackward": "Enviar al fondo",
     "remove": "Eliminar"
+  },
+  "clearConfirmation": {
+    "title": "¿Estás seguro?",
+    "about": "El contenido del panel será borrado para todos los usuarios.",
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
   }
 }

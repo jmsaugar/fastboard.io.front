@@ -1,4 +1,6 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, {
+  useCallback, useMemo, useRef, useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pen as PencilIcon } from '@styled-icons/fa-solid/Pen';
@@ -14,7 +16,7 @@ import { Trash as ResetIcon } from '@styled-icons/fa-solid/Trash';
 import { Circle as CircleIcon } from '@styled-icons/fa-solid/Circle';
 
 import {
-  exportedImageExtension, drawingColors, tools, notificationTypes,
+  exportedImageExtension, drawingColors, mainLayoutId, tools, notificationTypes,
 } from '#constants';
 import { useOutsideClick } from '#hooks';
 import { drawingsService } from '#services';
@@ -23,6 +25,8 @@ import {
   addNotification, boardNameSelector, selectedToolSelector, toolsColorsSelector,
 } from '#store';
 
+import ClearConfirmation from '../ClearConfirmation';
+import Modal from '../Modal';
 import ToolButton from '../ToolButton';
 import ToolOptions from '../ToolOptions';
 
@@ -52,12 +56,35 @@ const ToolBarItem = ({ boardId, tool }) => {
   const [isLoading, setIsLoading] = useState(false);
   const isSelected = selectedTool === tool;
 
+  const [showClearConfirmation, setShowClearConfirmation] = useState(false);
+
   const hideOptions = useCallback(
     () => setShowOptions(false),
     [setShowOptions],
   );
 
   useOutsideClick(ref, hideOptions);
+
+  const ClearConfirmationComponent = useMemo(
+    () => {
+      if (tool !== tools.clear) {
+        return undefined;
+      }
+
+      return (
+        <Modal target={mainLayoutId} show={showClearConfirmation}>
+          <ClearConfirmation
+            onConfirm={() => {
+              drawingsService.tools[tool].activate();
+              setShowClearConfirmation(false);
+            }}
+            onCancel={() => setShowClearConfirmation(false)}
+          />
+        </Modal>
+      );
+    },
+    [tool, showClearConfirmation, setShowClearConfirmation],
+  );
 
   const useTool = useCallback(
     () => {
@@ -94,7 +121,7 @@ const ToolBarItem = ({ boardId, tool }) => {
           break;
 
         case tools.clear:
-          drawingsService.tools[tool].activate();
+          setShowClearConfirmation(true);
           break;
 
         case tools.export:
@@ -113,29 +140,32 @@ const ToolBarItem = ({ boardId, tool }) => {
   );
 
   return (
-    <ToolButton
-      ref={ref}
-      icon={tool2icon[tool]}
-      color={selectedToolColor}
-      onClick={useTool}
-      isSelected={isSelected}
-      isLoading={isLoading}
-    >
-      <ToolOptions show={showOptions}>
-        {Object.values(drawingColors).map((color) => (
-          <ToolButton
-            key={color}
-            icon={<CircleIcon />}
-            color={color}
-            onClick={(evt) => {
-              evt.stopPropagation();
-              drawingsService.tools[tool].setColor(color);
-              hideOptions();
-            }}
-          />
-        ))}
-      </ToolOptions>
-    </ToolButton>
+    <>
+      <ToolButton
+        ref={ref}
+        icon={tool2icon[tool]}
+        color={selectedToolColor}
+        onClick={useTool}
+        isSelected={isSelected}
+        isLoading={isLoading}
+      >
+        <ToolOptions show={showOptions}>
+          {Object.values(drawingColors).map((color) => (
+            <ToolButton
+              key={color}
+              icon={<CircleIcon />}
+              color={color}
+              onClick={(evt) => {
+                evt.stopPropagation();
+                drawingsService.tools[tool].setColor(color);
+                hideOptions();
+              }}
+            />
+          ))}
+        </ToolOptions>
+      </ToolButton>
+      {ClearConfirmationComponent}
+    </>
   );
 };
 

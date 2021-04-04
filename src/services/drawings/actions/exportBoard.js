@@ -31,8 +31,8 @@ export default function exportBoard() {
 
     image.onerror = (err) => {
       URL.revokeObjectURL(url);
-      rej(err)
-    }
+      rej(err);
+    };
 
     image.onload = () => {
       const canvas = document.createElement('canvas');
