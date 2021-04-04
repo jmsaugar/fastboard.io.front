@@ -8,11 +8,11 @@
     "tagline": "Fastboard.io allows you to quickly create a whiteboard session or join one created by another user.",
     "create": {
       "header": "Create a session",
-      "content": "Just go to the home page and click on <strong>create</strong>. Enter your user name and board name and you are ready to go. You will be greeted with a dialog that will allow you to copy the link to the session so that others can join."
+      "content": "Just go to the home page and click on «create». Enter your user name and board name and you are ready to go. You will be greeted with a dialog that will allow you to copy the link to the session so that others can join."
     },
     "join": {
       "header": "Join a session",
-      "content": "You can join a session by simply visiting its url. You will be asked for your user name before joining. Alternatively, you can go to the home page and click <strong>join</strong>. You will have to fill in the board id (the numbers) or its url and your user name. Easy."
+      "content": "You can join a session by simply visiting its url. You will be asked for your user name before joining. Alternatively, you can go to the home page and click «join». You will have to fill in the board id (the numbers) or its url and your user name. Easy."
     },
     "settings": {
       "header": "Change user and board name",

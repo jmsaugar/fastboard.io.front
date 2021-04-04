@@ -8,11 +8,11 @@
     "tagline": "Fastboard.io te permite crear rápidamente una sesión de pizarra digital o unirte a una creada por otro usuario.",
     "create": {
       "header": "Crear una sesión",
-      "content": "Tan solo ve a la página inicial y haz click en <strong>crear</strong>. Introduce tu nombre de usuario y el nombre del panel y ya estás listo. Serás recibido con un diálogo que te permitirá copiar el enlace a la sesión para que otros puedan unirse."
+      "content": "Tan solo ve a la página inicial y haz click en «crear». Introduce tu nombre de usuario y el nombre del panel y ya estás listo. Serás recibido con un diálogo que te permitirá copiar el enlace a la sesión para que otros puedan unirse."
     },
     "join": {
       "header": "Unirse a una sesión",
-      "content": "Puedes unirte a una sesión con tan solo visitar su url. Se te preguntará por tu nombre de usuario antes de unirte. De manera alternativa, puedes ir a la página inicial y hacer click en <strong>unirse</strong>. Tendrás que rellenar el identificador del panel (los números) o su url y tu nombre de usuario. Fácil."
+      "content": "Puedes unirte a una sesión con tan solo visitar su url. Se te preguntará por tu nombre de usuario antes de unirte. De manera alternativa, puedes ir a la página inicial y hacer click en «unirse». Tendrás que rellenar el identificador del panel (los números) o su url y tu nombre de usuario. Fácil."
     },
     "settings": {
       "header": "Cambiar el nombre de usuario y del panel",
