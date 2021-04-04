@@ -41,7 +41,7 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src ./devTools",
     "lint:css": "stylelint \"./src/**/*.js\"",
-    "lint:all": "eslint ./src ./devTools; stylelint \"./src/**/*.js\"",
+    "lint:all": "eslint ./src ./devTools && stylelint \"./src/**/*.js\"",
     "clean": "rm -rf ./build"
   },
   "eslintConfig": {
