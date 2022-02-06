@@ -7,6 +7,8 @@ import {
   exportImageTimeout,
 } from '#constants';
 
+import onExport from './onExport';
+
 /**
  * Export the board project to JPG.
  *
@@ -19,6 +21,7 @@ export default function exportBoard() {
     const svgString = this.projects.drawings.exportSVG({
       asString : true,
       bounds   : 'content',
+      onExport,
     });
 
     const url = URL.createObjectURL(new Blob(
