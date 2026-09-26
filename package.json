@@ -8,6 +8,7 @@
   "bugs": "https://github.com/jmsaugar/fastboard.io.front/issues",
   "author": "Jesús Martínez Saugar <jesus.martinez.saugar@gmail.com> (https://github.com/jmsaugar)",
   "private": true,
+  "packageManager": "yarn@4.18.0",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@styled-icons/fa-solid": "^10.22.0",
