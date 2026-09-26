@@ -39,9 +39,9 @@
     "build": "react-app-rewired --openssl-legacy-provider build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint ./src ./devTools",
+    "lint:js": "DISABLE_V8_COMPILE_CACHE=1 eslint ./src ./devTools",
     "lint:css": "stylelint \"./src/**/*.js\"",
-    "lint:all": "eslint ./src ./devTools && stylelint \"./src/**/*.js\"",
+    "lint:all": "DISABLE_V8_COMPILE_CACHE=1 eslint ./src ./devTools && stylelint \"./src/**/*.js\"",
     "clean": "rm -rf ./build"
   },
   "eslintConfig": {
@@ -79,10 +79,20 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
     "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-react-app": "5.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "prettier": "2.8.8",
     "react-app-rewired": "^2.1.6",
     "stylelint": "^13.7.2",
     "stylelint-config-idiomatic-order": "^8.1.0"
