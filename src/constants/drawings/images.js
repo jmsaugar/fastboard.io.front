@@ -1,4 +1,4 @@
-export const uploadedImageType = 'image/jpeg';
+export const uploadedImageDefaultType = 'image/jpeg';
 
 export const uploadedImageQuality = 0.8;
 

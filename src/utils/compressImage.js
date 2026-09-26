@@ -1,11 +1,11 @@
 import {
-  uploadedImageType as imageType,
+  uploadedImageDefaultType as imageType,
   uploadedImageQuality as imageQuality,
   uploadedImageMaxSize as maxSize,
 } from '#constants';
 
 /**
- * Compress an image - in size and quality - to jpeg format.
+ * Resize an image, preserving PNG transparency and compressing other formats to JPEG.
  *
  * @see https://developer.mozilla.org/es/docs/Web/API/HTMLCanvasElement/toBlob
  *
@@ -14,6 +14,7 @@ import {
  * @returns {Promise} Resolved with the compressed file.
  */
 export default function compressImage(file) {
+  const pngType = 'image/png';
   let url;
   return new Promise((res, rej) => {
     try {
@@ -50,9 +51,9 @@ export default function compressImage(file) {
         canvas.toBlob(
           (compressedBlob) => {
             URL.revokeObjectURL(url);
-            res(new File([compressedBlob], 'image'));
+            res(new File([compressedBlob], 'image', { type : compressedBlob.type }));
           },
-          imageType,
+          file.type === pngType ? pngType : imageType,
           imageQuality,
         );
       };
