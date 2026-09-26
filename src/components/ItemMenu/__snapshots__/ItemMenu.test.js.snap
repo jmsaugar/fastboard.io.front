@@ -3,20 +3,20 @@
 exports[`Component : ItemMenu Snapshot : not visible 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pscky hrVfUg"
+    class="sc-gvZAcH caLhWR"
   >
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.bringForward
     </div>
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.sendBackward
     </div>
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.remove
     </div>
@@ -27,20 +27,20 @@ exports[`Component : ItemMenu Snapshot : not visible 1`] = `
 exports[`Component : ItemMenu Snapshot : visible 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pscky jlucIJ"
+    class="sc-gvZAcH jeDJSE"
   >
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.bringForward
     </div>
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.sendBackward
     </div>
     <div
-      class="sc-qQYBZ kyFabS"
+      class="sc-kRRyDe btDgEC"
     >
       itemMenu.remove
     </div>

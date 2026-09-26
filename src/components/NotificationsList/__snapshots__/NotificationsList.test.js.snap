@@ -3,22 +3,22 @@
 exports[`Component : NotificationsList Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qQYBZ jMsjSa"
+    class="sc-kRRyDe eYyKhi"
   >
     <div
-      class="sc-pscky iSRUFQ"
+      class="sc-gvZAcH fyLrSJ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined
     </div>
     <div
-      class="sc-pscky iSRUFQ"
+      class="sc-gvZAcH fyLrSJ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined
     </div>
     <div
-      class="sc-pscky iSRUFQ"
+      class="sc-gvZAcH fyLrSJ"
       data-testid="notificationitem-component"
     >
       notifications.userJoined

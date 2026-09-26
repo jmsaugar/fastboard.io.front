@@ -3,52 +3,52 @@
 exports[`Component : UsersList Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qZtCU XqBnS sc-pzMyG gEsWbO"
+    class="sc-knuQbY fjhrYD sc-ERObt dfrlxr"
   >
     <h2
-      class="sc-pHIBf hewvQA"
+      class="sc-dNsVcS dYOFIM"
     >
       meta.usersList.title
     </h2>
     <ul
-      class="sc-pQEbo iICRvb"
+      class="sc-fulCBj byDaQM"
     >
       <li
-        class="sc-pYA-dN bzRDoT"
+        class="sc-kMribo fXtuYK"
       >
         meta.usersList.you
         <span
-          class="sc-oUcyK bWYQaI"
+          class="sc-bdOgaJ cYMVfw"
         >
           meta.usersList.youJoined
         </span>
       </li>
       <li
-        class="sc-pYA-dN bzRDoT"
+        class="sc-kMribo fXtuYK"
       >
         other user 1
         <span
-          class="sc-oUcyK bWYQaI"
+          class="sc-bdOgaJ cYMVfw"
         >
           meta.usersList.otherJoined
         </span>
       </li>
       <li
-        class="sc-pYA-dN bzRDoT"
+        class="sc-kMribo fXtuYK"
       >
         other user 2
         <span
-          class="sc-oUcyK bWYQaI"
+          class="sc-bdOgaJ cYMVfw"
         >
           meta.usersList.otherJoined
         </span>
       </li>
     </ul>
     <div
-      class="sc-pbYBj jxvTZU"
+      class="sc-empnci cVkhmd"
     >
       <button
-        class="sc-qQYBZ kBBHFN"
+        class="sc-kRRyDe krVCmh"
         type="secondary"
       >
         meta.usersList.accept

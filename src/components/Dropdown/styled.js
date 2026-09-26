@@ -24,7 +24,7 @@ export const SCaret = styled(ChevronDown)`
 
   ${variant({
     default  : false,
-    prop     : 'isOpen',
+    prop     : '$isOpen',
     variants : {
       true : css`
         transform: rotate(180deg);

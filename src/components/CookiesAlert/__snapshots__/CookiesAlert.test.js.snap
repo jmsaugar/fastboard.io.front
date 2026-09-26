@@ -3,13 +3,13 @@
 exports[`Component : CookiesAlert Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-qZtCU lklQul"
+    class="sc-knuQbY iNqils"
   >
     <span>
       cookies.message
     </span>
     <button
-      class="sc-qQYBZ bNCOou"
+      class="sc-kRRyDe daVgQW"
       type="primary"
     >
       cookies.accept

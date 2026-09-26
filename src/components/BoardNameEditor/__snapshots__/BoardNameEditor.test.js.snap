@@ -3,19 +3,19 @@
 exports[`Component : BoardNameEditor Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pzMyG ldbuNe sc-pHIBf jCDJOa"
+    class="sc-ERObt gZrBeH sc-dNsVcS gQPcbi"
   >
     <h2
-      class="sc-pQEbo ijHEAg"
+      class="sc-fulCBj iDEeYn"
     >
       meta.boardNameEditor.title
     </h2>
     <div
-      class="sc-pYA-dN jOHHWI"
+      class="sc-kMribo hYnqEZ"
     >
       <input
         autocomplete="on"
-        class="sc-qZtCU jmxDcL"
+        class="sc-knuQbY jGlfeO"
         data-testid="input-component"
         maxlength="20"
         name="boardName"
@@ -23,16 +23,16 @@ exports[`Component : BoardNameEditor Snapshot 1`] = `
       />
     </div>
     <div
-      class="sc-oUcyK gRJMGp"
+      class="sc-bdOgaJ kPEtLZ"
     >
       <button
-        class="sc-qQYBZ kBBHFN"
+        class="sc-kRRyDe krVCmh"
         type="secondary"
       >
         meta.boardNameEditor.cancel
       </button>
       <button
-        class="sc-qQYBZ bNCOou"
+        class="sc-kRRyDe daVgQW"
         type="primary"
       >
         meta.boardNameEditor.save

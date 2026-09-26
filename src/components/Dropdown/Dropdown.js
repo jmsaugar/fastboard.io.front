@@ -34,7 +34,7 @@ const Dropdown = ({ label, options }) => {
       >
         <SLabel>
           {label}
-          <SCaret isOpen={showMenu} />
+          <SCaret $isOpen={showMenu} />
         </SLabel>
       </Button>
       {showMenu && (

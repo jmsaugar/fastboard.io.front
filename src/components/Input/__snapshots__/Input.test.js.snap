@@ -4,7 +4,7 @@ exports[`Component : Input Snapshot 1`] = `
 <DocumentFragment>
   <input
     autocomplete="on"
-    class="sc-pscky hiczCD"
+    class="sc-gvZAcH hVNVBC"
     data-testid="input-component"
     name="sample"
     value="some original text"

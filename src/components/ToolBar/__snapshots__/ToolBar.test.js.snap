@@ -3,153 +3,153 @@
 exports[`Component : ToolBar Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pspzH eObiLI"
+    class="sc-bkSUFG hwjrUN"
     data-testid="toolbar-component"
   >
     <div
-      class="sc-qXHHN cqQCwX"
+      class="sc-dQEtJz eNOAHO"
     >
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         color="#333"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax gTzHwG"
+          class="sc-dGCmGc blZMFl"
           color="#333"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+              d="m362.7 19.3-48.4 48.4 130 130 48.4-48.4c25-25 25-65.5 0-90.5l-39.4-39.5c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2c-2.5 8.5-.2 17.6 6 23.8s15.3 8.5 23.7 6.1L151 475.7c14.1-4.2 27-11.8 37.4-22.2l233.3-233.2-130-130z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -158,146 +158,146 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         color="#333"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax gTzHwG"
+          class="sc-dGCmGc blZMFl"
           color="#333"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M93.95 290.03A327.038 327.038 0 00.17 485.11l-.03.23c-1.7 15.28 11.21 28.2 26.49 26.51a327.02 327.02 0 00195.34-93.8l75.4-75.4-128.02-128.02-75.4 75.4zM485.49 26.51c-35.35-35.35-92.67-35.35-128.02 0l-21.76 21.76-36.56-36.55c-15.62-15.62-40.95-15.62-56.56 0L138.47 115.84c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0l87.15-87.15 19.59 19.59L191.98 192 320 320.02l165.49-165.49c35.35-35.35 35.35-92.66 0-128.02z"
+              d="M481 31c-35.9-35.8-94.1-35.8-130 0l-15 15-13.1-13c-28.1-28.1-73.7-28.1-101.8 0L135 119c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l86.1-86c9.4-9.4 24.6-9.4 33.9 0L302.1 80 186.3 195.7l130 130L481 161c35.9-35.9 35.9-94.1 0-129.9zM293.7 348.3l-130-130-64.2 64.2c-48 48-80.8 109.2-94.1 175.8l-5 25c-1.6 7.9.9 16 6.6 21.7s13.8 8.1 21.7 6.6l25-5c66.6-13.3 127.8-46.1 175.8-94.1l64.2-64.2z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -306,146 +306,146 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         color="#333"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax gTzHwG"
+          class="sc-dGCmGc blZMFl"
           color="#333"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
-            viewBox="0 0 544 512"
+            viewBox="0 0 576 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0 479.98L99.92 512l35.45-35.45-67.04-67.04L0 479.98zm124.61-240.01a36.592 36.592 0 00-10.79 38.1l13.05 42.83-50.93 50.94 96.23 96.23 50.86-50.86 42.74 13.08c13.73 4.2 28.65-.01 38.15-10.78l35.55-41.64-173.34-173.34-41.52 35.44zm403.31-160.7l-63.2-63.2c-20.49-20.49-53.38-21.52-75.12-2.35L190.55 183.68l169.77 169.78L530.27 154.4c19.18-21.74 18.15-54.63-2.35-75.13z"
+              d="m331 315 158.4-215-29.3-29.4L245 229l86 86zm-187 5v-71.7c0-15.3 7.2-29.6 19.5-38.6L436.6 8.4C444 2.9 453 0 462.2 0c11.4 0 22.4 4.5 30.5 12.6l54.8 54.8c8.1 8.1 12.6 19 12.6 30.5 0 9.2-2.9 18.2-8.4 25.6l-201.3 273c-9 12.3-23.4 19.5-38.6 19.5H240l-25.4 25.4c-12.5 12.5-32.8 12.5-45.3 0l-50.7-50.7c-12.5-12.5-12.5-32.8 0-45.3L144 320zM23 466.3l63-63 70.6 70.6-31 31c-4.5 4.5-10.6 7-17 7H40c-13.3 0-24-10.7-24-24v-4.7c0-6.4 2.5-12.5 7-17z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -454,144 +454,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
-            viewBox="0 0 512 512"
+            viewBox="0 0 576 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M497.941 273.941c18.745-18.745 18.745-49.137 0-67.882l-160-160c-18.745-18.745-49.136-18.746-67.883 0l-256 256c-18.745 18.745-18.745 49.137 0 67.882l96 96A48.004 48.004 0 00144 480h356c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12H355.883l142.058-142.059zm-302.627-62.627l137.373 137.373L265.373 416H150.628l-80-80 124.686-124.686z"
+              d="M290.7 57.4 57.4 290.7c-25 25-25 65.5 0 90.5l80 80c12 12 28.3 18.7 45.3 18.7H512c17.7 0 32-14.3 32-32s-14.3-32-32-32H387.9l130.7-130.6c25-25 25-65.5 0-90.5L381.3 57.4c-25-25-65.5-25-90.5 0zm6.7 358.6H182.6l-80-80 124.7-124.7 137.4 137.4-67.3 67.3z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -600,144 +600,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 320 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M302.189 329.126H196.105l55.831 135.993c3.889 9.428-.555 19.999-9.444 23.999l-49.165 21.427c-9.165 4-19.443-.571-23.332-9.714l-53.053-129.136-86.664 89.138C18.729 472.71 0 463.554 0 447.977V18.299C0 1.899 19.921-6.096 30.277 5.443l284.412 292.542c11.472 11.179 3.007 31.141-12.5 31.141z"
+              d="M0 55.2V426c0 12.2 9.9 22 22 22 6.3 0 12.4-2.7 16.6-7.5l82.6-94.5 58.1 116.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9L179.8 320h118.1c12.2 0 22.1-9.9 22.1-22.1 0-6.3-2.7-12.3-7.4-16.5L38.6 37.9c-4.3-3.8-9.7-5.9-15.4-5.9C10.4 32 0 42.4 0 55.2z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -746,144 +746,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 448 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 01-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z"
+              d="M128 40c0-22.1 17.9-40 40-40s40 17.9 40 40v148.2c8.5-7.6 19.7-12.2 32-12.2 25.3 0 46 19.5 47.9 44.3 8.5-7.7 19.8-12.3 32.1-12.3 25.3 0 46 19.5 47.9 44.3 8.5-7.7 19.8-12.3 32.1-12.3 26.5 0 48 21.5 48 48v96c0 70.7-57.3 128-128 128h-85.3c-5 0-9.9-.3-14.7-1-55.3-5.6-106.2-34-140-79L8 336c-13.3-17.7-9.7-42.7 8-56s42.7-9.7 56 8l56 74.7V40zm112 264c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96zm48-16c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96c0-8.8-7.2-16-16-16zm80 16c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -892,146 +892,146 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         color="#333"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax gTzHwG"
+          class="sc-dGCmGc blZMFl"
           color="#333"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 448 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M432 416h-23.41L277.88 53.69A32 32 0 00247.58 32h-47.16a32 32 0 00-30.3 21.69L39.41 416H16a16 16 0 00-16 16v32a16 16 0 0016 16h128a16 16 0 0016-16v-32a16 16 0 00-16-16h-19.58l23.3-64h152.56l23.3 64H304a16 16 0 00-16 16v32a16 16 0 0016 16h128a16 16 0 0016-16v-32a16 16 0 00-16-16zM176.85 272L224 142.51 271.15 272z"
+              d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48h159.6l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-25.8L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -1040,144 +1040,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
+              d="M0 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm323.8 106.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6-26.5-33.1c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4S78.8 416 88 416h336c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48-48 21.5-48 48 21.5 48 48 48z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -1186,144 +1186,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 384 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"
+              d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zm-40 232v102.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
@@ -1332,144 +1332,144 @@ exports[`Component : ToolBar Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-oUDcU fgmizW"
+        class="sc-bJBgwP jToSBe"
         data-testid="toolbutton-component"
       >
         <span
-          class="sc-pczax cspDsa"
+          class="sc-dGCmGc fMaRFR"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-ea9ulj-0 jVnGjM"
+            class="StyledIconBase-sc-ea9ulj-0 beZTyX"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 448 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M432 32H312l-9.4-18.7A24 24 0 00281.1 0H166.8a23.72 23.72 0 00-21.4 13.3L136 32H16A16 16 0 000 48v32a16 16 0 0016 16h416a16 16 0 0016-16V48a16 16 0 00-16-16zM53.2 467a48 48 0 0047.9 45h245.8a48 48 0 0047.9-45L416 128H32z"
+              d="M135.2 17.7 128 32H32C14.3 32 0 46.3 0 64s14.3 32 32 32h384c17.7 0 32-14.3 32-32s-14.3-32-32-32h-96l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32l21.2 339c1.6 25.3 22.6 45 47.9 45h245.8c25.3 0 46.3-19.7 47.9-45L416 128z"
               fill="currentColor"
             />
           </svg>
         </span>
         <div
-          class="sc-pktCe wyBMO"
+          class="sc-fAGzit sSgSO"
         >
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#333"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax gTzHwG"
+              class="sc-dGCmGc blZMFl"
               color="#333"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#da0000"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax igdXA"
+              class="sc-dGCmGc jpbiab"
               color="#da0000"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#1d76e1"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax jAOCkt"
+              class="sc-dGCmGc zSQrq"
               color="#1d76e1"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#ebb727"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax XfxmS"
+              class="sc-dGCmGc bfEdUR"
               color="#ebb727"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>
             </span>
           </div>
           <div
-            class="sc-oUDcU fgmizW"
+            class="sc-bJBgwP jToSBe"
             color="#4ecb45"
             data-testid="toolbutton-component"
           >
             <span
-              class="sc-pczax eeYeLg"
+              class="sc-dGCmGc irEBcD"
               color="#4ecb45"
             >
               <svg
                 aria-hidden="true"
-                class="StyledIconBase-ea9ulj-0 jVnGjM"
+                class="StyledIconBase-sc-ea9ulj-0 beZTyX"
                 fill="currentColor"
                 focusable="false"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256z"
                   fill="currentColor"
                 />
               </svg>

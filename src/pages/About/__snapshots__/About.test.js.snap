@@ -3,52 +3,52 @@
 exports[`Page : About Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pRSgm cKcxQE"
+    class="sc-cezyBN gatIOc"
   >
     <h1
-      class="sc-qapxP bAjpqp"
+      class="sc-fUkmAC htYbY"
     >
       title
     </h1>
     <h2
-      class="sc-oTmHo kZbEjf"
+      class="sc-cXPBUD fObExk"
     >
       main.t1
     </h2>
     <h2
-      class="sc-oTmHo kZbEjf"
+      class="sc-cXPBUD fObExk"
     >
       main.t2
     </h2>
     <div
-      class="sc-pbJYR jTwVyh"
+      class="sc-edKZPI hztjxp"
     >
       main.t3
     </div>
     <div
-      class="sc-pbJYR gbSAoq"
+      class="sc-edKZPI iWcUXa"
     >
       <button
-        class="sc-qQYBZ hDUFJj"
+        class="sc-kRRyDe kDBiHT"
         type="primary"
       >
         start
       </button>
     </div>
     <div
-      class="sc-pbJYR gbSAoq"
+      class="sc-edKZPI iWcUXa"
     >
       <div
-        class="sc-pkfPC daXRff"
+        class="sc-bhqpjJ dcdrEY"
       >
         <div
-          class="sc-psDhf dMtVBW"
+          class="sc-iLLODe lmsMrG"
         />
         <div
-          class="sc-qQxFs bqzHtl"
+          class="sc-fPrdXf gTJrIQ"
         >
           <h3
-            class="sc-qYUWV bpyMYK"
+            class="sc-hGMjit bzQfxN"
           >
             collaborate.header
           </h3>
@@ -58,16 +58,16 @@ exports[`Page : About Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pkfPC daXRff"
+        class="sc-bhqpjJ dcdrEY"
       >
         <div
-          class="sc-psDhf hPTEXG"
+          class="sc-iLLODe imfBeC"
         />
         <div
-          class="sc-qQxFs bqzHtl"
+          class="sc-fPrdXf gTJrIQ"
         >
           <h3
-            class="sc-qYUWV bpyMYK"
+            class="sc-hGMjit bzQfxN"
           >
             easy.header
           </h3>
@@ -77,16 +77,16 @@ exports[`Page : About Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-pkfPC daXRff"
+        class="sc-bhqpjJ dcdrEY"
       >
         <div
-          class="sc-psDhf dMtVBW"
+          class="sc-iLLODe lmsMrG"
         />
         <div
-          class="sc-qQxFs bqzHtl"
+          class="sc-fPrdXf gTJrIQ"
         >
           <h3
-            class="sc-qYUWV bpyMYK"
+            class="sc-hGMjit bzQfxN"
           >
             open.header
           </h3>

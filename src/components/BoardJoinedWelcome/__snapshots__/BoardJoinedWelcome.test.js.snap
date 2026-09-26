@@ -3,15 +3,15 @@
 exports[`Component : BoardJoinedWelcome Snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-pzMyG ldbuNe sc-pHIBf jCDJOa"
+    class="sc-ERObt gZrBeH sc-dNsVcS gQPcbi"
   >
     <h2
-      class="sc-pQEbo ijHEAg"
+      class="sc-fulCBj iDEeYn"
     >
       welcome.joined.title
     </h2>
     <div
-      class="sc-pYA-dN dNVtIA"
+      class="sc-kMribo gUKrhp"
     >
       <div>
         welcome.joined.about
@@ -21,7 +21,7 @@ exports[`Component : BoardJoinedWelcome Snapshot 1`] = `
       </div>
       <input
         autocomplete="on"
-        class="sc-qZtCU jmxDcL"
+        class="sc-knuQbY jGlfeO"
         data-testid="input-component"
         maxlength="12"
         name="userName"
@@ -30,16 +30,16 @@ exports[`Component : BoardJoinedWelcome Snapshot 1`] = `
       />
     </div>
     <div
-      class="sc-oUcyK gRJMGp"
+      class="sc-bdOgaJ kPEtLZ"
     >
       <button
-        class="sc-qQYBZ kBBHFN"
+        class="sc-kRRyDe krVCmh"
         type="secondary"
       >
         welcome.joined.cancel
       </button>
       <button
-        class="sc-qQYBZ bNCOou"
+        class="sc-kRRyDe daVgQW"
         type="primary"
       >
         welcome.joined.join
