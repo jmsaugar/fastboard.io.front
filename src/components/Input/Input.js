@@ -32,6 +32,7 @@ const Input = forwardRef(({
       value={value}
       placeholder={placeholder}
       maxLength={maxLength}
+      required={isRequired}
       onChange={onChange}
       fullWidth={fullWidth}
       autoComplete={isAutocomplete ? autocomplete.on : autocomplete.off}

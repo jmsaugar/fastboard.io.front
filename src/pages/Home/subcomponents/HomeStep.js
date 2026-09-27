@@ -10,7 +10,7 @@ const HomeStep = ({ show, onCreate, onJoin }) => {
   const { t } = useTranslation('home');
 
   return (
-    <SWrapper show={show}>
+    <SWrapper as="div" show={show}>
       <STitle>
         {t('home.title')}
       </STitle>

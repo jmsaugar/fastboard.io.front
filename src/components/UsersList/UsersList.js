@@ -55,7 +55,7 @@ const UsersList = ({
         ))}
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t('meta.usersList.accept')}
         </Button>
       </SFooter>

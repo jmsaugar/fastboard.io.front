@@ -5,39 +5,41 @@ exports[`Component : BoardNameEditor Snapshot 1`] = `
   <div
     class="sc-ERObt gZrBeH sc-dNsVcS gQPcbi"
   >
-    <h2
-      class="sc-fulCBj iDEeYn"
-    >
-      meta.boardNameEditor.title
-    </h2>
-    <div
-      class="sc-kMribo hYnqEZ"
-    >
-      <input
-        autocomplete="on"
-        class="sc-knuQbY jGlfeO"
-        data-testid="input-component"
-        maxlength="20"
-        name="boardName"
-        value="initial board name"
-      />
-    </div>
-    <div
-      class="sc-bdOgaJ kPEtLZ"
-    >
-      <button
-        class="sc-kRRyDe krVCmh"
-        type="secondary"
+    <form>
+      <h2
+        class="sc-fulCBj iDEeYn"
       >
-        meta.boardNameEditor.cancel
-      </button>
-      <button
-        class="sc-kRRyDe daVgQW"
-        type="primary"
+        meta.boardNameEditor.title
+      </h2>
+      <div
+        class="sc-kMribo hYnqEZ"
       >
-        meta.boardNameEditor.save
-      </button>
-    </div>
+        <input
+          autocomplete="on"
+          class="sc-knuQbY jGlfeO"
+          data-testid="input-component"
+          maxlength="20"
+          name="boardName"
+          value="initial board name"
+        />
+      </div>
+      <div
+        class="sc-bdOgaJ kPEtLZ"
+      >
+        <button
+          class="sc-kRRyDe esCmzn"
+          type="button"
+        >
+          meta.boardNameEditor.cancel
+        </button>
+        <button
+          class="sc-kRRyDe dPBRBc"
+          type="submit"
+        >
+          meta.boardNameEditor.save
+        </button>
+      </div>
+    </form>
   </div>
 </DocumentFragment>
 `;

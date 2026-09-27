@@ -37,10 +37,10 @@ const BoardJoinedWelcome = ({
         />
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onCancel}>
+        <Button variant="secondary" onClick={onCancel}>
           {t('welcome.joined.cancel')}
         </Button>
-        <Button type="primary" isLoading={isLoading} onClick={() => onJoin(userName)}>
+        <Button variant="primary" isLoading={isLoading} onClick={() => onJoin(userName)}>
           {t('welcome.joined.join')}
         </Button>
       </SFooter>

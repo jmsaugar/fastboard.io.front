@@ -34,7 +34,15 @@ const JoinStep = ({
   );
 
   return (
-    <SWrapper show={show}>
+    <SWrapper
+      show={show}
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (boardId && userName) {
+          onJoin(boardId, userName);
+        }
+      }}
+    >
       <STitle>
         {t('join.title')}
       </STitle>
@@ -59,7 +67,7 @@ const JoinStep = ({
       <SActions>
         <SAction
           size="lg"
-          onClick={() => onJoin(boardId, userName)}
+          type="submit"
           isDisabled={!boardId || !userName}
           isMainAction
         >

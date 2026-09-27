@@ -12,9 +12,18 @@ export default styled.button`
   outline: 0;
   transition: default;
 
+  &:hover, &:focus {
+    box-shadow: default;
+    cursor: pointer;
+}
+
+  &:disabled {
+    cursor: default;
+  }
+
   ${variant({
     default  : 'primary',
-    prop     : 'type',
+    prop     : 'variant',
     variants : {
       primary : css`
         border-color: primary;
@@ -58,22 +67,6 @@ export default styled.button`
         padding: default;
         font-size: xxlg;
         font-weight: bold;
-      `,
-    },
-  })}
-
-  ${variant({
-    default  : false,
-    prop     : 'isDisabled',
-    variants : {
-      true : css`
-        pointer-events: none;
-      `,
-      false : css`
-        cursor: pointer;
-        &:hover {
-          box-shadow: default;
-        }
       `,
     },
   })}

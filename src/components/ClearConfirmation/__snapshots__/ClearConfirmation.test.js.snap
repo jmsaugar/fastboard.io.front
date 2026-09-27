@@ -32,14 +32,14 @@ exports[`Component : ClearConfirmation Snapshot 1`] = `
       class="sc-bdOgaJ kPEtLZ"
     >
       <button
-        class="sc-kRRyDe krVCmh"
-        type="secondary"
+        class="sc-kRRyDe esCmzn"
+        type="button"
       >
         clearConfirmation.cancel
       </button>
       <button
-        class="sc-kRRyDe daVgQW"
-        type="primary"
+        class="sc-kRRyDe dPBRBc"
+        type="button"
       >
         clearConfirmation.accept
       </button>

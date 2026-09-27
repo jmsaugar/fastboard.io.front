@@ -22,7 +22,7 @@ const BoardError = ({ code, onClose }) => {
         {t(`error.messages.${code}`)}
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t('error.accept')}
         </Button>
       </SFooter>

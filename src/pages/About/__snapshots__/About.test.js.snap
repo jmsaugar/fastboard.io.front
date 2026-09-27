@@ -29,8 +29,8 @@ exports[`Page : About Snapshot 1`] = `
       class="sc-edKZPI iWcUXa"
     >
       <button
-        class="sc-kRRyDe kDBiHT"
-        type="primary"
+        class="sc-kRRyDe jRvLDd"
+        type="button"
       >
         start
       </button>

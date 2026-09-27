@@ -16,26 +16,33 @@ const BoardNameEditor = ({ initialBoardName, onCancel, onSave }) => {
 
   return (
     <SCard>
-      <SHeader>
-        {t('meta.boardNameEditor.title')}
-      </SHeader>
-      <SContent>
-        <Input
-          name="boardName"
-          value={newBoardName}
-          onChange={setNewBoardName}
-          maxLength={boardFieldsMaxLengths.boardName}
-          fullWidth
-        />
-      </SContent>
-      <SFooter>
-        <Button type="secondary" onClick={onCancel}>
-          {t('meta.boardNameEditor.cancel')}
-        </Button>
-        <Button type="primary" onClick={() => onSave(newBoardName)}>
-          {t('meta.boardNameEditor.save')}
-        </Button>
-      </SFooter>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSave(newBoardName);
+        }}
+      >
+        <SHeader>
+          {t('meta.boardNameEditor.title')}
+        </SHeader>
+        <SContent>
+          <Input
+            name="boardName"
+            value={newBoardName}
+            onChange={setNewBoardName}
+            maxLength={boardFieldsMaxLengths.boardName}
+            fullWidth
+          />
+        </SContent>
+        <SFooter>
+          <Button variant="secondary" type="button" onClick={onCancel}>
+            {t('meta.boardNameEditor.cancel')}
+          </Button>
+          <Button variant="primary" type="submit">
+            {t('meta.boardNameEditor.save')}
+          </Button>
+        </SFooter>
+      </form>
     </SCard>
   );
 };

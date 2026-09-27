@@ -9,8 +9,8 @@ exports[`Component : CookiesAlert Snapshot 1`] = `
       cookies.message
     </span>
     <button
-      class="sc-kRRyDe daVgQW"
-      type="primary"
+      class="sc-kRRyDe dPBRBc"
+      type="button"
     >
       cookies.accept
     </button>

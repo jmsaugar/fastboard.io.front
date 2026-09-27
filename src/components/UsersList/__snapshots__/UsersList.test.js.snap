@@ -48,8 +48,8 @@ exports[`Component : UsersList Snapshot 1`] = `
       class="sc-empnci cVkhmd"
     >
       <button
-        class="sc-kRRyDe krVCmh"
-        type="secondary"
+        class="sc-kRRyDe esCmzn"
+        type="button"
       >
         meta.usersList.accept
       </button>

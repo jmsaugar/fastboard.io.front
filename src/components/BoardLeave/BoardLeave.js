@@ -21,10 +21,10 @@ const BoardLeave = ({ isLast, onCancel, onLeave }) => {
         {t(`leave.message.${isLast ? 'lastUser' : 'notLastUser'}`)}
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onCancel}>
+        <Button variant="secondary" onClick={onCancel}>
           {t('leave.cancel')}
         </Button>
-        <Button type="primary" onClick={onLeave}>
+        <Button variant="primary" onClick={onLeave}>
           {t('leave.leave')}
         </Button>
       </SFooter>

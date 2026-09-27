@@ -13,7 +13,7 @@ const button2SpinnerSize = {
 };
 
 const Button = ({
-  children, onClick, isDisabled, isLoading, type, fullWidth, size, className,
+  children, onClick, isDisabled, isLoading, variant, type, fullWidth, size, className,
 }) => {
   const onClickMemo = useMemo(
     () => (isDisabled ? undefined : onClick),
@@ -24,9 +24,10 @@ const Button = ({
     <SWrapper
       onClick={onClickMemo}
       isLoading={isLoading}
-      isDisabled={isDisabled || isLoading}
+      disabled={isDisabled || isLoading}
       fullWidth={fullWidth}
       type={type}
+      variant={variant}
       size={size}
       className={className}
     >
@@ -42,7 +43,8 @@ Button.defaultProps = {
   fullWidth  : false,
   className  : undefined,
   size       : 'default',
-  type       : 'primary',
+  variant    : 'primary',
+  type       : 'button',
 };
 
 Button.propTypes = {
@@ -53,7 +55,8 @@ Button.propTypes = {
   fullWidth  : PropTypes.bool,
   className  : PropTypes.string,
   size       : PropTypes.string,
-  type       : PropTypes.string,
+  variant    : PropTypes.string,
+  type       : PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
 export default Button;

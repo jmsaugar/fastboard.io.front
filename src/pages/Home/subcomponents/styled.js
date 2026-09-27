@@ -9,7 +9,7 @@ const focusedBgColor = 'rgba(255, 255, 255, 0.2)';
 const formFgAlphaColor = 'rgba(255, 255, 255, 0.7)';
 const stepsTransitionDelay = '0.4s';
 
-export const SWrapper = styled.div`
+export const SWrapper = styled.form`
   position: absolute;
   display: flex;
   width: 100%;

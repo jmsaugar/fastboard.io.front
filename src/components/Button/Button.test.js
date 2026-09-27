@@ -11,7 +11,7 @@ describe('Component : Button', () => {
   test('Is visible and clickable', () => {
     const onClickFn = jest.fn();
     const { getByText } = render(
-      <Button type="primary" onClick={onClickFn}>
+      <Button variant="primary" onClick={onClickFn}>
         {label}
       </Button>,
     );
@@ -24,7 +24,7 @@ describe('Component : Button', () => {
   test('Is disabled', () => {
     const onClickFn = jest.fn();
     const { getByText } = render(
-      <Button type="primary" onClick={onClickFn} isDisabled>
+      <Button variant="primary" onClick={onClickFn} isDisabled>
         {label}
       </Button>,
     );
@@ -36,7 +36,7 @@ describe('Component : Button', () => {
 
   test('Is loading', () => {
     const { getByTestId, queryByText } = render(
-      <Button type="primary" isLoading>
+      <Button variant="primary" isLoading>
         {label}
       </Button>,
     );
@@ -47,7 +47,7 @@ describe('Component : Button', () => {
 
   test('Snapshot', () => {
     const { asFragment } = render(
-      <Button type="primary">
+      <Button variant="primary">
         {label}
       </Button>,
     );

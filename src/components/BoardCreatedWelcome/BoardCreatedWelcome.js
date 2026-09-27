@@ -74,13 +74,13 @@ const BoardCreatedWelcome = ({ boardId, onClose }) => {
         <SLink id="link">
           {boardUrl}
         </SLink>
-        <Button type="secondary" fullWidth onClick={copyAction}>
+        <Button variant="secondary" fullWidth onClick={copyAction}>
           <SCopyIcon />
           {t(`welcome.created.${copyStep}`)}
         </Button>
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t('welcome.created.accept')}
         </Button>
       </SFooter>

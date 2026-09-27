@@ -20,10 +20,10 @@ const ClearConfirmation = ({ onConfirm, onCancel }) => {
         {t('clearConfirmation.about')}
       </SContent>
       <SFooter>
-        <Button type="secondary" onClick={onCancel}>
+        <Button variant="secondary" onClick={onCancel}>
           {t('clearConfirmation.cancel')}
         </Button>
-        <Button type="primary" onClick={onConfirm}>
+        <Button variant="primary" onClick={onConfirm}>
           {t('clearConfirmation.accept')}
         </Button>
       </SFooter>

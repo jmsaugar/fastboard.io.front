@@ -16,26 +16,33 @@ const UserNameEditor = ({ initialUserName, onCancel, onSave }) => {
 
   return (
     <SCard>
-      <SHeader>
-        {t('meta.userNameEditor.title')}
-      </SHeader>
-      <SContent>
-        <Input
-          name="userName"
-          value={newUserName}
-          onChange={setNewUserName}
-          maxLength={boardFieldsMaxLengths.userName}
-          fullWidth
-        />
-      </SContent>
-      <SFooter>
-        <Button type="secondary" onClick={onCancel}>
-          {t('meta.userNameEditor.cancel')}
-        </Button>
-        <Button type="primary" onClick={() => onSave(newUserName)}>
-          {t('meta.userNameEditor.save')}
-        </Button>
-      </SFooter>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSave(newUserName);
+        }}
+      >
+        <SHeader>
+          {t('meta.userNameEditor.title')}
+        </SHeader>
+        <SContent>
+          <Input
+            name="userName"
+            value={newUserName}
+            onChange={setNewUserName}
+            maxLength={boardFieldsMaxLengths.userName}
+            fullWidth
+          />
+        </SContent>
+        <SFooter>
+          <Button variant="secondary" type="button" onClick={onCancel}>
+            {t('meta.userNameEditor.cancel')}
+          </Button>
+          <Button variant="primary" type="submit">
+            {t('meta.userNameEditor.save')}
+          </Button>
+        </SFooter>
+      </form>
     </SCard>
   );
 };

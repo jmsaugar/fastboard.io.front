@@ -28,7 +28,7 @@ const Dropdown = ({ label, options }) => {
   return (
     <SWrapper ref={menuRef}>
       <Button
-        type="secondary"
+        variant="secondary"
         onClick={() => setShowMenu(!showMenu)}
         fullWidth
       >

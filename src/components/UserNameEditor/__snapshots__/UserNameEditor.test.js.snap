@@ -5,39 +5,41 @@ exports[`Component : UserNameEditor Snapshot 1`] = `
   <div
     class="sc-ERObt gZrBeH sc-dNsVcS gQPcbi"
   >
-    <h2
-      class="sc-fulCBj iDEeYn"
-    >
-      meta.userNameEditor.title
-    </h2>
-    <div
-      class="sc-kMribo hYnqEZ"
-    >
-      <input
-        autocomplete="on"
-        class="sc-knuQbY jGlfeO"
-        data-testid="input-component"
-        maxlength="12"
-        name="userName"
-        value="initial user name"
-      />
-    </div>
-    <div
-      class="sc-bdOgaJ kPEtLZ"
-    >
-      <button
-        class="sc-kRRyDe krVCmh"
-        type="secondary"
+    <form>
+      <h2
+        class="sc-fulCBj iDEeYn"
       >
-        meta.userNameEditor.cancel
-      </button>
-      <button
-        class="sc-kRRyDe daVgQW"
-        type="primary"
+        meta.userNameEditor.title
+      </h2>
+      <div
+        class="sc-kMribo hYnqEZ"
       >
-        meta.userNameEditor.save
-      </button>
-    </div>
+        <input
+          autocomplete="on"
+          class="sc-knuQbY jGlfeO"
+          data-testid="input-component"
+          maxlength="12"
+          name="userName"
+          value="initial user name"
+        />
+      </div>
+      <div
+        class="sc-bdOgaJ kPEtLZ"
+      >
+        <button
+          class="sc-kRRyDe esCmzn"
+          type="button"
+        >
+          meta.userNameEditor.cancel
+        </button>
+        <button
+          class="sc-kRRyDe dPBRBc"
+          type="submit"
+        >
+          meta.userNameEditor.save
+        </button>
+      </div>
+    </form>
   </div>
 </DocumentFragment>
 `;

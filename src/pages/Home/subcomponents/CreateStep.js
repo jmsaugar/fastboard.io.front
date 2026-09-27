@@ -34,7 +34,15 @@ const CreateStep = ({
   );
 
   return (
-    <SWrapper show={show}>
+    <SWrapper
+      show={show}
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (boardName && userName && !isLoading) {
+          onCreate(boardName, userName);
+        }
+      }}
+    >
       <STitle>
         {t('create.title')}
       </STitle>
@@ -59,7 +67,7 @@ const CreateStep = ({
       <SActions>
         <SAction
           size="lg"
-          onClick={() => onCreate(boardName, userName)}
+          type="submit"
           isDisabled={!boardName || !userName}
           isLoading={isLoading}
           isMainAction

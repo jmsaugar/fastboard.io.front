@@ -6,8 +6,8 @@ exports[`Component : Dropdown Snapshot 1`] = `
     class="sc-knuQbY jKZney"
   >
     <button
-      class="sc-kRRyDe fxYcWt"
-      type="secondary"
+      class="sc-kRRyDe kislKf"
+      type="button"
     >
       <div
         class="sc-ERObt jpKeVM"
